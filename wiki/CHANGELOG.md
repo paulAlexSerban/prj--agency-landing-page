@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.0.0...v1.1.0) (2022-10-26)
+
+
+### Features
+
+* **landing:** add initial project codebase ([f4edc42](https://github.com/paulAlexSerban/prj--lynxit/commit/f4edc4227a2546038117abb15a8eed5a0fb33156))
+
 # 1.0.0 (2022-10-26)
 
 
