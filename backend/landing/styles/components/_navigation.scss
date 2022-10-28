@@ -1,0 +1,80 @@
+.navigation {
+  &__base {
+    transition: padding-top 0.3s ease-in-out,
+                padding-bottom 0.3s ease-in-out;
+
+    &,
+    &.shrink {
+      // Styling for when the navbar shrinks on larger screens
+      padding-top: ($baseline * 1.5);
+      padding-bottom: ($baseline * 1.5);
+      background-color: $russian-violet;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-top: ($baseline * 3);
+      padding-bottom: ($baseline * 3);
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  &__toggle {
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    font-family: $headings-font-family;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+  }
+
+  &__logo-link {
+    color: $primary;
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    letter-spacing: $headings-letter-spacing;
+    text-transform: uppercase;
+    @include media-breakpoint-up(lg) {
+      font-size: 1.5em;
+      transition: font-size 0.3s ease-in-out;
+    }
+  }
+
+  &__logo-icon {
+    height: 35px;
+    transition: height 0.3s ease-in-out;
+
+    @include media-breakpoint-up(lg) {
+      height: 50px;
+    }
+
+    .shrink & {
+      height: 35px;
+    }
+
+    path {
+      fill: $primary;
+    }
+  }
+
+  &__list-item {
+    @include media-breakpoint-up(lg) {
+      margin-right: 1rem;
+
+      &:last-child {
+          margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-family: $headings-font-family;
+    font-size: 0.95rem;
+    color: $white;
+    letter-spacing: $headings-letter-spacing;
+
+    &.active,
+    &:hover {
+        color: $primary;
+    }
+  }
+}
