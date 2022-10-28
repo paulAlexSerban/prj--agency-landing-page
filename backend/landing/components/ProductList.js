@@ -16,17 +16,8 @@ export default function ProductList() {
               modalRef="productModal1"
               imgSrc="product/1.jpg"
               imgAlt="lorem alt text"
-              heading="Threads"
+              heading="Laptop"
               subheading="Illustration"
-            />
-          </div>
-          <div className="col-lg-4 col-sm-6 mb-4">
-            <Product
-              modalRef="productModal2"
-              imgSrc="product/2.jpg"
-              imgAlt="lorem alt text"
-              heading="Explore"
-              subheading="Graphic Design"
             />
           </div>
           <div className="col-lg-4 col-sm-6 mb-4">
@@ -34,17 +25,8 @@ export default function ProductList() {
               modalRef="productModal3"
               imgSrc="product/3.jpg"
               imgAlt="lorem alt text"
-              heading="Finish"
+              heading="Desktop"
               subheading="Identity"
-            />
-          </div>
-          <div className="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-          <Product
-              modalRef="productModal4"
-              imgSrc="product/4.jpg"
-              imgAlt="lorem alt text"
-              heading="Lines"
-              subheading="Branding"
             />
           </div>
           <div className="col-lg-4 col-sm-6 mb-4 mb-sm-0">
@@ -52,17 +34,8 @@ export default function ProductList() {
               modalRef="productModal5"
               imgSrc="product/5.jpg"
               imgAlt="lorem alt text"
-              heading="Southwest"
+              heading="Monitor"
               subheading="Website Design"
-            />
-          </div>
-          <div className="col-lg-4 col-sm-6">
-          <Product
-              modalRef="productModal6"
-              imgSrc="product/6.jpg"
-              imgAlt="lorem alt text"
-              heading="Window"
-              subheading="Photography"
             />
           </div>
         </div>
