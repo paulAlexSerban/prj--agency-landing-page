@@ -1,0 +1,8 @@
+@import "../../../_00_abstracts/all.scss";
+@import "bootstrap/scss/bootstrap-utilities.scss";
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: $headings-font-family;
+}
