@@ -1,0 +1,123 @@
+$breakpoints: $column-grid-12;
+$block: "masthead";
+
+.#{$block} {
+  @include e("base") {
+    text-align: center;
+    color: get-color($c-light, light);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    background-position: center center;
+    box-shadow: 0 0.25rem 0.5rem 0 rgb(0, 0, 0);
+    position: relative;
+  }
+
+  @include e("container") {
+    @include flex($direction: column);
+
+    position: relative;
+  }
+
+  @include e("title") {
+    @include flex($direction: column);
+
+    transition: opacity 0.85s ease;
+    transition-delay: 0.25s;
+
+    opacity: 1;
+
+    .isPreload & {
+      opacity: 0;
+    }
+  }
+
+  @include e("mainHeading", "subheading") {
+    display: block;
+  }
+
+  @include e("mainHeading") {
+    @include font($page-title);
+
+    margin-bottom: 1rem;
+    position: relative;
+    padding: $gutter;
+
+    &:before,
+    &:after {
+      transition: width 0.85s ease;
+      transition-delay: 0.25s;
+      background: get-color($c-light, light);
+      content: "";
+      display: block;
+      height: 2px;
+      position: absolute;
+      width: 100%;
+
+      .isPreload & {
+        width: 0;
+      }
+    }
+
+    &:before {
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      bottom: 0;
+      right: 0;
+    }
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @include e("subheading") {
+    @include font($subheading);
+
+    @include media-breakpoint-up(md) {
+      width: 75%;
+    }
+  }
+
+  @include e("button") {
+    @include font($button);
+    @include flex($direction: column);
+
+    transition: transform 0.75s ease, opacity 0.75s ease;
+    transition-delay: 1.5s;
+    transform: translate(-50%, 0);
+    border: none;
+    bottom: 10%;
+    left: 50%;
+    color: inherit;
+    opacity: 1;
+    outline: 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    row-gap: convert-rem(30px);
+
+    .isPreload & {
+      transform: translate(-50%, 500%);
+      opacity: 0;
+    }
+  }
+
+  @include e("buttonText", "svg") {
+    transition: color 0.15s ease-in-out;
+
+    .button:hover & {
+      color: var(--brand-color);
+    }
+  }
+
+  @include e("svg") {
+    height: 80px;
+  }
+}
