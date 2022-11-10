@@ -1,0 +1,29 @@
+/* ------------------------------------ *\
+* BASE THEME
+\* ------------------------------------ */
+
+:root {
+  --text-regular: #{$font-family-montserrat};
+  --text-heading: #{$font-family-montserrat};
+  --text-code: #{$font-family-courierPrime};
+  --text-color: #{get-color($c-dark, eerie-black)};
+
+  --color-link: #{get-color($c-gray, davys-grey)};
+  --color-link-hover: #{get-color($c-blue, dark-liver)};
+
+  --brand-color: #{get-color($c-red, ua-red)};
+  --background-color: #{get-color($c-light, light)};
+
+  --main-content-lat-padding: #{$gutter * 2};
+
+  --spacing-padding-top-bottom: #{$baseline * 4};
+
+  @include media-breakpoint-up(md) {
+    --main-content-lat-padding: #{$gutter * 4};
+    --spacing-padding-top-bottom: #{$baseline * 8};
+  }
+
+  @include media-breakpoint-up(lg) {
+    --spacing-padding-top-bottom: #{$baseline * 12};
+  }
+}
