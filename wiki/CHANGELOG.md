@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.2.0...v1.3.0) (2022-11-10)
+
+
+### Features
+
+* **html5-landed:** added potlight amd benefits components ([acbe245](https://github.com/paulAlexSerban/prj--lynxit/commit/acbe245d459d0091f74e57fbbf385c64fcf6a7da))
+* **wip:** html5up landed integration ([c684696](https://github.com/paulAlexSerban/prj--lynxit/commit/c6846964a0557bf646f4be4a8d45a4d644eb6c4a))
+
 # [1.2.0](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.1.1...v1.2.0) (2022-10-28)
 
 
