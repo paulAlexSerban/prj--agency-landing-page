@@ -1,0 +1,101 @@
+$breakpoints: $column-grid-12;
+$block: "navigation";
+
+.#{$block} {
+  @include e("base") {
+    transition: padding-top 0.3s ease-in-out,
+                padding-bottom 0.3s ease-in-out;
+
+    &,
+    &.shrink {
+      padding-top: ($baseline * 1.5);
+      padding-bottom: ($baseline * 1.5);
+      background-color: get-color($c-dark, dark-85);
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-top: ($baseline * 3);
+      padding-bottom: ($baseline * 3);
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  @include e("container") {
+    @include flex($main: space-between);
+
+    padding-inline: var(--main-content-lat-padding);
+    width: 100%;
+    flex-wrap: inherit;
+  }
+  @include e("toggle") {
+    @include flex();
+    @include font($button);
+
+    background-color: transparent;
+    color: get-color($c-light, light);
+    border: none;
+    padding: ($baseline / 2) ($gutter / 2);
+    outline: none;
+    transition: color 0.15s ease-in-out;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+
+    &:hover {
+      color: var(--brand-color);
+    }
+  }
+
+  @include e("toggleIcon") {
+    margin-left: ($gutter / 2);
+    height: convert-rem(20px);
+    color: inherit;
+  }
+
+  @include e("logoLink") {
+    @include font($button);
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.5em;
+      transition: font-size 0.3s ease-in-out;
+    }
+  }
+
+  @include e("logoIcon") {
+    height: 35px;
+    transition: height 0.3s ease-in-out, color 0.15s ease-in-out;
+
+    @include media-breakpoint-up(lg) {
+      height: 50px;
+    }
+
+    &:hover {
+      color: var(--brand-color);
+    }
+
+    .shrink & {
+      height: 35px;
+    }
+  }
+
+  @include e("listItem") {
+    @include media-breakpoint-up(lg) {
+      margin-right: 1rem;
+
+      &:last-child {
+          margin-right: 0;
+      }
+    }
+  }
+
+  @include e("link") {
+    @include font($link);
+    color: get-color($c-light, light);
+
+    &:hover {
+      color: var(--brand-color);
+    }
+  }
+}

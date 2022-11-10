@@ -2,11 +2,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/config/*": ["config/*"],
-      "@/utils/*": ["utils/*"],
-      "@/library/*": ["library/*"],
-      "@/templates/*": ["templates/*"]
+      "@/atoms/*": ["core/library/atoms/*"],
+      "@/molecules/*": ["core/library/molecules/*"],
+      "@/organisms/*": ["core/library/organisms/*"],
+      "@/pages/*": ["core/system/pages/*"],
+      "@/styles/*": ["styles/*"],
+      "@/templates/*": ["core/system/templates/*"],
+      "@/svgs/*": ["public/svgs/*"],
+      "@/utils/*":["core/utils/*"],
+      "@/plugins/*": ["core/plugins/*"]
     }
   }
 }
