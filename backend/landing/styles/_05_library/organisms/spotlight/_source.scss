@@ -21,13 +21,14 @@ $block: "spotlight";
 
   @include e("content") {
     transform: translate(0,0);
-    transition: transform 1s ease, opacity 1s ease;
+    transition:  opacity 1s ease;
     opacity: 1;
     position: absolute;
     background-color: get-color($c-dark, dark-85);
     position: absolute;
     text-align: center;
     width: 100%;
+
 
     .inactive & {
       opacity: 0;
@@ -39,30 +40,58 @@ $block: "spotlight";
       width: 100%;
       padding-top: convert-rem(100px);
       padding-bottom: convert-rem(80px);
-
-      .inactive & {
-        transform: translate(8px);
-      }
 		}
 
     .right & {
-      border-left: solid $baseline get-color($c-red, paradise-pink);
-      right: 0;
-      width: 30%;
-      height: 100%;
+      border-top: solid $baseline get-color($c-blue, blue-crayola);
+      width: 100%;
+      min-height: 200px;
+      bottom: 0;
+
+      @include media-breakpoint-up(md) {
+        border-top: none;
+        border-left: solid $baseline get-color($c-blue, blue-crayola);
+        width: 30%;
+        right: 0;
+        height: 100%;
+
+      }
     }
 
     .left & {
-      height: 100%;
-      border-left: solid $baseline get-color($c-red, paradise-pink);
-      left: 0;
-      width: 30%;
-    }
+      border-top: solid $baseline get-color($c-green, sea-green-crayola);
+      width: 100%;
+      min-height: 200px;
+      bottom: 0;
 
+      @include media-breakpoint-up(md) {
+        border-top: none;
+        border-right: solid $baseline get-color($c-green, sea-green-crayola);
+        height: 100%;
+        width: 30%;
+        left: 0;
+      }
+    }
+  }
+
+  @include e("textContainer") {
+    @include flex($direction: column);
+    gap: var(--bs-gutter-x);
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
   }
 
   @include e("text") {
     @include font($body);
+
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: 50%;
+    }
   }
 
   @include e("svg") {

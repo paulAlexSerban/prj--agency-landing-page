@@ -15,12 +15,12 @@ export default function Navigation() {
 
   return (
     <nav className={`${styles.base} navbar navbar-expand-lg navbar-dark fixed-top js-main-nav`} data-next={`${config.name}-${ID}`} >
-      <div className={`${styles.container} container`}>
+      <div className={`${styles.container}`}>
         <a className={`${styles.logoLink} navbar-brand`} href="#page-top">
           <LogoIcon className={styles.logoIcon} />
         </a>
         <button
-          className={`${styles.toggle}`}
+          className={`${styles.toggle} js-nav-toggle`}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarResponsive"
@@ -34,22 +34,22 @@ export default function Navigation() {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navigation__list navbar-nav text-uppercase ms-auto py-4 py-lg-0">
           <li className={`${styles.listItem} nav-item`}>
-              <a className={`${styles.link} nav-link`} href="#about">
+              <a className={`${styles.link} nav-link js-nav-link`} href="#about">
                 Despre noi
               </a>
             </li>
             <li className={`${styles.listItem} nav-item`}>
-              <a className={`${styles.link} nav-link`} href="#services">
+              <a className={`${styles.link} nav-link js-nav-link`} href="#services">
                 Beneficii
               </a>
             </li>
             <li className={`${styles.listItem} nav-item`}>
-              <a className={`${styles.link} nav-link`} href="#products">
+              <a className={`${styles.link} nav-link js-nav-link`} href="#products">
                 Produse
               </a>
             </li>
             <li className={`${styles.listItem} nav-item`}>
-              <a className={`${styles.link} nav-link`} href="#contact">
+              <a className={`${styles.link} nav-link js-nav-link`} href="#contact">
                 Contact
               </a>
             </li>

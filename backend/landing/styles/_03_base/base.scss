@@ -19,6 +19,7 @@ html {
 body {
   position: relative;
   overflow-x: hidden;
+  background-color: get-color($c-dark, raisin-black);
 
   // Stops initial animations until page loads.
   &.is-preload {

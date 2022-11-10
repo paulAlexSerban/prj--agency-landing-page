@@ -21,6 +21,13 @@ $block: "navigation";
     }
   }
 
+  @include e("container") {
+    @include flex($main: space-between);
+
+    padding-inline: var(--main-content-lat-padding);
+    width: 100%;
+    flex-wrap: inherit;
+  }
   @include e("toggle") {
     @include flex();
     @include font($button);

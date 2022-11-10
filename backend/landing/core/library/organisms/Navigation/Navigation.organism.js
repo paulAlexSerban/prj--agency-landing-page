@@ -33,15 +33,17 @@ export class NavigationOrganism extends Component {
 
   #setupEvents() {
     document.addEventListener("scroll", () => {
-      this.#navbarShrink()
+      this.#navbarShrink();
     });
 
     this.elements.navItems.map((item) => {
       item.addEventListener("click", () => {
-        if (window.getComputedStyle(this.elements.navToggler).display !== "none") {
-          this.elements.navToggler.click();
-        }
+        this.elements.navToggler.click();
       });
+    });
+
+    this.elements.navToggler.addEventListener("click", () => {
+      setTimeout(this.el.classList.toggle(styles.show), 500);
     });
   }
 
@@ -61,6 +63,6 @@ export class NavigationOrganism extends Component {
     this.#setupEvents();
     this.#setupPlugins();
     this.#initPlugins();
-    this.#navbarShrink()
+    this.#navbarShrink();
   }
 }

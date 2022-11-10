@@ -12,7 +12,8 @@ export const scrollSpy = {
     }
 
     const showElm = () => {
-      const triggerBottom = (window.innerHeight / 5) * 4;
+      const triggerBottom = (window.innerHeight / 6) * 4;
+
       const boxTop = el.getBoundingClientRect().top;
 
       if (boxTop < triggerBottom) {
