@@ -54,31 +54,7 @@ $block: "navigation";
     color: inherit;
   }
 
-  @include e("logoLink") {
-    @include font($button);
 
-    @include breakpoint(desktop) {
-      font-size: 1.5em;
-      transition: font-size 0.3s ease-in-out;
-    }
-  }
-
-  @include e("logoIcon") {
-    height: 35px;
-    transition: height 0.3s ease-in-out, color 0.15s ease-in-out;
-
-    @include breakpoint(desktop) {
-      height: 50px;
-    }
-
-    &:hover {
-      color: var(--brand-color);
-    }
-
-    .shrink & {
-      height: 35px;
-    }
-  }
 
   @include e("listItem") {
     @include breakpoint(desktop) {

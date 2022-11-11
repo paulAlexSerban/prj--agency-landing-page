@@ -1,10 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useEffect,  useId  } from "react";
 import { config } from "./Navigation.config";
-import LogoIcon from "@/svgs/logo-lynxit-icon-text.svg";
+
 import { NavigationOrganism } from "./Navigation.organism";
 import styles from "@/styles/_05_library/organisms/navigation/navigation.module.scss";
+
+import Logo from  "@/atoms/logo/Logo";
 
 export default function Navigation() {
   const ID = useId();
@@ -16,9 +16,7 @@ export default function Navigation() {
   return (
     <nav className={`${styles.base} navbar navbar-expand-lg navbar-dark fixed-top js-main-nav`} data-next={`${config.name}-${ID}`} >
       <div className={`${styles.container}`}>
-        <a className={`${styles.logoLink} navbar-brand`} href="#page-top">
-          <LogoIcon className={styles.logoIcon} />
-        </a>
+        <Logo />
         <button
           className={`${styles.toggle} js-nav-toggle`}
           type="button"
@@ -29,7 +27,6 @@ export default function Navigation() {
           aria-label="Toggle navigation"
         >
           Menu
-          <FontAwesomeIcon className={styles.toggleIcon} icon={faBars} />
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navigation__list navbar-nav text-uppercase ms-auto py-4 py-lg-0">
