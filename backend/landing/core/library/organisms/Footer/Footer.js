@@ -8,7 +8,7 @@ export default function Footer() {
   const date = new Date();
   return (
     <footer className={styles.base} id="footer" data-next={`${config.name}-${ID}`}>
-      <ul className={styles.iconList}>
+      {/* <ul className={styles.iconList}>
         <li className={styles.iconListItem}>
           <a href="#" className="icon brands alt fa-twitter">
             <SlSocialTwitter className={styles.icon}/>
@@ -32,7 +32,7 @@ export default function Footer() {
       </ul>
       <div className={styles.copyrightContainer}>
         <p className={styles.copyright}>{date.getFullYear()} &copy; LynxIT</p>
-      </div>
+      </div> */}
     </footer>
   );
 }

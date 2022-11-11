@@ -1,0 +1,87 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "burger-button";
+
+/* ------------------------------------ *\
+ * BURGER BUTTON ATOM
+\* ------------------------------------ */
+
+$lineWeight: 3px;
+
+.#{$block} {
+  @include e("button") {
+    position: relative;
+    width: var(--burger-size);
+    height: var(--burger-size);
+    transition-duration: 0.5s;
+    display: inline-block;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @include e("left", "right") {
+    left: 0px;
+    transition-duration: 0.5s;
+    position: absolute;
+    height: $lineWeight;
+    width: var(--burger-size);
+    top: 30px;
+    background-color: var(--text-color);
+
+    &:before {
+      height: $lineWeight;
+      width: (var(--burger-size));
+      top:  calc(calc(-1 * var(--burger-size) / 3));
+      transition-duration: 0.5s;
+      position: absolute;
+      background-color: var(--text-color);
+      content: "";
+    }
+
+    &:after {
+      height: $lineWeight;
+      width: var(--burger-size);
+      top: calc(var(--burger-size) / 3);
+      transition-duration: 0.5s;
+      position: absolute;
+      background-color: var(--text-color);
+      content: "";
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .open & {
+      transition-duration: 0.5s;
+      background: transparent;
+    }
+  }
+
+  @include e("left") {
+    .open & {
+      &:before {
+        transform: rotateZ(45deg) translate(14px, 14px);
+      }
+
+      &:after {
+        transform: rotateZ(-45deg) translate(14px, -14px);
+      }
+    }
+  }
+
+  @include e("right") {
+    .open & {
+      &:before {
+        transform: rotateZ(-45deg) translate(-14px, 14px);
+      }
+
+      &:after {
+        transform: rotateZ(45deg) translate(-14px, -14px);
+      }
+    }
+  }
+}
