@@ -1,7 +1,8 @@
 @import "../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
 
 // Import Bootstrap
-@import "bootstrap/scss/bootstrap.scss";
+// @import "bootstrap/scss/bootstrap.scss";
 
 //
 // Global theme styling

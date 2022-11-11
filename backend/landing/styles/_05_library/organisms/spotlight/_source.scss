@@ -48,7 +48,7 @@ $block: "spotlight";
       min-height: 200px;
       bottom: 0;
 
-      @include media-breakpoint-up(md) {
+      @include breakpoint(tablet) {
         border-top: none;
         border-left: solid $baseline get-color($c-blue, blue-crayola);
         width: 30%;
@@ -64,7 +64,7 @@ $block: "spotlight";
       min-height: 200px;
       bottom: 0;
 
-      @include media-breakpoint-up(md) {
+      @include breakpoint(tablet) {
         border-top: none;
         border-right: solid $baseline get-color($c-green, sea-green-crayola);
         height: 100%;
@@ -78,7 +78,7 @@ $block: "spotlight";
     @include flex($direction: column);
     gap: var(--bs-gutter-x);
 
-    @include media-breakpoint-up(md) {
+    @include breakpoint(tablet) {
       flex-direction: row;
       justify-content: flex-start;
     }
@@ -89,7 +89,7 @@ $block: "spotlight";
 
     width: 100%;
 
-    @include media-breakpoint-up(md) {
+    @include breakpoint(tablet) {
       width: 50%;
     }
   }

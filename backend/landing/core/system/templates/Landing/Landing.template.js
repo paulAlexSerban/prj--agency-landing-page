@@ -1,31 +1,31 @@
 import { isPreload } from "@/plugins/isPreload";
 import { addClass } from "@/utils/dom/manipulation";
 import mastheadCss from "@/styles/_05_library/organisms/masthead/masthead.module.scss";
-import { detectBrowser } from "@/plugins/detectBrowser";
-import Component from "../../Component";
+import Template from "../../../Template";
 
-export class GenericTemplate extends Component {
+export class LandingTemplate extends Template {
   constructor(el) {
     super(el);
+
+    this.#init();
   }
 
   #setupToucheDevice () {
     if (this.browser.mobile) {
+      // @todo: use mastheadCSS.isTouch to take advantage of css-modules
       addClass("isTouch", this.el);
     }
   };
 
   #setupPlugins () {
     super.register(isPreload);
-    super.register(detectBrowser);
   }
 
   #initPlugins() {
     this.plugins.isPreload(this.el, [ mastheadCss.isPreload ]);
-    this.browser = this.plugins.detectBrowser();
   }
 
-  init() {
+  #init() {
     this.#setupPlugins();
     this.#initPlugins();
     this.#setupToucheDevice();

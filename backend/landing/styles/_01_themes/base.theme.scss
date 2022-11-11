@@ -1,7 +1,6 @@
 /* ------------------------------------ *\
 * BASE THEME
 \* ------------------------------------ */
-
 :root {
   --text-regular: #{$font-family-montserrat};
   --text-heading: #{$font-family-montserrat};
@@ -18,12 +17,12 @@
 
   --spacing-padding-top-bottom: #{$baseline * 4};
 
-  @include media-breakpoint-up(md) {
+  @include breakpoint(tablet) {
     --main-content-lat-padding: #{$gutter * 4};
     --spacing-padding-top-bottom: #{$baseline * 8};
   }
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoint(desktop) {
     --spacing-padding-top-bottom: #{$baseline * 12};
   }
 }

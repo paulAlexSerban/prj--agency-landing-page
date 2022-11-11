@@ -1,5 +1,5 @@
 export const config = {
-  name: "GenericTemplate",
+  name: "LandingTemplate",
   defaultProps: {
     title: "Lynx IT",
     keywords: "agency, website, landing page, lynxit",

@@ -13,7 +13,7 @@ $block: "navigation";
       background-color: get-color($c-dark, dark-85);
     }
 
-    @include media-breakpoint-up(lg) {
+    @include breakpoint(desktop) {
       padding-top: ($baseline * 3);
       padding-bottom: ($baseline * 3);
       border: none;
@@ -39,7 +39,7 @@ $block: "navigation";
     outline: none;
     transition: color 0.15s ease-in-out;
 
-    @include media-breakpoint-up(lg) {
+    @include breakpoint(desktop) {
       display: none;
     }
 
@@ -57,7 +57,7 @@ $block: "navigation";
   @include e("logoLink") {
     @include font($button);
 
-    @include media-breakpoint-up(lg) {
+    @include breakpoint(desktop) {
       font-size: 1.5em;
       transition: font-size 0.3s ease-in-out;
     }
@@ -67,7 +67,7 @@ $block: "navigation";
     height: 35px;
     transition: height 0.3s ease-in-out, color 0.15s ease-in-out;
 
-    @include media-breakpoint-up(lg) {
+    @include breakpoint(desktop) {
       height: 50px;
     }
 
@@ -81,7 +81,7 @@ $block: "navigation";
   }
 
   @include e("listItem") {
-    @include media-breakpoint-up(lg) {
+    @include breakpoint(desktop) {
       margin-right: 1rem;
 
       &:last-child {
