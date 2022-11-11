@@ -4,8 +4,7 @@ import { config } from "./Navigation.config";
 import { NavigationOrganism } from "./Navigation.organism";
 import styles from "@/styles/_05_library/organisms/navigation/navigation.module.scss";
 
-import Logo from  "@/atoms/Logo/Logo";
-import BurgerButton from "@/atoms/BurgerButton/BurgerButton";
+import NavigationBar from "@/molecules/NavigationBar/NavigationBar";
 
 export default function Navigation() {
   const ID = useId();
@@ -17,8 +16,7 @@ export default function Navigation() {
   return (
     <nav className={`${styles.base} navbar navbar-expand-lg navbar-dark fixed-top js-main-nav`} data-next={`${config.name}-${ID}`} >
       <div className={`${styles.container}`}>
-        <Logo />
-        <BurgerButton ariaControls="navigationBar" ariaLabel="Toggle navigation" jsHook="js-nav-toggle"/>
+        <NavigationBar jsToggleHook="js-nav-toggle"/>
         {/* <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navigation__list navbar-nav text-uppercase ms-auto py-4 py-lg-0">
           <li className={`${styles.listItem} nav-item`}>

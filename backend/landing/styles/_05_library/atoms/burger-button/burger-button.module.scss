@@ -11,14 +11,17 @@ $lineWeight: 3px;
 
 .#{$block} {
   @include e("button") {
+    --burger-color: var(--color-link);
     position: relative;
     width: var(--burger-size);
     height: var(--burger-size);
     transition-duration: 0.5s;
     display: inline-block;
+    transform: translateY(-15%);
 
     &:hover {
       cursor: pointer;
+      --burger-color: var(--color-link-hover);
     }
   }
 
@@ -29,7 +32,7 @@ $lineWeight: 3px;
     height: $lineWeight;
     width: var(--burger-size);
     top: 30px;
-    background-color: var(--text-color);
+    background-color: var(--burger-color);
 
     &:before {
       height: $lineWeight;
@@ -37,7 +40,7 @@ $lineWeight: 3px;
       top:  calc(calc(-1 * var(--burger-size) / 3));
       transition-duration: 0.5s;
       position: absolute;
-      background-color: var(--text-color);
+      background-color: var(--burger-color);
       content: "";
     }
 
@@ -47,7 +50,7 @@ $lineWeight: 3px;
       top: calc(var(--burger-size) / 3);
       transition-duration: 0.5s;
       position: absolute;
-      background-color: var(--text-color);
+      background-color: var(--burger-color);
       content: "";
     }
 

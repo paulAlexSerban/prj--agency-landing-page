@@ -11,7 +11,7 @@ export default function BurgerButton({ariaControls, ariaLabel, jsHook = 'js-nav-
         aria-controls={ariaControls}
         aria-label={ariaLabel}
         aria-expanded="false"
-        aria-role="toggle"
+        role="button"
         href={`#${ariaControls}`}>
       <span className={styles.left} aria-hidden="true"></span>
       <span className={styles.right} aria-hidden="true"></span>

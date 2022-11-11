@@ -3,31 +3,9 @@ $block: "navigation";
 
 .#{$block} {
   @include e("base") {
-    transition: padding-top 0.3s ease-in-out,
-                padding-bottom 0.3s ease-in-out;
 
-    &,
-    &.shrink {
-      padding-top: ($baseline * 1.5);
-      padding-bottom: ($baseline * 1.5);
-      background-color: get-color($c-dark, dark-85);
-    }
-
-    @include breakpoint(desktop) {
-      padding-top: ($baseline * 3);
-      padding-bottom: ($baseline * 3);
-      border: none;
-      background-color: transparent;
-    }
   }
 
-  @include e("container") {
-    @include flex($main: space-between);
-
-    padding-inline: var(--main-content-lat-padding);
-    width: 100%;
-    flex-wrap: inherit;
-  }
   @include e("toggle") {
     @include flex();
     @include font($button);

@@ -1,0 +1,32 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "navigation-bar";
+
+/* ------------------------------------ *\
+ * NAVIGATION BAR MOLECULE
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    @include flex($main: space-between);
+    padding-inline: var(--main-content-lat-padding);
+    width: 100%;
+    transition: padding-top 0.3s ease-in-out,
+                padding-bottom 0.3s ease-in-out;
+
+    &,
+    &.shrink {
+      padding-top: ($baseline * 1.5);
+      padding-bottom: ($baseline * 1.5);
+      background-color: get-color($c-dark, dark-85);
+    }
+
+    @include breakpoint($desktop) {
+      padding-top: ($baseline * 3);
+      padding-bottom: ($baseline * 3);
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
