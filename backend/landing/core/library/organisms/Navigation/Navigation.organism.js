@@ -1,33 +1,32 @@
 import { config } from "./Navigation.config";
-import styles from "@/styles/_05_library/organisms/navigation/navigation.module.scss";
-import { parallax } from "core/plugins/parallax";
-import { breakpoints } from "core/plugins/breakpoints";
+import burgerStyles from "@/styles/_05_library/atoms/burger-button/burger-button.module.scss";
+import navigationStyles from "@/styles/_05_library/organisms/navigation/navigation.module.scss";
+import logoStyles from "@/styles/_05_library/atoms/logo/logo.module.scss";
 import Component from "../../../Component";
+import { breakpoints } from "core/plugins/breakpoints";
+import { smoothScroll } from "core/plugins/smoothScroll";
+import BREAKPOINTS from "@/utils/constants/breakpoints";
 
 export class NavigationOrganism extends Component {
   constructor(el) {
     super(el);
+    this.#init();
   }
 
   #setupPlugins() {
     super.register(breakpoints);
-    super.register(parallax);
+    super.register(smoothScroll);
   }
 
   #initPlugins() {
-    const breakpoints = this.plugins.breakpoints({
-      xlarge: ["1281px", "1680px"],
-      large: ["981px", "1280px"],
-      medium: ["737px", "980px"],
-      small: ["481px", "736px"],
-      xsmall: [null, "480px"],
-    });
-    const parallax = this.plugins.parallax(this.el, breakpoints);
+    this.breakpoints = this.plugins.breakpoints(BREAKPOINTS);
+    this.smoothScroll = this.plugins.smoothScroll();
   }
 
   #setupDomReferences() {
     this.elements.mainNav = document.body.querySelector(config.selectors.mainNav);
     this.elements.navToggler = document.body.querySelector(config.selectors.navToggler);
+    this.elements.navList = document.body.querySelector(config.selectors.navList);
     this.elements.navItems = [].slice.call(document.querySelectorAll(config.selectors.navItems));
   }
 
@@ -37,13 +36,23 @@ export class NavigationOrganism extends Component {
     });
 
     this.elements.navItems.map((item) => {
-      item.addEventListener("click", () => {
-        this.elements.navToggler.click();
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        const maxWidthToggleDesktop = parseInt(BREAKPOINTS.desktop[1].split("px")[0]);
+        if (window.innerWidth < maxWidthToggleDesktop) this.elements.navToggler.click();
+        this.smoothScroll.on(e.target);
       });
     });
 
-    this.elements.navToggler.addEventListener("click", () => {
-      setTimeout(this.el.classList.toggle(styles.show), 500);
+    this.elements.navToggler.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.el.classList.toggle(navigationStyles.show);
+      this.el.classList.toggle(burgerStyles.open);
+    });
+
+    this.breakpoints.on(">desktop", () => {
+      this.el.classList.remove(navigationStyles.show);
+      this.el.classList.remove(burgerStyles.open);
     });
   }
 
@@ -52,17 +61,19 @@ export class NavigationOrganism extends Component {
       return;
     }
     if (window.scrollY === 0) {
-      this.elements.mainNav.classList.remove(styles.shrink);
+      this.el.classList.remove(navigationStyles.shrink);
+      this.el.classList.remove(logoStyles.shrink);
     } else {
-      this.elements.mainNav.classList.add(styles.shrink);
+      this.el.classList.add(navigationStyles.shrink);
+      this.el.classList.add(logoStyles.shrink);
     }
   }
 
-  init() {
+  #init() {
     this.#setupDomReferences();
-    this.#setupEvents();
     this.#setupPlugins();
     this.#initPlugins();
+    this.#setupEvents();
     this.#navbarShrink();
   }
 }

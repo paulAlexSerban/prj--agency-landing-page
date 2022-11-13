@@ -3,11 +3,14 @@ import { SlSocialTwitter, SlSocialFacebook, SlSocialLinkedin, SlEnvolope } from 
 import { useId } from "react";
 import styles from "@/styles/_05_library/organisms/footer/footer.module.scss";
 
+import Copyright from "@/molecules/Copyright/Copyright";
+
 export default function Footer() {
   const ID = useId();
-  const date = new Date();
+
   return (
     <footer className={styles.base} id="footer" data-next={`${config.name}-${ID}`}>
+      <Copyright />
       {/* <ul className={styles.iconList}>
         <li className={styles.iconListItem}>
           <a href="#" className="icon brands alt fa-twitter">

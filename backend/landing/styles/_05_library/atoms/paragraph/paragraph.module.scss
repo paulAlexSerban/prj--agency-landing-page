@@ -1,16 +1,16 @@
 @import "../../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-$block: "navigation-bar";
+$block: "paragraph";
 
 /* ------------------------------------ *\
- * NAVIGATION BAR MOLECULE
+ * PARAGRAPH ATOM
 \* ------------------------------------ */
 
 .#{$block} {
   @include e("base") {
-    @include flex($main: space-between);
+    @include font($body);
 
-    width: 100%;
+    margin-bottom: $baseline;
   }
 }

@@ -1,5 +1,43 @@
-// @import "../../../_00_abstracts/all.scss";
+@import "../../../_00_abstracts/all.scss";
+$useModules: true;
 
-// $useModules: true;
+$breakpoints: $column-grid-12;
+$block: "navigation";
 
-// @import "./source";
+.#{$block} {
+  @include e("base") {
+    padding-inline: var(--main-content-lat-padding);
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    transition: background-color 0.5s ease,
+                max-height 0.5s ease;
+
+    &,
+    &.shrink {
+      padding-top: $baseline;
+      padding-bottom: $baseline;
+      background-color: get-color($c-dark, dark-85);
+      max-height: 70px;
+    }
+
+    @include breakpoint($desktop) {
+      border: none;
+      background-color: transparent;
+      max-height: 90px;
+      padding-top: $baseline * 3;
+      padding-bottom: $baseline * 3;
+    }
+
+    &.show {
+      max-height: 30vh;
+    }
+  }
+
+  @include e("container") {
+    @include flex($direction: column, $cross: flex-start);
+
+    position: relative;
+    gap: $baseline * 3;
+  }
+}

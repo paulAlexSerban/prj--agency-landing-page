@@ -28,7 +28,6 @@ export default function Generic({ title, keywords, description, children, pageTy
         <meta name="keywords" content={keywords} />
         <meta name="description" content={description} />
       </Head>
-      <Navigation />
       {children}
       <Footer />
     </div>

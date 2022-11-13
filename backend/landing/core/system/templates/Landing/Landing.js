@@ -4,7 +4,7 @@ import styles from "@/styles/_06_system/templates/landing/landing.module.scss";
 import { useEffect, useId } from "react";
 import { LandingTemplate } from "./Landing.template";
 
-import Navigation from "@/organisms/Navigation/Navigation.js";
+
 import Footer from "@/organisms/Footer/Footer.js";
 import mastheadCss from "@/styles/_05_library/organisms/masthead/masthead.module.scss";
 
@@ -27,7 +27,7 @@ export default function Landing({ title, keywords, description, children, pageTy
         <meta name="keywords" content={keywords} />
         <meta name="description" content={description} />
       </Head>
-      <Navigation />
+
       {children}
       <Footer />
     </div>

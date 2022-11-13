@@ -3,6 +3,7 @@ export const config = {
   selectors:{
     mainNav: ".js-main-nav",
     navToggler: ".js-nav-toggle",
+    navList: ".js-nav-list",
     navItems: ".js-nav-link",
   }
 };

@@ -1,16 +1,18 @@
 @import "../../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-$block: "navigation-bar";
+$block: "link";
 
 /* ------------------------------------ *\
- * NAVIGATION BAR MOLECULE
+ * LINK ATOM
 \* ------------------------------------ */
 
 .#{$block} {
-  @include e("base") {
-    @include flex($main: space-between);
+  @include e("default") {
+    @include font($link);
+  }
 
-    width: 100%;
+  @include e("large") {
+    @include font($link-large);
   }
 }

@@ -19,7 +19,7 @@ export const parallax = {
       // breakpoints.on("<=medium", () => {
       //   this.off(el);
       // });
-      breakpointsPlugin.on(">medium", () => {
+      breakpointsPlugin.on(">tablet", () => {
         on(el);
       });
       on(el);

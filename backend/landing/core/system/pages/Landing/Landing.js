@@ -1,5 +1,9 @@
 import getStaticProps from "./Landing.model";
 import LandingTemplate from "@/templates/Landing/Landing";
+import Navigation from "@/organisms/Navigation/Navigation";
+
+
+import Paragraph from "@/atoms/Paragraph/Paragraph";
 // import MastHeader from "@/organisms/MastHeader/MastHeader.js";
 // import Spotlight from "@/organisms/Spotlight/Spotlight";
 // import Benefits from "@/organisms/Benefits/Benefits";
@@ -7,8 +11,22 @@ import LandingTemplate from "@/templates/Landing/Landing";
 
 export { getStaticProps };
 export default function Landing({ type }) {
+
+  const navList = [
+    { href: "despre_noi", label: "despre noi" },
+    { href: "servicii", label: "servicii" },
+    { href: "produse", label: "produse" },
+    { href: "contact", label: "contact" }
+  ];
+
   return (
     <LandingTemplate pageType={type}>
+      <Navigation navList={navList}/>
+      {navList.map((item, index) => {
+        return <section key={index} id={item.href} style={{height: "1000px"}}>
+          <Paragraph text={item.label}/>
+        </section>
+      })}
       {/* <MastHeader /> */}
       {/* <Spotlight
         position="bottom"

@@ -1,16 +1,15 @@
 @import "../../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-$block: "navigation-bar";
+$block: "copyright";
 
 /* ------------------------------------ *\
- * NAVIGATION BAR MOLECULE
+ * COPYRIGHT PATTERN
 \* ------------------------------------ */
 
 .#{$block} {
   @include e("base") {
-    @include flex($main: space-between);
-
-    width: 100%;
+    @include font($body);
+    @include flex();
   }
 }
