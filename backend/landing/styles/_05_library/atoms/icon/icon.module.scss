@@ -1,24 +1,15 @@
 @import "../../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-$block: "logo";
+$block: "icon";
 
 /* ------------------------------------ *\
- * LOGO ATOM
+ * ICON ATOM
 \* ------------------------------------ */
 
 .#{$block} {
   @include e("base") {
-    display: inline-block;
-    height: 100%;
-    font-size: 35px;
-
-    @include breakpoint($desktop) {
-      font-size: 50px;
-    }
-
-    .shrink & {
-      font-size: 35px;
-    }
+    color: get-color($c-gray, spanish-gray);
+    font-size: 30px;
   }
 }

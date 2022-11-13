@@ -1,15 +1,17 @@
 import { config } from "./Footer.config";
-import { SlSocialTwitter, SlSocialFacebook, SlSocialLinkedin, SlEnvolope } from "react-icons/sl";
+
 import { useId } from "react";
 import styles from "@/styles/_05_library/organisms/footer/footer.module.scss";
 
 import Copyright from "@/molecules/Copyright/Copyright";
+import Icon from "@/atoms/Icon/Icon";
 
 export default function Footer() {
   const ID = useId();
 
   return (
     <footer className={styles.base} id="footer" data-next={`${config.name}-${ID}`}>
+      <Icon iconName="logoIcon" />
       <Copyright />
       {/* <ul className={styles.iconList}>
         <li className={styles.iconListItem}>
