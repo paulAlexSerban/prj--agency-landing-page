@@ -4,14 +4,14 @@ import { useId } from "react";
 import styles from "@/styles/_05_library/organisms/footer/footer.module.scss";
 
 import Copyright from "@/molecules/Copyright/Copyright";
-import Icon from "@/atoms/Icon/Icon";
+import LinkIcon from "@/atoms/LinkIcon/LinkIcon";
 
 export default function Footer() {
   const ID = useId();
 
   return (
     <footer className={styles.base} id="footer" data-next={`${config.name}-${ID}`}>
-      <Icon iconName="logoIcon" />
+      <LinkIcon />
       <Copyright />
       {/* <ul className={styles.iconList}>
         <li className={styles.iconListItem}>
