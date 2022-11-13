@@ -1,0 +1,77 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "burger-button";
+
+/* ------------------------------------ *\
+ * BURGER BUTTON ATOM
+\* ------------------------------------ */
+
+$lineWeight: 3px;
+
+.#{$block} {
+  @include e("button") {
+    --burger-color: var(--color-link);
+    position: relative;
+    width: var(--burger-size);
+    height: var(--burger-size);
+    transition-duration: 0.5s;
+
+    transform: translateY(-15%);
+
+    @include breakpoint($desktop) {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      --burger-color: var(--color-link-hover);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @include e("icon") {
+    transition-duration: 0.5s;
+    position: absolute;
+    height: 4px;
+    width: var(--burger-size);
+    top: 30px;
+    background-color: var(--color-link);
+
+    .open & {
+      transition-duration: 0.5s;
+      background: transparent;
+    }
+
+    &:before {
+      transition-duration: 0.5s;
+      position: absolute;
+      width: var(--burger-size);
+      height: 4px;
+      background-color: var(--color-link);
+      content: "";
+      top: -15px;
+
+      .open & {
+        transform: rotateZ(45deg) scaleX(1.25) translate(9px, 9px);
+      }
+    }
+
+    &:after {
+      transition-duration: 0.5s;
+      position: absolute;
+      width: var(--burger-size);
+      height: 4px;
+      background-color: var(--color-link);
+      content: "";
+      top: 15px;
+
+      .open & {
+        transform: rotateZ(-45deg) scaleX(1.25) translate(10px, -10px);
+      }
+    }
+  }
+}

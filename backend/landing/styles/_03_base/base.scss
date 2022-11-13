@@ -1,7 +1,11 @@
 @import "../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+
+@import "./_01_generics/generics.scss";
+@import "./_02_elements/elements.scss";
 
 // Import Bootstrap
-@import "bootstrap/scss/bootstrap.scss";
+// @import "bootstrap/scss/bootstrap.scss";
 
 //
 // Global theme styling
@@ -12,14 +16,11 @@
 //
 // https://caniuse.com/?search=scroll-padding
 
-html {
-  scroll-padding-top: 4.5rem;
-}
-
 body {
   position: relative;
   overflow-x: hidden;
   background-color: get-color($c-dark, raisin-black);
+  color: var(--text-color);
 
   // Stops initial animations until page loads.
   &.is-preload {
@@ -32,28 +33,3 @@ body {
   }
 }
 
-// Adjust the line height of paragraphs
-
-p {
-  line-height: $line-height-lg;
-}
-
-// Spacing and heading styling for page sections
-
-.page-section {
-  padding: 6rem 0;
-
-  h2.section-heading {
-    font-size: 2.5rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
-
-  h3.section-subheading {
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-    font-family: $subheadings-font-family;
-    margin-bottom: 4rem;
-  }
-}

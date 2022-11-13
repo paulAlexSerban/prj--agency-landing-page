@@ -1,29 +1,29 @@
 /* ------------------------------------ *\
 * BASE THEME
 \* ------------------------------------ */
-
 :root {
   --text-regular: #{$font-family-montserrat};
   --text-heading: #{$font-family-montserrat};
   --text-code: #{$font-family-courierPrime};
-  --text-color: #{get-color($c-dark, eerie-black)};
+  --text-color: #{get-color($c-light, cultured)};
 
-  --color-link: #{get-color($c-gray, davys-grey)};
-  --color-link-hover: #{get-color($c-blue, dark-liver)};
+  --color-link: #{get-color($c-light, cultured)};
+  --color-link-hover: #{get-color($c-red, ua-red)};
 
   --brand-color: #{get-color($c-red, ua-red)};
   --background-color: #{get-color($c-light, light)};
 
+  // sizes
   --main-content-lat-padding: #{$gutter * 2};
-
   --spacing-padding-top-bottom: #{$baseline * 4};
+  --burger-size: 50px;
 
-  @include media-breakpoint-up(md) {
+  @include breakpoint($tablet) {
     --main-content-lat-padding: #{$gutter * 4};
     --spacing-padding-top-bottom: #{$baseline * 8};
   }
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoint($desktop) {
     --spacing-padding-top-bottom: #{$baseline * 12};
   }
 }

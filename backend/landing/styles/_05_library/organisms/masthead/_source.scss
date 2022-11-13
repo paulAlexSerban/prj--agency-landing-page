@@ -72,7 +72,7 @@ $block: "masthead";
       right: 0;
     }
 
-    @include media-breakpoint-up(md) {
+    @include breakpoint(tablet) {
       margin-bottom: 2rem;
     }
   }
@@ -80,7 +80,7 @@ $block: "masthead";
   @include e("subheading") {
     @include font($subheading);
 
-    @include media-breakpoint-up(md) {
+    @include breakpoint(tablet) {
       width: 75%;
     }
   }

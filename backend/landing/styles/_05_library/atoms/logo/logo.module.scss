@@ -1,0 +1,28 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "logo";
+
+/* ------------------------------------ *\
+ * LOGO ATOM
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    display: inline-block;
+    height: 100%;
+  }
+
+  @include e("icon") {
+    height: 35px;
+    transition: height 0.3s ease-in-out;
+
+    @include breakpoint($desktop) {
+      height: 50px;
+    }
+
+    .shrink & {
+      height: 35px;
+    }
+  }
+}

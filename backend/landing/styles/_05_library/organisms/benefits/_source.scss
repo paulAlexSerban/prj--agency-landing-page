@@ -22,11 +22,11 @@ $block: "benefits";
   @include e("header", "footer") {
     margin: ($baseline * 4) 0;
 
-    @include media-breakpoint-up(md) {
+    @include breakpoint(tablet) {
       margin: ($baseline * 8) 0;
     }
 
-    @include media-breakpoint-up(lg) {
+    @include breakpoint(desktop) {
       margin: ($baseline * 10) 0;
     }
   }
@@ -74,11 +74,11 @@ $block: "benefits";
     width: 100%;
     margin-bottom: $baseline * 6;
 
-    @include media-breakpoint-up(md) {
+    @include breakpoint(tablet) {
       width: calc(50% - 16px);
     }
 
-    @include media-breakpoint-up(lg) {
+    @include breakpoint(desktop) {
       width: calc(33.33% - 22px);
     }
   }

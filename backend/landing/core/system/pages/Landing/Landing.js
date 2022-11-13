@@ -1,14 +1,34 @@
-import getStaticProps from "./Index.model";
-import Generic from "@/templates/Generic";
-import Spotlight from "@/organisms/Spotlight/Spotlight";
-import Benefits from "@/organisms/Benefits/Benefits";
-import Form from "@/organisms/Form/Form";
+import getStaticProps from "./Landing.model";
+import LandingTemplate from "@/templates/Landing/Landing";
+import Navigation from "@/organisms/Navigation/Navigation";
+
+
+import Paragraph from "@/atoms/Paragraph/Paragraph";
+// import MastHeader from "@/organisms/MastHeader/MastHeader.js";
+// import Spotlight from "@/organisms/Spotlight/Spotlight";
+// import Benefits from "@/organisms/Benefits/Benefits";
+// import Form from "@/organisms/Form/Form";
 
 export { getStaticProps };
-export default function Index({ designation }) {
+export default function Landing({ type }) {
+
+  const navList = [
+    { href: "despre_noi", label: "despre noi" },
+    { href: "servicii", label: "servicii" },
+    { href: "produse", label: "produse" },
+    { href: "contact", label: "contact" }
+  ];
+
   return (
-    <Generic>
-      <Spotlight
+    <LandingTemplate pageType={type}>
+      <Navigation navList={navList}/>
+      {navList.map((item, index) => {
+        return <section key={index} id={item.href} style={{height: "1000px"}}>
+          <Paragraph text={item.label}/>
+        </section>
+      })}
+      {/* <MastHeader /> */}
+      {/* <Spotlight
         position="bottom"
         imageSrc="images/pic02.jpg"
         content={{
@@ -18,33 +38,11 @@ export default function Index({ designation }) {
             "  Costurile pentru IT sunt clare și simplu de gestionat. Un singur contract cu o singură taxă per angajat, aceasta claritate aduce scalabilitate afacerii tale și te ține in controlul costurilor. Fie că ai un eveniment unde ai nevoie de echipamente pentru o echipa temporară, fie că ai angajați pe perioadă determinată, închirierea este soluția pentru tine.",
           ],
         }}
-      />
-      <Spotlight position="right" imageSrc="images/pic03.jpg" />
-      <Spotlight position="left" imageSrc="images/pic04.jpg" />
-      <Benefits />
+      /> */}
+      {/* <Spotlight position="right" imageSrc="images/pic03.jpg" /> */}
+      {/* <Spotlight position="left" imageSrc="images/pic04.jpg" /> */}
+      {/* <Benefits /> */}
       {/* <Form /> */}
-    </Generic>
+    </LandingTemplate>
   );
 }
-
-// import GenericTemplate from "@/components/system/templates/Generic.template.js";
-// import Services from "core/Services.js";
-// import ProductList from "core/ProductList.js";
-// import Timeline from "core/Timeline.js";
-// import ClientList from "core/ClientList.js";
-// import Contact from "core/Contact.js";
-// import About from "core/About.js";
-
-// export default function Index() {
-//   return (
-//     <h1>INDEX PAGE</h1>
-//     // <GenericTemplate>
-//       // <About />
-//       // <Services />
-//       // <ProductList />
-//       // <Timeline />
-//       // <ClientList />
-//       // <Contact />
-//     // </GenericTemplate>
-//   );
-// }

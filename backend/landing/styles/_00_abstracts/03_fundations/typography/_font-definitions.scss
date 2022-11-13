@@ -294,6 +294,27 @@ $link: (
   ),
 );
 
+$link-large: (
+  default: (
+    font-family: var(--text-regular),
+    font-size: convert-rem(19px),
+    font-weight: 400,
+    line-height: convert-rem(27px),
+    letter-spacing: convert-rem(0.5px),
+    text-decoration: none,
+  ),
+  $desktop: (
+    font-size: convert-rem(23px),
+    line-height: convert-rem(30px),
+    letter-spacing: 0.008em,
+  ),
+  $ultra-wide: (
+    font-size: convert-rem(25px),
+    line-height: convert-rem(32px),
+    letter-spacing: convert-rem(0.5px),
+  ),
+);
+
 $label: (
   default: (
     font-family: var(--text-regular),
