@@ -7,6 +7,8 @@ import { LandingTemplate } from "./Landing.template";
 
 import Footer from "@/organisms/Footer/Footer.js";
 import mastheadCss from "@/styles/_05_library/organisms/masthead/masthead.module.scss";
+import pageTitleCss from "@/styles/_05_library/atoms/page-title/page-title.module.scss";
+import goNextStyles from "@/styles/_05_library/atoms/go-next-button/go-next-button.module.scss";
 
 export default function Landing({ title, keywords, description, children, pageType }) {
   const ID = useId();
@@ -20,7 +22,7 @@ export default function Landing({ title, keywords, description, children, pageTy
   return (
     <div data-next={`${config.name}-${ID}`}
          id="page-top"
-         className={`${styles.base} ${mastheadCss.isPreload}`}
+         className={`${styles.base} ${mastheadCss.isPreload} ${pageTitleCss.isPreload} ${goNextStyles.isPreload}`}
          page-type={pageType}>
       <Head>
         <title>{title}</title>

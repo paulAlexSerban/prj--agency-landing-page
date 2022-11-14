@@ -6,8 +6,10 @@ $block: "navigation";
 
 .#{$block} {
   @include e("base") {
+    @include z-index("navigationBar");
+    @include fixed($top: 0);
+
     padding-inline: var(--main-content-lat-padding);
-    position: fixed;
     width: 100%;
     overflow: hidden;
     transition: background-color 0.5s ease,
@@ -30,7 +32,7 @@ $block: "navigation";
     }
 
     &.show {
-      max-height: 30vh;
+      max-height: 50vh;
     }
   }
 

@@ -37,10 +37,9 @@ $shadow-dark-box: box-shadow(
 
 $shadow-container: box-shadow(
   $top: 0,
-  $left: convert-rem(2px),
+  $left: convert-rem(10px),
   $blur: convert-rem(10px),
-  $color: get-color($c-dark, dark-30),
-  $inset: unset,
+  $color: get-color($c-dark, dark-20)
 );
 
 $shadow-screen: box-shadow($top: 0, $left: convert-rem(2px), $blur: convert-rem(10px), $color: get-color($c-brown, rose-taupe), $inset: unset);

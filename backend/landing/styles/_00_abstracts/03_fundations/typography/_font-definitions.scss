@@ -7,7 +7,7 @@ $body: (
     font-family: var(--text-regular),
     font-size: convert-rem(17px),
     line-height: convert-rem(23px),
-    font-weight: font-weight(thin),
+    font-weight: font-weight(super-thin),
     letter-spacing: convert-rem(0.5px),
   ),
   $desktop: (
@@ -79,15 +79,16 @@ $page-title: (
 
 $subheading: (
   default: (
-    --subheading-font-size: convert-rem(24px),
-    --subheading-line-height: convert-rem(28px),
+    --subheading-font-size: convert-rem(20px),
+    --subheading-line-height: convert-rem(24px),
+    font-size: var(--subheading-font-size),
+    line-height: var(--subheading-line-height),
     font-family: var(--text-regular),
-    font-style: italic,
     font-weight: 300,
   ),
   $desktop: (
-    --subheading-font-size: convert-rem(34px),
-    --subheading-line-height: convert-rem(34px),
+    --subheading-font-size: convert-rem(24px),
+    --subheading-line-height: convert-rem(26px),
   )
 );
 

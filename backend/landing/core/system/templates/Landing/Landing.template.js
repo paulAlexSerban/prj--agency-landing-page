@@ -1,6 +1,8 @@
 import { isPreload } from "@/plugins/isPreload";
 import { addClass } from "@/utils/dom/manipulation";
 import mastheadCss from "@/styles/_05_library/organisms/masthead/masthead.module.scss";
+import pageTitleCss from "@/styles/_05_library/atoms/page-title/page-title.module.scss";
+import goNextStyles from "@/styles/_05_library/atoms/go-next-button/go-next-button.module.scss";
 import Template from "../../../Template";
 
 export class LandingTemplate extends Template {
@@ -22,7 +24,7 @@ export class LandingTemplate extends Template {
   }
 
   #initPlugins() {
-    this.plugins.isPreload(this.el, [ mastheadCss.isPreload ]);
+    this.plugins.isPreload(this.el, [ mastheadCss.isPreload, pageTitleCss.isPreload , goNextStyles.isPreload]);
   }
 
   #init() {

@@ -4,7 +4,7 @@ import Navigation from "@/organisms/Navigation/Navigation";
 
 
 import Paragraph from "@/atoms/Paragraph/Paragraph";
-// import MastHeader from "@/organisms/MastHeader/MastHeader.js";
+import MastHeader from "@/organisms/MastHeader/MastHeader.js";
 // import Spotlight from "@/organisms/Spotlight/Spotlight";
 // import Benefits from "@/organisms/Benefits/Benefits";
 // import Form from "@/organisms/Form/Form";
@@ -22,12 +22,7 @@ export default function Landing({ type }) {
   return (
     <LandingTemplate pageType={type}>
       <Navigation navList={navList}/>
-      {navList.map((item, index) => {
-        return <section key={index} id={item.href} style={{height: "1000px"}}>
-          <Paragraph text={item.label}/>
-        </section>
-      })}
-      {/* <MastHeader /> */}
+      <MastHeader />
       {/* <Spotlight
         position="bottom"
         imageSrc="images/pic02.jpg"
@@ -43,6 +38,11 @@ export default function Landing({ type }) {
       {/* <Spotlight position="left" imageSrc="images/pic04.jpg" /> */}
       {/* <Benefits /> */}
       {/* <Form /> */}
+      {navList.map((item, index) => {
+        return <section key={index} id={item.href} style={{height: "1000px"}}>
+          <Paragraph text={item.label}/>
+        </section>
+      })}
     </LandingTemplate>
   );
 }
