@@ -1,18 +1,19 @@
-@import "../../../_00_abstracts/all.scss";
-
+@import "../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-
-$block: "generic";
+$block: "content";
 
 /* ------------------------------------ *\
- * GENERIC TEMPLATE
+ * CONTENT LAYOUT
 \* ------------------------------------ */
 
 $lineWeight: 3px;
 
 .#{$block} {
   @include e("base") {
-    padding-top: 120px;
+      @include flex($direction: column);
+
+      max-width: $max-width;
+      margin-inline: auto;
   }
 }

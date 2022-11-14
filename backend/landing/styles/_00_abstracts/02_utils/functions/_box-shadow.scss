@@ -7,7 +7,7 @@
   $left: 1px,
   $blur: 1px,
   $color: get-color($c-dark, dark),
-  $inset: "inset"
+  $inset: ''
 ) {
   @return $top $left $blur $color #{$inset};
 }

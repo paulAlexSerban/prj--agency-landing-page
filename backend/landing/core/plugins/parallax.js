@@ -16,7 +16,7 @@ export const parallax = {
 
     const init = () => {
       setupEventListeners();
-      // breakpoints.on("<=medium", () => {
+      // breakpoints.on("<=tablet", () => {
       //   this.off(el);
       // });
       breakpointsPlugin.on(">tablet", () => {

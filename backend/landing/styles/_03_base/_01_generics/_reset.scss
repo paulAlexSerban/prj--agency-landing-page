@@ -37,7 +37,7 @@ main {
 }
 
 ::selection {
-  background-color: get-color($c-dark, eerie-black);
+  background-color: var(--brand-color);
   color: get-color($c-light, cultured);
 }
 

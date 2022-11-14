@@ -1,0 +1,36 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "go-next-button";
+
+/* ------------------------------------ *\
+ * GO NEXT BUTTON ATOM
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    font-size: 60px;
+    transition: transform 0.75s ease, opacity 0.75s ease;
+    transition-delay: 1.5s;
+    transform: translate(-50%, 0);
+    border: none;
+    bottom: 10%;
+    left: 50%;
+    color: inherit;
+    opacity: 1;
+    outline: 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    row-gap: convert-rem(30px);
+
+    .isPreload & {
+      transform: translate(-50%, 500%);
+      opacity: 0;
+    }
+
+    &:hover {
+      color: var(--brand-color);
+    }
+  }
+}

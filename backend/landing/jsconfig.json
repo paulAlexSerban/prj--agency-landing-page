@@ -5,6 +5,7 @@
       "@/atoms/*": ["core/library/atoms/*"],
       "@/molecules/*": ["core/library/molecules/*"],
       "@/organisms/*": ["core/library/organisms/*"],
+      "@/layouts/*": ["core/layouts/*"],
       "@/pages/*": ["core/system/pages/*"],
       "@/styles/*": ["styles/*"],
       "@/templates/*": ["core/system/templates/*"],

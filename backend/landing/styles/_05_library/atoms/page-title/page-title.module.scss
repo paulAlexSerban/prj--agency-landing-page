@@ -1,0 +1,48 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "page-title";
+
+/* ------------------------------------ *\
+ * PAGE TITLE ATOM
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    @include font($page-title);
+    position: relative;
+
+    opacity: 1;
+    padding: $gutter;
+
+    .isPreload & {
+      opacity: 0;
+    }
+
+    &:before,
+    &:after {
+      transition: width 0.85s ease;
+      transition-delay: 0.25s;
+      background: get-color($c-light, light);
+      content: "";
+      display: block;
+      height: 2px;
+      position: absolute;
+      width: 100%;
+
+      .isPreload & {
+        width: 0;
+      }
+    }
+
+    &:before {
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
