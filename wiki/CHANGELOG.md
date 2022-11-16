@@ -1,3 +1,11 @@
+## [1.4.4](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.3...v1.4.4) (2022-11-16)
+
+
+### Bug Fixes
+
+* **aws:** aws build issue ([4f5e185](https://github.com/paulAlexSerban/prj--lynxit/commit/4f5e1855f1f011f1cf3b1860fcb09738be340142))
+* **aws:** aws issues ([2a7baec](https://github.com/paulAlexSerban/prj--lynxit/commit/2a7baecc81d7232d69f888038e849c0325e5375a))
+
 ## [1.4.3](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.2...v1.4.3) (2022-11-16)
 
 
