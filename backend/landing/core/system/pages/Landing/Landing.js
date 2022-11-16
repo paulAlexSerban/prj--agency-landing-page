@@ -8,7 +8,7 @@ import GoNextButton from "@/atoms/GoNextButton/GoNextButton";
 import PageTitle from "@/atoms/PageTitle/PageTitle";
 
 import Card from "@/molecules/Card/Card";
-import Form from "@/molecules/Form/Form";
+// import Form from "@/molecules/Form/Form";
 
 import MastHeader from "@/organisms/MastHeader/MastHeader.js";
 import Spotlight from "@/organisms/Spotlight/Spotlight";
@@ -132,26 +132,6 @@ export default function Landing({ type }) {
           hasSeparator
           inverted
         />
-        {/* <Form>
-          Form should be here
-          <input type="text" />
-          <input type="checkbox" />
-          <input type="radio" />
-          <select name="pets" id="pet-select">
-            <option value="">--Please choose an option--</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
-          </select>
-          <textarea id="story" name="story" rows="5" cols="33">
-            It was a dark and stormy night...
-          </textarea>
-          <button>primary button</button>
-          <button>Secondary button</button>
-        </Form> */}
       </Content>
     </LandingTemplate>
   );
