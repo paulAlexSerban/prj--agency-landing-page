@@ -47,14 +47,16 @@ $block: "spotlight";
       border-top: solid $baseline get-color($c-red, paradise-pink);
       bottom: 0;
       width: 100%;
-      padding-top: convert-rem(120px);
-      padding-bottom: convert-rem(150px);
+      padding-top: var(--dynamic-100);
+      padding-bottom: var(--dynamic-110);
     }
 
     .right & {
       border-top: solid $baseline get-color($c-blue, blue-crayola);
       width: 100%;
       bottom: 0;
+      padding-top: var(--dynamic-100);
+      padding-bottom: var(--dynamic-110);
 
       @include breakpoint($desktop) {
         border-top: none;
@@ -69,6 +71,8 @@ $block: "spotlight";
       border-top: solid $baseline get-color($c-green, sea-green-crayola);
       width: 100%;
       bottom: 0;
+      padding-top: var(--dynamic-100);
+      padding-bottom: var(--dynamic-110);
 
       @include breakpoint($desktop) {
         border-top: none;

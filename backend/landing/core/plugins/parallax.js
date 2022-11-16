@@ -1,5 +1,6 @@
 
 import BREAKPOINTS from "@/utils/constants/breakpoints";
+
 export const parallax = {
   name: "parallax",
   exec: (el, breakpointsPlugin) => {

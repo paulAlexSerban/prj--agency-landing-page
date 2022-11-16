@@ -13,13 +13,13 @@ $block: "lineup";
     display: grid;
     grid-gap: $gutter * 2;
     grid-template-columns: 1;
-
-    @include breakpoint($desktop) {
-      grid-template-columns: repeat(var(--lineup-cols), 1fr);
-    }
-
-
+    padding-inline: var(--main-content-lat-padding);
     max-width: $max-width;
     margin-inline: auto;
+
+    @include breakpoint($desktop) {
+      padding-inline: 0;
+      grid-template-columns: repeat(var(--lineup-cols), 1fr);
+    }
   }
 }

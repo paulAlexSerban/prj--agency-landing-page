@@ -22,17 +22,16 @@ export class SpotlightOrganism extends Component {
 
     rawSrcset.forEach((set) => {
       const cleanSet = set.replace(/^\s/g, "").split(" ");
-      const rawWidth = cleanSet[1];
-      const width = rawWidth ? parseInt(rawWidth.substr(0, rawWidth.length - 1)) : undefined;
-      const setObj = {
+      const width = parseInt(cleanSet[1]);
+      this.srcset.push({
         path: cleanSet[0],
         width: width,
-      };
-      this.srcset.push(setObj);
+      });
     });
   }
 
   #setBackgroundImage() {
+    this.#getSrcset();
     const viewportWidth = window.innerWidth;
     const imageSrc = this.srcset.find((src) => src.width > viewportWidth);
     if (imageSrc) {
@@ -62,7 +61,7 @@ export class SpotlightOrganism extends Component {
     this.#setupDomReferences();
     this.#setupPlugins();
     this.#initPlugins();
-    this.#getSrcset();
+
     this.#setEventListeners();
     this.#setBackgroundImage();
   }
