@@ -1,5 +1,48 @@
 @import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
 
 $useModules: true;
 
-@import "./source";
+$breakpoints: $column-grid-12;
+$block: "masthead";
+
+.#{$block} {
+  @include e("base") {
+    @include relative;
+
+    text-align: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-image: var(--image-src);
+    height: 100vh;
+    display: flex;
+    background-position: center center;
+  }
+
+  @include e("image") {
+    opacity: 0;
+  }
+
+  @include e("container") {
+    @include flex($direction: column);
+
+    width: 100%;
+    position: relative;
+    padding-inline: var(--main-content-lat-padding);
+  }
+
+  @include e("title") {
+    @include flex($direction: column);
+
+    transition: opacity 0.85s ease;
+    transition-delay: 0.25s;
+
+    opacity: 1;
+
+    .isPreload & {
+      opacity: 0;
+    }
+  }
+}

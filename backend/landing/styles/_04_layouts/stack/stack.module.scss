@@ -1,0 +1,14 @@
+@import "../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "stack";
+
+/* ------------------------------------ *\
+ * STACK LAYOUT
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    @include flex($direction: column);
+  }
+}

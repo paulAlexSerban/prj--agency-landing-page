@@ -2,4 +2,11 @@
 
 $useModules: true;
 
-@import "./source";
+$breakpoints: $column-grid-12;
+$block: "footer";
+
+.#{$block} {
+  @include e("base") {
+    width: 100%;
+  }
+}

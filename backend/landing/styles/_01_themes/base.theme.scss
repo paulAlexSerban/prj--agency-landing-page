@@ -1,29 +1,78 @@
 /* ------------------------------------ *\
 * BASE THEME
 \* ------------------------------------ */
-
 :root {
   --text-regular: #{$font-family-montserrat};
   --text-heading: #{$font-family-montserrat};
-  --text-code: #{$font-family-courierPrime};
-  --text-color: #{get-color($c-dark, eerie-black)};
 
-  --color-link: #{get-color($c-gray, davys-grey)};
-  --color-link-hover: #{get-color($c-blue, dark-liver)};
+  --text-code: #{$font-family-courierPrime};
+  --text-color: #{get-color($c-light, cultured)};
+
+  --color-link: #{get-color($c-light, cultured)};
+  --color-link-hover: #{get-color($c-red, ua-red)};
 
   --brand-color: #{get-color($c-red, ua-red)};
   --background-color: #{get-color($c-light, light)};
 
+  // sizes
   --main-content-lat-padding: #{$gutter * 2};
-
   --spacing-padding-top-bottom: #{$baseline * 4};
+  --burger-size: 30px;
 
-  @include media-breakpoint-up(md) {
+  @include breakpoint($tablet) {
     --main-content-lat-padding: #{$gutter * 4};
     --spacing-padding-top-bottom: #{$baseline * 8};
   }
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoint($desktop) {
     --spacing-padding-top-bottom: #{$baseline * 12};
+  }
+
+  --dynamic-10: 5px;
+  --dynamic-20: 10px;
+  --dynamic-30: 15px;
+  --dynamic-40: 20px;
+  --dynamic-50: 25px;
+  --dynamic-60: 30px;
+  --dynamic-70: 35px;
+  --dynamic-80: 40px;
+  --dynamic-90: 50px;
+  --dynamic-100: 70px;
+  --dynamic-110: 90px;
+  --static-0: 0;
+  --static-10: 5px;
+  --static-20: 10px;
+  --static-30: 15px;
+  --static-40: 20px;
+  --static-50: 25px;
+  --static-60: 30px;
+  --static-70: 35px;
+  --static-80: 40px;
+  --static-90: 60px;
+  --static-100: 80px;
+  --static-110: 120px;
+
+  @include breakpoint($tablet) {
+    --dynamic-80: 45px;
+    --dynamic-90: 55px;
+    --dynamic-100: 80px;
+    --dynamic-110: 120px;
+  }
+
+  @include breakpoint($desktop-xl) {
+    --dynamic-50: 30px;
+    --dynamic-60: 40px;
+    --dynamic-70: 50px;
+    --dynamic-80: 70px;
+    --dynamic-90: 80px;
+    --dynamic-100: 110px;
+    --dynamic-110: 150px;
+  }
+
+  hr {
+    margin: var(--dynamic-70);
+    width: 100%;
+    border: 0;
+    border-bottom:  1px solid get-color($c-gray, spanish-gray) ;
   }
 }

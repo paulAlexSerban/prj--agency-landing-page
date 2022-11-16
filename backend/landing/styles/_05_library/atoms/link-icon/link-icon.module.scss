@@ -1,0 +1,19 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "link-icon";
+
+/* ------------------------------------ *\
+ * LINK ICON ATOM
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    color: get-color($c-gray, spanish-gray);
+    font-size: 35px;
+
+    @include breakpoint($desktop) {
+      font-size: 50px;
+    }
+  }
+}

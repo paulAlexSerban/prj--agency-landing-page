@@ -1,0 +1,17 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "navigation-bar";
+
+/* ------------------------------------ *\
+ * NAVIGATION BAR MOLECULE
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    @include flex($main: space-between);
+
+    width: 100%;
+    height: 62px;
+  }
+}

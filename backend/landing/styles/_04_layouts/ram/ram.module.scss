@@ -1,0 +1,25 @@
+@import "../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "ram";
+
+/* ------------------------------------ *\
+ * RAM LAYOUT
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    --grid-cols: 1;
+    display: grid;
+    grid-gap: $gutter * 4;
+    grid-template-columns: repeat(var(--grid-cols), minmax(250px, 1fr));
+
+    @include breakpoint($tablet) {
+      --grid-cols: 2;
+    }
+
+    @include breakpoint($desktop) {
+      --grid-cols: 3;
+    }
+  }
+}
