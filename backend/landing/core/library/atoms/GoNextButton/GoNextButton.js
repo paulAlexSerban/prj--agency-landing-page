@@ -12,7 +12,7 @@ export default function GoNextButton({ href }) {
   });
 
   return (
-    <a className={styles.base} data-next={`${config.name}-${ID}`} href={href}>
+    <a className={styles.base} data-next={`${config.name}-${ID}`} href={`#${href}`}>
       <ChevronDown className={styles.svg} />
     </a>
   );

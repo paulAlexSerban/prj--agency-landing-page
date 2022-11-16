@@ -7,7 +7,7 @@ $block: "burger-button";
  * BURGER BUTTON ATOM
 \* ------------------------------------ */
 
-$lineWeight: 3px;
+$lineWeight: 2px;
 
 .#{$block} {
   @include e("button") {
@@ -16,7 +16,6 @@ $lineWeight: 3px;
     width: var(--burger-size);
     height: var(--burger-size);
     transition-duration: 0.5s;
-
     transform: translateY(-15%);
 
     @include breakpoint($desktop) {
@@ -36,10 +35,10 @@ $lineWeight: 3px;
   @include e("icon") {
     transition-duration: 0.5s;
     position: absolute;
-    height: 4px;
+    height: #{$lineWeight};
     width: var(--burger-size);
-    top: 30px;
-    background-color: var(--color-link);
+    top: 50%;
+  background-color: var(--color-link);
 
     .open & {
       transition-duration: 0.5s;
@@ -50,7 +49,7 @@ $lineWeight: 3px;
       transition-duration: 0.5s;
       position: absolute;
       width: var(--burger-size);
-      height: 4px;
+      height: #{$lineWeight};
       background-color: var(--color-link);
       content: "";
       top: -15px;
@@ -64,7 +63,7 @@ $lineWeight: 3px;
       transition-duration: 0.5s;
       position: absolute;
       width: var(--burger-size);
-      height: 4px;
+      height: #{$lineWeight};
       background-color: var(--color-link);
       content: "";
       top: 15px;

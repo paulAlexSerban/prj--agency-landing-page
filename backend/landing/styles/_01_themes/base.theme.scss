@@ -19,7 +19,7 @@
   // sizes
   --main-content-lat-padding: #{$gutter * 2};
   --spacing-padding-top-bottom: #{$baseline * 4};
-  --burger-size: 50px;
+  --burger-size: 30px;
 
   @include breakpoint($tablet) {
     --main-content-lat-padding: #{$gutter * 4};

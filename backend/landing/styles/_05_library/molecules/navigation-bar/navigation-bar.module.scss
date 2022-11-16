@@ -12,5 +12,6 @@ $block: "navigation-bar";
     @include flex($main: space-between);
 
     width: 100%;
+    height: 62px;
   }
 }
