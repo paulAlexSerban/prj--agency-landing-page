@@ -60,11 +60,11 @@ export default function Landing({ type }) {
 
   return (
     <LandingTemplate pageType={type}>
-      <Navigation navList={navList} />
+      {/* <Navigation navList={navList} />
       <MastHeader>
         <PageTitle text="Închiriere echipamente IT" />
         <GoNextButton href="despre_noi" />
-      </MastHeader>
+      </MastHeader> */}
       {/* <Spotlight sectionId="despre_noi" position={spotlight_1.position} imageSrc={spotlight_1.image_src}>
         <LineUp columns="3">
           <SectionHeading
