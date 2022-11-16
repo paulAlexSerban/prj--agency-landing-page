@@ -14,9 +14,7 @@ export default function Logo() {
 
   return (
     <Link href="#page-top" replace className={styles.base} data-next={`${config.name}-${ID}`}>
-
-        <Icon iconName="rowLogoText"/>
-
+      <Icon iconName="rowLogoText" />
     </Link>
   );
 }
