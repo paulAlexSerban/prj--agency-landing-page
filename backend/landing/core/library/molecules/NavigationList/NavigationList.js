@@ -11,10 +11,11 @@ export default function NavigationList({ list = [] }) {
       {list.map((item, index) => {
         return (
           <li className={styles.item} key={index}>
-            <Link href={`#${item.href}`} replace scroll={false}>
-              <a className={`${linkStyles.large} js-nav-link`}> {item.label.toUpperCase()}</a>
+            <Link href={`#${item.href}`} replace scroll={false} className={`${linkStyles.large} js-nav-link`}>
+              {item.label.toUpperCase()}
             </Link>
-          </li>);
+          </li>
+        );
       })}
     </ul>
   );
