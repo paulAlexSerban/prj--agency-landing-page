@@ -5,14 +5,14 @@ export default function Product({modalRef, imgSrc, imgAlt, heading, subheading, 
   const descriptionText = description ? description : 'Description will be added soon';
   return (
     <div className="product-item">
-    <a className="product-link" data-bs-toggle="modal" href={`#${modalRef}`}>
+    {/* <a className="product-link" data-bs-toggle="modal" href={`#${modalRef}`}>
       <div className="product-hover">
         <div className="product-hover-content">
           <FontAwesomeIcon className="fa-3x" icon={faPlus} />
         </div>
       </div>
       <img className="img-fluid" src={imgSrc} alt={imgAlt} />
-    </a>
+    </a> */}
     <div className="product-caption">
       <div className="product-caption-heading">{heading}</div>
       <div className="product-caption-subheading text-muted">{subheading}</div>
