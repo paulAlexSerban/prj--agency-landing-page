@@ -6,7 +6,7 @@ export { getStaticProps };
 export default function FAQ({ type }) {
   return (
     <GenericTemplate pageType={type}>
-      <Navigation />
+      {/* <Navigation /> */}
       FAQ Page
     </GenericTemplate>
   );
