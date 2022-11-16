@@ -2,10 +2,10 @@ import { useEffect, useId } from "react";
 import { config } from "./config";
 import styles from "@/styles/_05_library/atoms/logo/logo.module.scss";
 import Link from "next/link";
-import { LogoAtom } from "./Logo.atom";
+import LogoAtom from "./LogoIcon.atom";
 import Icon from "@/atoms/Icon/Icon";
 
-export default function Logo() {
+export default function LogoIcon() {
   const ID = useId();
 
   useEffect(() => {
