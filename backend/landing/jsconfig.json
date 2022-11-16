@@ -10,7 +10,7 @@
       "@/styles/*": ["styles/*"],
       "@/templates/*": ["core/system/templates/*"],
       "@/svgs/*": ["public/svgs/*"],
-      "@/utils/*":["core/utils/*"],
+      "@/utils/*": ["core/utils/*"],
       "@/plugins/*": ["core/plugins/*"]
     }
   }
