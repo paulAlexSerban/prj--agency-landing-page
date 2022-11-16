@@ -60,8 +60,8 @@ export default function Landing({ type }) {
 
   return (
     <LandingTemplate pageType={type}>
-      {/* <Navigation navList={navList} />
-      <MastHeader>
+      <Navigation navList={navList} />
+      {/* <MastHeader>
         <PageTitle text="Închiriere echipamente IT" />
         <GoNextButton href="despre_noi" />
       </MastHeader> */}
