@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.0...v1.4.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* **aws:** add missing sharp dependeny for nextr-image ([a3bea74](https://github.com/paulAlexSerban/prj--lynxit/commit/a3bea742ce3d1abd9bfc3a5580c908059c330985))
+
 # [1.4.0](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.3.0...v1.4.0) (2022-11-16)
 
 
