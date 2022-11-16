@@ -1,3 +1,20 @@
+# [1.4.0](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.3.0...v1.4.0) (2022-11-16)
+
+
+### Features
+
+* add page title - go next button - masthead - lineup layout - section heading - content layout ([bc17346](https://github.com/paulAlexSerban/prj--lynxit/commit/bc173468af4aa76f4a361679724fc0900df78706))
+* **burger-button:** added burger button ([5847c4d](https://github.com/paulAlexSerban/prj--lynxit/commit/5847c4d93c3df673c0482dd0c4121d2dfec0363e))
+* **footer and social media list:** footer done ([bb92399](https://github.com/paulAlexSerban/prj--lynxit/commit/bb92399613b8945c4c48389d4c0489163eecd3ca))
+* **icon:** added icon atom ([8e3f73e](https://github.com/paulAlexSerban/prj--lynxit/commit/8e3f73efb1f104f50fd41cfb9bd0059d482d275d))
+* **logo icon:** add logo icon atom ([d525320](https://github.com/paulAlexSerban/prj--lynxit/commit/d525320e2db4507c6428c66100767baa04e5808b))
+* **logo:** add logo atom ([8a8dd85](https://github.com/paulAlexSerban/prj--lynxit/commit/8a8dd8566afbb4e5b352e2b342e56a69a0e1e5ca))
+* **navigation and copyright:** added navigation and copyright ([c5b248c](https://github.com/paulAlexSerban/prj--lynxit/commit/c5b248cdc3ce4086d6e2a8dd7eb71b66e8512550))
+* **navigation-bar:** add navigation bar ([22d57a0](https://github.com/paulAlexSerban/prj--lynxit/commit/22d57a037c5142bd5a91d6e853927d73ade40050))
+* **spotlight:** add spotlight - WIP ([bbcb310](https://github.com/paulAlexSerban/prj--lynxit/commit/bbcb31057da8ebfdf6a57693c800a61c74efe345))
+* **spotlight:** add spotlight and benefits ([21807e4](https://github.com/paulAlexSerban/prj--lynxit/commit/21807e49bfcce54d35a109118afb52767741db35))
+* **templates and pages:** create templates and pages ([8c52cdb](https://github.com/paulAlexSerban/prj--lynxit/commit/8c52cdba4b6900511bee32af3a25ae6d76740547))
+
 # [1.3.0](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.2.0...v1.3.0) (2022-11-10)
 
 
