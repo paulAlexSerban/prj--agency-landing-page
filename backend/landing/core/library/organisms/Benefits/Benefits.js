@@ -56,9 +56,9 @@ export default function Benefits() {
           </section>
         </div>
         <footer className={styles.footer}>
-          <a href="#" className={styles.button}>
+          {/* <a href="#" className={styles.button}>
             Call to action!
-          </a>
+          </a> */}
         </footer>
       </div>
     </section>

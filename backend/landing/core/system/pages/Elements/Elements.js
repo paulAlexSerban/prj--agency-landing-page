@@ -1,18 +1,18 @@
 import getStaticProps from "./Elements.model";
 import GenericTemplate from "@/templates/Generic/Generic";
-import Navigation from "@/organisms/Navigation/Navigation";
+// import Navigation from "@/organisms/Navigation/Navigation";
 
-import SectionHeading from "@/atoms/SectionHeading/SectionHeading";
-import Paragraph from "@/atoms/Paragraph/Paragraph";
+// import SectionHeading from "@/atoms/SectionHeading/SectionHeading";
+// import Paragraph from "@/atoms/Paragraph/Paragraph";
 
-import Content from "@/layouts/Content/Content";
-import LineUp from "@/layouts/LineUp/LineUp";
+// import Content from "@/layouts/Content/Content";
+// import LineUp from "@/layouts/LineUp/LineUp";
 
 export { getStaticProps };
 export default function Elements({ type }) {
   return (
     <GenericTemplate pageType={type}>
-      <Navigation />
+      {/* <Navigation />
       <Content>
         <SectionHeading level="2" mainText="Section Heading element" subheading="Subheading text - lorem" hasSeparator/>
         <hr/>
@@ -25,7 +25,7 @@ export default function Elements({ type }) {
           <Paragraph text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Sit amet purus gravida quis. Morbi tempus iaculis urna id volutpat lacus laoreet. Convallis tellus id interdum velit laoreet id donec ultrices." />
           <Paragraph text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Sit amet purus gravida quis. Morbi tempus iaculis urna id volutpat lacus laoreet. Convallis tellus id interdum velit laoreet id donec ultrices." />
         </LineUp>
-      </Content>
+      </Content> */}
     </GenericTemplate>
   );
 }

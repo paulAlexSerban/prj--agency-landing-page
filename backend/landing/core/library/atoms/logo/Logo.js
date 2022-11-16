@@ -13,10 +13,10 @@ export default function Logo() {
   });
 
   return (
-    <Link href="#page-top" replace>
-      <a className={styles.base} data-next={`${config.name}-${ID}`}>
+    <Link href="#page-top" replace className={styles.base} data-next={`${config.name}-${ID}`}>
+
         <Icon iconName="rowLogoText"/>
-      </a>
+
     </Link>
   );
 }

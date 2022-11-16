@@ -71,9 +71,9 @@ export default function ClientList() {
               <div className="fw-bolder">Form submission successful!</div>
               To activate this form, sign up at
               <br />
-              <a href="https://startbootstrap.com/solution/contact-forms">
+              {/* <a href="https://startbootstrap.com/solution/contact-forms">
                 https://startbootstrap.com/solution/contact-forms
-              </a>
+              </a> */}
             </div>
           </div>
 
