@@ -2,23 +2,23 @@ import getStaticProps from "./Landing.model";
 import LandingTemplate from "@/templates/Landing/Landing";
 import Navigation from "@/organisms/Navigation/Navigation";
 
-import Paragraph from "@/atoms/Paragraph/Paragraph";
-import SectionHeading from "@/atoms/SectionHeading/SectionHeading";
+// import Paragraph from "@/atoms/Paragraph/Paragraph";
+// import SectionHeading from "@/atoms/SectionHeading/SectionHeading";
 import GoNextButton from "@/atoms/GoNextButton/GoNextButton";
 import PageTitle from "@/atoms/PageTitle/PageTitle";
 
-import Card from "@/molecules/Card/Card";
+// import Card from "@/molecules/Card/Card";
 // import Form from "@/molecules/Form/Form";
 
 import MastHeader from "@/organisms/MastHeader/MastHeader.js";
-import Spotlight from "@/organisms/Spotlight/Spotlight";
-// import Benefits from "@/organisms/Benefits/Benefits";
-// import Form from "@/organisms/Form/Form";
+// import Spotlight from "@/organisms/Spotlight/Spotlight";
+// // import Benefits from "@/organisms/Benefits/Benefits";
+// // import Form from "@/organisms/Form/Form";
 
-import Content from "@/layouts/Content/Content";
-import LineUp from "@/layouts/LineUp/LineUp";
-import Stack from "@/layouts/Stack/Stack";
-import RAM from "@/layouts/RAM/RAM";
+// import Content from "@/layouts/Content/Content";
+// import LineUp from "@/layouts/LineUp/LineUp";
+// import Stack from "@/layouts/Stack/Stack";
+// import RAM from "@/layouts/RAM/RAM";
 
 export { getStaticProps };
 export default function Landing({ type }) {
@@ -65,7 +65,7 @@ export default function Landing({ type }) {
         <PageTitle text="Închiriere echipamente IT" />
         <GoNextButton href="despre_noi" />
       </MastHeader>
-      <Spotlight sectionId="despre_noi" position={spotlight_1.position} imageSrc={spotlight_1.image_src}>
+      {/* <Spotlight sectionId="despre_noi" position={spotlight_1.position} imageSrc={spotlight_1.image_src}>
         <LineUp columns="3">
           <SectionHeading
             level="3"
@@ -132,7 +132,7 @@ export default function Landing({ type }) {
           hasSeparator
           inverted
         />
-      </Content>
+      </Content> */}
     </LandingTemplate>
   );
 }
