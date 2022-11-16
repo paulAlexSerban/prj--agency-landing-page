@@ -1,0 +1,21 @@
+@import "../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "content";
+
+/* ------------------------------------ *\
+ * CONTENT LAYOUT
+\* ------------------------------------ */
+
+$lineWeight: 3px;
+
+.#{$block} {
+  @include e("base") {
+      @include flex($direction: column);
+
+      max-width: $max-width;
+      margin-inline: auto;
+      padding-top: var(--dynamic-100);
+      padding-inline: var(--main-content-lat-padding);
+  }
+}

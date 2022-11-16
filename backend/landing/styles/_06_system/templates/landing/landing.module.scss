@@ -1,0 +1,26 @@
+@import "../../../_00_abstracts/all.scss";
+
+$breakpoints: $column-grid-12;
+$useModules: true;
+
+$block: "landing";
+
+/* ------------------------------------ *\
+ * LANDING TEMPLATE
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    $i: 5;
+    $y: 1;
+
+    @while $i >= 1 {
+      > :not(:first-child):nth-child(#{$y}) {
+        box-shadow: #{$shadow-container};
+        z-index: #{$i};
+      }
+      $i: $i - 1;
+      $y: $y + 1;
+    }
+  }
+}

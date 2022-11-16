@@ -1,0 +1,15 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "copyright";
+
+/* ------------------------------------ *\
+ * COPYRIGHT PATTERN
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    @include font($body);
+    @include flex();
+  }
+}

@@ -1,4 +1,4 @@
-import Index, { getStaticProps } from "@/pages/Index";
+import Landing, { getStaticProps } from "@/pages/Landing/Landing";
 
-export default Index;
+export default Landing;
 export { getStaticProps };

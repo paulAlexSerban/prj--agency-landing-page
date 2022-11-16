@@ -3,4 +3,7 @@ export const config = {
   selectors: {
     image: ".js-spotlight-image"
   },
+  hooks: {
+    image: "js-spotlight-image"
+  }
 };

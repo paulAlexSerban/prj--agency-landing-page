@@ -1,3 +1,6 @@
+
+import BREAKPOINTS from "@/utils/constants/breakpoints";
+
 export const parallax = {
   name: "parallax",
   exec: (el, breakpointsPlugin) => {
@@ -5,21 +8,23 @@ export const parallax = {
       elm.style.backgroundPosition = "center 0px";
 
       window.addEventListener("scroll", () => {
-        const pos = parseInt(window.scrollY) - parseInt(elm.offsetTop);
-        elm.style.backgroundPosition = `center ${(pos * -0.35)}px`;
+        if(parseInt(BREAKPOINTS.tablet[0]) <= window.innerWidth) {
+          const pos = parseInt(window.scrollY) - parseInt(elm.offsetTop);
+          elm.style.backgroundPosition = `center ${(pos * -0.35)}px`;
+        }
       });
     }
 
-    const off = () => {
-      // off logic not implemented yet
+    const off = (elm) => {
+      elm.style.backgroundPosition = "center 0px";
     }
 
     const init = () => {
       setupEventListeners();
-      // breakpoints.on("<=medium", () => {
-      //   this.off(el);
-      // });
-      breakpointsPlugin.on(">medium", () => {
+      breakpointsPlugin.on("<=tablet", () => {
+        off(el);
+      });
+      breakpointsPlugin.on("=>tablet", () => {
         on(el);
       });
       on(el);

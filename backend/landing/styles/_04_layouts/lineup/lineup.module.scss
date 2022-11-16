@@ -1,0 +1,25 @@
+@import "../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "lineup";
+
+/* ------------------------------------ *\
+ * LINEUP LAYOUT
+\* ------------------------------------ */
+
+
+.#{$block} {
+  @include e("base") {
+    display: grid;
+    grid-gap: $gutter * 2;
+    grid-template-columns: 1;
+    padding-inline: var(--main-content-lat-padding);
+    max-width: $max-width;
+    margin-inline: auto;
+
+    @include breakpoint($desktop) {
+      padding-inline: 0;
+      grid-template-columns: repeat(var(--lineup-cols), 1fr);
+    }
+  }
+}

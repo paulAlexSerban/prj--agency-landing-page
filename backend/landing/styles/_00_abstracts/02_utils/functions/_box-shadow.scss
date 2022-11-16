@@ -3,11 +3,12 @@
 \* ------------------------------------ */
 
 @function box-shadow(
-  $top: 0,
   $left: 1px,
+  $top: 0,
+  $spread: 1px,
   $blur: 1px,
   $color: get-color($c-dark, dark),
-  $inset: "inset"
+  $inset: ''
 ) {
-  @return $top $left $blur $color #{$inset};
+  @return $left $top $spread $blur $color #{$inset};
 }
