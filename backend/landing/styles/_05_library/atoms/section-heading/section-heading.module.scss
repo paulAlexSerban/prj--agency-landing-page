@@ -13,29 +13,30 @@ $block: "section-heading";
 
     width: 100%;
     text-align: center;
-    margin-bottom: var(--dynamic-90);
 
     @include m("2") {
       @include font($heading-200);
+      margin-bottom: var(--dynamic-70);
+      padding-bottom: var(--dynamic-70);
     }
 
-    @include m(3) {
+    @include m("3") {
       @include font($heading-300);
+      margin-bottom: var(--dynamic-70);
+      padding-bottom: var(--dynamic-70);
     }
 
-    @include m(4) {
+    @include m("4") {
       @include font($heading-400);
     }
   }
 
   @include e("main", "subheading") {
     display: block;
+  }
 
-    margin-bottom: $baseline * 3;
-
-    @include breakpoint($desktop) {
-      margin-bottom: $baseline * 5;
-    }
+  @include e("main") {
+    margin-bottom: var(--dynamic-30);
   }
 
   @include e("subheading") {
@@ -53,6 +54,7 @@ $block: "section-heading";
       max-width: convert-rem(400px);
       width: 75%;
       left: 50%;
+      bottom: 0;
       transform: translateX(-50%);
     }
   }

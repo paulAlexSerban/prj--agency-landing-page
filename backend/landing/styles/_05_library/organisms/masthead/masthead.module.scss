@@ -15,10 +15,14 @@ $block: "masthead";
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
+    background-image: var(--image-src);
     height: 100vh;
     display: flex;
     background-position: center center;
-    box-shadow: #{$shadow-container};
+  }
+
+  @include e("image") {
+    opacity: 0;
   }
 
   @include e("container") {
@@ -26,6 +30,7 @@ $block: "masthead";
 
     width: 100%;
     position: relative;
+    padding-inline: var(--main-content-lat-padding);
   }
 
   @include e("title") {

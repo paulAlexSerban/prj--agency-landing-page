@@ -8,8 +8,6 @@
   --text-code: #{$font-family-courierPrime};
   --text-color: #{get-color($c-light, cultured)};
 
-  --font-weight--heading:  100;
-
   --color-link: #{get-color($c-light, cultured)};
   --color-link-hover: #{get-color($c-red, ua-red)};
 
@@ -19,7 +17,7 @@
   // sizes
   --main-content-lat-padding: #{$gutter * 2};
   --spacing-padding-top-bottom: #{$baseline * 4};
-  --burger-size: 50px;
+  --burger-size: 30px;
 
   @include breakpoint($tablet) {
     --main-content-lat-padding: #{$gutter * 4};

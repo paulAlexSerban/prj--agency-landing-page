@@ -4,7 +4,6 @@ import styles from "@/styles/_05_library/atoms/section-heading/section-heading.m
 
 export default function SectionHeading({ level = 2, mainText, subheading, hasSeparator }) {
   const ID = useId();
-  console.log(hasSeparator);
   if (level !== 1) {
     return (
       <h2

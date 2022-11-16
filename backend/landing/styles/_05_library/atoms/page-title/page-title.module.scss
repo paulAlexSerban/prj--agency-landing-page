@@ -11,7 +11,6 @@ $block: "page-title";
   @include e("base") {
     @include font($page-title);
     position: relative;
-
     opacity: 1;
     padding: $gutter;
 

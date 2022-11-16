@@ -1,17 +1,14 @@
-@import "../../../_00_abstracts/all.scss";
+@import "../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-$block: "navigation-bar";
+$block: "stack";
 
 /* ------------------------------------ *\
- * NAVIGATION BAR MOLECULE
+ * STACK LAYOUT
 \* ------------------------------------ */
 
 .#{$block} {
   @include e("base") {
-    @include flex($main: space-between);
-
-    width: 100%;
-    height: 62px;
+    @include flex($direction: column);
   }
 }

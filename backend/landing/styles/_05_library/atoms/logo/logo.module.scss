@@ -9,7 +9,7 @@ $block: "logo";
 
 .#{$block} {
   @include e("base") {
-    display: inline-block;
+    @include flex();
     height: 100%;
     font-size: 35px;
 

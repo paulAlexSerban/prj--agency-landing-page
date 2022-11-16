@@ -7,37 +7,6 @@ $block: "footer";
 
 .#{$block} {
   @include e("base") {
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    // background: get-color($c-dark, raisin-black);
-    // text-align: center;
-    // padding: var(--spacing-padding-top-bottom) 0;
   }
-
-  // @include e("iconList") {
-  //   @include flex();
-
-  //   cursor: default;
-  //   list-style: none;
-  //   padding-left: 0;
-  //   margin-bottom: 64px;
-  //   gap: ($gutter * 3);
-  // }
-
-  // @include e("iconListItem") {
-  //   display: inline-block;
-  // }
-
-  // @include e("icon") {
-  //   color: get-color($c-gray, spanish-gray);
-  //   font-size: 35px;
-  // }
-
-  // @include e("copyright") {
-  //   @include font($body-small);
-
-  //   color: get-color($c-gray, spanish-gray);
-  //   text-align: center;
-  // }
 }
