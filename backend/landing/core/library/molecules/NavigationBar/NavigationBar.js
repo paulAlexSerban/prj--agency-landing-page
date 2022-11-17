@@ -1,8 +1,8 @@
 import { useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/molecules/navigation-bar/navigation-bar.module.scss";
-import LogoIcon from "@/atoms/LogoIcon/LogoIcon";
-import BurgerButton from "@/atoms/BurgerButton/BurgerButton";
+import config from "./config";
+import styles from "@/styles/molecules/navigation-bar/navigation-bar.module.scss";
+import LogoIcon from "@/core/atoms/LogoIcon/LogoIcon";
+import BurgerButton from "@/core/atoms/BurgerButton/BurgerButton";
 
 export default function NavigationBar({jsToggleHook}) {
   const ID = useId();

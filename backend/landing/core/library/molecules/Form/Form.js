@@ -1,6 +1,6 @@
 import { useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/molecules/form/form.module.scss";
+import config from "./config";
+import styles from "@/styles/molecules/form/form.module.scss";
 
 export default function Form({ children }) {
   const ID = useId();

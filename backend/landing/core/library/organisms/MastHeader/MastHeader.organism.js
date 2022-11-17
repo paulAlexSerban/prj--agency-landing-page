@@ -1,9 +1,9 @@
 
 import { parallax } from "core/plugins/parallax";
 import { breakpoints } from "core/plugins/breakpoints";
-import Component from "../../../Component";
+import Component from "../../../prototypes/Component";
 import BREAKPOINTS from "@/utils/constants/breakpoints";
-import { config } from "./MastHeader.config";
+import { config } from "./config";
 
 export class MastHeaderOrganism extends Component {
   constructor(el) {

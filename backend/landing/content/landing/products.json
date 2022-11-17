@@ -1,0 +1,15 @@
+{
+  "sectionName": "Produse",
+  "sectionId": "produse",
+  "sectionEl": {
+    "spotlight": {
+      "position": "left",
+      "imageSrc": "images/pic04.jpg"
+    }
+  },
+  "heading": {
+    "level": 3,
+    "mainText": "Produse"
+  },
+  "content": {}
+}
