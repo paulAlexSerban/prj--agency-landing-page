@@ -23,8 +23,9 @@ export default function Spotlight({ children, position, imageSrc, sectionId }) {
       <Image
         className={`${styles.image} ${config.hooks.image}`}
         src={`/${imageSrc}`}
-        layout="fill"
+        fill
         quality="100"
+        alt="alternative text"
         onLoadingComplete={() => {
           setLoadingComplete(true);
         }}

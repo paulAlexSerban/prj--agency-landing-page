@@ -1,7 +1,7 @@
 
 import { smoothScroll } from "core/plugins/smoothScroll";
 import Component from "../../../Component";
-export class LogoAtom extends Component {
+class LogoIconAtom extends Component {
   constructor(el) {
     super(el);
     this.#init();
@@ -28,3 +28,5 @@ export class LogoAtom extends Component {
     this.#setupEvents();
   }
 }
+
+export default LogoIconAtom;

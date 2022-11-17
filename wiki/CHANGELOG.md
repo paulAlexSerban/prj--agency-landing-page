@@ -1,3 +1,19 @@
+## [1.4.7](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.6...v1.4.7) (2022-11-17)
+
+
+### Bug Fixes
+
+* build issues ([a481838](https://github.com/paulAlexSerban/prj--lynxit/commit/a481838acab199d42c7d9712ab374aae90b3b443))
+* **eslint:** adjusted eslint errors ([882d14e](https://github.com/paulAlexSerban/prj--lynxit/commit/882d14ebe1d480243dfa93336c0121da8a1442ca))
+* landing enabled ([bc8f1a3](https://github.com/paulAlexSerban/prj--lynxit/commit/bc8f1a3a135acbaee14958610efdf81ede33f382))
+* logo ([a8f3cda](https://github.com/paulAlexSerban/prj--lynxit/commit/a8f3cdac65b230cf5d94b805ee4354fbcba1bbef))
+* **logo:** enable logo ([b2b5c89](https://github.com/paulAlexSerban/prj--lynxit/commit/b2b5c89f8f4de9ab665ebf91c79ce20cceb65379))
+* **logo:** enable logo ([daa6981](https://github.com/paulAlexSerban/prj--lynxit/commit/daa698187aefd0c30645579998220e44c460c07c))
+* **navigation:** enable navigation ([f981cc3](https://github.com/paulAlexSerban/prj--lynxit/commit/f981cc34b1c793f9e09e076f643c0773937dd46b))
+* updates ([05e9386](https://github.com/paulAlexSerban/prj--lynxit/commit/05e9386e09970d8e3bce1ae581a4dec0d1249d29))
+* verce-issue ([14ce8bf](https://github.com/paulAlexSerban/prj--lynxit/commit/14ce8bf55b99b6e31a1c4bd21151deeb831af51e))
+* vercel intregration ([8186822](https://github.com/paulAlexSerban/prj--lynxit/commit/81868224cdbae300ecb5c4117f16349b1a6d2916))
+
 ## [1.4.6](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.5...v1.4.6) (2022-11-16)
 
 

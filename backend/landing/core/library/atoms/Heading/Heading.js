@@ -1,8 +1,8 @@
 import { useId } from "react";
 import { config } from "./config";
-import styles from "@/styles/_05_library/atoms/section-heading/section-heading.module.scss";
+import styles from "@/styles/_05_library/atoms/heading/heading.module.scss";
 
-export default function SectionHeading({ level = 2, mainText, subheading, hasSeparator }) {
+export default function Heading({ level = 2, mainText, subheading, hasSeparator }) {
   const ID = useId();
   if (level !== 1) {
     return (
