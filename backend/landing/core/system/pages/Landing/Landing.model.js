@@ -2,52 +2,27 @@
  * content from ./content/landing and ./content/fragments should be rendered here
  */
 
+import aboutUs from "@/content/landing/about-us.json";
+import services from "@/content/landing/services.json";
+import products from "@/content/landing/products.json";
+import benefits from "@/content/landing/benefits.json";
+import contact from "@/content/landing/contact.json";
+
 export default async function getStaticProps() {
   return {
     props: {
       pageProperties: {
-        templateType: ""
+        templateType: "",
       },
       content: {
-        main: {}
+        main: {
+          spotlight: { ...aboutUs },
+          spotlight_1: { ...services },
+          spotlight_2: { ...products },
+          benefits: {...benefits},
+          contact: { ...contact}
+        },
       },
     },
   };
 }
-
-
-const navList = [
-  { href: "despre_noi", label: "despre noi" },
-  { href: "servicii", label: "servicii" },
-  { href: "produse", label: "produse" },
-  { href: "beneficii", label: "beneficii" },
-  { href: "contact", label: "contact" },
-];
-
-const spotlight_1 = {
-  position: "bottom",
-  image_src: "images/pic02.jpg",
-  content: {
-    heading: "heading - lorem",
-    subheading: "subheading - lorem",
-    paragraphs: [],
-  },
-};
-
-const spotlight_2 = {
-  position: "right",
-  image_src: "images/pic03.jpg",
-  content: {
-    heading: "heading - lorem",
-    paragraphs: [],
-  },
-};
-
-const spotlight_3 = {
-  position: "left",
-  image_src: "images/pic04.jpg",
-  content: {
-    heading: "heading - lorem",
-    paragraphs: [],
-  },
-};
