@@ -7,7 +7,7 @@ $block: "spotlight";
 .#{$block} {
   @include e("base") {
     background-position: center 0px;
-    background-size: auto calc(100vh / 2);
+    background-size: 100% calc(100vh / 2);
     background-image: var(--image-src);
     background-repeat: no-repeat;
     min-height: 100vh;

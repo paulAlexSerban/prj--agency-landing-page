@@ -2,23 +2,23 @@ import getStaticProps from "./Landing.model";
 import LandingTemplate from "@/templates/Landing/Landing";
 import Navigation from "@/organisms/Navigation/Navigation";
 
-// import Paragraph from "@/atoms/Paragraph/Paragraph";
-// import SectionHeading from "@/atoms/SectionHeading/SectionHeading";
+import Paragraph from "@/atoms/Paragraph/Paragraph";
+import Heading from "@/atoms/Heading/Heading";
 import GoNextButton from "@/atoms/GoNextButton/GoNextButton";
 import PageTitle from "@/atoms/PageTitle/PageTitle";
 
-// import Card from "@/molecules/Card/Card";
-// import Form from "@/molecules/Form/Form";
+import Card from "@/molecules/Card/Card";
+import Form from "@/molecules/Form/Form";
 
 import MastHeader from "@/organisms/MastHeader/MastHeader.js";
-// import Spotlight from "@/organisms/Spotlight/Spotlight";
-// // import Benefits from "@/organisms/Benefits/Benefits";
-// // import Form from "@/organisms/Form/Form";
+import Spotlight from "@/organisms/Spotlight/Spotlight";
+// import Benefits from "@/organisms/Benefits/Benefits";
+// import Form from "@/organisms/Form/Form";
 
-// import Content from "@/layouts/Content/Content";
-// import LineUp from "@/layouts/LineUp/LineUp";
-// import Stack from "@/layouts/Stack/Stack";
-// import RAM from "@/layouts/RAM/RAM";
+import Content from "@/layouts/Content/Content";
+import LineUp from "@/layouts/LineUp/LineUp";
+import Stack from "@/layouts/Stack/Stack";
+import RAM from "@/layouts/RAM/RAM";
 
 export { getStaticProps };
 export default function Landing({ type }) {
@@ -65,9 +65,9 @@ export default function Landing({ type }) {
         <PageTitle text="Închiriere echipamente IT" />
         <GoNextButton href="despre_noi" />
       </MastHeader>
-      {/* <Spotlight sectionId="despre_noi" position={spotlight_1.position} imageSrc={spotlight_1.image_src}>
+      <Spotlight sectionId="despre_noi" position={spotlight_1.position} imageSrc={spotlight_1.image_src}>
         <LineUp columns="3">
-          <SectionHeading
+          <Heading
             level="3"
             mainText="Echipamente IT reconditionate de inchiriat"
             subheading="Gestiune simplificata si cost-control"
@@ -79,18 +79,18 @@ export default function Landing({ type }) {
       </Spotlight>
       <Spotlight sectionId="servicii" position={spotlight_2.position} imageSrc={spotlight_2.image_src}>
         <Stack>
-          <SectionHeading level="3" mainText="Servicii" />
+          <Heading level="3" mainText="Servicii" />
         </Stack>
         <GoNextButton href="produse" />
       </Spotlight>
       <Spotlight sectionId="produse" goNext="" position={spotlight_3.position} imageSrc={spotlight_3.image_src}>
         <Stack>
-          <SectionHeading level="3" mainText="Produse" />
+          <Heading level="3" mainText="Produse" />
         </Stack>
         <GoNextButton href="beneficii" />
       </Spotlight>
       <Content sectionId="beneficii">
-        <SectionHeading level="3" mainText="Beneficii" subheading="@todo: scurt intro in beneficii" hasSeparator />
+        <Heading level="3" mainText="Beneficii" subheading="@todo: scurt intro in beneficii" hasSeparator />
         <RAM>
           <Card
             iconName="percent"
@@ -125,14 +125,14 @@ export default function Landing({ type }) {
         </RAM>
       </Content>
       <Content sectionId="contact">
-        <SectionHeading
+        <Heading
           level="3"
           mainText="Hai sa facem treaba!"
           subheading="@todo: scurt call-to-action text"
           hasSeparator
           inverted
         />
-      </Content> */}
+      </Content>
     </LandingTemplate>
   );
 }

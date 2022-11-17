@@ -1,22 +1,20 @@
 import { useEffect, useId } from "react";
 import { config } from "./config";
-import styles from "@/styles/_05_library/atoms/logo/logo.module.scss";
+import styles from "@/styles/_05_library/atoms/logo-icon/logo-icon.module.scss";
 import Link from "next/link";
-import { LogoAtom } from "./Logo.atom";
+import LogoIconAtom from "./LogoIcon.atom";
 import Icon from "@/atoms/Icon/Icon";
 
-export default function Logo() {
+export default function LogoIcon() {
   const ID = useId();
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => new LogoAtom(el));
+    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => new LogoIconAtom(el));
   });
 
   return (
     <Link href="#page-top" replace className={styles.base} data-next={`${config.name}-${ID}`}>
-
-        <Icon iconName="rowLogoText"/>
-
+      <Icon iconName="rowLogoText" />
     </Link>
   );
 }
