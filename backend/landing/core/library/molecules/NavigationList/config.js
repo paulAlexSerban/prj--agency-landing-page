@@ -1,4 +1,6 @@
-export const config = {
+const config = {
   name: "NavigationList",
   selectors: {},
 };
+
+export default config;

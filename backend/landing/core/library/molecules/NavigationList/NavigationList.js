@@ -1,8 +1,8 @@
 import { useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/molecules/navigation-list/navigation-list.module.scss";
 import Link from "next/link";
-import linkStyles from "@/styles/_05_library/atoms/link/link.module.scss";
+import config from "./config";
+import styles from "@/styles/molecules/navigation-list/navigation-list.module.scss";
+import linkStyles from "@/styles/atoms/link/link.module.scss";
 
 export default function NavigationList({ list = [] }) {
   const ID = useId();
