@@ -1,9 +1,9 @@
-import { config } from "./Spotlight.config";
+import config from "./config";
 import { parallax } from "core/plugins/parallax";
 import { breakpoints } from "core/plugins/breakpoints";
 import { scrollSpy } from "core/plugins/scrollspy";
-import Component from "../../../Component";
-import styles from "@/styles/_05_library/organisms/spotlight/spotlight.module.scss";
+import Component from "../../../prototypes/Component";
+import styles from "@/styles/organisms/spotlight/spotlight.module.scss";
 import BREAKPOINTS from "@/utils/constants/breakpoints";
 
 export class SpotlightOrganism extends Component {

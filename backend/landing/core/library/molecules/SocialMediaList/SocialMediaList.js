@@ -1,7 +1,7 @@
 import { useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/molecules/social-media-list/social-media-list.module.scss";
-import LinkIcon from "@/atoms/LinkIcon/LinkIcon";
+import config from "./config";
+import styles from "@/styles/molecules/social-media-list/social-media-list.module.scss";
+import LinkIcon from "@/core/atoms/LinkIcon/LinkIcon";
 
 export default function SocialMediaList({ list = [] }) {
   const ID = useId();

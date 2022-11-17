@@ -1,7 +1,7 @@
 import { useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/molecules/copyright/copyright.module.scss";
-import Paragraph from "@/atoms/Paragraph/Paragraph";
+import config from "./config";
+import styles from "@/styles/molecules/copyright/copyright.module.scss";
+import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 
 export default function Copyright() {
   const ID = useId();

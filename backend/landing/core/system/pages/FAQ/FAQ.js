@@ -1,13 +1,11 @@
 import getStaticProps from "./FAQ.model";
-import GenericTemplate from "@/templates/Generic/Generic";
-import Navigation from "@/organisms/Navigation/Navigation";
+import GenericTemplate from "@/core/templates/Generic/Generic";
 
 export { getStaticProps };
-export default function FAQ({ type }) {
+export default function FAQ({ content, pageProperties, children }) {
   return (
-    <GenericTemplate pageType={type}>
-      <Navigation />
-      FAQ Page
+    <GenericTemplate content={content} pageProperties={pageProperties}>
+      {children}
     </GenericTemplate>
   );
 }

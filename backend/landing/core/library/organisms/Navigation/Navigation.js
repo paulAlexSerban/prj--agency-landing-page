@@ -1,13 +1,13 @@
 import { useEffect, useId } from "react";
-import { config } from "./Navigation.config";
+import config from "./config";
+import NavigationOrganism from "./Navigation.organism";
+import styles from "@/styles/organisms/navigation/navigation.module.scss";
 
-import { NavigationOrganism } from "./Navigation.organism";
-import styles from "@/styles/_05_library/organisms/navigation/navigation.module.scss";
+import NavigationBar from "@/core/molecules/NavigationBar/NavigationBar";
+import NavigationList from "@/core/molecules/NavigationList/NavigationList";
+import { getNavigationList } from "./Navigation.utils";
 
-import NavigationBar from "@/molecules/NavigationBar/NavigationBar";
-import NavigationList from "@/molecules/NavigationList/NavigationList";
-
-export default function Navigation({navList}) {
+export default function Navigation({ navList }) {
   const ID = useId();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Navigation({navList}) {
     <nav className={`${styles.base} js-main-nav`} data-next={`${config.name}-${ID}`}>
       <div className={`${styles.container}`}>
         <NavigationBar jsToggleHook={config.selectors.navToggler} />
-        <NavigationList list={navList} />
+        <NavigationList list={getNavigationList(navList)} />
       </div>
     </nav>
   );

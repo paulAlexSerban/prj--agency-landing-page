@@ -1,8 +1,8 @@
 import { useEffect, useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/atoms/link-icon/link-icon.module.scss";
+import config from "./config";
+import styles from "@/styles/atoms/link-icon/link-icon.module.scss";
 import Link from "next/link";
-import Icon from "@/atoms/Icon/Icon";
+import Icon from "@/core/atoms/Icon/Icon";
 
 export default function LinkIcon({iconHref = '', iconName = 'logoIcon'}) {
   const ID = useId();

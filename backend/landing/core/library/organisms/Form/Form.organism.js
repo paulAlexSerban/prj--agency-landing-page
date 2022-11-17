@@ -1,4 +1,4 @@
-import Component from "../../../Component";
+import Component from "../../../prototypes/Component";
 import { scrollSpy } from "core/plugins/scrollspy";
 import styles from "@/styles/_05_library/organisms/form/form.module.scss";
 

@@ -4,9 +4,6 @@ $breakpoints: $column-grid-12;
 @import "./_01_generics/generics.scss";
 @import "./_02_elements/elements.scss";
 
-// Import Bootstrap
-// @import "bootstrap/scss/bootstrap.scss";
-
 //
 // Global theme styling
 //
@@ -33,3 +30,10 @@ body {
   }
 }
 
+
+hr {
+  margin: var(--dynamic-70);
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid get-color($c-gray, spanish-gray);
+}

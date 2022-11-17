@@ -7,3 +7,5 @@ export const config = {
     image: "js-masthead-image"
   }
 };
+
+export default config;

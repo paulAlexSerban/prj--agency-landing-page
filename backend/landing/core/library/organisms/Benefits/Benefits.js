@@ -1,6 +1,6 @@
 import { useEffect, useId } from "react";
-import { config } from "./Benefits.config";
-import styles from "@/styles/_05_library/organisms/benefits/benefits.module.scss";
+import config from "./config";
+import styles from "@/styles/organisms/benefits/benefits.module.scss";
 import { SlDirections } from "react-icons/sl";
 import { BsShieldCheck, BsPercent, BsRecycle, BsFileEarmark, BsClock } from "react-icons/bs";
 import { BenefitsOrganism } from "./Benefits.organism";

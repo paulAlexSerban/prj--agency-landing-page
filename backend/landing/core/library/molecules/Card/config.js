@@ -1,4 +1,6 @@
-export const config = {
+const config = {
   name: "CardMolecule",
   selectors: {},
 };
+
+export default config;
