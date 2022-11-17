@@ -1,0 +1,13 @@
+{
+  "sectionName": "Beneficii",
+  "sectionId": "beneficii",
+  "sectionEl": {
+    "benefits": {}
+  },
+  "heading": {
+    "level": 3,
+    "mainText": "Beneficii",
+    "subheading": "@todo: scurt text introductiv in beneficii"
+  },
+  "content": {}
+}
