@@ -17,7 +17,7 @@ export default function MastHeader({ children }) {
       <Image
         className={`${styles.image} ${config.hooks.image}`}
         src="/header-bg.jpg"
-        fill
+        layout="fill"
         quality="100"
         alt="alternative text"
         onLoadingComplete={() => {
