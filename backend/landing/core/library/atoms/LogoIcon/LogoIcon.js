@@ -13,8 +13,10 @@ export default function LogoIcon() {
   });
 
   return (
-    <Link href="#page-top" replace className={styles.base} data-next={`${config.name}-${ID}`}>
-      <Icon iconName="rowLogoText" />
+    <Link href="#page-top" replace>
+      <a className={styles.base} data-next={`${config.name}-${ID}`}>
+        <Icon iconName="rowLogoText" />
+      </a>
     </Link>
   );
 }

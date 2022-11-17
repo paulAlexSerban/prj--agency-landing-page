@@ -4,12 +4,14 @@ import styles from "@/styles/_05_library/atoms/link-icon/link-icon.module.scss";
 import Link from "next/link";
 import Icon from "@/atoms/Icon/Icon";
 
-export default function LinkIcon({ iconHref = "", iconName = "logoIcon" }) {
+export default function LinkIcon({iconHref = '', iconName = 'logoIcon'}) {
   const ID = useId();
 
   return (
-    <Link href={iconHref} className={styles.base} data-next={`${config.name}-${ID}`}>
-      <Icon iconName={iconName} />
+    <Link href={iconHref}>
+      <a className={styles.base} data-next={`${config.name}-${ID}`}>
+        <Icon iconName={iconName}/>
+      </a>
     </Link>
   );
 }
