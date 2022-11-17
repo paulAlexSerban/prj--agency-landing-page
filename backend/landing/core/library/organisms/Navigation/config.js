@@ -1,4 +1,4 @@
-export const config = {
+const config = {
   name: "NavigationOrganism",
   selectors:{
     mainNav: ".js-main-nav",
@@ -7,3 +7,5 @@ export const config = {
     navItems: ".js-nav-link",
   }
 };
+
+export default config;

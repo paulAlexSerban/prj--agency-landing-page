@@ -1,14 +1,17 @@
 @import "../../../_00_abstracts/all.scss";
-$breakpoints: $column-grid-12;
+
 $useModules: true;
+$breakpoints: $column-grid-12;
 $block: "form";
 
-/* ------------------------------------ *\
- * FORM MOLECULE
-\* ------------------------------------ */
-
 .#{$block} {
-  @include e("form") {
-    @include flex();
+  @include e("base") {
+    padding: var(--spacing-padding-top-bottom) 0;
+    opacity: 1;
+    color: get-color($c-light, light);
+
+    &.inactive {
+      opacity: 0;
+    }
   }
 }

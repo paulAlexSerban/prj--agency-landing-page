@@ -1,6 +1,6 @@
 import { useId, useEffect } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/atoms/go-next-button/go-next-button.module.scss";
+import config from "./config";
+import styles from "@/styles/atoms/go-next-button/go-next-button.module.scss";
 import ChevronDown from "@/svgs/chevron-down.svg";
 import { GoNextButtonAtom } from "./GoNextButton.atom";
 

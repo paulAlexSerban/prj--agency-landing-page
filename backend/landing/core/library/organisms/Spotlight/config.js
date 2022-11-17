@@ -1,4 +1,4 @@
-export const config = {
+const config = {
   name: "SpotlightOrganism",
   selectors: {
     image: ".js-spotlight-image"
@@ -7,3 +7,5 @@ export const config = {
     image: "js-spotlight-image"
   }
 };
+
+export default config;

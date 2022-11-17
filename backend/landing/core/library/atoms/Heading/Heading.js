@@ -1,6 +1,6 @@
 import { useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/atoms/heading/heading.module.scss";
+import config from "./config";
+import styles from "@/styles/atoms/heading/heading.module.scss";
 
 export default function Heading({ level = 2, mainText, subheading, hasSeparator }) {
   const ID = useId();

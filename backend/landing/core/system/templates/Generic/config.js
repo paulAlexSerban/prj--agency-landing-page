@@ -6,3 +6,5 @@ export const config = {
     description: "Generic page for LynxIT",
   },
 };
+
+export default config;

@@ -1,9 +1,7 @@
-import { config } from "./Spotlight.config";
+import config from "./config";
 import { useEffect, useId, useState } from "react";
-import styles from "@/styles/_05_library/organisms/spotlight/spotlight.module.scss";
-import ChevronDown from "@/svgs/chevron-down.svg";
+import styles from "@/styles/organisms/spotlight/spotlight.module.scss";
 import { SpotlightOrganism } from "./Spotlight.organism";
-import SpotlightTemplates from "./Spotlight.templates";
 import Image from "next/image";
 
 export default function Spotlight({ children, position, imageSrc, sectionId }) {

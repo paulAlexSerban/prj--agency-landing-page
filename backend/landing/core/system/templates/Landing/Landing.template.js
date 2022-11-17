@@ -1,9 +1,9 @@
 import { isPreload } from "@/plugins/isPreload";
 import { addClass } from "@/utils/dom/manipulation";
-import mastheadCss from "@/styles/_05_library/organisms/masthead/masthead.module.scss";
-import pageTitleCss from "@/styles/_05_library/atoms/page-title/page-title.module.scss";
-import goNextStyles from "@/styles/_05_library/atoms/go-next-button/go-next-button.module.scss";
-import Template from "../../../Template";
+import mastheadCss from "@/styles/organisms/masthead/masthead.module.scss";
+import pageTitleCss from "@/styles/atoms/page-title/page-title.module.scss";
+import goNextStyles from "@/styles/atoms/go-next-button/go-next-button.module.scss";
+import Template from "@/prototypes/Template";
 
 export class LandingTemplate extends Template {
   constructor(el) {
@@ -33,3 +33,5 @@ export class LandingTemplate extends Template {
     this.#setupToucheDevice();
   }
 }
+
+export default LandingTemplate;

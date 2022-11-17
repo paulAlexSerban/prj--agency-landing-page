@@ -5,7 +5,7 @@ export default class Template extends Component {
   constructor(el) {
     super(el);
 
-    this.#init();
+    this.#initTemplate();
   }
 
   #setupPlugins () {
@@ -16,7 +16,7 @@ export default class Template extends Component {
     this.browser = this.plugins.detectBrowser();
   }
 
-  #init() {
+  #initTemplate() {
     this.#setupPlugins();
     this.#initPlugins();
   }

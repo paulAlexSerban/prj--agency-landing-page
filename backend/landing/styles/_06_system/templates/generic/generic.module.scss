@@ -2,14 +2,11 @@
 
 $breakpoints: $column-grid-12;
 $useModules: true;
-
 $block: "generic";
 
 /* ------------------------------------ *\
  * GENERIC TEMPLATE
 \* ------------------------------------ */
-
-$lineWeight: 3px;
 
 .#{$block} {
   @include e("base") {

@@ -1,9 +1,11 @@
 import { useEffect, useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/atoms/logo-icon/logo-icon.module.scss";
 import Link from "next/link";
+
+import config from "./config";
+import Icon from "@/core/atoms/Icon/Icon";
+
+import styles from "@/styles/atoms/logo-icon/logo-icon.module.scss";
 import LogoIconAtom from "./LogoIcon.atom";
-import Icon from "@/atoms/Icon/Icon";
 
 export default function LogoIcon() {
   const ID = useId();

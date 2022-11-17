@@ -1,5 +1,5 @@
-import { config } from "./MastHeader.config";
-import styles from "@/styles/_05_library/organisms/masthead/masthead.module.scss";
+import config from "./config";
+import styles from "@/styles/organisms/masthead/masthead.module.scss";
 import { useEffect, useId, useState } from "react";
 import Image from "next/image";
 import { MastHeaderOrganism } from "./MastHeader.organism";

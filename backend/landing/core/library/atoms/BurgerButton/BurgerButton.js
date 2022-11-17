@@ -1,6 +1,6 @@
 import { useId } from "react";
-import { config } from "./config";
-import styles from "@/styles/_05_library/atoms/burger-button/burger-button.module.scss";
+import config from "./config";
+import styles from "@/styles/atoms/burger-button/burger-button.module.scss";
 import Link from "next/link"
 
 export default function BurgerButton({ariaControls, ariaLabel, jsHook = 'js-nav-toggle'}) {

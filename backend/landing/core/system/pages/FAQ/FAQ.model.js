@@ -1,7 +1,16 @@
-export default async function getStaticProps() {
+/**
+ * content from ./content/landing and ./content/fragments should be rendered here
+ */
+
+ export default async function getStaticProps() {
   return {
     props: {
-      type: "FAQ",
+      pageProperties: {
+        templateType: ""
+      },
+      content: {
+        main: {}
+      },
     },
   };
 }

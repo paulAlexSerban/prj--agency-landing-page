@@ -1,10 +1,10 @@
-import { config } from "./Footer.config";
+import config from "./Footer.config";
 
 import { useId } from "react";
-import styles from "@/styles/_05_library/organisms/footer/footer.module.scss";
+import styles from "@/styles/organisms/footer/footer.module.scss";
 
-import Copyright from "@/molecules/Copyright/Copyright";
-import SocialMediaList from "@/molecules/SocialMediaList/SocialMediaList";
+import Copyright from "@/core/molecules/Copyright/Copyright";
+import SocialMediaList from "@/core/molecules/SocialMediaList/SocialMediaList";
 
 export default function Footer() {
   const ID = useId();

@@ -1,6 +1,6 @@
 
 import { smoothScroll } from "core/plugins/smoothScroll";
-import Component from "../../../Component";
+import Component from "../../../prototypes/Component";
 export class GoNextButtonAtom extends Component {
   constructor(el) {
     super(el);
