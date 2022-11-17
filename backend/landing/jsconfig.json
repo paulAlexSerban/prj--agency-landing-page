@@ -2,16 +2,27 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/atoms/*": ["core/library/atoms/*"],
-      "@/molecules/*": ["core/library/molecules/*"],
-      "@/organisms/*": ["core/library/organisms/*"],
-      "@/layouts/*": ["core/layouts/*"],
-      "@/pages/*": ["core/system/pages/*"],
-      "@/styles/*": ["styles/*"],
-      "@/templates/*": ["core/system/templates/*"],
-      "@/svgs/*": ["public/svgs/*"],
       "@/utils/*": ["core/utils/*"],
-      "@/plugins/*": ["core/plugins/*"]
+      "@/plugins/*": ["core/plugins/*"],
+      "@/prototypes/*": ["core/prototypes/*"],
+
+      "@/core/atoms/*": ["core/library/atoms/*"],
+      "@/core/molecules/*": ["core/library/molecules/*"],
+      "@/core/organisms/*": ["core/library/organisms/*"],
+      "@/core/layouts/*": ["core/layouts/*"],
+      "@/core/pages/*": ["core/system/pages/*"],
+      "@/core/templates/*": ["core/system/templates/*"],
+
+      "@/styles/base/*": ["styles/_03_base/*"],
+      "@/styles/layouts/*": ["styles/_04_layouts/*"],
+      "@/styles/atoms/*": ["styles/_05_library/atoms/*"],
+      "@/styles/molecules/*": ["styles/_05_library/molecules/*"],
+      "@/styles/organisms/*": ["styles/_05_library/organisms/*"],
+      "@/styles/templates/*": ["styles/_06_system/templates/*"],
+      "@/styles/pages/*": ["styles/_06_system/pages/*"],
+
+      "@/svgs/*": ["public/svgs/*"],
+      "@/content/*": ["content/*"],
     }
   }
 }
