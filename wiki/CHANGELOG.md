@@ -1,3 +1,10 @@
+## [1.4.11](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.10...v1.4.11) (2022-11-17)
+
+
+### Bug Fixes
+
+* **link:** added back anchor element in link ([5e01617](https://github.com/paulAlexSerban/prj--lynxit/commit/5e01617223140d4a67e79402f8289a0a7c32841c))
+
 ## [1.4.10](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.9...v1.4.10) (2022-11-17)
 
 
