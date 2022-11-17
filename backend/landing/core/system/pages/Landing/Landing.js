@@ -3,7 +3,7 @@ import LandingTemplate from "@/templates/Landing/Landing";
 import Navigation from "@/organisms/Navigation/Navigation";
 
 import Paragraph from "@/atoms/Paragraph/Paragraph";
-import SectionHeading from "@/atoms/SectionHeading/SectionHeading";
+import Heading from "@/atoms/Heading/Heading";
 import GoNextButton from "@/atoms/GoNextButton/GoNextButton";
 import PageTitle from "@/atoms/PageTitle/PageTitle";
 
@@ -67,7 +67,7 @@ export default function Landing({ type }) {
       </MastHeader>
       <Spotlight sectionId="despre_noi" position={spotlight_1.position} imageSrc={spotlight_1.image_src}>
         <LineUp columns="3">
-          <SectionHeading
+          <Heading
             level="3"
             mainText="Echipamente IT reconditionate de inchiriat"
             subheading="Gestiune simplificata si cost-control"
@@ -79,18 +79,18 @@ export default function Landing({ type }) {
       </Spotlight>
       <Spotlight sectionId="servicii" position={spotlight_2.position} imageSrc={spotlight_2.image_src}>
         <Stack>
-          <SectionHeading level="3" mainText="Servicii" />
+          <Heading level="3" mainText="Servicii" />
         </Stack>
         <GoNextButton href="produse" />
       </Spotlight>
       <Spotlight sectionId="produse" goNext="" position={spotlight_3.position} imageSrc={spotlight_3.image_src}>
         <Stack>
-          <SectionHeading level="3" mainText="Produse" />
+          <Heading level="3" mainText="Produse" />
         </Stack>
         <GoNextButton href="beneficii" />
       </Spotlight>
       <Content sectionId="beneficii">
-        <SectionHeading level="3" mainText="Beneficii" subheading="@todo: scurt intro in beneficii" hasSeparator />
+        <Heading level="3" mainText="Beneficii" subheading="@todo: scurt intro in beneficii" hasSeparator />
         <RAM>
           <Card
             iconName="percent"
@@ -125,7 +125,7 @@ export default function Landing({ type }) {
         </RAM>
       </Content>
       <Content sectionId="contact">
-        <SectionHeading
+        <Heading
           level="3"
           mainText="Hai sa facem treaba!"
           subheading="@todo: scurt call-to-action text"

@@ -1,7 +1,7 @@
 import { config } from "./Navigation.config";
 import burgerStyles from "@/styles/_05_library/atoms/burger-button/burger-button.module.scss";
 import navigationStyles from "@/styles/_05_library/organisms/navigation/navigation.module.scss";
-import logoStyles from "@/styles/_05_library/atoms/logo/logo.module.scss";
+import logoStyles from "@/styles/_05_library/atoms/logo-icon/logo-icon.module.scss";
 import Component from "../../../Component";
 import { breakpoints } from "core/plugins/breakpoints";
 import { smoothScroll } from "core/plugins/smoothScroll";
