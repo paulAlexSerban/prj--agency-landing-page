@@ -1,10 +1,10 @@
-import { config } from "./Navigation.config";
-import burgerStyles from "@/styles/_05_library/atoms/burger-button/burger-button.module.scss";
-import navigationStyles from "@/styles/_05_library/organisms/navigation/navigation.module.scss";
-import logoStyles from "@/styles/_05_library/atoms/logo-icon/logo-icon.module.scss";
-import Component from "../../../Component";
-import { breakpoints } from "core/plugins/breakpoints";
-import { smoothScroll } from "core/plugins/smoothScroll";
+import config from "./config";
+import burgerStyles from "@/styles/atoms/burger-button/burger-button.module.scss";
+import navigationStyles from "@/styles/organisms/navigation/navigation.module.scss";
+import logoStyles from "@/styles/atoms/logo-icon/logo-icon.module.scss";
+import Component from "@/prototypes/Component";
+import { breakpoints } from "@/plugins/breakpoints";
+import { smoothScroll } from "@/plugins/smoothScroll";
 import BREAKPOINTS from "@/utils/constants/breakpoints";
 
 export class NavigationOrganism extends Component {
@@ -77,3 +77,5 @@ export class NavigationOrganism extends Component {
     this.#navbarShrink();
   }
 }
+
+export default NavigationOrganism;

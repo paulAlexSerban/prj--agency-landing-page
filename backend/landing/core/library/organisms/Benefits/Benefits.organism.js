@@ -1,6 +1,6 @@
-import Component from "../../../Component";
+import Component from "@/prototypes/Component";
 import { scrollSpy } from "core/plugins/scrollspy";
-import styles from "@/styles/_05_library/organisms/benefits/benefits.module.scss";
+import styles from "@/styles/organisms/benefits/benefits.module.scss";
 
 export class BenefitsOrganism extends Component {
   constructor(el) {
