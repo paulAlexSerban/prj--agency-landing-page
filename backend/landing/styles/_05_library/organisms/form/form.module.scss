@@ -1,5 +1,17 @@
-// @import "../../../_00_abstracts/all.scss";
+@import "../../../_00_abstracts/all.scss";
 
-// $useModules: true;
+$useModules: true;
+$breakpoints: $column-grid-12;
+$block: "form";
 
-// @import "./source";
+.#{$block} {
+  @include e("base") {
+    padding: var(--spacing-padding-top-bottom) 0;
+    opacity: 1;
+    color: get-color($c-light, light);
+
+    &.inactive {
+      opacity: 0;
+    }
+  }
+}
