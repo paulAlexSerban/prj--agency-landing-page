@@ -3,5 +3,5 @@
 cd "$(dirname "$0")" || exit
 
 echo "🟢 STOP DOCKER 🐳  LynxIT Service Container"
-docker stop lynxit_service
+docker stop landing
 docker ps

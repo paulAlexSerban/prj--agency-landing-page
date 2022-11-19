@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
-    "test": "echo 'Error: no test specified'",
-    "start:pm2": "pm2-runtime app.js --json --error error.log"
+    "test": "echo 'Error: no test specified'"
   },
   "dependencies": {
     "@svgr/webpack": "^6.5.1",

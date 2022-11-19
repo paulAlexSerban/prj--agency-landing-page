@@ -3,5 +3,5 @@
 cd "$(dirname "$0")" || exit
 
 echo "🧪 TEST DOCKER 🐳  LynxIT Service Container"
-bash ../../../docker/test/check-docker-container.bash lynxit_service
+bash ../../../docker/test/check-docker-container.bash landing
 docker ps

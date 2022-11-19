@@ -3,4 +3,4 @@
 cd "$(dirname "$0")" || exit
 
 echo "🧪  TEST LynxIT Service container"
-bash ../../../docker/test/check-docker-container.bash lynxit_service-compose
+bash ../../../docker/test/check-docker-container.bash landing-compose
