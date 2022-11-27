@@ -1,4 +1,6 @@
 export const config = {
-  name: "SubheadingAtom",
+  name: "Button",
   selectors: {},
 };
+
+export default config;

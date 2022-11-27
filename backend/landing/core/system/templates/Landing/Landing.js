@@ -9,6 +9,7 @@ import GoNextButton from "@/core/atoms/GoNextButton/GoNextButton";
 import PageTitle from "@/core/atoms/PageTitle/PageTitle";
 import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 import Heading from "@/core/atoms/Heading/Heading";
+import Button from "@/core/atoms/Button/Button";
 
 // MOLECULES
 import Card from "@/core/molecules/Card/Card";
@@ -74,26 +75,6 @@ export default function Landing({ title, keywords, description, children, conten
         </LineUp>
         <GoNextButton href={mainContent[Object.keys(mainContent)[1]].sectionId} />
       </Spotlight>
-      <Spotlight
-        sectionId={mainContent.spotlight_1.sectionId}
-        position={mainContent.spotlight_1.sectionEl.spotlight.position}
-        imageSrc={mainContent.spotlight_1.sectionEl.spotlight.imageSrc}
-      >
-        <Stack>
-          <Heading level={mainContent.spotlight_1.heading.level} mainText={mainContent.spotlight_1.heading.mainText} />
-        </Stack>
-        <GoNextButton href={mainContent[Object.keys(mainContent)[2]].sectionId} />
-      </Spotlight>
-      <Spotlight
-        sectionId={mainContent.spotlight_2.sectionId}
-        position={mainContent.spotlight_2.sectionEl.spotlight.position}
-        imageSrc={mainContent.spotlight_2.sectionEl.spotlight.imageSrc}
-      >
-        <Stack>
-          <Heading level={mainContent.spotlight_2.heading.level} mainText={mainContent.spotlight_2.heading.mainText} />
-        </Stack>
-        <GoNextButton href={mainContent[Object.keys(mainContent)[3]].sectionId} />
-      </Spotlight>
       <Content sectionId={mainContent.benefits.sectionId}>
         <Heading
           level={mainContent.benefits.heading.level}
@@ -134,6 +115,27 @@ export default function Landing({ title, keywords, description, children, conten
           />
         </RAM>
       </Content>
+      <Spotlight
+        sectionId={mainContent.spotlight_1.sectionId}
+        position={mainContent.spotlight_1.sectionEl.spotlight.position}
+        imageSrc={mainContent.spotlight_1.sectionEl.spotlight.imageSrc}
+      >
+        <Stack>
+          <Heading level={mainContent.spotlight_1.heading.level} mainText={mainContent.spotlight_1.heading.mainText} />
+        </Stack>
+        <GoNextButton href={mainContent[Object.keys(mainContent)[2]].sectionId} />
+      </Spotlight>
+      <Spotlight
+        sectionId={mainContent.spotlight_2.sectionId}
+        position={mainContent.spotlight_2.sectionEl.spotlight.position}
+        imageSrc={mainContent.spotlight_2.sectionEl.spotlight.imageSrc}
+      >
+        <Stack>
+          <Heading level={mainContent.spotlight_2.heading.level} mainText={mainContent.spotlight_2.heading.mainText} />
+        </Stack>
+        <GoNextButton href={mainContent[Object.keys(mainContent)[3]].sectionId} />
+      </Spotlight>
+
       <Content sectionId="contact">
         <Heading
           level={mainContent.contact.heading.level}
@@ -142,6 +144,8 @@ export default function Landing({ title, keywords, description, children, conten
           hasSeparator
           inverted
         />
+        <Button label="primary button" buttonType="primary" jsHook="js-submit-button"/>
+        <Button label="secondary button" buttonType="secondary" jsHook="js-submit-button"/>
       </Content>
       <Footer />
     </div>

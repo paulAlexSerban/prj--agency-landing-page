@@ -12,6 +12,5 @@ $block: "landing";
 
 .#{$block} {
   @include e("base") {
-    @include addSectionShadow();
   }
 }

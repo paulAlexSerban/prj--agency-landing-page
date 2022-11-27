@@ -8,6 +8,30 @@ $block: "link";
 \* ------------------------------------ */
 
 .#{$block} {
+  @include e("default", "large") {
+    // WARNING: it is recommended to keep te order of the following properties
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:visited {
+    }
+
+    &:hover {
+    }
+
+    &:active {
+    }
+
+    &:focus {
+    }
+  }
+
   @include e("default") {
     @include font($link);
   }
