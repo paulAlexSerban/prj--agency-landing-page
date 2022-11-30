@@ -8,11 +8,11 @@ export default function GoNextButton({ href }) {
   const ID = useId();
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => new GoNextButtonAtom(el));
+    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new GoNextButtonAtom(el));
   });
 
   return (
-    <a className={styles.base} data-next={`${config.name}-${ID}`} href={`#${href}`}>
+    <a className={styles.base} data-next-cmp={`${config.name}-${ID}`} href={`#${href}`}>
       <ChevronDown className={styles.svg} />
     </a>
   );

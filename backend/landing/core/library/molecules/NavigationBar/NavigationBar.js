@@ -8,7 +8,7 @@ export default function NavigationBar({jsToggleHook}) {
   const ID = useId();
 
   return (
-    <div data-next={`${config.name}-${ID}`} className={styles.base}>
+    <div data-next-cmp={`${config.name}-${ID}`} className={styles.base}>
       <LogoIcon />
       <BurgerButton ariaControls="navigationBar" ariaLabel="Toggle navigation" jsHook={jsToggleHook} />
     </div>

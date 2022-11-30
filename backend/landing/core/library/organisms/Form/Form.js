@@ -7,11 +7,11 @@ export default function Form() {
   const ID = useId();
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => new FormOrganism(el).init());
+    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new FormOrganism(el).init());
   });
 
   return (
-    <form className={`${styles.base} ${styles.inactive}`} data-next={`${config.name}-${ID}`}>
+    <form className={`${styles.base} ${styles.inactive}`} data-next-cmp={`${config.name}-${ID}`}>
       <div className={`${styles.container} container`}>
         <h3>Form</h3>
         <form method="post" action="#">

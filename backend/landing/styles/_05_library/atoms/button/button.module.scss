@@ -9,31 +9,28 @@ $block: "button";
 
 .#{$block} {
   @include e("base") {
-    padding: ($baseline * 2) $gutter;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
+    @include button-base;
+
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
 
   @include e("primary") {
-    color: var(--text-color);
     background-color: var(--brand-color);
     box-shadow: inset 0px 0px 0px 1px var(--brand-color);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: transparent;
       box-shadow: inset 0px 0px 0px 4px var(--brand-color);
     }
   }
 
   @include e("secondary") {
-    color: var(--text-color);
-    box-shadow: inset 0px 0px 0px 1px var(--text-color);
+    box-shadow: inset 0px 0px 0px 1px get-color($c-gray, spanish-gray);
     background-color: transparent;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: transparent;
       box-shadow: inset 0px 0px 0px 4px var(--text-color);
     }

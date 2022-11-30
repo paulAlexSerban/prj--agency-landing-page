@@ -10,6 +10,10 @@ import PageTitle from "@/core/atoms/PageTitle/PageTitle";
 import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 import Heading from "@/core/atoms/Heading/Heading";
 import Button from "@/core/atoms/Button/Button";
+import TextInput from "@/core/atoms/TextInput/TextInput";
+import EmailInput from "@/core/atoms/EmailInput/EmailInput";
+import Textarea from "@/core/atoms/Textarea/Textarea";
+import Fieldset from "@/core/atoms/Fieldset/Fieldset";
 
 // MOLECULES
 import Card from "@/core/molecules/Card/Card";
@@ -32,19 +36,28 @@ import pageTitleCss from "@/styles/atoms/page-title/page-title.module.scss";
 import goNextStyles from "@/styles/atoms/go-next-button/go-next-button.module.scss";
 import mastheadCss from "@/styles/organisms/masthead/masthead.module.scss";
 
-export default function Landing({ title, keywords, description, children, content, pageProperties }) {
+export default function Landing({
+  title,
+  keywords,
+  description,
+  children,
+  content,
+  pageProperties,
+}) {
   const ID = useId();
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => {
-      const template = new LandingTemplate(el);
-    });
+    document
+      .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
+      .forEach((el) => {
+        const template = new LandingTemplate(el);
+      });
   });
 
   const mainContent = content.main;
 
   return (
     <div
-      data-next={`${config.name}-${ID}`}
+      data-next-cmp={`${config.name}-${ID}`}
       id="page-top"
       className={`${styles.base} ${mastheadCss.isPreload} ${pageTitleCss.isPreload} ${goNextStyles.isPreload}`}
     >
@@ -57,7 +70,9 @@ export default function Landing({ title, keywords, description, children, conten
       <Navigation navList={mainContent} />
       <MastHeader>
         <PageTitle text="Închiriere echipamente IT" />
-        <GoNextButton href={mainContent[Object.keys(mainContent)[0]].sectionId} />
+        <GoNextButton
+          href={mainContent[Object.keys(mainContent)[0]].sectionId}
+        />
       </MastHeader>
       <Spotlight
         sectionId={mainContent.spotlight.sectionId}
@@ -73,7 +88,9 @@ export default function Landing({ title, keywords, description, children, conten
           <Paragraph text={mainContent.spotlight.content.paragraph} />
           <Paragraph text={mainContent.spotlight.content.paragraph_1} />
         </LineUp>
-        <GoNextButton href={mainContent[Object.keys(mainContent)[1]].sectionId} />
+        <GoNextButton
+          href={mainContent[Object.keys(mainContent)[1]].sectionId}
+        />
       </Spotlight>
       <Content sectionId={mainContent.benefits.sectionId}>
         <Heading
@@ -121,9 +138,14 @@ export default function Landing({ title, keywords, description, children, conten
         imageSrc={mainContent.spotlight_1.sectionEl.spotlight.imageSrc}
       >
         <Stack>
-          <Heading level={mainContent.spotlight_1.heading.level} mainText={mainContent.spotlight_1.heading.mainText} />
+          <Heading
+            level={mainContent.spotlight_1.heading.level}
+            mainText={mainContent.spotlight_1.heading.mainText}
+          />
         </Stack>
-        <GoNextButton href={mainContent[Object.keys(mainContent)[2]].sectionId} />
+        <GoNextButton
+          href={mainContent[Object.keys(mainContent)[2]].sectionId}
+        />
       </Spotlight>
       <Spotlight
         sectionId={mainContent.spotlight_2.sectionId}
@@ -131,9 +153,14 @@ export default function Landing({ title, keywords, description, children, conten
         imageSrc={mainContent.spotlight_2.sectionEl.spotlight.imageSrc}
       >
         <Stack>
-          <Heading level={mainContent.spotlight_2.heading.level} mainText={mainContent.spotlight_2.heading.mainText} />
+          <Heading
+            level={mainContent.spotlight_2.heading.level}
+            mainText={mainContent.spotlight_2.heading.mainText}
+          />
         </Stack>
-        <GoNextButton href={mainContent[Object.keys(mainContent)[3]].sectionId} />
+        <GoNextButton
+          href={mainContent[Object.keys(mainContent)[3]].sectionId}
+        />
       </Spotlight>
 
       <Content sectionId="contact">
@@ -144,8 +171,38 @@ export default function Landing({ title, keywords, description, children, conten
           hasSeparator
           inverted
         />
-        <Button label="primary button" buttonType="primary" jsHook="js-submit-button"/>
-        <Button label="secondary button" buttonType="secondary" jsHook="js-submit-button"/>
+        <Button
+          label="primary button"
+          buttonType="primary"
+          jsHook="js-submit-button"
+        />
+        <Button
+          label="secondary button"
+          buttonType="secondary"
+          jsHook="js-submit-button"
+        />
+        <Fieldset name="identification">
+          <TextInput
+            placeholder="Name"
+            inputName="name"
+            inputId="name"
+            initValue=""
+          />
+          <EmailInput
+            placeholder="Email"
+            inputName="email"
+            inputId="email"
+            initValue=""
+          />
+        </Fieldset>
+
+        <Textarea
+          placeholder="Enter your message"
+          inputName="message"
+          inputId="message"
+          initValue=""
+          rows="6"
+        />
       </Content>
       <Footer />
     </div>

@@ -10,7 +10,7 @@ export default function Copyright() {
   const year = date.getFullYear();
 
   return (
-    <div className={styles.base} data-next={`${config.name}-${ID}`}>
+    <div className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
       <Paragraph text={`${year} © LynxIT`} />
     </div>
   );

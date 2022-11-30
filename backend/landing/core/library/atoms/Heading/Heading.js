@@ -8,7 +8,7 @@ export default function Heading({ level = 2, mainText, subheading, hasSeparator 
     return (
       <h2
         className={`${styles.heading} ${styles[`heading--${level}`]} ${hasSeparator ? styles.separator : ""}`}
-        data-next={`${config.name}-${ID}`}
+        data-next-cmp={`${config.name}-${ID}`}
       >
         <span className={styles.main}>{mainText}</span>
         <span className={styles.subheading}>{subheading}</span>

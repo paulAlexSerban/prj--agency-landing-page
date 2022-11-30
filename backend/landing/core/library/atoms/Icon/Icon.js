@@ -27,5 +27,5 @@ export default function Icon({iconName, className}) {
     recycle: <BsRecycle />
   }
 
-  return <span className={className} data-next={`${config.name}-${ID}`}>{icon[iconName]}</span>;
+  return <span className={className} data-next-cmp={`${config.name}-${ID}`}>{icon[iconName]}</span>;
 }

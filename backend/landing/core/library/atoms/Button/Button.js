@@ -9,7 +9,7 @@ export default function Button({ label, buttonType, ariaLabel, jsHook = "js-butt
   return (
     <button
       className={`${styles.base} ${styles[buttonType]} ${jsHook.split(".").join("")}`}
-      data-next={`${config.name}-${ID}`}
+      data-next-cmp={`${config.name}-${ID}`}
       aria-label={ariaLabel ? ariaLabel : label}>
       <span className={styles.label}>{label}</span>
     </button>

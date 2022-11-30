@@ -60,9 +60,9 @@ export class SpotlightOrganism extends Component {
   #init() {
     this.#setupDomReferences();
     this.#setupPlugins();
-    this.#initPlugins();
+    // this.#initPlugins();
 
-    this.#setEventListeners();
-    this.#setBackgroundImage();
+    // this.#setEventListeners();
+    // this.#setBackgroundImage();
   }
 }

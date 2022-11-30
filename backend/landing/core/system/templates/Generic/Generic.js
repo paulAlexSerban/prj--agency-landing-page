@@ -14,7 +14,7 @@ export default function Generic({ title, keywords, description, children, conten
   const ID = useId();
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => {
+    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => {
       const template = new GenericTemplate(el);
     });
   });
@@ -22,7 +22,7 @@ export default function Generic({ title, keywords, description, children, conten
   const mainContent = content.main;
 
   return (
-    <div data-next={`${config.name}-${ID}`} className={`${styles.base}`} id="page-top">
+    <div data-next-cmp={`${config.name}-${ID}`} className={`${styles.base}`} id="page-top">
       <Head>
         <title>{title}</title>
         <meta name="keywords" content={keywords} />

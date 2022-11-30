@@ -6,7 +6,7 @@ export default function Form({ children }) {
   const ID = useId();
 
   return (
-    <form data-next={`${config.name}-${ID}`} className={styles.base}>
+    <form data-next-cmp={`${config.name}-${ID}`} className={styles.base}>
       {children}
     </form>
   );

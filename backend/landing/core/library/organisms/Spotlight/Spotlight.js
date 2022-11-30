@@ -9,16 +9,16 @@ export default function Spotlight({ children, position, imageSrc, sectionId }) {
   const [loadingComplete, setLoadingComplete] = useState(false);
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => new SpotlightOrganism(el));
-  }, [loadingComplete]);
+    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new SpotlightOrganism(el));
+  });
 
   return (
     <section
-      data-next={`${config.name}-${ID}`}
+      data-next-cmp={`${config.name}-${ID}`}
       id={sectionId}
       className={`${styles.base} ${styles[position]} ${styles.inactive}`}
     >
-      <Image
+      {/* <Image
         className={`${styles.image} ${config.hooks.image}`}
         src={`/${imageSrc}`}
         layout="fill"
@@ -27,7 +27,7 @@ export default function Spotlight({ children, position, imageSrc, sectionId }) {
         onLoadingComplete={() => {
           setLoadingComplete(true);
         }}
-      />
+      /> */}
       <div className={styles.content}>{children}</div>
     </section>
   );
