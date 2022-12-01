@@ -14,6 +14,7 @@ import TextInput from "@/core/atoms/TextInput/TextInput";
 import EmailInput from "@/core/atoms/EmailInput/EmailInput";
 import Textarea from "@/core/atoms/Textarea/Textarea";
 import Fieldset from "@/core/atoms/Fieldset/Fieldset";
+import Radio from "@/core/atoms/Radio/Radio";
 
 // MOLECULES
 import Card from "@/core/molecules/Card/Card";
@@ -203,6 +204,11 @@ export default function Landing({
           initValue=""
           rows="6"
         />
+
+        <Fieldset name="gender">
+          <Radio inputName="gender" inputId="radio-one" label="male" />
+          <Radio inputName="gender" inputId="radio-two" label="feminine" />
+        </Fieldset>
       </Content>
       <Footer />
     </div>

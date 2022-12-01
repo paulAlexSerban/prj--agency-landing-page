@@ -3,7 +3,6 @@ import { breakpoints } from "core/plugins/breakpoints";
 import Component from "../../../prototypes/Component";
 import BREAKPOINTS from "@/utils/constants/breakpoints";
 import IMAGE_RENDITIONS from "@/utils/constants/image-renditions";
-import { config } from "./config";
 
 export class MastHeaderOrganism extends Component {
   constructor(el) {
@@ -46,12 +45,11 @@ export class MastHeaderOrganism extends Component {
     const isCorrectRendition = Boolean(this.windowWidth <= imageRendition);
 
     if (!isCorrectRendition) {
-      console.log(this.imageRenditionsPaths);
       const correctRendition = IMAGE_RENDITIONS.find((width) => {
         return width > this.windowWidth;
       });
 
-      this.el.style.setProperty("--image-src", `url(${this.imagePath}-${correctRendition}px.webp)`);
+      this.el.style.setProperty("--image-src", `url(/${this.imagePath}-${correctRendition}px.webp)`);
     }
   }
 

@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { config } from "./config";
 import { SlSocialTwitter, SlSocialFacebook, SlSocialLinkedin, SlEnvolope } from "react-icons/sl";
-import { BsPercent, BsShieldCheck, BsRecycle } from "react-icons/bs";
+import { BsPercent, BsShieldCheck, BsRecycle, BsCheck } from "react-icons/bs";
 import { RiCustomerService2Line } from "react-icons/ri";
 import { TbArrowsShuffle } from "react-icons/tb";
 import { GiReceiveMoney } from "react-icons/gi";
@@ -24,7 +24,8 @@ export default function Icon({iconName, className}) {
     warranty: <BsShieldCheck />,
     flexible: <TbArrowsShuffle />,
     money: <GiReceiveMoney />,
-    recycle: <BsRecycle />
+    recycle: <BsRecycle />,
+    checkMark: <BsCheck />,
   }
 
   return <span className={className} data-next-cmp={`${config.name}-${ID}`}>{icon[iconName]}</span>;

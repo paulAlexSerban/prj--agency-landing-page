@@ -6,6 +6,7 @@ import Component from "@/prototypes/Component";
 import { breakpoints } from "@/plugins/breakpoints";
 import { smoothScroll } from "@/plugins/smoothScroll";
 import BREAKPOINTS from "@/utils/constants/breakpoints";
+import { toggleClass } from "@/utils/dom/manipulation";
 
 export class NavigationOrganism extends Component {
   constructor(el) {
@@ -24,10 +25,18 @@ export class NavigationOrganism extends Component {
   }
 
   #setupDomReferences() {
-    this.elements.mainNav = document.body.querySelector(config.selectors.mainNav);
-    this.elements.navToggler = document.body.querySelector(config.selectors.navToggler);
-    this.elements.navList = document.body.querySelector(config.selectors.navList);
-    this.elements.navItems = [].slice.call(document.querySelectorAll(config.selectors.navItems));
+    this.elements.mainNav = document.body.querySelector(
+      config.selectors.mainNav
+    );
+    this.elements.navToggler = document.body.querySelector(
+      config.selectors.navToggler
+    );
+    this.elements.navList = document.body.querySelector(
+      config.selectors.navList
+    );
+    this.elements.navItems = [].slice.call(
+      document.querySelectorAll(config.selectors.navItems)
+    );
   }
 
   #setupEvents() {
@@ -38,22 +47,31 @@ export class NavigationOrganism extends Component {
     this.elements.navItems.map((item) => {
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        const maxWidthToggleDesktop = parseInt(BREAKPOINTS.desktop[1].split("px")[0]);
-        if (window.innerWidth < maxWidthToggleDesktop) this.elements.navToggler.click();
+        const maxWidthToggleDesktop = parseInt(
+          BREAKPOINTS.desktop[1].split("px")[0]
+        );
+        if (window.innerWidth < maxWidthToggleDesktop) {
+          this.elements.navToggler.click();
+        }
+
         this.smoothScroll.on(e.target);
       });
     });
 
     this.elements.navToggler.addEventListener("click", (e) => {
+      console.log(e.target);
       e.preventDefault();
-      this.el.classList.toggle(navigationStyles.show);
-      this.el.classList.toggle(burgerStyles.open);
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      toggleClass(navigationStyles.show, this.el);
+      toggleClass(burgerStyles.open, this.el);
     });
 
-    this.breakpoints.on(">desktop", () => {
-      this.el.classList.remove(navigationStyles.show);
-      this.el.classList.remove(burgerStyles.open);
-    });
+    // this.breakpoints.on(">desktop", () => {
+    //   console.log('test')
+    //   this.el.classList.remove(navigationStyles.show);
+    //   this.el.classList.remove(burgerStyles.open);
+    // });
   }
 
   #navbarShrink() {

@@ -1,0 +1,77 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "radio";
+
+/* ------------------------------------ *\
+ * RADIO ATOM
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    width: 100%;
+    position: relative;
+    height: $baseline * 5;
+    display: inline-block;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover,
+    &:focus {
+      .radioBox {
+        box-shadow: inset 0px 0px 0px 4px var(--text-color);
+      }
+    }
+  }
+
+  @include e("input") {
+    @include radio-base();
+
+    &:checked {
+      ~ .radioBox {
+        box-shadow: inset 0px 0px 0px 4px var(--text-color);
+
+        .icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @include e("radioBox") {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    height: $baseline * 4;
+    width: $baseline * 4;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 1px get-color($c-gray, spanish-gray);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  @include e("label") {
+    position: absolute;
+    top: 50%;
+    left: $baseline * 5;
+    transform: translate(0, -50%);
+  }
+
+  @include e("icon") {
+    opacity: 0;
+    color: var(--text-color);
+    transition: opacity 0.2s ease-in-out;
+    font-size: 30px;
+    line-height: 30px;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-52%, -45%);
+  }
+}
