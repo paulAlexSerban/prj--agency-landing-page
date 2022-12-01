@@ -16,6 +16,7 @@ import Textarea from "@/core/atoms/Textarea/Textarea";
 import Fieldset from "@/core/atoms/Fieldset/Fieldset";
 import Radio from "@/core/atoms/Radio/Radio";
 import Checkbox from "@/core/atoms/Checkbox/Checkbox";
+import Select from "@/core/atoms/Select/Select";
 
 // MOLECULES
 import Card from "@/core/molecules/Card/Card";
@@ -214,6 +215,7 @@ export default function Landing({
           <Checkbox inputName="gender" inputId="checkbox-one" label="one checkbox" />
           <Checkbox inputName="gender" inputId="checkbox-two" label="two checkbox" />
         </Fieldset>
+        <Select options={["Dog", "Hypo", "Kangaroo", "Hamster", "Dolphin", "Spider", "Goldfish"]}/>
       </Content>
       <Footer />
     </div>

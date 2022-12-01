@@ -1,0 +1,34 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "select";
+
+/* ------------------------------------ *\
+ * SELECT ATOM
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base", "select") {
+    width: 100%;
+    background-color: transparent;
+  }
+
+  @include e("base") {
+    position: relative;
+    z-index: 1;
+  }
+
+  @include e("select") {
+    @include input-base();
+    cursor: pointer;
+  }
+
+  @include e("icon") {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-40%);
+    font-size: 25px;
+    z-index: -1;
+  }
+}
