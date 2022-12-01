@@ -15,6 +15,7 @@ import EmailInput from "@/core/atoms/EmailInput/EmailInput";
 import Textarea from "@/core/atoms/Textarea/Textarea";
 import Fieldset from "@/core/atoms/Fieldset/Fieldset";
 import Radio from "@/core/atoms/Radio/Radio";
+import Checkbox from "@/core/atoms/Checkbox/Checkbox";
 
 // MOLECULES
 import Card from "@/core/molecules/Card/Card";
@@ -208,6 +209,10 @@ export default function Landing({
         <Fieldset name="gender">
           <Radio inputName="gender" inputId="radio-one" label="male" />
           <Radio inputName="gender" inputId="radio-two" label="feminine" />
+        </Fieldset>
+        <Fieldset name="gender">
+          <Checkbox inputName="gender" inputId="checkbox-one" label="one checkbox" />
+          <Checkbox inputName="gender" inputId="checkbox-two" label="two checkbox" />
         </Fieldset>
       </Content>
       <Footer />

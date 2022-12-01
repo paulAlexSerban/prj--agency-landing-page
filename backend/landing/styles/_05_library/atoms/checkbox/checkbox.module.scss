@@ -1,18 +1,18 @@
 @import "../../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-$block: "radio";
+$block: "checkbox";
 
 /* ------------------------------------ *\
- * RADIO ATOM
+ * CHECKBOX ATOM
 \* ------------------------------------ */
 
 .#{$block} {
   @include e("base") {
-    @include checks-base("radioBox");
+    @include checks-base("checkbox");
   }
 
-  @include e("radioBox") {
-    border-radius: 50%;
+  @include e("checkbox") {
+    border-radius: 5px;
   }
 }

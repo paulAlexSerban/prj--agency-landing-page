@@ -1,0 +1,70 @@
+@mixin checks-base($box) {
+  width: 100%;
+  position: relative;
+  height: $baseline * 5;
+  display: inline-block;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    .#{$box} {
+      box-shadow: inset 0px 0px 0px 4px var(--text-color);
+    }
+  }
+
+  input {
+    appearance: none;
+    display: block;
+    opacity: 0;
+    width: 1em;
+    z-index: -1;
+
+    &:checked {
+      ~ .#{$box} {
+        box-shadow: inset 0px 0px 0px 4px var(--text-color);
+
+        .icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .#{$box} {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    height: $baseline * 4;
+    width: $baseline * 4;
+
+    box-shadow: inset 0px 0px 0px 1px get-color($c-gray, spanish-gray);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  .label {
+    position: absolute;
+    top: 50%;
+    left: $baseline * 5;
+    transform: translate(0, -50%);
+  }
+
+  .icon {
+    opacity: 0;
+    color: var(--text-color);
+    transition: opacity 0.2s ease-in-out;
+    font-size: 30px;
+    line-height: 30px;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-52%, -45%);
+  }
+}
