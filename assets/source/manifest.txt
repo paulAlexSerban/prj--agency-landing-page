@@ -1,0 +1,92 @@
+total 0
+drwxr-xr-x   8 paulserban  staff   256 30 Dec 21:12 .
+drwxr-xr-x   8 paulserban  staff   256 30 Dec 16:11 ..
+drwxr-xr-x   2 paulserban  staff    64 30 Nov 17:27 audio
+drwxr-xr-x   2 paulserban  staff    64 30 Nov 17:26 icons
+drwxr-xr-x  35 paulserban  staff  1120 30 Dec 16:10 images
+-rw-r--r--   1 paulserban  staff     0 30 Dec 21:12 manifest.txt
+drwxr-xr-x  16 paulserban  staff   512 30 Nov 17:24 svgs
+drwxr-xr-x   2 paulserban  staff    64 30 Nov 17:26 videos
+
+./audio:
+total 0
+drwxr-xr-x  2 paulserban  staff   64 30 Nov 17:27 .
+drwxr-xr-x  8 paulserban  staff  256 30 Dec 21:12 ..
+
+./icons:
+total 0
+drwxr-xr-x  2 paulserban  staff   64 30 Nov 17:26 .
+drwxr-xr-x  8 paulserban  staff  256 30 Dec 21:12 ..
+
+./images:
+total 65256
+drwxr-xr-x  35 paulserban  staff     1120 30 Dec 16:10 .
+drwxr-xr-x   8 paulserban  staff      256 30 Dec 21:12 ..
+-rw-rw-r--   1 paulserban  staff  1514946 30 Dec 16:10 _RBC4597.jpg
+-rw-rw-r--   1 paulserban  staff  1612420 30 Dec 16:10 _RBC4612.jpg
+-rw-rw-r--   1 paulserban  staff  1673510 30 Dec 16:10 _RBC4613.jpg
+-rw-rw-r--   1 paulserban  staff  1626697 30 Dec 16:10 _RBC4615.jpg
+-rw-rw-r--   1 paulserban  staff  1243230 30 Dec 16:10 _RBC4622.jpg
+-rw-rw-r--   1 paulserban  staff  1405328 30 Dec 16:10 _RBC4623.jpg
+-rw-rw-r--   1 paulserban  staff  1506549 30 Dec 16:10 _RBC4624.jpg
+-rw-rw-r--   1 paulserban  staff  1120762 30 Dec 16:10 _RBC4625.jpg
+-rw-rw-r--   1 paulserban  staff  1027099 30 Dec 16:10 _RBC4626.jpg
+-rw-rw-r--   1 paulserban  staff  1145976 30 Dec 16:10 _RBC4627.jpg
+-rw-rw-r--   1 paulserban  staff  1244488 30 Dec 16:10 _RBC4628.jpg
+-rw-rw-r--   1 paulserban  staff  1194961 30 Dec 16:10 _RBC4629.jpg
+-rw-rw-r--   1 paulserban  staff  1269778 30 Dec 16:10 _RBC4630.jpg
+-rw-rw-r--   1 paulserban  staff  1826018 30 Dec 16:10 _RBC4633.jpg
+-rw-rw-r--   1 paulserban  staff  1279434 30 Dec 16:10 _RBC4637.jpg
+-rw-rw-r--   1 paulserban  staff  2127860 30 Dec 16:10 _RBC4640.jpg
+-rw-rw-r--   1 paulserban  staff  1517105 30 Dec 16:10 _RBC4647.jpg
+-rw-rw-r--   1 paulserban  staff  1444776 30 Dec 16:10 _RBC4653.jpg
+-rw-rw-r--   1 paulserban  staff  1392128 30 Dec 16:10 _RBC4654.jpg
+-rw-rw-r--   1 paulserban  staff  1401966 30 Dec 16:10 _RBC4664.jpg
+-rw-rw-r--   1 paulserban  staff  2470177 30 Dec 16:10 _RBC4665.jpg
+-rw-r--r--   1 paulserban  staff   359563 30 Nov 17:23 banner.jpeg
+-rw-r--r--   1 paulserban  staff   238317 28 Oct 17:49 header-bg.jpg
+-rw-r--r--   1 paulserban  staff   364038 28 Oct 17:49 map-image.png
+-rw-r--r--   1 paulserban  staff     3449 30 Nov 17:23 pic01.jpg
+-rw-r--r--   1 paulserban  staff   434689 30 Nov 17:23 pic02.jpg
+-rw-r--r--   1 paulserban  staff   455534 30 Nov 17:23 pic03.jpg
+-rw-r--r--   1 paulserban  staff   414181 30 Nov 17:23 pic04.jpg
+-rw-r--r--   1 paulserban  staff     9108 30 Nov 17:23 pic05.jpg
+-rw-r--r--   1 paulserban  staff    11969 30 Nov 17:23 pic06.jpg
+-rw-r--r--   1 paulserban  staff    10700 30 Nov 17:23 pic07.jpg
+-rw-r--r--   1 paulserban  staff     2101 30 Nov 17:23 pic08.jpg
+drwxr-xr-x   8 paulserban  staff      256 28 Oct 17:49 product
+
+./images/product:
+total 304
+drwxr-xr-x   8 paulserban  staff    256 28 Oct 17:49 .
+drwxr-xr-x  35 paulserban  staff   1120 30 Dec 16:10 ..
+-rw-r--r--   1 paulserban  staff  18415 28 Oct 17:49 1.jpg
+-rw-r--r--   1 paulserban  staff  32450 28 Oct 17:49 2.jpg
+-rw-r--r--   1 paulserban  staff  17771 28 Oct 17:49 3.jpg
+-rw-r--r--   1 paulserban  staff  26923 28 Oct 17:49 4.jpg
+-rw-r--r--   1 paulserban  staff  17628 28 Oct 17:49 5.jpg
+-rw-r--r--   1 paulserban  staff  32511 28 Oct 17:49 6.jpg
+
+./svgs:
+total 144
+drwxr-xr-x  16 paulserban  staff    512 30 Nov 17:24 .
+drwxr-xr-x   8 paulserban  staff    256 30 Dec 21:12 ..
+-rw-r--r--   1 paulserban  staff    194 30 Nov 17:23 arrow.svg
+-rw-r--r--   1 paulserban  staff    401 30 Nov 17:23 bars.svg
+-rw-r--r--   1 paulserban  staff    207 30 Nov 17:23 chevron-down.svg
+-rw-r--r--   1 paulserban  staff    333 30 Nov 17:23 close-icon.svg
+-rw-r--r--   1 paulserban  staff    361 30 Nov 17:23 close.svg
+-rw-r--r--   1 paulserban  staff   3223 30 Nov 17:24 facebook.svg
+-rw-r--r--   1 paulserban  staff   1335 30 Nov 17:23 favicon.svg
+-rw-r--r--   1 paulserban  staff   3282 30 Nov 17:24 google.svg
+-rw-r--r--   1 paulserban  staff   2284 30 Nov 17:24 ibm.svg
+-rw-r--r--   1 paulserban  staff   3747 30 Nov 17:23 logo-lynxit-icon-text-2.svg
+-rw-r--r--   1 paulserban  staff   3361 30 Nov 17:23 logo-lynxit-icon-text.svg
+-rw-r--r--   1 paulserban  staff   1380 30 Nov 17:23 logo-lynxit-icon.svg
+-rw-r--r--   1 paulserban  staff   4137 30 Nov 17:24 microsoft.svg
+-rw-r--r--   1 paulserban  staff  14220 30 Nov 17:23 navbar-logo.svg
+
+./videos:
+total 0
+drwxr-xr-x  2 paulserban  staff   64 30 Nov 17:26 .
+drwxr-xr-x  8 paulserban  staff  256 30 Dec 21:12 ..
