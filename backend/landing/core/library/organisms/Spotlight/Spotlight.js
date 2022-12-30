@@ -6,6 +6,7 @@ import { SpotlightOrganism } from "./Spotlight.organism";
 export default function Spotlight({ children, position, imageSrc, sectionId }) {
   const ID = useId();
   const imageRendition = 320;
+  const bkgImage = imageSrc
 
   useEffect(() => {
     document
@@ -16,12 +17,12 @@ export default function Spotlight({ children, position, imageSrc, sectionId }) {
   return (
     <section
       data-next-cmp={`${config.name}-${ID}`}
-      data-bkg-image={imageSrc}
+      data-bkg-image={bkgImage}
       data-img-rendition={imageRendition}
       id={sectionId}
       className={`${styles.base} ${styles[position]} ${styles.inactive}`}
       style={{
-        "--image-src": `url(images/${imageSrc}-${imageRendition}px.webp)`,
+        "--image-src": `url(/images/${bkgImage}-${imageRendition}px.webp)`,
       }}
     >
       <div className={styles.content}>{children}</div>

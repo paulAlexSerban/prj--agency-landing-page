@@ -22,9 +22,7 @@ export class MastHeaderOrganism extends Component {
     this.imageRenditionsPaths = {};
     IMAGE_RENDITIONS.forEach(
       (rendition) =>
-        (this.imageRenditionsPaths[
-          rendition
-        ] = `${this.imagePath}-${rendition}px`)
+        (this.imageRenditionsPaths[rendition] = `${this.imagePath}-${rendition}px`)
     );
 
     this.#getDevicePixelRatio();
@@ -49,7 +47,10 @@ export class MastHeaderOrganism extends Component {
         return width > this.windowWidth;
       });
 
-      this.el.style.setProperty("--image-src", `url(/${this.imagePath}-${correctRendition}px.webp)`);
+      this.el.style.setProperty(
+        "--image-src",
+        `url(/${this.imagePath}-${correctRendition}px.webp)`
+      );
     }
   }
 

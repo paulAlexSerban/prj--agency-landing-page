@@ -54,12 +54,11 @@ export class NavigationOrganism extends Component {
           this.elements.navToggler.click();
         }
 
-        this.smoothScroll.on(e.target);
+        this.smoothScroll.on(e.target, "js-nav-link");
       });
     });
 
     this.elements.navToggler.addEventListener("click", (e) => {
-      console.log(e.target);
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();

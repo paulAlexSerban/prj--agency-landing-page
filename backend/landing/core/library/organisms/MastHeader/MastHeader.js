@@ -5,7 +5,7 @@ import { MastHeaderOrganism } from "./MastHeader.organism";
 
 export default function MastHeader({ children }) {
   const ID = useId();
-  const bkgImage = "header-bg";
+  const bkgImage = "_RBC4624";
   const imageRendition = 320;
 
   useEffect(() => {
