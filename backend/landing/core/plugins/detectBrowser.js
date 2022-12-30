@@ -1,4 +1,5 @@
-import { patterns } from "../utils/constants/patterns";
+
+import patterns from "../utils/constants/patterns";
 
 export const detectBrowser = {
   name: "detectBrowser",

@@ -1,13 +1,15 @@
 export const smoothScroll = {
   name: "smoothScroll",
   exec: () => {
-    const on = (trigger) => {
+    const on = (trigger, jsHook) => {
       let scrollToEl;
-      if (trigger.tagName === "A") {
-        scrollToEl = document.getElementById(trigger.href.split("#").pop());
-      } else {
-        scrollToEl = document.getElementById(trigger.closest("a").href.split("#").pop());
-      }
+      const triggerEl = trigger.closest(`.${jsHook}`);
+      const targetEl = (
+        triggerEl.getAttribute("href") || triggerEl.getAttribute("target")
+      )
+        .split("#")
+        .pop();
+      scrollToEl = document.getElementById(targetEl);
       scrollToEl.scrollIntoView({ behavior: "smooth" }, true);
     };
     return {

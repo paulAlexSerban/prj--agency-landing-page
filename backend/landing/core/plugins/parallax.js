@@ -10,19 +10,18 @@ export const parallax = {
       });
     }
 
-    // const off = (elm) => {
-    //   elm.style.backgroundPosition = "center 0px";
-    // }
+    const off = (elm) => {
+      elm.style.backgroundPosition = "center 0px";
+    }
 
     const init = () => {
       setupEventListeners();
       breakpointsPlugin.on("<=tablet", () => {
-        on(el);
+        off(el);
       });
       breakpointsPlugin.on("=>tablet", () => {
         on(el);
       });
-      on(el);
     }
 
     const setupEventListeners = () => {
