@@ -12,5 +12,7 @@ $block: "landing";
 
 .#{$block} {
   @include e("base") {
+    position: relative;
+    z-index: layer-index(base);
   }
 }
