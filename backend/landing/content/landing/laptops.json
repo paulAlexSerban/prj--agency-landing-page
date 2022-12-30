@@ -1,15 +1,15 @@
 {
-  "sectionName": "Laptopuri",
+  "sectionName": "laptopuri",
   "sectionId": "laptopuri",
   "sectionEl": {
     "spotlight": {
-      "position": "left",
-      "imageSrc": "pic04"
+      "position": "bottom",
+      "imageSrc": "_RBC4597"
     }
   },
   "heading": {
     "level": 3,
-    "mainText": "Laptopuri"
+    "mainText": "Configuratii de laptopuri disponibile"
   },
   "content": {}
 }
