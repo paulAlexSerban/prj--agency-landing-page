@@ -136,3 +136,25 @@ const withPuppies = (Component) = {
     const puppies = ['Fifi', 'Daisy', 'Buttons'];
 }
 ```
+
+## Loops
+
+- loops can become very slow if you do not do them right - one of the most common mistake is to read the length attribute of an array at every iteration
+- you can avoid that by storing the length value on a different variable and
+
+```javascript
+const arr = [1, 2, 3];
+const arrLength = arr.length;
+for(let i = 0; i < arrLength; i++) {
+  console.log(arr[i]))
+}
+```
+
+## Do not use new Object()
+- use `""` instead `new String()`
+- use `0` instead of `new Number()`
+- use `false` instead of `new Boolean()`
+- use `{}` instead of `new Object()`
+- use `[]` instead of `new Array()`
+- use `/()/` instead of `new RegExp()`
+- use `function() {}` instead of `new Function()`
