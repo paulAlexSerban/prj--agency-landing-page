@@ -1,7 +1,7 @@
 
 import { smoothScroll } from "core/plugins/smoothScroll";
 import Component from "../../../prototypes/Component";
-export class GoNextButtonAtom extends Component {
+export class CtaButtonAtom extends Component {
   constructor(el, jsHook) {
     super(el);
     this.#init();
@@ -19,7 +19,7 @@ export class GoNextButtonAtom extends Component {
   #setupEvents() {
     this.el.addEventListener("click", (e) => {
       e.preventDefault();
-      this.smoothScroll.on(e.target, this.jsHook);
+      this.smoothScroll.on(e.target, this.jsHook );
     })
   }
 

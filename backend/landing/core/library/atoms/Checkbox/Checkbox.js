@@ -11,7 +11,7 @@ export default function Checkbox({ inputName, inputId, inputValue, label }) {
       <input
         name={inputName}
         id={inputId}
-        value={inputValue}
+        value={label}
         type="checkbox"
         className={styles.input}
         data-next-cmp={`${config.name}-${ID}`}

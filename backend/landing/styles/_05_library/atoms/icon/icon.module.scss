@@ -1,21 +1,14 @@
 @import "../../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-$block: "textarea";
+$block: "icon";
 
 /* ------------------------------------ *\
- * TEXTAREA ATOM
+ * ICON ATOM
 \* ------------------------------------ */
 
 .#{$block} {
-  @include e("base") {
-    width: 100%;
-  }
-
-  @include e("input") {
-    @include input-base;
-
-    resize: none;
-    margin-bottom: var(--dynamic-90);
+  @include e("svg") {
+    display: block;
   }
 }

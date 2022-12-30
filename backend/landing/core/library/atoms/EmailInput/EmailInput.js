@@ -7,6 +7,7 @@ export default function EmailInput({
   inputName,
   inputId,
   inputValue,
+  required
 }) {
   const ID = useId();
 
@@ -20,6 +21,7 @@ export default function EmailInput({
         type="email"
         className={styles.input}
         data-next-cmp={`${config.name}-${ID}`}
+        data-required={required}
       />
     </label>
   );

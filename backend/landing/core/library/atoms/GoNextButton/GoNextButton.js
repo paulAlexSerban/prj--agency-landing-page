@@ -6,13 +6,14 @@ import { GoNextButtonAtom } from "./GoNextButton.atom";
 
 export default function GoNextButton({ href }) {
   const ID = useId();
+  const jsHook = "js-go-next-button"
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new GoNextButtonAtom(el));
+    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new GoNextButtonAtom(el, jsHook));
   });
 
   return (
-    <a className={styles.base} data-next-cmp={`${config.name}-${ID}`} href={`#${href}`}>
+    <a className={`${styles.base} ${jsHook}`} data-next-cmp={`${config.name}-${ID}`} href={`#${href}`}>
       <ChevronDown className={styles.svg} />
     </a>
   );

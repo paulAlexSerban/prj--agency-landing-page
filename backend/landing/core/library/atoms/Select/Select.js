@@ -5,9 +5,10 @@ import Icon from "@/core/atoms/Icon/Icon";
 
 export default function Select({
   inputName,
+  placeholder="optiuni",
   inputId,
-  inputValue,
   options = [],
+  required
 }) {
   const ID = useId();
 
@@ -16,12 +17,12 @@ export default function Select({
       <select
         name={inputName}
         id={inputId}
-        value={inputValue}
         type="radio"
         className={styles.select}
         data-next-cmp={`${config.name}-${ID}`}
+        data-required={required}
       >
-        <option value="">choose an option !!!</option>
+        <option value="">{placeholder}</option>
         {options.map((option, index) => {
           return (
             <option value={option.toLowerCase()} key={index}>

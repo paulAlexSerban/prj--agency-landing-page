@@ -42,7 +42,7 @@
     height: $baseline * 4;
     width: $baseline * 4;
 
-    box-shadow: inset 0px 0px 0px 1px get-color($c-gray, spanish-gray);
+    box-shadow: inset 0px 0px 0px 1px var(--text-color);
     transition: box-shadow 0.2s ease-in-out;
   }
 

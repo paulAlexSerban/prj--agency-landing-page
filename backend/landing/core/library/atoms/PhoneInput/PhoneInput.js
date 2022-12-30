@@ -1,8 +1,8 @@
 import { useId } from "react";
 import config from "./config";
-import styles from "@/styles/atoms/text-input/text-input.module.scss";
+import styles from "@/styles/atoms/phone-input/phone-input.module.scss";
 
-export default function TextInput({
+export default function PhoneInput({
   placeholder,
   inputName,
   inputId,

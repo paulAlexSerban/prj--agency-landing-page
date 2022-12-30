@@ -8,6 +8,7 @@ export default function Textarea({
   inputId,
   inputValue,
   rows,
+  required
 }) {
   const ID = useId();
 
@@ -21,6 +22,7 @@ export default function Textarea({
         rows={rows}
         className={styles.input}
         data-next-cmp={`${config.name}-${ID}`}
+        data-required={required}
       ></textarea>
     </label>
   );

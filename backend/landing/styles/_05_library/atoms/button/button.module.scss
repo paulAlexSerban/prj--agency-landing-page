@@ -12,6 +12,7 @@ $block: "button";
     @include button-base;
 
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-decoration: none;
   }
 
   @include e("primary") {

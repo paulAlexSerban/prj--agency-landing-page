@@ -1,10 +1,10 @@
 @import "../../../_00_abstracts/all.scss";
 $breakpoints: $column-grid-12;
 $useModules: true;
-$block: "textarea";
+$block: "phone-input";
 
 /* ------------------------------------ *\
- * TEXTAREA ATOM
+ * PHONE INPUT ATOM
 \* ------------------------------------ */
 
 .#{$block} {
@@ -14,8 +14,5 @@ $block: "textarea";
 
   @include e("input") {
     @include input-base;
-
-    resize: none;
-    margin-bottom: var(--dynamic-90);
   }
 }

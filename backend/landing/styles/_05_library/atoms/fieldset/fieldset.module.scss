@@ -10,5 +10,9 @@ $block: "fieldset";
 .#{$block} {
   @include e("base") {
     width: 100%;
+    margin-bottom: var(--dynamic-50);
+  }
+  @include e("legend") {
+    margin-bottom: var(--dynamic-30);
   }
 }

@@ -16,18 +16,21 @@ $block: "select";
   @include e("base") {
     position: relative;
     z-index: 1;
+    display: block;
+    height: 100%;
   }
 
   @include e("select") {
     @include input-base();
+
     cursor: pointer;
   }
 
   @include e("icon") {
     position: absolute;
     right: 16px;
-    top: 50%;
-    transform: translateY(-40%);
+    top: 35%;
+    transform: translateY(-50%);
     font-size: 25px;
     z-index: -1;
   }

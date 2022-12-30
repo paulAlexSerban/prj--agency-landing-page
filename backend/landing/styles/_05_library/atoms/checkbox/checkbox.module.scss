@@ -10,6 +10,8 @@ $block: "checkbox";
 .#{$block} {
   @include e("base") {
     @include checks-base("checkbox");
+
+    margin-bottom: var(--dynamic-20);
   }
 
   @include e("checkbox") {

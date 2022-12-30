@@ -6,7 +6,7 @@
   background: transparent;
   border-radius: 5px;
   border: none;
-  box-shadow: inset 0px 0px 0px 1px get-color($c-gray, spanish-gray);
+  box-shadow: inset 0px 0px 0px 1px var(--text-color);
   color: var(--text-color);
   display: block;
   outline: 0;
@@ -14,6 +14,12 @@
   text-decoration: none;
   width: 100%;
   cursor: text;
+  margin-bottom: var(--dynamic-50);
+
+  &::-webkit-input-placeholder {
+    color: var(--text-color);
+  }
+
 
   &:hover,
   &:focus {
