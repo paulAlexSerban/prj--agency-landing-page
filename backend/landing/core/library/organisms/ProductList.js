@@ -8,7 +8,9 @@ export default function ProductList() {
       <div className="container">
         <div className="text-center">
           <h2 className="section-heading text-uppercase">Products</h2>
-          <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 className="section-subheading text-muted">
+            Lorem ipsum dolor sit amet consectetur.
+          </h3>
         </div>
         <div className="row">
           <div className="col-lg-4 col-sm-6 mb-4">
@@ -21,7 +23,7 @@ export default function ProductList() {
             />
           </div>
           <div className="col-lg-4 col-sm-6 mb-4">
-          <Product
+            <Product
               modalRef="productModal3"
               imgSrc="product/3.jpg"
               imgAlt="lorem alt text"
@@ -30,7 +32,7 @@ export default function ProductList() {
             />
           </div>
           <div className="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-          <Product
+            <Product
               modalRef="productModal5"
               imgSrc="product/5.jpg"
               imgAlt="lorem alt text"

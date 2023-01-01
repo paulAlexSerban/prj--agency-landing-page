@@ -9,17 +9,33 @@ $block: "ram";
 
 .#{$block} {
   @include e("base") {
-    --grid-cols: 1;
     display: grid;
     grid-gap: $gutter * 4;
-    grid-template-columns: repeat(var(--grid-cols), minmax(250px, 1fr));
+    margin-bottom: var(--dynamic-90);
 
     @include breakpoint($tablet) {
-      --grid-cols: 2;
+      grid-gap: $gutter * 3;
     }
 
-    @include breakpoint($desktop) {
-      --grid-cols: 3;
+    @include m("isAutoFit") {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+      @include breakpoint($tablet) {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+
+    @include m("hasColumns") {
+      grid-template-columns: repeat(var(--grid-cols), minmax(250px, 1fr));
+      --grid-cols: 1;
+
+      @include breakpoint($tablet) {
+        --grid-cols: 2;
+      }
+
+      @include breakpoint($desktop) {
+        --grid-cols: 3;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import { patterns } from "../utils/constants/patterns";
+import patterns from "../utils/constants/patterns";
 
 export const detectBrowser = {
   name: "detectBrowser",
@@ -35,15 +35,25 @@ export const detectBrowser = {
     ) {
       if (userAgent.match(patterns.operatingSystem[i][1])) {
         operatingSystem = patterns.operatingSystem[i][0];
-        osVersion = parseFloat(patterns.operatingSystem[i][2] ? patterns.operatingSystem[i][2](RegExp.$1) : RegExp.$1);
+        osVersion = parseFloat(
+          patterns.operatingSystem[i][2]
+            ? patterns.operatingSystem[i][2](RegExp.$1)
+            : RegExp.$1
+        );
       }
     }
 
     browserProps.os = operatingSystem;
     browserProps.osVersion = osVersion;
-    browserProps.touch = "wp" == browserProps.os ? navigator.msMaxTouchPoints > 0 : !!("ontouchstart" in window);
+    browserProps.touch =
+      "wp" == browserProps.os
+        ? navigator.msMaxTouchPoints > 0
+        : !!("ontouchstart" in window);
     browserProps.mobile =
-      "wp" == browserProps.os || "android" == browserProps.os || "ios" == browserProps.os || "bb" == browserProps.os;
+      "wp" == browserProps.os ||
+      "android" == browserProps.os ||
+      "ios" == browserProps.os ||
+      "bb" == browserProps.os;
 
     return browserProps;
   },

@@ -17,7 +17,7 @@ export const breakpoints = {
       if (active(query)) {
         handler();
       }
-    }
+    };
 
     const active = (query) => {
       let breakpoint;
@@ -142,11 +142,24 @@ export const breakpoints = {
 
                 case "not": // Not.
                   media =
-                    "screen and (max-width: " + (x - 1) + units + "), screen and (min-width: " + (y + 1) + units + ")";
+                    "screen and (max-width: " +
+                    (x - 1) +
+                    units +
+                    "), screen and (min-width: " +
+                    (y + 1) +
+                    units +
+                    ")";
                   break;
 
                 default: // Equal.
-                  media = "screen and (min-width: " + x + units + ") and (max-width: " + y + units + ")";
+                  media =
+                    "screen and (min-width: " +
+                    x +
+                    units +
+                    ") and (max-width: " +
+                    y +
+                    units +
+                    ")";
                   break;
               }
             }
@@ -163,9 +176,10 @@ export const breakpoints = {
         mediaObj[query] = media ? media : false;
       }
 
-      return mediaObj[query] === false ? false : window.matchMedia(mediaObj[query]).matches;
-    }
-
+      return mediaObj[query] === false
+        ? false
+        : window.matchMedia(mediaObj[query]).matches;
+    };
 
     const polls = () => {
       let i;
@@ -191,7 +205,7 @@ export const breakpoints = {
           }
         }
       }
-    }
+    };
 
     const setupEventListeners = () => {
       window.addEventListener("resize", () => {
@@ -206,16 +220,16 @@ export const breakpoints = {
       window.addEventListener("fullscreenchange", () => {
         polls();
       });
-    }
+    };
 
     const init = () => {
       setupEventListeners();
-    }
+    };
 
     init();
 
     return {
-      on
-    }
-  }
-}
+      on,
+    };
+  },
+};

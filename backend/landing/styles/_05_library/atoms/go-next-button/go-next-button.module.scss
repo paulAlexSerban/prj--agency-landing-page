@@ -12,20 +12,20 @@ $block: "go-next-button";
     font-size: 60px;
     transition: transform 0.75s ease, opacity 0.75s ease;
     transition-delay: 1.5s;
-    transform: translate(-50%, 0);
+    transform: translate(0, 0);
     border: none;
     bottom: 0;
-    left: 50%;
+    left: 0;
     color: inherit;
     opacity: 1;
     outline: 0;
     position: absolute;
     text-align: center;
     text-decoration: none;
-    row-gap: convert-rem(30px);
+    width: 100%;
 
     .isPreload & {
-      transform: translate(-50%, 500%);
+      transform: translate(0, 500%);
       opacity: 0;
     }
 

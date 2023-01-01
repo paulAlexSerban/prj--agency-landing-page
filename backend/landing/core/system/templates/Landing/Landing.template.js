@@ -12,19 +12,23 @@ export class LandingTemplate extends Template {
     this.#init();
   }
 
-  #setupToucheDevice () {
+  #setupToucheDevice() {
     if (this.browser.mobile) {
       // @todo: use mastheadCSS.isTouch to take advantage of css-modules
       addClass("isTouch", this.el);
     }
-  };
+  }
 
-  #setupPlugins () {
+  #setupPlugins() {
     super.register(isPreload);
   }
 
   #initPlugins() {
-    this.plugins.isPreload(this.el, [ mastheadCss.isPreload, pageTitleCss.isPreload , goNextStyles.isPreload]);
+    this.plugins.isPreload(this.el, [
+      mastheadCss.isPreload,
+      pageTitleCss.isPreload,
+      goNextStyles.isPreload,
+    ]);
   }
 
   #init() {
