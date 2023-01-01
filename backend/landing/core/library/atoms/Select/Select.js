@@ -5,10 +5,10 @@ import Icon from "@/core/atoms/Icon/Icon";
 
 export default function Select({
   inputName,
-  placeholder="optiuni",
+  placeholder = "optiuni",
   inputId,
   options = [],
-  required
+  required,
 }) {
   const ID = useId();
 

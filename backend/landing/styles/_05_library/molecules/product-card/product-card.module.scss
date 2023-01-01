@@ -19,7 +19,8 @@ $block: "product-card";
     height: 100%;
     padding-top: var(--dynamic-50);
     padding-bottom: var(--dynamic-50);
-    transition: font-size 0.3s ease-in-out, color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: font-size 0.3s ease-in-out, color 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
     border-radius: 5px;
 
     &:hover {

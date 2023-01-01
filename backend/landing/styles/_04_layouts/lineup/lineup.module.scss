@@ -7,7 +7,6 @@ $block: "lineup";
  * LINEUP LAYOUT
 \* ------------------------------------ */
 
-
 .#{$block} {
   @include e("base") {
     display: grid;

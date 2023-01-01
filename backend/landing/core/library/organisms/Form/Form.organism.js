@@ -72,7 +72,7 @@ class FormOrganism extends Component {
     });
 
     areValid.find((item) => {
-      return Object.values(item)[0]
+      return Object.values(item)[0];
     });
   }
 

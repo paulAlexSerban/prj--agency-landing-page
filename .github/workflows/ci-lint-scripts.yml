@@ -23,10 +23,10 @@ jobs:
         id: changed-bash-files
         with:
           files: |
-              *.bash
-              *.sh
-              **/*.bash
-              **/*.sh
+            *.bash
+            *.sh
+            **/*.bash
+            **/*.sh
 
       - name: List all changed files
         run: |

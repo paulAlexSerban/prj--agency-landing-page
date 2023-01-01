@@ -6,7 +6,7 @@ import { SpotlightOrganism } from "./Spotlight.organism";
 export default function Spotlight({ children, position, imageSrc, sectionId }) {
   const ID = useId();
   const imageRendition = 320;
-  const bkgImage = imageSrc
+  const bkgImage = imageSrc;
 
   useEffect(() => {
     document

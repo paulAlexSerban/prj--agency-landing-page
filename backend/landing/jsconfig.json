@@ -22,7 +22,7 @@
       "@/styles/pages/*": ["styles/_06_system/pages/*"],
 
       "@/svgs/*": ["public/svgs/*"],
-      "@/content/*": ["content/*"],
+      "@/content/*": ["content/*"]
     }
   }
 }

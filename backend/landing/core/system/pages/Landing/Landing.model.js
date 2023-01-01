@@ -17,9 +17,9 @@ export default async function getStaticProps() {
       content: {
         main: {
           spotlight: { ...aboutUs },
-          benefits: {...benefits},
+          benefits: { ...benefits },
           spotlight_1: { ...laptops },
-          contact: { ...contact}
+          contact: { ...contact },
         },
       },
     },

@@ -12,8 +12,7 @@ $block: "navigation";
     padding-inline: var(--main-content-lat-padding);
     width: 100%;
     overflow: hidden;
-    transition: background-color 0.5s ease,
-                max-height 0.5s ease;
+    transition: background-color 0.5s ease, max-height 0.5s ease;
 
     &,
     &.shrink {

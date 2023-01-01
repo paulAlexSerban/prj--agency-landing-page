@@ -8,7 +8,7 @@ export default function Textarea({
   inputId,
   inputValue,
   rows,
-  required
+  required,
 }) {
   const ID = useId();
 

@@ -3,8 +3,8 @@ export const config = {
   selectors: {},
   hooks: {
     submitBtn: "js-submit-button",
-    resetBtn: "js-reset-button"
-  }
+    resetBtn: "js-reset-button",
+  },
 };
 
 export default config;

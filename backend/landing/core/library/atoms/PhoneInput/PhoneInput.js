@@ -7,7 +7,7 @@ export default function PhoneInput({
   inputName,
   inputId,
   inputValue,
-  required
+  required,
 }) {
   const ID = useId();
 

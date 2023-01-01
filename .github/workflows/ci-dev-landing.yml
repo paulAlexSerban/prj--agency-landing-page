@@ -22,7 +22,7 @@ jobs:
         id: changed-files
         with:
           files: |
-              backend/landing/**/*
+            backend/landing/**/*
 
       - name: "List all changed files"
         run: |
@@ -44,7 +44,7 @@ jobs:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-           ${{ runner.os }}-node-
+            ${{ runner.os }}-node-
 
       - name: "🔧 Setup NodeJS 14.20.1"
         if: steps.changed-files.outputs.any_changed == 'true'

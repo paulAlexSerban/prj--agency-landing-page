@@ -7,7 +7,9 @@ export default function Form({ children }) {
   const ID = useId();
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new FormOrganism(el));
+    document
+      .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
+      .forEach((el) => new FormOrganism(el));
   });
 
   return (

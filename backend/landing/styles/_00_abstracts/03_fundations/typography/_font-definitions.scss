@@ -156,7 +156,6 @@ $heading-400: (
   $desktop: (
     font-size: convert-rem(26px),
     line-height: convert-rem(32px),
-
     letter-spacing: convert-rem(0.5px),
   ),
   $ultra-wide: (
@@ -228,7 +227,7 @@ $button-large: (
     font-family: var(--text-regular),
     font-size: convert-rem(20px),
     line-height: convert-rem(21px),
-    font-weight:400,
+    font-weight: 400,
     letter-spacing: convert-rem(1.25px),
   ),
   $desktop: (

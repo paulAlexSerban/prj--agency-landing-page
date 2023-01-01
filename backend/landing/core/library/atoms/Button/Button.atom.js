@@ -1,4 +1,3 @@
-
 import { smoothScroll } from "core/plugins/smoothScroll";
 import Component from "../../../prototypes/Component";
 export class CtaButtonAtom extends Component {
@@ -19,8 +18,8 @@ export class CtaButtonAtom extends Component {
   #setupEvents() {
     this.el.addEventListener("click", (e) => {
       e.preventDefault();
-      this.smoothScroll.on(e.target, this.jsHook );
-    })
+      this.smoothScroll.on(e.target, this.jsHook);
+    });
   }
 
   #init() {

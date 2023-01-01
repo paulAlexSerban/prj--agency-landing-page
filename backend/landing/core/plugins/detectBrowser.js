@@ -1,4 +1,3 @@
-
 import patterns from "../utils/constants/patterns";
 
 export const detectBrowser = {
@@ -59,5 +58,3 @@ export const detectBrowser = {
     return browserProps;
   },
 };
-
-

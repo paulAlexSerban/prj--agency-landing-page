@@ -1,4 +1,5 @@
 # Pages
+
 - the Final stage ns the atomic design module is pages
 - all Templates are incorporated in real representative content it’s called Page.
 - pages are the highest level of fidelity

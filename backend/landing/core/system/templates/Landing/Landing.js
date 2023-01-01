@@ -338,19 +338,19 @@ export default function Landing({
       </Content>
       <Footer />
       <ProductModal controlledBy="basic-product" heading="Configuratie Basic">
-        <ProductDetails image="_RBC4637"/>
+        <ProductDetails image="_RBC4637" />
       </ProductModal>
       <ProductModal
         controlledBy="standard-product"
         heading="Configuratie Standard"
       >
-        <ProductDetails image="_RBC4626"/>
+        <ProductDetails image="_RBC4626" />
       </ProductModal>
       <ProductModal
         controlledBy="professional-product"
         heading="Configuratie Professional"
       >
-        <ProductDetails imagfe="_RBC4630"/>
+        <ProductDetails imagfe="_RBC4630" />
       </ProductModal>
       <div className="overlay hidden"></div>
     </div>

@@ -13,9 +13,11 @@ export class ProductCardMolecule extends Component {
     this.elements.modal = document.querySelector(
       `[data-controlled-by="${this.modalID}"]`
     );
-    console.log(this.elements.modal)
+    console.log(this.elements.modal);
     this.elements.overlay = document.querySelector(config.selectors.overlay);
-    this.elements.closeModalBtn = this.elements.modal.querySelector(`.${config.hooks.btnCloseModal}`);
+    this.elements.closeModalBtn = this.elements.modal.querySelector(
+      `.${config.hooks.btnCloseModal}`
+    );
   }
 
   #setupEventListeners() {
@@ -44,13 +46,13 @@ export class ProductCardMolecule extends Component {
   }
 
   #openModal() {
-    console.log("open modal")
+    console.log("open modal");
     this.elements.modal.classList.remove("hidden");
     this.elements.overlay.classList.remove("hidden");
   }
 
   #closeModal() {
-    console.log("close modal")
+    console.log("close modal");
     this.elements.modal.classList.add("hidden");
     this.elements.overlay.classList.add("hidden");
   }

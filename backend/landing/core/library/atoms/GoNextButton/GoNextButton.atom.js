@@ -1,4 +1,3 @@
-
 import { smoothScroll } from "core/plugins/smoothScroll";
 import Component from "../../../prototypes/Component";
 export class GoNextButtonAtom extends Component {
@@ -20,7 +19,7 @@ export class GoNextButtonAtom extends Component {
     this.el.addEventListener("click", (e) => {
       e.preventDefault();
       this.smoothScroll.on(e.target, this.jsHook);
-    })
+    });
   }
 
   #init() {

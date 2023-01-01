@@ -7,7 +7,7 @@ export default function TextInput({
   inputName,
   inputId,
   inputValue,
-  required
+  required,
 }) {
   const ID = useId();
 

@@ -6,13 +6,13 @@ export const parallax = {
 
       window.addEventListener("scroll", () => {
         const pos = parseInt(window.scrollY) - parseInt(elm.offsetTop);
-        elm.style.backgroundPosition = `center ${(pos * -0.35)}px`;
+        elm.style.backgroundPosition = `center ${pos * -0.35}px`;
       });
-    }
+    };
 
     const off = (elm) => {
       elm.style.backgroundPosition = "center 0px";
-    }
+    };
 
     const init = () => {
       setupEventListeners();
@@ -22,7 +22,7 @@ export const parallax = {
       breakpointsPlugin.on("=>tablet", () => {
         on(el);
       });
-    }
+    };
 
     const setupEventListeners = () => {
       window.addEventListener("resize", () => {
@@ -32,8 +32,8 @@ export const parallax = {
       window.addEventListener("load", () => {
         window.dispatchEvent(new CustomEvent("scroll"));
       });
-    }
+    };
 
     init();
-  }
-}
+  },
+};

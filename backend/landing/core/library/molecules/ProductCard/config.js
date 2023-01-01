@@ -1,12 +1,12 @@
 const config = {
   name: "ProductCardMolecule",
   selectors: {
-    overlay: '.overlay'
+    overlay: ".overlay",
   },
   hooks: {
     card: "js-product-card",
-    btnCloseModal: "js-close-btn"
-  }
+    btnCloseModal: "js-close-btn",
+  },
 };
 
 export default config;
