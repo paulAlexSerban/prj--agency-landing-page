@@ -7,7 +7,7 @@ export default function EmailInput({
   inputName,
   inputId,
   inputValue,
-  required
+  required,
 }) {
   const ID = useId();
 

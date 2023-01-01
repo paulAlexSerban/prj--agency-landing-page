@@ -151,6 +151,7 @@ for(let i = 0; i < arrLength; i++) {
 ```
 
 ## Do not use new Object()
+
 - use `""` instead `new String()`
 - use `0` instead of `new Number()`
 - use `false` instead of `new Boolean()`

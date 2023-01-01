@@ -6,7 +6,6 @@ import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 import Icon from "@/core/atoms/Icon/Icon";
 import Heading from "@/core/atoms/Heading/Heading";
 
-
 export default function ProductCard({ iconName, heading, text, id }) {
   const ID = useId();
 
@@ -23,7 +22,6 @@ export default function ProductCard({ iconName, heading, text, id }) {
         <Heading className={styles.heading} level={4} mainText={heading} />
         {text && <Paragraph className={styles.text} text={text} />}
       </div>
-
     </div>
   );
 }

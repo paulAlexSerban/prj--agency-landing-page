@@ -12,13 +12,11 @@ export default function FlexGrid({
   // console.log({ styles });
   if (container) {
     return (
-
-        <div className={styles.base} id={sectionId ? sectionId : id}>
-          <div className={classNames.map((cls) => styles[cls]).join(" ")}>
-            {children}
-          </div>
+      <div className={styles.base} id={sectionId ? sectionId : id}>
+        <div className={classNames.map((cls) => styles[cls]).join(" ")}>
+          {children}
         </div>
-
+      </div>
     );
   } else if (row) {
     return (

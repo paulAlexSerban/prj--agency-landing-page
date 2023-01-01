@@ -27,6 +27,6 @@ export default function Radio({ inputName, inputId, inputValue, label }) {
 
 /** How to use:
  * <Fieldset name="gender" required="true">
-  *  <Radio inputName="gender" inputId="radio-one" label="male" />
-  *  <Radio inputName="gender" inputId="radio-two" label="feminine" />
+ *  <Radio inputName="gender" inputId="radio-one" label="male" />
+ *  <Radio inputName="gender" inputId="radio-two" label="feminine" />
  * </Fieldset> */

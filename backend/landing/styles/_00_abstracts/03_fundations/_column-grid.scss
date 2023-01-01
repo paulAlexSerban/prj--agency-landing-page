@@ -45,26 +45,26 @@ $column-grid-12: map.merge(
   $column-grid-16,
   (
     tablet:
-    map.merge(
-      map.get($column-grid-16, tablet),
-      (
-        columns: 12,
-      )
-    ),
+      map.merge(
+        map.get($column-grid-16, tablet),
+        (
+          columns: 12,
+        )
+      ),
     desktop:
-    map.merge(
-      map.get($column-grid-16, desktop),
-      (
-        columns: 12,
-      )
-    ),
+      map.merge(
+        map.get($column-grid-16, desktop),
+        (
+          columns: 12,
+        )
+      ),
     ultra-wide:
-    map.merge(
-      map.get($column-grid-16, ultra-wide),
-      (
-        columns: 12,
-      )
-    ),
+      map.merge(
+        map.get($column-grid-16, ultra-wide),
+        (
+          columns: 12,
+        )
+      ),
   )
 );
 

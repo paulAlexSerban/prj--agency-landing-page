@@ -52,7 +52,10 @@ export class SpotlightOrganism extends Component {
         return width > this.windowWidth;
       });
 
-      this.el.style.setProperty("--image-src", `url(/${this.imagePath}-${correctRendition}px.webp)`);
+      this.el.style.setProperty(
+        "--image-src",
+        `url(/${this.imagePath}-${correctRendition}px.webp)`
+      );
     }
   }
 

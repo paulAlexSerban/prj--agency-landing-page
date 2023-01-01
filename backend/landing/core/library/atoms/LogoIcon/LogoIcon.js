@@ -11,7 +11,9 @@ export default function LogoIcon() {
   const ID = useId();
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new LogoIconAtom(el));
+    document
+      .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
+      .forEach((el) => new LogoIconAtom(el));
   });
 
   return (

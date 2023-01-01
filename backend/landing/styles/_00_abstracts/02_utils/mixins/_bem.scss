@@ -19,15 +19,15 @@
 @mixin element($element, $onlyModule: $useModules) {
   @debug $useModules;
   @if $onlyModule == false {
-        &__#{$element} {
-          @content;
-        }
+    &__#{$element} {
+      @content;
+    }
   }
 
   @if $onlyModule == true {
-      @at-root .#{$element} {
-          @content;
-      }
+    @at-root .#{$element} {
+      @content;
+    }
   }
 }
 
@@ -48,8 +48,6 @@
     @content;
   }
 }
-
-
 
 /// @alias modifier
 @mixin m($modifiers...) {

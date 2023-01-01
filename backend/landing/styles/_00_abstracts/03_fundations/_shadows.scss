@@ -40,7 +40,7 @@ $shadow-container: box-shadow(
   $top: convert-rem(5px),
   $spread: convert-rem(10px),
   $blur: convert-rem(5px),
-  $color: get-color($c-dark, dark-50)
+  $color: get-color($c-dark, dark-50),
 );
 
 $shadow-delimiter: box-shadow(
@@ -48,7 +48,13 @@ $shadow-delimiter: box-shadow(
   $top: convert-rem(5px),
   $spread: 0,
   $blur: 0,
-  $color: get-color($c-dark, dark-50)
+  $color: get-color($c-dark, dark-50),
 );
 
-$shadow-screen: box-shadow($top: 0, $left: convert-rem(2px), $blur: convert-rem(10px), $color: get-color($c-brown, rose-taupe), $inset: unset);
+$shadow-screen: box-shadow(
+  $top: 0,
+  $left: convert-rem(2px),
+  $blur: convert-rem(10px),
+  $color: get-color($c-brown, rose-taupe),
+  $inset: unset,
+);

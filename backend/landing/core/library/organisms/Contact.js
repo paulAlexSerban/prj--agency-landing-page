@@ -1,11 +1,16 @@
 export default function ClientList() {
   return (
-
-    <section className="page-section" id="contact" style={{backgroundImage: "url(map-image.png)"}} >
+    <section
+      className="page-section"
+      id="contact"
+      style={{ backgroundImage: "url(map-image.png)" }}
+    >
       <div className="container">
         <div className="text-center">
           <h2 className="section-heading text-uppercase">Contact Us</h2>
-          <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 className="section-subheading text-muted">
+            Lorem ipsum dolor sit amet consectetur.
+          </h3>
         </div>
 
         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
@@ -19,7 +24,10 @@ export default function ClientList() {
                   placeholder="Your Name *"
                   data-sb-validations="required"
                 />
-                <div className="invalid-feedback" data-sb-feedback="name:required">
+                <div
+                  className="invalid-feedback"
+                  data-sb-feedback="name:required"
+                >
                   A name is required.
                 </div>
               </div>
@@ -31,10 +39,16 @@ export default function ClientList() {
                   placeholder="Your Email *"
                   data-sb-validations="required,email"
                 />
-                <div className="invalid-feedback" data-sb-feedback="email:required">
+                <div
+                  className="invalid-feedback"
+                  data-sb-feedback="email:required"
+                >
                   An email is required.
                 </div>
-                <div className="invalid-feedback" data-sb-feedback="email:email">
+                <div
+                  className="invalid-feedback"
+                  data-sb-feedback="email:email"
+                >
                   Email is not valid.
                 </div>
               </div>
@@ -46,7 +60,10 @@ export default function ClientList() {
                   placeholder="Your Phone *"
                   data-sb-validations="required"
                 />
-                <div className="invalid-feedback" data-sb-feedback="phone:required">
+                <div
+                  className="invalid-feedback"
+                  data-sb-feedback="phone:required"
+                >
                   A phone number is required.
                 </div>
               </div>
@@ -59,7 +76,10 @@ export default function ClientList() {
                   placeholder="Your Message *"
                   data-sb-validations="required"
                 ></textarea>
-                <div className="invalid-feedback" data-sb-feedback="message:required">
+                <div
+                  className="invalid-feedback"
+                  data-sb-feedback="message:required"
+                >
                   A message is required.
                 </div>
               </div>
@@ -78,11 +98,17 @@ export default function ClientList() {
           </div>
 
           <div className="d-none" id="submitErrorMessage">
-            <div className="text-center text-danger mb-3">Error sending message!</div>
+            <div className="text-center text-danger mb-3">
+              Error sending message!
+            </div>
           </div>
 
           <div className="text-center">
-            <button className="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">
+            <button
+              className="btn btn-primary btn-xl text-uppercase disabled"
+              id="submitButton"
+              type="submit"
+            >
               Send Message
             </button>
           </div>

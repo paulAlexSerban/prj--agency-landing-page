@@ -7,16 +7,16 @@ export class BenefitsOrganism extends Component {
     super(el);
   }
 
-  #setupPlugins () {
+  #setupPlugins() {
     super.register(scrollSpy);
   }
 
   #initPlugins() {
-    const scrollSpy = this.plugins.scrollSpy(this.el, styles)
+    const scrollSpy = this.plugins.scrollSpy(this.el, styles);
   }
 
   init() {
     this.#setupPlugins();
     this.#initPlugins();
   }
-};
+}

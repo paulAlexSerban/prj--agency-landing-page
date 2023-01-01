@@ -38,7 +38,7 @@ $lineWeight: 2px;
     height: #{$lineWeight};
     width: var(--burger-size);
     top: 50%;
-  background-color: var(--color-link);
+    background-color: var(--color-link);
 
     .open & {
       transition-duration: 0.5s;

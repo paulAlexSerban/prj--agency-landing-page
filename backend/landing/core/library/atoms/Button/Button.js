@@ -9,13 +9,15 @@ export default function Button({
   ariaLabel,
   jsHook = "js-button",
   buttonType = "button",
-  target
+  target,
 }) {
   const ID = useId();
 
-  if(jsHook === "js-cta-button") {
+  if (jsHook === "js-cta-button") {
     useEffect(() => {
-      document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new CtaButtonAtom(el, jsHook));
+      document
+        .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
+        .forEach((el) => new CtaButtonAtom(el, jsHook));
     });
   }
 

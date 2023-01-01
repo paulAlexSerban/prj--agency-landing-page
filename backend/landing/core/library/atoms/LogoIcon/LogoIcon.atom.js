@@ -1,4 +1,3 @@
-
 import { smoothScroll } from "core/plugins/smoothScroll";
 import Component from "../../../prototypes/Component";
 class LogoIconAtom extends Component {
@@ -19,7 +18,7 @@ class LogoIconAtom extends Component {
     this.el.addEventListener("click", (e) => {
       e.preventDefault();
       this.smoothScroll.on(e.target);
-    })
+    });
   }
 
   #init() {

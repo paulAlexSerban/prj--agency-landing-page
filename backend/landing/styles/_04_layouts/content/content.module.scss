@@ -11,12 +11,12 @@ $lineWeight: 3px;
 
 .#{$block} {
   @include e("base") {
-      @include flex($direction: column);
+    @include flex($direction: column);
 
-      max-width: $max-width;
-      margin-inline: auto;
-      padding-top: var(--dynamic-90);
-      padding-bottom: var(--dynamic-90);
-      padding-inline: var(--main-content-lat-padding);
+    max-width: $max-width;
+    margin-inline: auto;
+    padding-top: var(--dynamic-90);
+    padding-bottom: var(--dynamic-90);
+    padding-inline: var(--main-content-lat-padding);
   }
 }

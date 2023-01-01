@@ -8,7 +8,7 @@ export default class Template extends Component {
     this.#initTemplate();
   }
 
-  #setupPlugins () {
+  #setupPlugins() {
     super.register(detectBrowser);
   }
 
