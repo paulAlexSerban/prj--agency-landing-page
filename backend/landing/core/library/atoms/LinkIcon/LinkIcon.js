@@ -9,7 +9,7 @@ export default function LinkIcon({iconHref = '', iconName = 'logoIcon'}) {
 
   return (
     <Link href={iconHref}>
-      <a className={styles.base} data-next={`${config.name}-${ID}`}>
+      <a className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
         <Icon iconName={iconName}/>
       </a>
     </Link>

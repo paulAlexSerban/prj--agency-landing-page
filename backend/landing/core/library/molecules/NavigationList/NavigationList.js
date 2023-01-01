@@ -7,7 +7,7 @@ import linkStyles from "@/styles/atoms/link/link.module.scss";
 export default function NavigationList({ list = [] }) {
   const ID = useId();
   return (
-    <ul data-next={`${config.name}-${ID}`} className={`${styles.base} js-nav-list`}>
+    <ul data-next-cmp={`${config.name}-${ID}`} className={`${styles.base} js-nav-list`}>
       {list.map((item, index) => {
         return (
           <li className={styles.item} key={index}>

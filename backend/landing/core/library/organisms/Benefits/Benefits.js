@@ -9,11 +9,11 @@ export default function Benefits() {
   const ID = useId();
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => new BenefitsOrganism(el).init());
+    document.querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`).forEach((el) => new BenefitsOrganism(el).init());
   });
 
   return (
-    <section className={`${styles.base} ${styles.inactive}`} data-next={`${config.name}-${ID}`}>
+    <section className={`${styles.base} ${styles.inactive}`} data-next-cmp={`${config.name}-${ID}`}>
       <div className={`${styles.container} container`}>
         <header className={styles.header}>
           <h2 className={styles.heading}>

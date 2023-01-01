@@ -12,7 +12,7 @@ $block: "lineup";
   @include e("base") {
     display: grid;
     grid-gap: $gutter * 2;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     padding-inline: var(--main-content-lat-padding);
     max-width: $max-width;
     margin-inline: auto;

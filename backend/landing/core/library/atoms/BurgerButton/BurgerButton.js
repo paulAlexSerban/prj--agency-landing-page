@@ -9,7 +9,7 @@ export default function BurgerButton({ariaControls, ariaLabel, jsHook = 'js-nav-
   return (
     <Link href={`#${ariaControls}`} replace>
       <a className={`${styles.button} ${jsHook.split('.').join('')}`}
-          data-next={`${config.name}-${ID}`}
+          data-next-cmp={`${config.name}-${ID}`}
           aria-controls={ariaControls}
           aria-label={ariaLabel}
           aria-expanded="false"

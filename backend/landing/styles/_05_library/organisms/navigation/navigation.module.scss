@@ -18,8 +18,8 @@ $block: "navigation";
     &,
     &.shrink {
       padding-top: $baseline;
-      padding-bottom: $baseline;
-      background-color: get-color($c-dark, dark-85);
+      padding-bottom: $baseline * 2;
+      background-color: get-color($c-dark, dark-75);
       max-height: 70px;
     }
 

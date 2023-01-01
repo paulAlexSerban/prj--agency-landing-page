@@ -33,7 +33,8 @@ $block: "spotlight";
     background-color: get-color($c-dark, dark-85);
     text-align: center;
     width: 100%;
-    min-height: calc(100vh /2);
+    min-height: calc(100vh / 2);
+    padding-inline: var(--main-content-lat-padding);
 
     @include breakpoint($desktop) {
       position: absolute;
@@ -47,16 +48,16 @@ $block: "spotlight";
       border-top: solid $baseline get-color($c-red, paradise-pink);
       bottom: 0;
       width: 100%;
-      padding-top: var(--dynamic-100);
-      padding-bottom: var(--dynamic-110);
+      padding-top: var(--dynamic-90);
+      padding-bottom: var(--dynamic-90);
     }
 
     .right & {
       border-top: solid $baseline get-color($c-blue, blue-crayola);
       width: 100%;
       bottom: 0;
-      padding-top: var(--dynamic-100);
-      padding-bottom: var(--dynamic-110);
+      padding-top: var(--dynamic-90);
+      padding-bottom: var(--dynamic-90);
 
       @include breakpoint($desktop) {
         border-top: none;
@@ -64,6 +65,7 @@ $block: "spotlight";
         width: 30%;
         right: 0;
         height: 100%;
+        max-height: 100%;
       }
     }
 
@@ -71,8 +73,8 @@ $block: "spotlight";
       border-top: solid $baseline get-color($c-green, sea-green-crayola);
       width: 100%;
       bottom: 0;
-      padding-top: var(--dynamic-100);
-      padding-bottom: var(--dynamic-110);
+      padding-top: var(--dynamic-90);
+      padding-bottom: var(--dynamic-90);
 
       @include breakpoint($desktop) {
         border-top: none;
@@ -80,6 +82,7 @@ $block: "spotlight";
         height: 100%;
         width: 30%;
         left: 0;
+        max-height: 100%;
       }
     }
   }
