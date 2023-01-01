@@ -3,7 +3,7 @@
 cd "$(dirname "$0")" || exit
 
 echo "🛑  Cleaning Backend - LynxIT node_modules"
-rm -rfv ../backend/landing/node_modules
+rm -rfv ../../../backend/landing/node_modules
 
 echo "🔧  CI Install Backend - LynxIt"
-npm --prefix ../../backend/landing ci
+npm --prefix ../../../backend/landing ci
