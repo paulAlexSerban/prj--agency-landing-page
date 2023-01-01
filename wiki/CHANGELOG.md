@@ -1,3 +1,29 @@
+# [1.5.0](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.11...v1.5.0) (2023-01-01)
+
+
+### Bug Fixes
+
+* **backend-landing-scripts:** fixed paths for install scripts ([12ee7e2](https://github.com/paulAlexSerban/prj--lynxit/commit/12ee7e263e759afbff1236234f04e9c6a8796c8a))
+* **pages:** removed unused pages ([f2c4863](https://github.com/paulAlexSerban/prj--lynxit/commit/f2c4863a0f53c78d28e66a4328f8eb992510652c))
+* **prettier:** added prittier write script ([88ce3cf](https://github.com/paulAlexSerban/prj--lynxit/commit/88ce3cfc1b8ce1ba25dea938e6e5e71c3ba965b7))
+
+
+### Features
+
+* **assets:** added new images ([a0aacff](https://github.com/paulAlexSerban/prj--lynxit/commit/a0aacff802911040cce2c813d3cfe36063b87dd5))
+* **buttons:** added secondary button ([222ef65](https://github.com/paulAlexSerban/prj--lynxit/commit/222ef65da393783001c6004749316887b33d07bc))
+* **checkbox:** added checkbox ([36aabbe](https://github.com/paulAlexSerban/prj--lynxit/commit/36aabbe08c2a49115d32a788c99fda8c3e9d54a8))
+* **image renditions:** added image renditions and assets scripts ([2b142c0](https://github.com/paulAlexSerban/prj--lynxit/commit/2b142c030bae377f3647e5811f8041bd4ec0a9be))
+* **initial atoms:** added some atoms ([e46cc9e](https://github.com/paulAlexSerban/prj--lynxit/commit/e46cc9eea39a1b7a5c52cb46b169eb12000ae5e8))
+* **layouts:** ajusted layouts ([24ef7cc](https://github.com/paulAlexSerban/prj--lynxit/commit/24ef7cc279911d73d438e1665c7f763d35593fa1))
+* **molecules:** added initial molecules ([d77da3b](https://github.com/paulAlexSerban/prj--lynxit/commit/d77da3bd51bd8f40d4881ed40ecd0f9ddc5e2a72))
+* **organisms:** added some argonisms ([a67fa67](https://github.com/paulAlexSerban/prj--lynxit/commit/a67fa67ff1e2bd51a1866adf11e02bd46efa1e8a))
+* **plugins and utils:** adjusted plugins and utils ([a321388](https://github.com/paulAlexSerban/prj--lynxit/commit/a321388a3392d5bb087e1b5372490900775cff36))
+* **public:** added public directory to repo ([d4ba5ec](https://github.com/paulAlexSerban/prj--lynxit/commit/d4ba5ecf81abb0e822ad737bbe6f15cc95a1c863))
+* **radio:** added radio component ([f039210](https://github.com/paulAlexSerban/prj--lynxit/commit/f03921035564d8c6cba0857fe76923921e5dac13))
+* **select:** add select list ([a0af8c2](https://github.com/paulAlexSerban/prj--lynxit/commit/a0af8c2b012f6f649ffadbcd245c027bc7efc3e4))
+* **system:** adjusted system files ([654b522](https://github.com/paulAlexSerban/prj--lynxit/commit/654b522145cda57c06091a96fa6fa19667aa51a1))
+
 ## [1.4.11](https://github.com/paulAlexSerban/prj--lynxit/compare/v1.4.10...v1.4.11) (2022-11-17)
 
 ### Bug Fixes
