@@ -11,12 +11,14 @@ export default function LogoIcon() {
   const ID = useId();
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => new LogoIconAtom(el));
+    document
+      .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
+      .forEach((el) => new LogoIconAtom(el));
   });
 
   return (
     <Link href="#page-top" replace>
-      <a className={styles.base} data-next={`${config.name}-${ID}`}>
+      <a className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
         <Icon iconName="rowLogoText" />
       </a>
     </Link>

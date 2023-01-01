@@ -3,13 +3,13 @@ export const scrollSpy = {
   exec: (el, styles) => {
     const init = () => {
       setupEventListeners();
-    }
+    };
 
     const setupEventListeners = () => {
       window.addEventListener("scroll", () => {
         showElm();
       });
-    }
+    };
 
     const showElm = () => {
       const triggerBottom = (window.innerHeight / 6) * 4;
@@ -21,9 +21,9 @@ export const scrollSpy = {
       } else {
         el.classList.add(styles.inactive);
       }
-    }
+    };
 
     init();
     showElm();
-  }
-}
+  },
+};

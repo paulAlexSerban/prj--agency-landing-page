@@ -28,7 +28,11 @@ export default function Footer() {
   ];
 
   return (
-    <footer className={styles.base} id="footer" data-next={`${config.name}-${ID}`}>
+    <footer
+      className={styles.base}
+      id="footer"
+      data-next-cmp={`${config.name}-${ID}`}
+    >
       <SocialMediaList list={socialMedia} />
       <Copyright />
     </footer>

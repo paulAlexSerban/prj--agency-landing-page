@@ -6,13 +6,13 @@ import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 import Icon from "@/core/atoms/Icon/Icon";
 import Heading from "@/core/atoms/Heading/Heading";
 
-export default function Card({iconName, heading, text}) {
+export default function Card({ iconName, heading, text }) {
   const ID = useId();
   return (
-    <div className={styles.base} data-next={`${config.name}-${ID}`}>
+    <div className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
       <Icon className={styles.icon} iconName={iconName} />
       <Heading className={styles.heading} level="4" mainText={heading} />
-      <Paragraph className={styles.text} text={text} />
+      {text && <Paragraph className={styles.text} text={text} />}
     </div>
   );
 }

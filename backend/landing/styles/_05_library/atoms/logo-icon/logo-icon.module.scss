@@ -10,8 +10,9 @@ $block: "logo-icon";
 .#{$block} {
   @include e("base") {
     @include flex();
+
     height: 100%;
-    font-size: 35px;
+    font-size: 40px;
 
     @include breakpoint($desktop) {
       font-size: 50px;

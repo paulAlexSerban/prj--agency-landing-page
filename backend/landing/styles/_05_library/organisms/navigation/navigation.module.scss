@@ -12,14 +12,13 @@ $block: "navigation";
     padding-inline: var(--main-content-lat-padding);
     width: 100%;
     overflow: hidden;
-    transition: background-color 0.5s ease,
-                max-height 0.5s ease;
+    transition: background-color 0.5s ease, max-height 0.5s ease;
 
     &,
     &.shrink {
       padding-top: $baseline;
-      padding-bottom: $baseline;
-      background-color: get-color($c-dark, dark-85);
+      padding-bottom: $baseline * 2;
+      background-color: get-color($c-dark, dark-75);
       max-height: 70px;
     }
 

@@ -27,11 +27,12 @@ $c-dark: (
   dark: #000,
   dark-10: rgba(#000, 0.1),
   dark-15: rgba(#000, 0.15),
-  dark-20: rgba(#000, 0.20),
+  dark-20: rgba(#000, 0.2),
   dark-30: rgba(#000, 0.3),
   dark-50: rgba(#000, 0.5),
+  dark-75: rgba(#000, 0.75),
   dark-85: rgba(#000, 0.85),
-  raisin-black: #272833
+  raisin-black: #272833,
 );
 
 $c-yellow: (
@@ -49,7 +50,7 @@ $c-red: (
   sinopia: #d30,
   ua-red: #e50050,
   fuzzy-wuzzy: #c95e67,
-  paradise-pink: #eb4961
+  paradise-pink: #eb4961,
 );
 
 $c-brown: (
@@ -63,7 +64,7 @@ $c-green: (
   green-cyan: #3c996e,
   sea-green: #198754,
   polished-pine: #3d9b93,
-  sea-green-crayola: #1EFFBC,
+  sea-green-crayola: #1effbc,
   charleston-green: #11282e,
 );
 
@@ -76,7 +77,7 @@ $c-blue: (
   blue-jeans: #48aaff,
   maximum-blue: #65bad8,
   dodger-blue: #348efe,
-  blue-crayola: #5480F1,
+  blue-crayola: #5480f1,
   indigo-blue: #0d3b66,
   dark-liver: #444451,
   rhythm: #7c7b9c,
@@ -84,7 +85,7 @@ $c-blue: (
 );
 
 $c-purple: (
-  russian-violet: #22183D,
+  russian-violet: #22183d,
   russian-violet-95: rgba(34, 24, 61, 0.95),
 );
 
@@ -97,14 +98,13 @@ $c-traffic-lights: (
 // Override Bootstrap color variables
 
 $yellow: #ffc800;
-$slate-gray: #6F7D8C;
-$pewter-blue: #77A0A9;
-$sea-green-crayola: #1EFFBC;
+$slate-gray: #6f7d8c;
+$pewter-blue: #77a0a9;
+$sea-green-crayola: #1effbc;
 
 // Override Bootstrap state colors variables
 
 $info: $sea-green-crayola;
-
 
 // Override Bootstrap contrast ratio
 

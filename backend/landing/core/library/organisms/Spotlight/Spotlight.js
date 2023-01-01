@@ -1,33 +1,30 @@
 import config from "./config";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId } from "react";
 import styles from "@/styles/organisms/spotlight/spotlight.module.scss";
 import { SpotlightOrganism } from "./Spotlight.organism";
-import Image from "next/image";
 
 export default function Spotlight({ children, position, imageSrc, sectionId }) {
   const ID = useId();
-  const [loadingComplete, setLoadingComplete] = useState(false);
+  const imageRendition = 320;
+  const bkgImage = imageSrc;
 
   useEffect(() => {
-    document.querySelectorAll(`[data-next="${config.name}-${ID}"]`).forEach((el) => new SpotlightOrganism(el));
-  }, [loadingComplete]);
+    document
+      .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
+      .forEach((el) => new SpotlightOrganism(el));
+  });
 
   return (
     <section
-      data-next={`${config.name}-${ID}`}
+      data-next-cmp={`${config.name}-${ID}`}
+      data-bkg-image={bkgImage}
+      data-img-rendition={imageRendition}
       id={sectionId}
       className={`${styles.base} ${styles[position]} ${styles.inactive}`}
+      style={{
+        "--image-src": `url(/images/${bkgImage}-${imageRendition}px.webp)`,
+      }}
     >
-      <Image
-        className={`${styles.image} ${config.hooks.image}`}
-        src={`/${imageSrc}`}
-        layout="fill"
-        quality="100"
-        alt="alternative text"
-        onLoadingComplete={() => {
-          setLoadingComplete(true);
-        }}
-      />
       <div className={styles.content}>{children}</div>
     </section>
   );

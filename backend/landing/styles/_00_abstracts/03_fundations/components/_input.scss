@@ -1,0 +1,27 @@
+@mixin input-base() {
+  @include font($label);
+
+  appearance: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 0px 0px 0px 1px var(--text-color);
+  color: var(--text-color);
+  display: block;
+  outline: 0;
+  padding: ($baseline * 2) $gutter;
+  text-decoration: none;
+  width: 100%;
+  cursor: text;
+  margin-bottom: var(--dynamic-50);
+
+  &::-webkit-input-placeholder {
+    color: var(--text-color);
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0px 0px 0px 4px var(--text-color);
+  }
+}

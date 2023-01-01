@@ -1,5 +1,7 @@
 /* eslint-disable no-useless-escape */
-export const patterns = {
+const patterns = {
+  name: /^[a-z\d\s-'_.]{3,25}$/gim,
+  message: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
   email:
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/gi,
   browsers: [
@@ -46,3 +48,5 @@ export const patterns = {
     ["unix", /X11/, null],
   ],
 };
+
+export default patterns;

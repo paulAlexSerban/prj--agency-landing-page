@@ -12,6 +12,7 @@ $block: "landing";
 
 .#{$block} {
   @include e("base") {
-    @include addSectionShadow();
+    position: relative;
+    z-index: layer-index(base);
   }
 }

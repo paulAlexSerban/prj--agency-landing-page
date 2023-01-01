@@ -2,17 +2,17 @@
   "sectionName": "Despre Noi",
   "sectionId": "despre_noi",
   "sectionEl": {
-    "spotlight":{
+    "spotlight": {
       "position": "bottom",
-      "imageSrc": "images/pic02.jpg",
+      "imageSrc": "_RBC4625",
       "lineup": {
         "columns": 3
       }
     }
   },
   "heading": {
-    "level":3,
-    "mainText":"Echipamente IT reconditionate de inchiriat",
+    "level": 3,
+    "mainText": "Echipamente IT reconditionate de inchiriat",
     "subheading": "Gestiune simplificata si cost-control"
   },
   "content": {
