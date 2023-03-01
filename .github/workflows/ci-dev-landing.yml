@@ -62,7 +62,7 @@ jobs:
 
       - name: "📦  Install Landing deps"
         if: steps.changed-files.outputs.any_changed == 'true'
-        run: bash scripts/backend/landing/install-ci.bash
+        run: bash scripts/modulize.bash -e prod -p install -m landing
 
       - name: "Check Project"
         if: steps.changed-files.outputs.any_changed == 'true'
@@ -81,7 +81,7 @@ jobs:
 
       - name: "🏗️ Build Project"
         if: github.event_name == 'push' && steps.changed-files.outputs.any_changed == 'true'
-        run: bash scripts/backend/landing/build.bash
+        run: bash scripts/modulize.bash -e prod -p build -m landing
 
       - name: "Upload Build Folder"
         if: github.event_name == 'push' && steps.changed-files.outputs.any_changed == 'true'
