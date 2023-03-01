@@ -1,6 +1,7 @@
 # Lynx IT
 
 ## external dependencies
+
 - for `/assets` module: `brew install vips`npm
 
 ## Scripts
