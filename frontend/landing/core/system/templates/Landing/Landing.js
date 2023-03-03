@@ -76,9 +76,6 @@ export default function Landing({
         <meta name="description" content={description} />
       </Head>
       {children}
-      {/*
-        Navigation
-      */}
       <Navigation navList={mainContent} />
 
       <MastHeader>
@@ -93,14 +90,15 @@ export default function Landing({
         position={mainContent.spotlight.sectionEl.spotlight.position}
         imageSrc={mainContent.spotlight.sectionEl.spotlight.imageSrc}
       >
+        <Heading
+          level={mainContent.spotlight.heading.level}
+          mainText={mainContent.spotlight.heading.mainText}
+          subheading={mainContent.spotlight.heading.subheading}
+        />
         <LineUp columns="3">
-          <Heading
-            level={mainContent.spotlight.heading.level}
-            mainText={mainContent.spotlight.heading.mainText}
-            subheading={mainContent.spotlight.heading.subheading}
-          />
           <Paragraph text={mainContent.spotlight.content.paragraph} />
           <Paragraph text={mainContent.spotlight.content.paragraph_1} />
+          <Paragraph text={mainContent.spotlight.content.paragraph_2} />
         </LineUp>
       </Spotlight>
       <Content sectionId={mainContent.benefits.sectionId}>
@@ -175,17 +173,16 @@ export default function Landing({
           />
 
           <ProductList>
-            <ProductCard iconName="basic" heading="Basic" id="basic-product" />
-            <ProductCard
-              iconName="standard"
-              heading="Standard"
-              id="standard-product"
-            />
-            <ProductCard
-              iconName="professional"
-              heading="Professional"
-              id="professional-product"
-            />
+            {mainContent.spotlight_1.content.map((item, index) => {
+              return (
+                <ProductCard
+                  key={index}
+                  iconName={item.iconName}
+                  heading={item.heading}
+                  id={item.id}
+                />
+              );
+            })}
           </ProductList>
           <FlexGrid row>
             <FlexGrid
@@ -337,21 +334,19 @@ export default function Landing({
         </Form>
       </Content>
       <Footer />
-      <ProductModal controlledBy="basic-product" heading="Configuratie Basic">
-        <ProductDetails image="_RBC4637" />
-      </ProductModal>
-      <ProductModal
-        controlledBy="standard-product"
-        heading="Configuratie Standard"
-      >
-        <ProductDetails image="_RBC4626" />
-      </ProductModal>
-      <ProductModal
-        controlledBy="professional-product"
-        heading="Configuratie Professional"
-      >
-        <ProductDetails imagfe="_RBC4630" />
-      </ProductModal>
+
+      {mainContent.spotlight_1.content.map((item, index) => {
+        return (
+          <ProductModal
+            key={index}
+            controlledBy={item.id}
+            heading={item.heading}
+          >
+            <ProductDetails content={item.content} />
+          </ProductModal>
+        );
+      })}
+
       <div className="overlay hidden"></div>
     </div>
   );

@@ -13,17 +13,21 @@ $block: "modal";
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 90vw;
-    max-height: 90vh;
     background-color: get-color($c-dark, raisin-black);
     padding: var(--dynamic-100) var(--dynamic-90);
     box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
     z-index: 1000;
     transition: visibility 0.25s, opacity 0.25s;
     overflow: scroll;
-
+    max-width: calc(100vw - var(--main-content-lat-padding));
+    max-height: calc(100vh - var(--main-content-lat-padding));
+    width: 100%;
+    height: 100%;
     @include breakpoint($tablet) {
-      max-width: 60vw;
+      max-width: calc(90vw);
+      max-height: calc(90vh);
+      height: auto;
+      width: auto;
     }
   }
 
@@ -37,5 +41,9 @@ $block: "modal";
     cursor: pointer;
     border: none;
     background: none;
+  }
+
+  @include e("buttonContainer") {
+    @include flex();
   }
 }

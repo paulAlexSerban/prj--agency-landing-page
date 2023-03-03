@@ -3,8 +3,7 @@
  */
 
 import aboutUs from "@/content/landing/about-us.json";
-import laptops from "@/content/landing/laptops.json";
-import desktops from "@/content/landing/desktops.json";
+import products from "@/content/landing/products.json";
 import benefits from "@/content/landing/benefits.json";
 import contact from "@/content/landing/contact.json";
 
@@ -18,7 +17,7 @@ export default async function getStaticProps() {
         main: {
           spotlight: { ...aboutUs },
           benefits: { ...benefits },
-          spotlight_1: { ...laptops },
+          spotlight_1: { ...products },
           contact: { ...contact },
         },
       },

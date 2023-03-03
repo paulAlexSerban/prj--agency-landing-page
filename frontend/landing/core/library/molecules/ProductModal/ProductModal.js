@@ -22,26 +22,14 @@ export default function ProductModal({
       <span className={`${styles["close-btn"]} js-close-btn`}>&times;</span>
       <Heading mainText={heading} subtitle={subheading} hasSeparator />
       {children}
-      <FlexGrid classNames={["grid--full-width", "col"]} container>
-        <FlexGrid row>
-          <FlexGrid
-            col={true}
-            classNames={[
-              "col-tablet-6",
-              "offset-tablet-3",
-              "col-desktop-4",
-              "offset-desktop-4",
-            ]}
-          >
-            <Button
-              label="Call To Action"
-              buttonStyle="primary"
-              jsHook="js-cta-button"
-              target="contact"
-            />
-          </FlexGrid>
-        </FlexGrid>
-      </FlexGrid>
+      <div className={styles.buttonContainer}>
+        <Button
+          label="Contacteaza-ne!"
+          buttonStyle="primary"
+          jsHook="js-cta-button"
+          target="contact"
+        />
+      </div>
     </div>
   );
 }

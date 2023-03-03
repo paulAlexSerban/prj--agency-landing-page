@@ -9,7 +9,6 @@ export default function FlexGrid({
   col = false,
 }) {
   const id = useId();
-  // console.log({ styles });
   if (container) {
     return (
       <div className={styles.base} id={sectionId ? sectionId : id}>

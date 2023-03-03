@@ -1,15 +1,101 @@
 {
   "sectionName": "Produse",
-  "sectionId": "produse",
+  "sectionId": "configuratii_disponibile",
+
   "sectionEl": {
     "spotlight": {
-      "position": "left",
-      "imageSrc": "pic04"
+      "position": "bottom",
+      "imageSrc": "lenovo-blurry"
     }
   },
   "heading": {
     "level": 3,
-    "mainText": "Produse"
+    "mainText": "Configuratii de laptopuri disponibile"
   },
-  "content": {}
+  "content": [
+    {
+      "heading": "Configuratie Standard",
+      "id": "configuratie_standard",
+      "iconName": "basic",
+      "content": [
+        {
+          "list": {
+            "title": "Specificatii",
+            "items": [
+              "Intel Core I5-5200, 2.2Ghz",
+              "8Gb RAM DDR3",
+              "SSD 256Gb",
+              "Display 14 inch, rezolutie 1400x900"
+            ]
+          },
+          "image": {
+            "source": "hp",
+            "title": "Exemplu echipamen - HP Elite 840 G2"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Configuratie Intermediate",
+      "id": "configuratie_intermediate",
+      "iconName": "standard",
+      "content": [
+        {
+          "list": {
+            "title": "Specificatii",
+            "items": [
+              "Inter Core i5-6300, 3Ghz",
+              "8Gb RAM DDR3",
+              "SSD 240Gb",
+              "Ecran Touchscreen 12,5 inch cu rezolutie fullHD",
+              "Stylus Inclus"
+            ]
+          },
+          "image": {
+            "source": "lenovo",
+            "title": "Exemplu echipament: Lenovo ThinkPad Yoga 260"
+          }
+        },
+        {
+          "list": {
+            "title": "Specificatii",
+            "items": [
+              "Inter Core i5-6300, 2,8Ghz",
+              "8Gb RAM DDR4",
+              "SSD 256Gb",
+              "Ecran 14 inch, full HD"
+            ]
+          },
+          "paragraph": [],
+          "image": {
+            "source": "lenovo-facing",
+            "title": "Exemplu echipament: Lenovo ThinkPad T470S"
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Configuratie Professional",
+      "id": "configuratie_professional",
+      "iconName": "professional",
+      "content": [
+        {
+          "list": {
+            "title": "Specificatii",
+            "items": [
+              "Intel Core i7-6600U, 3.4Ghz",
+              "16G RAM DDR4",
+              "SSD 256Gb Nvme",
+              "Ecran 14 inch 2K, 2560x1440"
+            ]
+          },
+          "paragraph": [],
+          "image": {
+            "source": "hp",
+            "title": "Exemplu echipament: HP EliteBook Folio 1040 G3"
+          }
+        }
+      ]
+    }
+  ]
 }

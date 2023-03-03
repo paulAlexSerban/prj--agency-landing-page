@@ -16,7 +16,6 @@ export default function NavigationList({ list = [] }) {
           <li className={styles.item} key={index}>
             <Link href={`#${item.href}`} replace scroll={false}>
               <a className={`${linkStyles.large} js-nav-link`}>
-                {" "}
                 {item.label.toUpperCase()}
               </a>
             </Link>

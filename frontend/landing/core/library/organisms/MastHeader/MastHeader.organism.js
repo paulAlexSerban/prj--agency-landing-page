@@ -45,13 +45,17 @@ export class MastHeaderOrganism extends Component {
     const isCorrectRendition = Boolean(this.windowWidth <= imageRendition);
 
     if (!isCorrectRendition) {
-      const correctRendition = IMAGE_RENDITIONS.find((width) => {
+      let correctRendition = IMAGE_RENDITIONS.find((width) => {
         return width > this.windowWidth;
       });
 
+      correctRendition = correctRendition
+        ? `${correctRendition}px`
+        : "original";
+
       this.el.style.setProperty(
         "--image-src",
-        `url(/${this.imagePath}-${correctRendition}px.webp)`
+        `url(/${this.imagePath}-${correctRendition}.webp)`
       );
     }
   }
