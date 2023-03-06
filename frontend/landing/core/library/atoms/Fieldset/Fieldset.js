@@ -7,12 +7,15 @@ export default function Fieldset({
   name = "",
   required = false,
   legend = "",
+  cols = 1,
 }) {
   const ID = useId();
   return (
     <fieldset
       name={name}
-      className={styles.base}
+      className={`${styles.base} ${
+        cols !== 1 ? styles[`base--${cols}-cols`] : ""
+      }`}
       data-next-cmp={`${config.name}-${ID}`}
       data-required={required}
     >

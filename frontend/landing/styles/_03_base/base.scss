@@ -31,7 +31,7 @@ body {
 }
 
 hr {
-  margin: var(--dynamic-70);
+  margin: var(--dynamic-spacing-70);
   width: 100%;
   border: 0;
   border-bottom: 1px solid get-color($c-gray, spanish-gray);

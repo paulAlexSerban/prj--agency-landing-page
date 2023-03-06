@@ -9,10 +9,35 @@ $block: "fieldset";
 
 .#{$block} {
   @include e("base") {
+    display: grid;
+    gap: var(--dynamic-spacing-50);
     width: 100%;
-    margin-bottom: var(--dynamic-50);
+    margin-bottom: var(--dynamic-spacing-50);
+
+    @include m("2-cols") {
+      @include breakpoint($tablet) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @include m("3-cols") {
+      @include breakpoint($tablet) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @include m("6-cols") {
+      @include breakpoint($mobile) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include breakpoint($tablet) {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
   }
+
   @include e("legend") {
-    margin-bottom: var(--dynamic-30);
+    margin-bottom: var(--dynamic-spacing-30);
   }
 }

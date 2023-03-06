@@ -9,7 +9,7 @@ $block: "product-details";
 
 .#{$block} {
   @include e("base") {
-    margin-bottom: var(--dynamic-80);
+    margin-bottom: var(--dynamic-spacing-80);
   }
 
   @include e("heading") {

@@ -20,6 +20,18 @@ export default async function getStaticProps() {
           spotlight_1: { ...products },
           contact: { ...contact },
         },
+        socialMediaList: [
+          {
+            name: "envelope",
+            href: "mailto:contact@linxit.ro",
+            label: "Email",
+          },
+          {
+            name: "phone",
+            href: "tel:+40723320333",
+            label: "Phone",
+          },
+        ],
       },
     },
   };

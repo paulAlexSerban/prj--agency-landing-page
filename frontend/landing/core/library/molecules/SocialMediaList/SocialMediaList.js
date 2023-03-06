@@ -5,7 +5,6 @@ import LinkIcon from "@/core/atoms/LinkIcon/LinkIcon";
 
 export default function SocialMediaList({ list = [] }) {
   const ID = useId();
-
   return (
     <ul className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
       {list.map((item, index) => {

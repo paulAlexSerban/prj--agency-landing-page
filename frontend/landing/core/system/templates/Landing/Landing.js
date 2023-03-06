@@ -1,4 +1,5 @@
 import { config } from "./config";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import styles from "@/styles/templates/landing/landing.module.scss";
 import { useEffect, useId } from "react";
@@ -31,14 +32,12 @@ import Navigation from "@/core/organisms/Navigation/Navigation";
 import MastHeader from "@/core/organisms/MastHeader/MastHeader.js";
 import Spotlight from "@/core/organisms/Spotlight/Spotlight";
 import Footer from "@/core/organisms/Footer/Footer.js";
-import Form from "@/core/organisms/Form/Form";
+const Form = dynamic(() => import("@/core/organisms/Form/Form"));
 
 // LAYOUT
 import Content from "@/core/layouts/Content/Content";
 import LineUp from "@/core/layouts/LineUp/LineUp";
-import Stack from "@/core/layouts/Stack/Stack";
 import RAM from "@/core/layouts/RAM/RAM";
-import FlexGrid from "@/core/layouts/FlexGrid/FlexGrid";
 
 // styles
 import pageTitleCss from "@/styles/atoms/page-title/page-title.module.scss";
@@ -52,6 +51,7 @@ export default function Landing({
   children,
   content,
   pageProperties,
+  socialMediaList
 }) {
   const ID = useId();
   useEffect(() => {
@@ -94,6 +94,7 @@ export default function Landing({
           level={mainContent.spotlight.heading.level}
           mainText={mainContent.spotlight.heading.mainText}
           subheading={mainContent.spotlight.heading.subheading}
+          hasSeparator
         />
         <LineUp columns="3">
           <Paragraph text={mainContent.spotlight.content.paragraph} />
@@ -102,110 +103,82 @@ export default function Landing({
         </LineUp>
       </Spotlight>
       <Content sectionId={mainContent.benefits.sectionId}>
-        <FlexGrid classNames={["grid--full-width", "col"]} container>
-          <Heading
-            level={mainContent.benefits.heading.level}
-            mainText={mainContent.benefits.heading.mainText}
-            subheading={mainContent.benefits.heading.subheading}
-            hasSeparator
+        <Heading
+          level={mainContent.benefits.heading.level}
+          mainText={mainContent.benefits.heading.mainText}
+          subheading={mainContent.benefits.heading.subheading}
+          hasSeparator
+        />
+        <RAM layout="hasColumns">
+          <Card
+            iconName="percent"
+            heading="Amortizarea 100% si rapida a cheltuileilor"
+            text="Achiziția de echipamente IT solicita o investiție majora si perioada lunga de amortizare a cheltuielilor. Inchirierea nu."
           />
-          <RAM layout="hasColumns">
-            <Card
-              iconName="percent"
-              heading="Amortizarea 100% si rapida a cheltuileilor"
-              text="Achiziția de echipamente IT solicita o investiție majora si perioada lunga de amortizare a cheltuielilor. Inchirierea nu."
-            />
-            <Card
-              iconName="computer"
-              heading="Echipament IT as a service"
-              text="Upgrade si downgrade disponibile, garanție pe viață, stoc tampon alocat, costuri clare, gestiune simplificata, nu ai stoc."
-            />
-            <Card
-              iconName="warranty"
-              heading="Garantie pe viata"
-              text="Garanție pentru toata perioada contractului cu noi. Mai mult decât atât ai parte de serviciul pick-up and return pentru echipamentul defect."
-            />
-            <Card
-              iconName="flexible"
-              heading="Contract flexibil"
-              text="Ai nevoie de echipamente IT pentru o perioada determinata? Nici o problema. Poți încheia cu noi o colaborare pe o perioada de la 1 zi la 12 luni."
-            />
-            <Card
-              iconName="money"
-              heading="Buy back"
-              text="Ai decis sa alegi serviciile noastre însa ai deja o flota de
+          <Card
+            iconName="computer"
+            heading="Echipament IT as a service"
+            text="Upgrade si downgrade disponibile, garanție pe viață, stoc tampon alocat, costuri clare, gestiune simplificata, nu ai stoc."
+          />
+          <Card
+            iconName="warranty"
+            heading="Garantie pe viata"
+            text="Garanție pentru toata perioada contractului cu noi. Mai mult decât atât ai parte de serviciul pick-up and return pentru echipamentul defect."
+          />
+          <Card
+            iconName="flexible"
+            heading="Contract flexibil"
+            text="Ai nevoie de echipamente IT pentru o perioada determinata? Nici o problema. Poți încheia cu noi o colaborare pe o perioada de la 1 zi la 12 luni."
+          />
+          <Card
+            iconName="money"
+            heading="Buy back"
+            text="Ai decis sa alegi serviciile noastre însa ai deja o flota de
               echipamente? Noi îți facem o oferta de buy-back pentru cele vechi
               si poți folosi fondurile pentru a achita elemente ale noului
               contract."
-            />
-            <Card
-              iconName="recycle"
-              heading="Prietenos cu mediul"
-              text="pentru orice laptop recondiționat salvezi 280 Kg CO2 echivalentul distanței parcurse cu mașina de la București la Viena."
-            />
-          </RAM>
-          <FlexGrid row>
-            <FlexGrid
-              col={true}
-              classNames={[
-                "col-tablet-6",
-                "offset-tablet-3",
-                "col-desktop-4",
-                "offset-desktop-4",
-              ]}
-            >
-              <Button
-                label="Hai sa beneficiezi si tu!"
-                buttonStyle="primary"
-                jsHook="js-cta-button"
-                target="contact"
-              />
-            </FlexGrid>
-          </FlexGrid>
-        </FlexGrid>
+          />
+          <Card
+            iconName="recycle"
+            heading="Prietenos cu mediul"
+            text="pentru orice laptop recondiționat salvezi 280 Kg CO2 echivalentul distanței parcurse cu mașina de la București la Viena."
+          />
+        </RAM>
+        <Button
+          label="Hai sa beneficiezi si tu!"
+          buttonStyle="primary"
+          jsHook="js-cta-button"
+          target="contact"
+        />
       </Content>
       <Spotlight
         sectionId={mainContent.spotlight_1.sectionId}
         position={mainContent.spotlight_1.sectionEl.spotlight.position}
         imageSrc={mainContent.spotlight_1.sectionEl.spotlight.imageSrc}
       >
-        <FlexGrid classNames={["grid--full-width", "col"]} container>
-          <Heading
-            level={mainContent.spotlight_1.heading.level}
-            mainText={mainContent.spotlight_1.heading.mainText}
-          />
+        <Heading
+          level={mainContent.spotlight_1.heading.level}
+          mainText={mainContent.spotlight_1.heading.mainText}
+        />
 
-          <ProductList>
-            {mainContent.spotlight_1.content.map((item, index) => {
-              return (
-                <ProductCard
-                  key={index}
-                  iconName={item.iconName}
-                  heading={item.heading}
-                  id={item.id}
-                />
-              );
-            })}
-          </ProductList>
-          <FlexGrid row>
-            <FlexGrid
-              col={true}
-              classNames={[
-                "col-tablet-6",
-                "offset-tablet-3",
-                "col-desktop-4",
-                "offset-desktop-4",
-              ]}
-            >
-              <Button
-                label="Spune-ne de ce configuratie ai nevoie!"
-                buttonStyle="primary"
-                jsHook="js-cta-button"
-                target="contact"
+        <ProductList>
+          {mainContent.spotlight_1.content.map((item, index) => {
+            return (
+              <ProductCard
+                key={index}
+                iconName={item.iconName}
+                heading={item.heading}
+                id={item.id}
               />
-            </FlexGrid>
-          </FlexGrid>
-        </FlexGrid>
+            );
+          })}
+        </ProductList>
+        <Button
+          label="Spune-ne de ce configuratie ai nevoie!"
+          buttonStyle="primary"
+          jsHook="js-cta-button"
+          target="contact"
+        />
       </Spotlight>
       <Content sectionId="contact">
         <Heading
@@ -216,130 +189,86 @@ export default function Landing({
           inverted
         />
         <Form>
-          <FlexGrid classNames={["grid--full-width", "col"]} container>
-            <Fieldset name="identification">
-              <FlexGrid row>
-                <FlexGrid col classNames={["col-tablet-12"]}>
-                  <TextInput
-                    placeholder="Nume companie"
-                    inputName="nume_compoanie"
-                    inputId="nume_compoanie"
-                    initValue=""
-                    required="true"
-                  />
-                </FlexGrid>
-
-                <FlexGrid col classNames={["col-tablet-12"]}>
-                  <TextInput
-                    placeholder="Persoana de contact"
-                    inputName="persoana_de_contact"
-                    inputId="persoana_de_contact"
-                    initValue=""
-                    required="true"
-                  />
-                </FlexGrid>
-
-                <FlexGrid col classNames={["col-tablet-6"]}>
-                  <PhoneInput
-                    placeholder="Telefon"
-                    inputName="Telefon"
-                    inputId="Telefon"
-                    initValue=""
-                    required="true"
-                  />
-                </FlexGrid>
-
-                <FlexGrid col classNames={["col-tablet-6"]}>
-                  <EmailInput
-                    placeholder="Email"
-                    inputName="email"
-                    inputId="email"
-                    initValue=""
-                    required="true"
-                  />
-                </FlexGrid>
-              </FlexGrid>
-            </Fieldset>
-
-            <Fieldset name="tip_de_utilizare" legend="Tip de utilizare:">
-              <FlexGrid row>
-                <FlexGrid col classNames={["col-smartphone-2", "col-tablet-3"]}>
-                  <Checkbox inputName="basic" inputId="basic" label="Basic" />
-                </FlexGrid>
-
-                <FlexGrid col classNames={["col-smartphone-2", "col-tablet-3"]}>
-                  <Checkbox
-                    inputName="standard"
-                    inputId="standard"
-                    label="Standard"
-                  />
-                </FlexGrid>
-                <FlexGrid col classNames={["col-smartphone-2", "col-tablet-3"]}>
-                  <Checkbox
-                    inputName="professional"
-                    inputId="professional"
-                    label="Professional"
-                  />
-                </FlexGrid>
-              </FlexGrid>
-            </Fieldset>
-
-            <Fieldset name="perioada-si-cantitate">
-              <FlexGrid row>
-                <FlexGrid col classNames={["col-tablet-6"]}>
-                  <TextInput
-                    placeholder="Numar echipamente"
-                    inputName="numar_echipamente"
-                    inputId="numar_echipamente"
-                    initValue=""
-                    required="true"
-                  />
-                </FlexGrid>
-                <FlexGrid col classNames={["col-tablet-6"]}>
-                  <Select
-                    placeholder="Pe ce perioada"
-                    inputName="perioada"
-                    required="true"
-                    options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
-                  />
-                </FlexGrid>
-              </FlexGrid>
-            </Fieldset>
-
-            <Textarea
-              placeholder="Detalii"
-              inputName="message"
-              inputId="message"
+          <Fieldset name="identification" cols={2}>
+            <TextInput
+              placeholder="Nume companie"
+              inputName="nume_compoanie"
+              inputId="nume_compoanie"
               initValue=""
-              rows="6"
+              required="true"
+            />
+            <TextInput
+              placeholder="Persoana de contact"
+              inputName="persoana_de_contact"
+              inputId="persoana_de_contact"
+              initValue=""
+              required="true"
+            />
+            <PhoneInput
+              placeholder="Telefon"
+              inputName="Telefon"
+              inputId="Telefon"
+              initValue=""
+              required="true"
+            />
+            <EmailInput
+              placeholder="Email"
+              inputName="email"
+              inputId="email"
+              initValue=""
+              required="true"
+            />
+          </Fieldset>
+          <Fieldset name="tip_de_utilizare" legend="Tip de utilizare:" cols={6}>
+            <Checkbox inputName="basic" inputId="basic" label="Basic" />
+            <Checkbox
+              inputName="standard"
+              inputId="standard"
+              label="Standard"
+            />
+            <Checkbox
+              inputName="professional"
+              inputId="professional"
+              label="Professional"
+            />
+          </Fieldset>
+          <Fieldset name="perioada-si-cantitate" cols={2}>
+            <TextInput
+              placeholder="Numar echipamente"
+              inputName="numar_echipamente"
+              inputId="numar_echipamente"
+              initValue=""
               required="true"
             />
 
-            <FlexGrid row>
-              <FlexGrid
-                col={true}
-                classNames={[
-                  "col-tablet-6",
-                  "offset-tablet-3",
-                  "col-desktop-4",
-                  "offset-desktop-4",
-                ]}
-              >
-                <Button
-                  label="Trimite mesaj!"
-                  buttonStyle="primary"
-                  jsHook="js-submit-button"
-                  buttonType="submit"
-                />
-              </FlexGrid>
-            </FlexGrid>
-          </FlexGrid>
+            <Select
+              placeholder="Pe ce perioada"
+              inputName="perioada"
+              required="true"
+              options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
+            />
+          </Fieldset>
+
+          <Textarea
+            placeholder="Detalii"
+            inputName="message"
+            inputId="message"
+            initValue=""
+            rows="6"
+            required="true"
+          />
+
+          <Button
+            label="Trimite mesaj!"
+            buttonStyle="primary"
+            jsHook="js-submit-button"
+            buttonType="submit"
+          />
         </Form>
       </Content>
-      <Footer />
+      <Footer socialMediaList={content.socialMediaList} />
 
       {mainContent.spotlight_1.content.map((item, index) => {
-        console.log(item);
         return (
           <ProductModal
             key={index}

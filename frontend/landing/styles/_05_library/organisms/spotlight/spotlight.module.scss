@@ -29,6 +29,7 @@ $block: "spotlight";
   @include e("content") {
     transform: translate(0, 0);
     transition: opacity 1s ease;
+    transition-delay: 0.5s;
     opacity: 1;
     background-color: get-color($c-dark, dark-85);
     text-align: center;
@@ -48,16 +49,16 @@ $block: "spotlight";
       border-top: solid $baseline get-color($c-red, paradise-pink);
       bottom: 0;
       width: 100%;
-      padding-top: var(--dynamic-90);
-      padding-bottom: var(--dynamic-90);
+      padding-top: var(--dynamic-spacing-90);
+      padding-bottom: var(--dynamic-spacing-90);
     }
 
     .right & {
       border-top: solid $baseline get-color($c-blue, blue-crayola);
       width: 100%;
       bottom: 0;
-      padding-top: var(--dynamic-90);
-      padding-bottom: var(--dynamic-90);
+      padding-top: var(--dynamic-spacing-90);
+      padding-bottom: var(--dynamic-spacing-90);
 
       @include breakpoint($desktop) {
         border-top: none;
@@ -73,8 +74,8 @@ $block: "spotlight";
       border-top: solid $baseline get-color($c-green, sea-green-crayola);
       width: 100%;
       bottom: 0;
-      padding-top: var(--dynamic-90);
-      padding-bottom: var(--dynamic-90);
+      padding-top: var(--dynamic-spacing-90);
+      padding-bottom: var(--dynamic-spacing-90);
 
       @include breakpoint($desktop) {
         border-top: none;

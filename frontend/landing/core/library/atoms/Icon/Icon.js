@@ -12,6 +12,8 @@ import {
   BsRecycle,
   BsCheck,
   BsChevronDown,
+  BsEnvelopeOpen,
+  BsTelephone
 } from "react-icons/bs";
 import { RiCustomerService2Line } from "react-icons/ri";
 import { TbArrowsShuffle } from "react-icons/tb";
@@ -30,7 +32,7 @@ export default function Icon({ iconName, className }) {
     twitter: <SlSocialTwitter className={styles.svg} />,
     facebook: <SlSocialFacebook className={styles.svg} />,
     linkedin: <SlSocialLinkedin className={styles.svg} />,
-    envelope: <SlEnvolope className={styles.svg} />,
+    envelope: <BsEnvelopeOpen className={styles.svg} />,
     rowLogoText: <RowLogoText className={styles.svg} />,
     logoIcon: <LogoIcon className={styles.svg} />,
     percent: <BsPercent className={styles.svg} />,
@@ -45,6 +47,7 @@ export default function Icon({ iconName, className }) {
     standard: <RiScales3Line className={styles.svg} />,
     professional: <FaBriefcase className={styles.svg} />,
     computer: <MdOutlineComputer className={styles.svg} />,
+    phone: <BsTelephone className={styles.svg}/>
   };
 
   return (

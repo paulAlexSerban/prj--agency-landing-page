@@ -11,7 +11,7 @@ export default function Card({ iconName, heading, text }) {
   return (
     <div className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
       <Icon className={styles.icon} iconName={iconName} />
-      <Heading className={styles.heading} level="4" mainText={heading} />
+      <Heading className={styles.heading} level="3" mainText={heading} />
       {text && <Paragraph className={styles.text} text={text} />}
     </div>
   );

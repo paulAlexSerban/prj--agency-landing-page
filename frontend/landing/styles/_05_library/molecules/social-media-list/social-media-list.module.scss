@@ -12,7 +12,7 @@ $block: "social-media-list";
     @include flex();
 
     width: 100%;
-    gap: $gutter;
+    gap: $gutter * 2;
     margin-bottom: $baseline * 5;
   }
 }

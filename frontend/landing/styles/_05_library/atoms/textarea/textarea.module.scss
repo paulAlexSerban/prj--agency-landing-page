@@ -16,6 +16,6 @@ $block: "textarea";
     @include input-base;
 
     resize: none;
-    margin-bottom: var(--dynamic-90);
+    margin-bottom: var(--dynamic-spacing-90);
   }
 }

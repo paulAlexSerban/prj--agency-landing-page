@@ -16,12 +16,12 @@ $block: "heading";
 
     @include m("2") {
       @include font($heading-200);
-      margin-bottom: var(--dynamic-70);
+      margin-bottom: var(--dynamic-spacing-70);
     }
 
     @include m("3") {
       @include font($heading-300);
-      margin-bottom: var(--dynamic-70);
+      margin-bottom: var(--dynamic-spacing-30);
     }
 
     @include m("4") {
@@ -34,7 +34,7 @@ $block: "heading";
   }
 
   @include e("main") {
-    margin-bottom: var(--dynamic-30);
+    margin-bottom: var(--dynamic-spacing-30);
   }
 
   @include e("subheading") {
@@ -42,7 +42,7 @@ $block: "heading";
   }
 
   @include e("separator") {
-    padding-bottom: var(--dynamic-70);
+    padding-bottom: var(--dynamic-spacing-70);
     &:after {
       @include absolute();
 
