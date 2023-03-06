@@ -13,7 +13,7 @@ import {
   BsCheck,
   BsChevronDown,
   BsEnvelopeOpen,
-  BsTelephone
+  BsTelephone,
 } from "react-icons/bs";
 import { RiCustomerService2Line } from "react-icons/ri";
 import { TbArrowsShuffle } from "react-icons/tb";
@@ -47,7 +47,7 @@ export default function Icon({ iconName, className }) {
     standard: <RiScales3Line className={styles.svg} />,
     professional: <FaBriefcase className={styles.svg} />,
     computer: <MdOutlineComputer className={styles.svg} />,
-    phone: <BsTelephone className={styles.svg}/>
+    phone: <BsTelephone className={styles.svg} />,
   };
 
   return (

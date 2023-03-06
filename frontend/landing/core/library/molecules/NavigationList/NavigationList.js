@@ -12,7 +12,6 @@ export default function NavigationList({ list = [] }) {
       className={`${styles.base} js-nav-list`}
     >
       {list.map((item, index) => {
-
         return (
           <li className={styles.item} key={index}>
             <Link href={`#${item.href}`} replace scroll={false}>

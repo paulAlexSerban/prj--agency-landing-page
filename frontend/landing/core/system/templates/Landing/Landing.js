@@ -51,7 +51,7 @@ export default function Landing({
   children,
   content,
   pageProperties,
-  socialMediaList
+  socialMediaList,
 }) {
   const ID = useId();
   useEffect(() => {
