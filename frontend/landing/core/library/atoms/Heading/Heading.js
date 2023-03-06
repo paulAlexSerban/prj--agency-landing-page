@@ -7,6 +7,7 @@ export default function Heading({
   mainText,
   subheading,
   hasSeparator,
+  parentClassNames = [],
 }) {
   const ID = useId();
 
@@ -15,7 +16,9 @@ export default function Heading({
       <h2
         className={`${styles.heading} ${
           styles[`heading--${parseInt(level)}`]
-        } ${hasSeparator ? styles.separator : ""}`}
+        } ${hasSeparator ? styles.separator : ""} ${parentClassNames.join(
+          " "
+        )}`}
         data-next-cmp={`${config.name}-${ID}`}
       >
         <span className={styles.main}>{mainText}</span>
@@ -27,7 +30,9 @@ export default function Heading({
       <h3
         className={`${styles.heading} ${
           styles[`heading--${parseInt(level)}`]
-        } ${hasSeparator ? styles.separator : ""}`}
+        } ${hasSeparator ? styles.separator : ""} ${parentClassNames.join(
+          " "
+        )}`}
         data-next-cmp={`${config.name}-${ID}`}
       >
         <span className={styles.main}>{mainText}</span>
@@ -40,7 +45,9 @@ export default function Heading({
         data-test="test"
         className={`${styles.heading} ${
           styles[`heading--${parseInt(level)}`]
-        } ${hasSeparator ? styles.separator : ""}`}
+        } ${hasSeparator ? styles.separator : ""} ${parentClassNames.join(
+          " "
+        )}`}
         data-next-cmp={`${config.name}-${ID}`}
       >
         <span className={styles.main}>{mainText}</span>

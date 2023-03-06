@@ -9,18 +9,19 @@
     }
   },
   "heading": {
-    "level": 3,
-    "mainText": "Configuratii de laptopuri disponibile"
+    "level": 2,
+    "mainText": "Configuratii de echipamente disponibile"
   },
   "content": [
     {
-      "heading": "Configuratie Standard",
+      "heading": "Standard",
       "id": "configuratie_standard",
       "iconName": "basic",
+      "description": "Această configurație este ideală pentru utilizatorii care au nevoie de un laptop pentru sarcini de birou, cum ar fi lucrul cu documente, navigarea pe internet sau trimiterea de e-mailuri.",
       "content": [
         {
           "list": {
-            "title": "Specificatii",
+            "title": "HP Elite 840 G2",
             "items": [
               "Intel Core I5-5200, 2.2Ghz",
               "8Gb RAM DDR3",
@@ -29,20 +30,20 @@
             ]
           },
           "image": {
-            "source": "hp",
-            "title": "Exemplu echipamen - HP Elite 840 G2"
+            "source": "hp"
           }
         }
       ]
     },
     {
-      "heading": "Configuratie Intermediate",
+      "heading": "Intermediate",
       "id": "configuratie_intermediate",
       "iconName": "standard",
+      "description": "Această configurație este potrivită pentru utilizatorii care au nevoie de o performanță mai bună pentru sarcinile lor zilnice, cum ar fi utilizarea de programe de editare foto și video sau pentru jocuri mai puțin intensive.",
       "content": [
         {
           "list": {
-            "title": "Specificatii",
+            "title": "Lenovo ThinkPad Yoga 260",
             "items": [
               "Inter Core i5-6300, 3Ghz",
               "8Gb RAM DDR3",
@@ -52,13 +53,12 @@
             ]
           },
           "image": {
-            "source": "lenovo",
-            "title": "Exemplu echipament: Lenovo ThinkPad Yoga 260"
+            "source": "lenovo"
           }
         },
         {
           "list": {
-            "title": "Specificatii",
+            "title": "Lenovo ThinkPad T470S",
             "items": [
               "Inter Core i5-6300, 2,8Ghz",
               "8Gb RAM DDR4",
@@ -68,20 +68,20 @@
           },
           "paragraph": [],
           "image": {
-            "source": "lenovo-facing",
-            "title": "Exemplu echipament: Lenovo ThinkPad T470S"
+            "source": "lenovo-facing"
           }
         }
       ]
     },
     {
-      "heading": "Configuratie Professional",
+      "heading": "Professional",
       "id": "configuratie_professional",
       "iconName": "professional",
+      "description": "Această configurație este ideală pentru utilizatorii care au nevoie de o performanță ridicată pentru sarcinile lor zilnice, cum ar fi proiectarea grafică, dezvoltarea software sau jocuri complexe.",
       "content": [
         {
           "list": {
-            "title": "Specificatii",
+            "title": "HP EliteBook Folio 1040 G3",
             "items": [
               "Intel Core i7-6600U, 3.4Ghz",
               "16G RAM DDR4",
@@ -91,8 +91,7 @@
           },
           "paragraph": [],
           "image": {
-            "source": "hp",
-            "title": "Exemplu echipament: HP EliteBook Folio 1040 G3"
+            "source": "hp"
           }
         }
       ]

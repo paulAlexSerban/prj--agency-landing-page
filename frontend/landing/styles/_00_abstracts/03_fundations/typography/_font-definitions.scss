@@ -149,17 +149,17 @@ $heading-300: (
 $heading-400: (
   default: (
     font-family: var(--text-heading),
-    font-size: convert-rem(20px),
+    font-size: convert-rem(18px),
     line-height: convert-rem(26px),
     font-weight: 100,
   ),
   $desktop: (
-    font-size: convert-rem(26px),
+    font-size: convert-rem(22px),
     line-height: convert-rem(32px),
     letter-spacing: convert-rem(0.5px),
   ),
   $ultra-wide: (
-    font-size: convert-rem(30px),
+    font-size: convert-rem(24px),
     line-height: convert-rem(36px),
     letter-spacing: convert-rem(-0.5px),
   ),

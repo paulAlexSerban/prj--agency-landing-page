@@ -15,12 +15,11 @@ export class ProductCardMolecule extends Component {
     );
     this.elements.overlay = document.querySelector(config.selectors.overlay);
 
-    if(this.elements.modal) {
+    if (this.elements.modal) {
       this.elements.closeModalBtn = this.elements.modal.querySelector(
         `.${config.hooks.btnCloseModal}`
       );
     }
-
   }
 
   #setupEventListeners() {

@@ -10,7 +10,6 @@ import { getNavigationList } from "./Navigation.utils";
 export default function Navigation({ navList }) {
   const ID = useId();
 
-
   useEffect(() => {
     document
       .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)

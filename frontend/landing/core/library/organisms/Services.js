@@ -95,9 +95,9 @@ export default function Services() {
             <h4 className="my-3">Buy back</h4>
             <p className="text-muted">
               Ai decis sa alegi serviciile noastre însa ai deja o flota de
-              echipamente pe care dorești sa o monetizeze? Nici o problema. Noi
-              îți facem o oferta de buy-back pentru cele vechi si poți folosi
-              fondurile pentru a achita elemente ale noului contract.
+              echipamente? Noi îți facem o oferta de buy-back pentru cele vechi
+              si poți folosi fondurile pentru a achita elemente ale noului
+              contract.
             </p>
           </div>
         </div>

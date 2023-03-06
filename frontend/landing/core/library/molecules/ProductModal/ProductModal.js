@@ -4,15 +4,16 @@ import styles from "@/styles/molecules/modal/modal.module.scss";
 import Heading from "@/core/atoms/Heading/Heading";
 import FlexGrid from "@/core/layouts/FlexGrid/FlexGrid";
 import Button from "@/core/atoms/Button/Button";
+import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 
 export default function ProductModal({
   controlledBy,
   children,
   heading = "Modal Window Heading",
   subheading,
+  description
 }) {
   const ID = useId();
-
   return (
     <div
       className={`${styles.base} hidden`}
@@ -21,6 +22,7 @@ export default function ProductModal({
     >
       <span className={`${styles["close-btn"]} js-close-btn`}>&times;</span>
       <Heading mainText={heading} subtitle={subheading} hasSeparator />
+      <Paragraph text={description}/>
       {children}
       <div className={styles.buttonContainer}>
         <Button

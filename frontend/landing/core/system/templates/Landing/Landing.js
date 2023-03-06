@@ -133,12 +133,15 @@ export default function Landing({
             <Card
               iconName="money"
               heading="Buy back"
-              text="Ai decis sa alegi serviciile noastre însa ai deja o flota de echipamente pe care dorești sa o monetizeze? Nici o problema. Noi îți facem o oferta de buy-back pentru cele vechi si poți folosi fondurile pentru a achita elemente ale noului contract."
+              text="Ai decis sa alegi serviciile noastre însa ai deja o flota de
+              echipamente? Noi îți facem o oferta de buy-back pentru cele vechi
+              si poți folosi fondurile pentru a achita elemente ale noului
+              contract."
             />
             <Card
               iconName="recycle"
               heading="Prietenos cu mediul"
-              text="pentru orice laptop recondiționat salvezi 280 Kg CO2 echivalentul distanței parcurse cu mașina de la București la Viena"
+              text="pentru orice laptop recondiționat salvezi 280 Kg CO2 echivalentul distanței parcurse cu mașina de la București la Viena."
             />
           </RAM>
           <FlexGrid row>
@@ -152,7 +155,7 @@ export default function Landing({
               ]}
             >
               <Button
-                label="Call To Action"
+                label="Hai sa beneficiezi si tu!"
                 buttonStyle="primary"
                 jsHook="js-cta-button"
                 target="contact"
@@ -195,7 +198,7 @@ export default function Landing({
               ]}
             >
               <Button
-                label="Call To Action"
+                label="Spune-ne de ce configuratie ai nevoie!"
                 buttonStyle="primary"
                 jsHook="js-cta-button"
                 target="contact"
@@ -323,7 +326,7 @@ export default function Landing({
                 ]}
               >
                 <Button
-                  label="Trimite mesaj"
+                  label="Trimite mesaj!"
                   buttonStyle="primary"
                   jsHook="js-submit-button"
                   buttonType="submit"
@@ -336,11 +339,13 @@ export default function Landing({
       <Footer />
 
       {mainContent.spotlight_1.content.map((item, index) => {
+        console.log(item)
         return (
           <ProductModal
             key={index}
             controlledBy={item.id}
             heading={item.heading}
+            description={item.description}
           >
             <ProductDetails content={item.content} />
           </ProductModal>
