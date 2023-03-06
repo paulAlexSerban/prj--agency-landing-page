@@ -11,7 +11,7 @@ export default function ProductModal({
   children,
   heading = "Modal Window Heading",
   subheading,
-  description
+  description,
 }) {
   const ID = useId();
   return (
@@ -22,7 +22,7 @@ export default function ProductModal({
     >
       <span className={`${styles["close-btn"]} js-close-btn`}>&times;</span>
       <Heading mainText={heading} subtitle={subheading} hasSeparator />
-      <Paragraph text={description}/>
+      <Paragraph text={description} />
       {children}
       <div className={styles.buttonContainer}>
         <Button

@@ -339,7 +339,7 @@ export default function Landing({
       <Footer />
 
       {mainContent.spotlight_1.content.map((item, index) => {
-        console.log(item)
+        console.log(item);
         return (
           <ProductModal
             key={index}
