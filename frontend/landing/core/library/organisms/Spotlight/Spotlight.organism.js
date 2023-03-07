@@ -52,9 +52,7 @@ export class SpotlightOrganism extends Component {
         return width > this.windowWidth;
       });
 
-      correctRendition = correctRendition
-        ? `${correctRendition}`
-        : "original";
+      correctRendition = correctRendition ? `${correctRendition}` : "original";
 
       this.el.style.setProperty(
         "--image-src",

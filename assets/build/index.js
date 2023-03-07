@@ -1,4 +1,4 @@
-import { task, parallel, series} from "gulp";
+import { task, parallel, series } from "gulp";
 import { clean } from "./tasks/clean";
 import { processIcons } from "./tasks/processIcons";
 import { processSvgs } from "./tasks/processSvgs";
@@ -15,5 +15,14 @@ import { processAudio } from "./tasks/processAudio";
 // ---------------------------------------------------------------------
 task(
   "process",
-  series(clean, parallel( processIcons, processSvgs, createImageRenditions,  processVideos, processAudio))
+  series(
+    clean,
+    parallel(
+      processIcons,
+      processSvgs,
+      createImageRenditions,
+      processVideos,
+      processAudio
+    )
+  )
 );

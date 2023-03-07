@@ -171,7 +171,7 @@ const transforms = [
 // resize images
 export const createImageRenditions = (done) => {
   // glob all files
-  
+
   return new Promise((resolve, reject) => {
     let files = globSync(paths.src.assets.images);
     // loop through configuration array of objects
@@ -202,9 +202,7 @@ export const createImageRenditions = (done) => {
       let filename = path.parse(file).name;
       sharp(file)
         .webp({ lossless: true })
-        .toFile(
-          `${paths.dist.dir}/images/${filename}-original.webp`
-        )
+        .toFile(`${paths.dist.dir}/images/${filename}-original.webp`)
         .catch((err) => {
           console.log(err);
         });
