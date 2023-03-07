@@ -18,7 +18,6 @@ jobs:
     name: Build Frontend NextJS SSG Landing
     runs-on: ubuntu-latest
     env:
-      ASSETS_ROOT: assets
       FE_NEXTJS_PROJECT_ROOT: frontend/landing
       NODE_VERSION: 16.19.0
     steps:
@@ -51,12 +50,6 @@ jobs:
           npm i -g npm@latest
           npm ci
 
-      #   @INFO - this part is needed when assets module will be functional
-      #   @UPDATED - might not be needed and should be deleted - TBD
-      # - name: "Install GraphicsMagick"
-      #   if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
-      #   run: sudo apt-get install -y graphicsmagick
-
       - name: "📦  Install Frontend NextJS Landing dependencies"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
@@ -71,7 +64,8 @@ jobs:
       - name: "🏗️  Build Frontend NextJS SSG Landing For GitHub Pages"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
-          bash scripts/modulize.bash -e prod -p process_assets -m assets
+
+          bash scripts/modulize.bash -e prod -p build -m landing
 
       - name: "🚚  Package NextJS Landing"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
