@@ -27,5 +27,6 @@ elif [[ $ENV == "gh_pages" ]]; then
 elif [[ $ENV == 'prod' ]]; then
   export SERVER_ENV=production
 fi
-
+rm -rfv ../public/*
+cp -rfv ../../../assets/dist/* ../public
 npm --prefix .. run build

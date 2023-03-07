@@ -27,7 +27,7 @@ export class SpotlightOrganism extends Component {
       (rendition) =>
         (this.imageRenditionsPaths[
           rendition
-        ] = `${this.imagePath}-${rendition}px`)
+        ] = `${this.imagePath}-${rendition}`)
     );
 
     this.#getDevicePixelRatio();
@@ -53,7 +53,7 @@ export class SpotlightOrganism extends Component {
       });
 
       correctRendition = correctRendition
-        ? `${correctRendition}px`
+        ? `${correctRendition}`
         : "original";
 
       this.el.style.setProperty(

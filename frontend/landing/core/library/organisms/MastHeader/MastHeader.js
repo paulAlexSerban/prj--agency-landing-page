@@ -21,7 +21,7 @@ export default function MastHeader({ children }) {
       data-img-rendition={imageRendition}
       className={styles.base}
       style={{
-        "--image-src": `url(/images/${bkgImage}-${imageRendition}px.webp)`,
+        "--image-src": `url(/images/${bkgImage}-${imageRendition}.webp)`,
       }}
     >
       <div className={`${styles.container}`}>{children}</div>

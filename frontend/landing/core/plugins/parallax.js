@@ -6,7 +6,7 @@ export const parallax = {
 
       window.addEventListener("scroll", () => {
         const pos = parseInt(window.scrollY) - parseInt(elm.offsetTop);
-        elm.style.backgroundPosition = `center ${pos * -0.35}px`;
+        elm.style.backgroundPosition = `center ${pos * -0.35}`;
       });
     };
 

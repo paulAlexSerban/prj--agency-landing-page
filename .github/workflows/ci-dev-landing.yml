@@ -1,91 +1,91 @@
 ---
-name: CI Dev
+name: Develop Frontend NextJS SSG Landing
 
 on:
-  pull_request:
-    branches: [develop, release]
   push:
-    branches: [develop, release]
+    branches-ignore:
+      - release
+      - main
+      - develop
+
+  pull_request:
+    types: [opened, synchronize]
+
+  workflow_dispatch:
 
 jobs:
-  build:
-    name: DEV Merge PullRequest
+  build-frontend:
+    name: Build Frontend NextJS SSG Landing
     runs-on: ubuntu-latest
+    env:
+      ASSETS_ROOT: assets
+      FE_NEXTJS_PROJECT_ROOT: frontend/landing
+      NODE_VERSION: 16.19.0
     steps:
-      - name: "📥 checkout repository"
+      - name: "📥  Checkout repository"
         uses: actions/checkout@v3
+
+      - name: "🔍  Verify Changed Files"
+        uses: tj-actions/changed-files@v35
+        id: changed-frontend-landing-files
         with:
-          fetch-depth: 0
+          files: ${{ env.FE_NEXTJS_PROJECT_ROOT }}/**/*
 
-      - name: "🔍  Verify Changes in Files"
-        uses: tj-actions/changed-files@v23.1
-        id: changed-files
+      - name: "🔄  Cache node_modules"
+        if: ${{ always() }}
+        uses: actions/cache@v2
         with:
-          files: |
-            backend/landing/**/*
-
-      - name: "List all changed files"
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
-
-      - name: "Get npm cache directory"
-        if: steps.changed-files.outputs.any_changed == 'true'
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: "Cache npm modules"
-        if: steps.changed-files.outputs.any_changed == 'true'
-        uses: actions/cache@v3
-        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          restore-keys: ${{ runner.os }}-node-
 
-      - name: "🔧 Setup NodeJS 16.19.0"
-        if: steps.changed-files.outputs.any_changed == 'true'
-        uses: actions/setup-node@v3
+      - name: "🔧  Setup NodeJS ${{ env.NODE_VERSION }}"
+        if: ${{ always() }}
+        uses: actions/setup-node@v1
         with:
-          node-version: 16.19.0
+          node-version: ${{ env.NODE_VERSION }}
 
-      - name: "🔧 Install latest NPM"
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: npm i -g npm@latest
-
-      - name: "📦  Install CI deps"
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: npm run install:ci
-
-      - name: "📦  Install Landing deps"
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: bash scripts/modulize.bash -e prod -p install -m landing
-
-      - name: "Check Project"
-        if: steps.changed-files.outputs.any_changed == 'true'
+      - name: "🔧  Install npm@latest & CI Deps"
+        if: ${{ always() }}
         run: |
-          npm run formats:check
-          npm run test
-        env:
-          CI: true
+          npm i -g npm@latest
+          npm ci
 
-      # - name: "Upload Test Coverage"
-      #   if: steps.changed-files.outputs.any_changed == 'true'
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: code-coverage
-      #     path: backend/landing/coverage/
+      #   @INFO - this part is needed when assets module will be functional
+      #   @UPDATED - might not be needed and should be deleted - TBD
+      # - name: "Install GraphicsMagick"
+      #   if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
+      #   run: sudo apt-get install -y graphicsmagick
 
-      - name: "🏗️ Build Project"
-        if: github.event_name == 'push' && steps.changed-files.outputs.any_changed == 'true'
-        run: bash scripts/modulize.bash -e prod -p build -m landing
+      - name: "📦  Install Frontend NextJS Landing dependencies"
+        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
+        run: |
+          bash scripts/modulize.bash -e prod -p install -m assets
+          bash scripts/modulize.bash -e prod -p install -m landing
 
-      - name: "Upload Build Folder"
-        if: github.event_name == 'push' && steps.changed-files.outputs.any_changed == 'true'
-        uses: actions/upload-artifact@v1
-        with:
-          name: build
-          path: backend/landing/out/
+      - name: "🔍  Lint Frontend NextJS SSG Landing"
+        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
+        run: |
+          bash scripts/modulize.bash -e prod -p lint -m landing
+        continue-on-error: true
+
+      - name: "🏗️  Build Frontend NextJS SSG Landing For GitHub Pages"
+        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
+        run: |
+          bash scripts/modulize.bash -e gh_pages -p process_assets -m assets
+          bash scripts/modulize.bash -e gh_pages -p build -m landing
+
+      - name: "🚚  Package NextJS Landing"
+        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
+        run: |
+          bash scripts/modulize.bash -e prod -p package -m landing
+
+      - name: "Configure git"
+        run: |
+          git config --global user.email "paul.alex.serban@gmail.com"
+          git config --global user.name "paulAlexSerban"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - name: "🚀 Deploy to Test"
+        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
+        run: npx gh-pages -d package/landing --branch main-test -t true

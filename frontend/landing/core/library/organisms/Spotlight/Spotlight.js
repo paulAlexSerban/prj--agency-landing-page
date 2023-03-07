@@ -22,7 +22,7 @@ export default function Spotlight({ children, position, imageSrc, sectionId }) {
       id={sectionId}
       className={`${styles.base} ${styles[position]} ${styles.inactive}`}
       style={{
-        "--image-src": `url(/images/${bkgImage}-${imageRendition}px.webp)`,
+        "--image-src": `url(/images/${bkgImage}-${imageRendition}.webp)`,
       }}
     >
       <div className={styles.content}>{children}</div>
