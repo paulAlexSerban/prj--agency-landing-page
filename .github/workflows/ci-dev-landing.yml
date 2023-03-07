@@ -72,8 +72,8 @@ jobs:
       - name: "🏗️  Build Frontend NextJS SSG Landing For GitHub Pages"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
-          bash scripts/modulize.bash -e gh_pages -p process_assets -m assets
-          bash scripts/modulize.bash -e gh_pages -p build -m landing
+          bash scripts/modulize.bash -e prod -p process_assets -m assets
+          bash scripts/modulize.bash -e prod -p build -m landing
 
       - name: "🚚  Package NextJS Landing"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}

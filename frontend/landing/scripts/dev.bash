@@ -21,9 +21,6 @@ fi
 
 if [[ $ENV == "dev" ]]; then
   export SERVER_ENV=development
-elif [[ $ENV == "gh_pages" ]]; then
-  export SERVER_ENV=gh_pages
-  export BASE_PATH='/prj--personal-portfolio'
 elif [[ $ENV == 'prod' ]]; then
   export SERVER_ENV=production
 fi
