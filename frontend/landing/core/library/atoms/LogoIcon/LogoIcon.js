@@ -17,7 +17,7 @@ export default function LogoIcon() {
   });
 
   return (
-    <Link href="#page-top" replace>
+    <Link href="#page-top" replace legacyBehavior>
       <a className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
         <Icon iconName="rowLogoText" />
       </a>

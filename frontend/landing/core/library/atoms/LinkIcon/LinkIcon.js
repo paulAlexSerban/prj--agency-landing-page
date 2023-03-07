@@ -8,7 +8,7 @@ export default function LinkIcon({ iconHref = "", iconName = "logoIcon" }) {
   const ID = useId();
 
   return (
-    <Link href={iconHref}>
+    <Link href={iconHref} legacyBehavior>
       <a className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
         <Icon iconName={iconName} />
       </a>

@@ -13,13 +13,13 @@ export default function Button({
 }) {
   const ID = useId();
 
-  if (jsHook === "js-cta-button") {
-    useEffect(() => {
+  useEffect(() => {
+    if (jsHook === "js-cta-button") {
       document
         .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
         .forEach((el) => new CtaButtonAtom(el, jsHook));
-    });
-  }
+    }
+  });
 
   return (
     <button

@@ -11,7 +11,7 @@ export default function BurgerButton({
   const ID = useId();
 
   return (
-    <Link href={`#${ariaControls}`} replace>
+    <Link href={`#${ariaControls}`} replace legacyBehavior>
       <a
         className={`${styles.button} ${jsHook.split(".").join("")}`}
         data-next-cmp={`${config.name}-${ID}`}
