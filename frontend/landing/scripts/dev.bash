@@ -24,6 +24,8 @@ if [[ $ENV == "dev" ]]; then
 elif [[ $ENV == 'prod' ]]; then
   export SERVER_ENV=production
 fi
+
+mkdir ../public
 rm -rfv ../public/*
 cp -rfv ../../../assets/dist/* ../public
 npm --prefix .. run dev

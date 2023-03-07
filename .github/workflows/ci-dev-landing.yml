@@ -60,7 +60,6 @@ jobs:
       - name: "📦  Install Frontend NextJS Landing dependencies"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
-          bash scripts/modulize.bash -e prod -p install -m assets
           bash scripts/modulize.bash -e prod -p install -m landing
 
       - name: "🔍  Lint Frontend NextJS SSG Landing"
@@ -73,7 +72,6 @@ jobs:
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
           bash scripts/modulize.bash -e prod -p process_assets -m assets
-          bash scripts/modulize.bash -e prod -p build -m landing
 
       - name: "🚚  Package NextJS Landing"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
