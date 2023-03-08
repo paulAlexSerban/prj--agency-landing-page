@@ -8,6 +8,7 @@ export default function TextInput({
   inputId,
   inputValue,
   required,
+  type = "text"
 }) {
   const ID = useId();
 
@@ -18,7 +19,7 @@ export default function TextInput({
         name={inputName}
         id={inputId}
         value={inputValue}
-        type="text"
+        type={type}
         className={styles.input}
         data-next-cmp={`${config.name}-${ID}`}
         data-required={required}

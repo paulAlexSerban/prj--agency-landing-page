@@ -28,8 +28,8 @@ $block: "spotlight";
 
   @include e("content") {
     transform: translate(0, 0);
-    transition: opacity 1s ease;
-    transition-delay: 0.5s;
+    transition: opacity 1s ease-in;
+    transition-delay: 0.1s;
     opacity: 1;
     background-color: get-color($c-dark, dark-85);
     text-align: center;

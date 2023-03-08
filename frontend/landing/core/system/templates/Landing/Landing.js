@@ -188,38 +188,38 @@ export default function Landing({
           hasSeparator
           inverted
         />
-        <Form>
-          <Fieldset name="identification" cols={2}>
+        <Form submitButtonLabel="Trimite-ne un mesaj!" recaptchaKey={pageProperties.recaptcha_site_key} action={pageProperties.form_submit_endpoint}>
+          <Fieldset name="identification" cols={2} >
             <TextInput
               placeholder="Nume companie"
-              inputName="nume_compoanie"
-              inputId="nume_compoanie"
+              inputName="name"
+              inputId="nume_companie"
               initValue=""
-              required="true"
+              required={true}
             />
             <TextInput
               placeholder="Persoana de contact"
-              inputName="persoana_de_contact"
+              inputName="name"
               inputId="persoana_de_contact"
               initValue=""
-              required="true"
+              required={true}
             />
             <PhoneInput
               placeholder="Telefon"
-              inputName="Telefon"
-              inputId="Telefon"
+              inputName="phone"
+              inputId="telefon"
               initValue=""
-              required="true"
+              required={true}
             />
             <EmailInput
               placeholder="Email"
               inputName="email"
               inputId="email"
               initValue=""
-              required="true"
+              required={true}
             />
           </Fieldset>
-          <Fieldset name="tip_de_utilizare" legend="Tip de utilizare:" cols={6}>
+          <Fieldset name="tip_de_utilizare" legend="Tip de utilizare:" cols={6} required={true} type="checkboxField">
             <Checkbox inputName="basic" inputId="basic" label="Basic" />
             <Checkbox
               inputName="standard"
@@ -238,13 +238,15 @@ export default function Landing({
               inputName="numar_echipamente"
               inputId="numar_echipamente"
               initValue=""
-              required="true"
+              required={true}
+              type="number"
             />
 
             <Select
-              placeholder="Pe ce perioada"
+              placeholder="Pe ce perioada?"
               inputName="perioada"
-              required="true"
+              inputId="perioada"
+              required={true}
               options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
             />
           </Fieldset>
@@ -255,15 +257,9 @@ export default function Landing({
             inputId="message"
             initValue=""
             rows="6"
-            required="true"
+            required={true}
           />
 
-          <Button
-            label="Trimite mesaj!"
-            buttonStyle="primary"
-            jsHook="js-submit-button"
-            buttonType="submit"
-          />
         </Form>
       </Content>
       <Footer socialMediaList={content.socialMediaList} />

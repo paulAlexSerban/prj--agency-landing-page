@@ -22,6 +22,7 @@ export default function PhoneInput({
         className={styles.input}
         data-next-cmp={`${config.name}-${ID}`}
         data-required={required}
+        data-form-item-type="phoneNumber"
       />
     </label>
   );
