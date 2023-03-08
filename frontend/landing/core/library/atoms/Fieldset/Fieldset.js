@@ -8,7 +8,7 @@ export default function Fieldset({
   required = false,
   legend = "",
   cols = 1,
-  type
+  type,
 }) {
   const ID = useId();
   return (

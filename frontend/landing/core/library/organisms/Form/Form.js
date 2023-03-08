@@ -4,7 +4,12 @@ import config from "./config";
 import styles from "@/styles/organisms/form/form.module.scss";
 import Button from "@/core/atoms/Button/Button";
 
-export default function Form({ children, submitButtonLabel = "Submit", recaptchaKey, action }) {
+export default function Form({
+  children,
+  submitButtonLabel = "Submit",
+  recaptchaKey,
+  action,
+}) {
   const ID = useId();
   useEffect(() => {
     document

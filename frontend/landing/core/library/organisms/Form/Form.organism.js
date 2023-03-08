@@ -149,7 +149,7 @@ class FormOrganism extends Component {
       const isFormValid = !(formValidation.isNotValid.length > 0);
 
       if (isFormValid) {
-        console.log(isFormValid)
+        console.log(isFormValid);
         grecaptcha.ready(() => {
           grecaptcha
             .execute(this.RECAPTCHA_SITE_KEY, {
@@ -159,16 +159,13 @@ class FormOrganism extends Component {
               formData.token = token;
             })
             .then(async () => {
-  
-                formData.body = formValidation.formStates;
-                this.OPTIONS.body = JSON.stringify(formData);
-                const response = await fetch(this.ENDPOINT, this.OPTIONS);
-                const result = await response.json();
-              
+              formData.body = formValidation.formStates;
+              this.OPTIONS.body = JSON.stringify(formData);
+              const response = await fetch(this.ENDPOINT, this.OPTIONS);
+              const result = await response.json();
             });
         });
       }
-
     });
   }
 

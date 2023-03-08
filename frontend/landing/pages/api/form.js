@@ -92,7 +92,9 @@ Date contact:
             `,
         },
       },
-      Subject: { Data: `Mesaj de la ${dataObj.persoana_de_contact} in numele companiei ${dataObj.nume_companie}` },
+      Subject: {
+        Data: `Mesaj de la ${dataObj.persoana_de_contact} in numele companiei ${dataObj.nume_companie}`,
+      },
     },
     Source: "validated.address@email.om", // Replace with a verified email address
   };

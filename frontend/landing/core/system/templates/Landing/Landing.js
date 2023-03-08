@@ -188,8 +188,12 @@ export default function Landing({
           hasSeparator
           inverted
         />
-        <Form submitButtonLabel="Trimite-ne un mesaj!" recaptchaKey={pageProperties.recaptcha_site_key} action={pageProperties.form_submit_endpoint}>
-          <Fieldset name="identification" cols={2} >
+        <Form
+          submitButtonLabel="Trimite-ne un mesaj!"
+          recaptchaKey={pageProperties.recaptcha_site_key}
+          action={pageProperties.form_submit_endpoint}
+        >
+          <Fieldset name="identification" cols={2}>
             <TextInput
               placeholder="Nume companie"
               inputName="name"
@@ -219,7 +223,13 @@ export default function Landing({
               required={true}
             />
           </Fieldset>
-          <Fieldset name="tip_de_utilizare" legend="Tip de utilizare:" cols={6} required={true} type="checkboxField">
+          <Fieldset
+            name="tip_de_utilizare"
+            legend="Tip de utilizare:"
+            cols={6}
+            required={true}
+            type="checkboxField"
+          >
             <Checkbox inputName="basic" inputId="basic" label="Basic" />
             <Checkbox
               inputName="standard"
@@ -259,7 +269,6 @@ export default function Landing({
             rows="6"
             required={true}
           />
-
         </Form>
       </Content>
       <Footer socialMediaList={content.socialMediaList} />

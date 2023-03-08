@@ -13,7 +13,7 @@ export default async function getStaticProps() {
       pageProperties: {
         templateType: "",
         recaptcha_site_key: process.env.RECAPTCHA_SITE_KEY,
-        form_submit_endpoint: process.env.SUBMIT_FORM_ENDPOINT
+        form_submit_endpoint: process.env.SUBMIT_FORM_ENDPOINT,
       },
       content: {
         main: {
