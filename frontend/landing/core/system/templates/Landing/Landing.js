@@ -271,7 +271,10 @@ export default function Landing({
           />
         </Form>
       </Content>
-      <Footer socialMediaList={content.socialMediaList} projectName={pageProperties.project_name}/>
+      <Footer
+        socialMediaList={content.socialMediaList}
+        projectName={pageProperties.project_name}
+      />
 
       {mainContent.spotlight_1.content.map((item, index) => {
         return (
