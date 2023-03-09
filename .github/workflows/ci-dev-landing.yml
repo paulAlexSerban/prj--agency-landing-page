@@ -81,7 +81,7 @@ jobs:
         run: |
           git config --global user.email "paul.alex.serban@gmail.com"
           git config --global user.name "paulAlexSerban"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: "🚀 Deploy to ${{ env.DEPLOY_BRANCH }} branch"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
