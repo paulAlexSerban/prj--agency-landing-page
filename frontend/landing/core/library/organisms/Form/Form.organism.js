@@ -43,7 +43,7 @@ class FormOrganism extends Component {
       text: (el) => {
         const inputValue = el.value;
         const hasContent = inputValue.length > 0;
-        const regex = new RegExp(patterns[el.name])
+        const regex = new RegExp(patterns[el.name]);
         const contentIsValid = regex.test(inputValue);
         regex.lastIndex = 0;
         formStates.push({
@@ -65,7 +65,7 @@ class FormOrganism extends Component {
       email: (el) => {
         const inputValue = el.value;
         const hasContent = inputValue.length > 0;
-        const regex = new RegExp(patterns[el.name])
+        const regex = new RegExp(patterns[el.name]);
         const contentIsValid = regex.test(inputValue);
         regex.lastIndex = 0;
 
@@ -79,7 +79,7 @@ class FormOrganism extends Component {
       phoneNumber: (el) => {
         const inputValue = el.value;
         const hasContent = inputValue.length >= 9;
-        const regex = new RegExp(patterns[el.name])
+        const regex = new RegExp(patterns[el.name]);
         const contentIsValid = regex.test(inputValue);
         regex.lastIndex = 0;
         formStates.push({
@@ -92,7 +92,7 @@ class FormOrganism extends Component {
       textarea: (el) => {
         const inputValue = el.value;
         const hasContent = inputValue.length > 0;
-        const regex = new RegExp(patterns[el.name])
+        const regex = new RegExp(patterns[el.name]);
         const contentIsValid = regex.test(inputValue);
         regex.lastIndex = 0;
 
