@@ -23,6 +23,7 @@ jobs:
       RECAPTCHA_SITE_KEY: ${{ vars.RECAPTCHA_SITE_KEY }}
       RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
       SUBMIT_FORM_ENDPOINT: ${{ vars.SUBMIT_FORM_ENDPOINT }}
+      DEPLOY_BRANCH: "main-test"
     steps:
       - name: "📥  Checkout repository"
         uses: actions/checkout@v3
@@ -81,6 +82,6 @@ jobs:
           git config --global user.name "paulAlexSerban"
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - name: "🚀 Deploy to Test"
+      - name: "🚀 Deploy to ${{ env.DEPLOY_BRANCH }} branch"
         if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
-        run: npx gh-pages -d package/landing --branch main-test -t true
+        run: npx gh-pages -d package/landing --branch ${{ env.DEPLOY_BRANCH }} -t true
