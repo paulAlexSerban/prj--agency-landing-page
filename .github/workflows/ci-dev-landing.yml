@@ -20,6 +20,9 @@ jobs:
     env:
       FE_NEXTJS_PROJECT_ROOT: frontend/landing
       NODE_VERSION: 16.19.0
+      RECAPTCHA_SITE_KEY: ${{ vars.RECAPTCHA_SITE_KEY }}
+      RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
+      SUBMIT_FORM_ENDPOINT: ${{ vars.SUBMIT_FORM_ENDPOINT }}
     steps:
       - name: "📥  Checkout repository"
         uses: actions/checkout@v3
