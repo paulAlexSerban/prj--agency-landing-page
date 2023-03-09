@@ -24,6 +24,7 @@ jobs:
       RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
       SUBMIT_FORM_ENDPOINT: ${{ vars.SUBMIT_FORM_ENDPOINT }}
       DEPLOY_BRANCH: "main-test"
+      PROJECT_NAME: ${{ vars.PROJECT_NAME }}
     steps:
       - name: "📥  Checkout repository"
         uses: actions/checkout@v3
