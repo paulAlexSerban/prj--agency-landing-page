@@ -1,0 +1,52 @@
+name: CD
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: "📥 checkout repository"
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: "Get npm cache directory"
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: "Cache npm modules"
+        uses: actions/cache@v3
+        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: "🔧 Setup NodeJS 16.19.0"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.19.0
+
+      - name: "🔧 Install npm@latest"
+        run: npm i -g npm@latest
+
+      - name: "📦  Install Landing deps"
+        run: bash scripts/modulize.bash -e prod -p install -m landing
+
+      - name: "🏗️ Build Project"
+        run: bash scripts/modulize.bash -e prod -p build -m landing
+
+      - name: "🚚  Package"
+        run: |
+          bash scripts/deploy/clean.bash
+          bash scripts/deploy/package.bash
+
+      - name: "🚀 Deploy ReactJS to Gh-Pages"
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages-landing
+          folder: package/landing

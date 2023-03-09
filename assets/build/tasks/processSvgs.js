@@ -7,11 +7,11 @@ import { onError } from "../utils/onError";
 export const processSvgs = () => {
   return new Promise((resolve, reject) => {
     return src(paths.src.assets.svgs)
-    .pipe(
-      plumber({
-        errorHandler: onError,
-      })
-    )
+      .pipe(
+        plumber({
+          errorHandler: onError,
+        })
+      )
       .pipe(
         size({
           title: "processSvgs : ",

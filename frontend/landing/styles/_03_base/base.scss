@@ -1,0 +1,38 @@
+@import "../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+
+@import "./_01_generics/generics.scss";
+@import "./_02_elements/elements.scss";
+
+//
+// Global theme styling
+//
+
+// Scroll padding for all scroll targets on page used with
+// native CSS smooth scrolling
+//
+// https://caniuse.com/?search=scroll-padding
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background-color: get-color($c-dark, raisin-black);
+  color: var(--text-color);
+
+  // Stops initial animations until page loads.
+  &.is-preload {
+    *,
+    *:before,
+    *:after {
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+}
+
+hr {
+  margin: var(--dynamic-spacing-70);
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid get-color($c-gray, spanish-gray);
+}
