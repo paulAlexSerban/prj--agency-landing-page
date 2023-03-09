@@ -1,6 +1,6 @@
 module.exports = {
   branches: "release",
-  repositoryUrl: "https://github.com/paulAlexSerban/prj--lynxit",
+  repositoryUrl: "https://github.com/paulAlexSerban/prj--agency-landing-page",
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",

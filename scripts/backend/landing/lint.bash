@@ -2,5 +2,5 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-echo "LINT Next.js LynxIT Landing Page"
+echo "LINT Next.js Agency Landing Page"
 npm --prefix ../../../backend/landing run lint

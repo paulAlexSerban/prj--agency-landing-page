@@ -1,0 +1,15 @@
+{
+  "sectionName": "Servicii",
+  "sectionId": "servicii",
+  "sectionEl": {
+    "spotlight": {
+      "position": "right",
+      "imageSrc": "pic03"
+    }
+  },
+  "heading": {
+    "level": 2,
+    "mainText": "Servicii"
+  },
+  "content": {}
+}

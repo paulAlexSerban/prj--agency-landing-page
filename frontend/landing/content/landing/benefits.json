@@ -1,0 +1,13 @@
+{
+  "sectionName": "Beneficii",
+  "sectionId": "beneficii",
+  "sectionEl": {
+    "benefits": {}
+  },
+  "heading": {
+    "level": 2,
+    "mainText": "Beneficii",
+    "subheading": ""
+  },
+  "content": {}
+}
