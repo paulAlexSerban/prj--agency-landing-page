@@ -77,7 +77,7 @@ export default function handler(req, res) {
       Body: {
         Text: {
           Data: `
-Ai primit un mesaje de la ${dataObj.persoana_de_contact}, reprezentant la ${dataObj.nume_companie}.
+Ai primit un mesaje de la ${dataObj.persoana_de_contact}, reprezentant al firmei ${dataObj.nume_companie}.
 
 Mesaj: ${dataObj.message}
 
