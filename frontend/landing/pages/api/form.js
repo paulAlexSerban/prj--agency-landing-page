@@ -1,3 +1,5 @@
+const aws = require("aws-sdk");
+const ses = new aws.SES({ region: "eu-central-1" });
 const { log, error } = console;
 const patterns = {
   name: /^[a-z\d\s\-'_.]{3,50}$/gim,
@@ -8,10 +10,10 @@ const patterns = {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/gi,
 };
 
-export default function handler(req, res) {
-  log("[ info ] EVENT:", req);
+const awsLambdaHandler = async (event) => {
+  log("[ info ] EVENT:", event);
   // Get data submitted in request's body.
-  const body = req.body;
+  const body = event.body;
   const formData = JSON.parse(body);
   const captchaToken = formData.token;
   const userData = formData.body;
@@ -103,12 +105,31 @@ Date contact:
     verifyRecaptcha(captchaToken, process.env.RECAPTCHA_SECRET_KEY).then(
       (data) => {
         if (data.success) {
-          error(params.Message);
+          log(params.Message);
+
+          try {
+            // Send email using SES
+            const result = ses.sendEmail(params).promise();
+            console.log(result);
+            return {
+              statusCode: 200,
+              body: JSON.stringify({ message: "Email sent successfully" }),
+            };
+          } catch (error) {
+            console.error(error);
+            return {
+              statusCode: 500,
+              body: JSON.stringify({ message: "Error sending email" }),
+            };
+          }
         }
       }
     );
   }
+};
 
+export default async function handler(req, res) {
+  await awsLambdaHandler(req);
   // Guard clause checks for first and last name,
   // and returns early if they are not found
   // if (!body.first || !body.last) {
