@@ -165,6 +165,8 @@ class FormOrganism extends Component {
               const result = await response.json();
             });
         });
+      } else {
+        console.log("Form is not valid", formValidation.isNotValid[0].fieldId);
       }
     });
   }
