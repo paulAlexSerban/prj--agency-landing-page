@@ -2,5 +2,5 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-echo "BUILD Next.js LynxIT Landing Page"
+echo "BUILD Next.js Agency Landing Page"
 npm --prefix ../../../backend/landing run build
