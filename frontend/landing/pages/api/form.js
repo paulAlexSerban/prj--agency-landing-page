@@ -9,7 +9,7 @@ const patterns = {
 };
 
 export default function handler(req, res) {
-  // log("[ info ] EVENT:", req);
+  log("[ info ] EVENT:", req);
   // Get data submitted in request's body.
   const body = req.body;
   const formData = JSON.parse(body);
@@ -36,7 +36,7 @@ export default function handler(req, res) {
       if (regValid) {
         userDataIsValid = true;
       } else {
-        // error("[ error ] invalid user data");
+        error("[ error ] invalid user data");
         return;
       }
     }
