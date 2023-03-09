@@ -8,7 +8,7 @@ export default function Landing(props, { children }) {
       content={props.content}
       pageProperties={props.pageProperties}
     >
-      {/* only add as children: analytics scripts, survey form, cookie bar, and other components that are not actual part of the page content*/}{" "}
+      {/* only add as children: analytics scripts, survey form, cookie bar, and other components that are not actual part of the page content*/}
       {children}
     </LandingTemplate>
   );
