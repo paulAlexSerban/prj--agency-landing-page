@@ -1,26 +1,76 @@
 @mixin input-base() {
-  @include font($label);
+  @include e("base") {
+    @include flex($main: flex-start);
 
-  appearance: none;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  background: transparent;
-  border-radius: 5px;
-  border: none;
-  box-shadow: inset 0px 0px 0px 1px var(--text-color);
-  color: var(--text-color);
-  display: block;
-  outline: 0;
-  padding: ($baseline * 2) $gutter;
-  text-decoration: none;
-  width: 100%;
-  cursor: text;
-
-  &::-webkit-input-placeholder {
-    color: var(--text-color);
+    position: relative;
   }
 
-  &:hover,
-  &:focus {
-    box-shadow: inset 0px 0px 0px 4px var(--text-color);
+  @include e("input", "select") {
+    --input-color: var(--text-color);
+    @include font($input);
+
+    appearance: none;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background: transparent;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 0px 0px 1px var(--input-color);
+    color: var(--input-color);
+    display: block;
+    outline: 0;
+    padding: ($baseline * 2) $gutter;
+    text-decoration: none;
+    width: 100%;
+    cursor: text;
+    margin-top: var(--static-spacing-80);
+    color-scheme: dark;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+      background: transparent !important;
+    }
+
+    &::placeholder {
+      @include font($label);
+
+      color: var(--input-color);
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0px 0px 0px 4px var(--input-color);
+    }
+
+    &[invalid="true"] {
+      --input-color: #{get-color($c-traffic-lights, danger)};
+    }
+  }
+
+  @include e("labelText") {
+    @include font($label);
+    --input-color: var(--text-color);
+
+    position: absolute;
+    top: calc(var(--static-spacing-80) / 2);
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.25s ease-in;
+    transition-delay: 0.1s;
+    color: var(--input-color);
+
+    @include m("isVisible") {
+      opacity: 1;
+    }
+
+    .input:not(:placeholder-shown) ~ &,
+    .select[invalid="true"] ~ &,
+    .input[invalid="true"] ~ & {
+      opacity: 1;
+    }
+
+    .select[invalid="true"] ~ &,
+    .input[invalid="true"] ~ & {
+      --input-color: #{get-color($c-traffic-lights, danger)};
+    }
   }
 }

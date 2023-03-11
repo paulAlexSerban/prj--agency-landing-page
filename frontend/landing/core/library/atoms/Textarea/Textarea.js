@@ -24,6 +24,13 @@ export default function Textarea({
         data-next-cmp={`${config.name}-${ID}`}
         data-required={required}
       ></textarea>
+      <span
+        className={styles.labelText}
+        data-type="label"
+        data-placeholder={placeholder}
+      >
+        {placeholder}
+      </span>
     </label>
   );
 }

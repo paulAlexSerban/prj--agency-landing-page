@@ -8,6 +8,8 @@ $block: "select";
 \* ------------------------------------ */
 
 .#{$block} {
+  @include input-base();
+
   @include e("base", "select") {
     width: 100%;
     background-color: transparent;
@@ -21,17 +23,21 @@ $block: "select";
   }
 
   @include e("select") {
-    @include input-base();
-
     cursor: pointer;
   }
 
   @include e("icon") {
     position: absolute;
     right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: calc(var(--static-spacing-80));
+    transform: translateY(50%);
     font-size: 25px;
     z-index: -1;
+
+    color: var(--input-color);
+
+    .select[invalid="true"] ~ & {
+      --input-color: #{get-color($c-traffic-lights, danger)};
+    }
   }
 }

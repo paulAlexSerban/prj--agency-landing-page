@@ -200,6 +200,7 @@ export default function Landing({
               inputId="nume_companie"
               initValue=""
               required={true}
+              validationMessage="Completati numele companiei"
             />
             <TextInput
               placeholder="Persoana de contact"
@@ -207,6 +208,7 @@ export default function Landing({
               inputId="persoana_de_contact"
               initValue=""
               required={true}
+              validationMessage="Completati numele persoanei de contact"
             />
             <PhoneInput
               placeholder="Telefon"
@@ -214,6 +216,7 @@ export default function Landing({
               inputId="telefon"
               initValue=""
               required={true}
+              validationMessage="Completati numarul de telefon"
             />
             <EmailInput
               placeholder="Email"
@@ -221,6 +224,7 @@ export default function Landing({
               inputId="email"
               initValue=""
               required={true}
+              validationMessage="Completati adresa de email"
             />
           </Fieldset>
           <Fieldset
@@ -229,6 +233,7 @@ export default function Landing({
             cols={6}
             required={true}
             type="checkboxField"
+            validationMessage="Alegeti tipul de utilizare"
           >
             <Checkbox inputName="basic" inputId="basic" label="Basic" />
             <Checkbox
@@ -250,6 +255,7 @@ export default function Landing({
               initValue=""
               required={true}
               type="number"
+              validationMessage="Completati numarul de echipamente necesare"
             />
 
             <Select
@@ -257,17 +263,18 @@ export default function Landing({
               inputName="perioada"
               inputId="perioada"
               required={true}
+              validationMessage="Alegeti perioada pe care doriti echipamentul"
               options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
             />
           </Fieldset>
 
           <Textarea
-            placeholder="Detalii"
+            placeholder="Mesaj (optional)"
             inputName="message"
             inputId="message"
             initValue=""
             rows="6"
-            required={true}
+            required={false}
           />
         </Form>
       </Content>

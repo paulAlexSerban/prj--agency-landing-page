@@ -10,7 +10,7 @@ $block: "fieldset";
 .#{$block} {
   @include e("base") {
     display: grid;
-    gap: var(--dynamic-spacing-50);
+    column-gap: var(--dynamic-spacing-50);
     width: 100%;
     margin-bottom: var(--dynamic-spacing-50);
 
@@ -39,5 +39,11 @@ $block: "fieldset";
 
   @include e("legend") {
     margin-bottom: var(--dynamic-spacing-30);
+    --input-color: var(--text-color);
+    color: var(--input-color);
+
+    .base[invalid="true"] & {
+      --input-color: #{get-color($c-traffic-lights, danger)};
+    }
   }
 }

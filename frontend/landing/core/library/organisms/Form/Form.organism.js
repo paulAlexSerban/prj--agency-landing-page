@@ -2,7 +2,7 @@ import Component from "@/prototypes/Component";
 import config from "./config";
 import { noBubbling } from "@/utils/dom/events";
 import patterns from "@/utils/constants/patterns";
-
+const { log } = console;
 class FormOrganism extends Component {
   constructor(el, recaptchaKey, action) {
     super(el);
@@ -90,18 +90,27 @@ class FormOrganism extends Component {
         });
       },
       textarea: (el) => {
+        const isRequired = el.getAttribute("data-required") === "true";
         const inputValue = el.value;
         const hasContent = inputValue.length > 0;
         const regex = new RegExp(patterns[el.name]);
         const contentIsValid = regex.test(inputValue);
         regex.lastIndex = 0;
-
-        formStates.push({
-          fieldId: el.id,
-          isValid: hasContent && contentIsValid,
-          value: hasContent && contentIsValid ? inputValue : null,
-          validationPattern: el.name,
-        });
+        if (isRequired) {
+          formStates.push({
+            fieldId: el.id,
+            isValid: hasContent && contentIsValid,
+            value: hasContent && contentIsValid ? inputValue : null,
+            validationPattern: el.name,
+          });
+        } else if (hasContent) {
+          formStates.push({
+            fieldId: el.id,
+            isValid: contentIsValid,
+            value: contentIsValid ? inputValue : null,
+            validationPattern: el.name,
+          });
+        }
       },
       "select-one": (el) => {
         formStates.push({
@@ -133,7 +142,7 @@ class FormOrganism extends Component {
       if (isRequired && hasValidationTest) {
         if (Boolean(item.getAttribute("data-form-item-type"))) {
           validationTests[item.getAttribute("data-form-item-type")](item);
-        } else {
+        } else if (hasValidationTest) {
           validationTests[item.type](item);
         }
       }
@@ -155,9 +164,16 @@ class FormOrganism extends Component {
       );
 
       const isFormValid = !(formValidation.isNotValid.length > 0);
-
       if (isFormValid) {
-        console.log(isFormValid);
+        formValidation.formStates.forEach((validInput) => {
+          const inputEl = document.querySelector(`#${validInput.fieldId}`);
+          inputEl.removeAttribute("invalid");
+          const container =
+            inputEl.closest("label") || inputEl.closest("fieldset");
+          const label = container.querySelector("[data-type='label']");
+          const placeholderText = container.getAttribute("data-placeholder");
+          label.innerText = placeholderText;
+        });
         grecaptcha.ready(() => {
           grecaptcha
             .execute(this.RECAPTCHA_SITE_KEY, {
@@ -174,7 +190,30 @@ class FormOrganism extends Component {
             });
         });
       } else {
-        console.log("Form is not valid", formValidation.isNotValid[0].fieldId);
+        formValidation.formStates.forEach((item) => {
+          const inputEl = document.querySelector(`#${item.fieldId}`);
+          const container =
+            inputEl.closest("label") || inputEl.closest("fieldset");
+          const label = container.querySelector("[data-type='label']");
+          const validationMessage = container.getAttribute(
+            "data-validation-message"
+          );
+          const placeholderText = container.getAttribute("data-placeholder");
+          console.log({
+            inputEl,
+            container,
+            label,
+            validationMessage,
+            placeholderText,
+          });
+          if (item.isValid) {
+            inputEl.removeAttribute("invalid");
+            label.innerText = placeholderText;
+          } else {
+            inputEl.setAttribute("invalid", "true");
+            label.innerText = validationMessage;
+          }
+        });
       }
     });
   }

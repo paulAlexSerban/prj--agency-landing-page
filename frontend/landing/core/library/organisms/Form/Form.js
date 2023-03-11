@@ -19,7 +19,8 @@ export default function Form({
 
   return (
     <form data-next-cmp={`${config.name}-${ID}`} className={styles.base}>
-      {children}
+      <div className={styles.formContainer}>{children}</div>
+
       <Button
         label={submitButtonLabel}
         buttonStyle="primary"

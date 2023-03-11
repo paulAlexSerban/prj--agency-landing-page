@@ -9,11 +9,16 @@ export default function TextInput({
   inputValue,
   required,
   type = "text",
+  validationMessage,
 }) {
   const ID = useId();
-
+  console.log(validationMessage);
   return (
-    <label className={styles.base} htmlFor={inputId}>
+    <label
+      className={styles.base}
+      htmlFor={inputId}
+      data-validation-message={validationMessage}
+    >
       <input
         placeholder={placeholder}
         name={inputName}
@@ -24,6 +29,13 @@ export default function TextInput({
         data-next-cmp={`${config.name}-${ID}`}
         data-required={required}
       />
+      <span
+        className={styles.labelText}
+        data-type="label"
+        data-placeholder={placeholder}
+      >
+        {placeholder}
+      </span>
     </label>
   );
 }

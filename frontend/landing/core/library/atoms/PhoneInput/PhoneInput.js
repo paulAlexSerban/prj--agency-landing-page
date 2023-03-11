@@ -8,11 +8,16 @@ export default function PhoneInput({
   inputId,
   inputValue,
   required,
+  validationMessage,
 }) {
   const ID = useId();
 
   return (
-    <label className={styles.base} htmlFor={inputId}>
+    <label
+      className={styles.base}
+      htmlFor={inputId}
+      data-validation-message={validationMessage}
+    >
       <input
         placeholder={placeholder}
         name={inputName}
@@ -24,6 +29,13 @@ export default function PhoneInput({
         data-required={required}
         data-form-item-type="phoneNumber"
       />
+      <span
+        className={styles.labelText}
+        data-type="label"
+        data-placeholder={placeholder}
+      >
+        {placeholder}
+      </span>
     </label>
   );
 }
