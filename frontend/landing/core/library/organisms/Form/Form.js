@@ -11,11 +11,11 @@ export default function Form({
   action,
 }) {
   const ID = useId();
-  useEffect(() => {
-    document
-      .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
-      .forEach((el) => new FormOrganism(el, recaptchaKey, action));
-  });
+  // useEffect(() => {
+  //   document
+  //     .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
+  //     .forEach((el) => new FormOrganism(el, recaptchaKey, action));
+  // });
 
   return (
     <form data-next-cmp={`${config.name}-${ID}`} className={styles.base}>

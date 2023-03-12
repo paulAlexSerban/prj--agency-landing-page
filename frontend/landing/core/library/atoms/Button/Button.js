@@ -1,35 +1,36 @@
-import { useId, useEffect } from "react";
-import config from "./config";
+import { useId, useRef } from "react";
 import styles from "@/styles/atoms/button/button.module.scss";
-import { CtaButtonAtom } from "./Button.atom";
 
 export default function Button({
   label,
   buttonStyle,
   ariaLabel,
-  jsHook = "js-button",
   buttonType = "button",
   target,
 }) {
   const ID = useId();
+  const buttonRef = useRef(null);
 
-  useEffect(() => {
-    if (jsHook === "js-cta-button") {
-      document
-        .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
-        .forEach((el) => new CtaButtonAtom(el, jsHook));
+  const handleClick = (e) => {
+    e.preventDefault();
+    const targetEl = buttonRef.current?.getAttribute("data-target");
+    const scrollToEl = document.querySelector(`#${targetEl}`);
+    try {
+      scrollToEl?.scrollIntoView({ behavior: "smooth" }, true);
+    } catch (error) {
+      console.error(error);
     }
-  });
+  };
 
   return (
     <button
-      className={`${styles.base} ${styles[buttonStyle]} ${jsHook
-        .split(".")
-        .join("")}`}
-      data-next-cmp={`${config.name}-${ID}`}
+      className={[styles.base, styles[buttonStyle]].join(" ")}
+      id={ID}
       aria-label={ariaLabel ? ariaLabel : label}
       type={buttonType}
-      target={target}
+      data-target={target}
+      onClick={buttonType === "cta" ? handleClick : ""}
+      ref={buttonRef}
     >
       <span className={styles.label}>{label}</span>
     </button>

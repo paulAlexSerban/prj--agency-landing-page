@@ -147,7 +147,7 @@ export default function Landing({
         <Button
           label="Hai sa beneficiezi si tu!"
           buttonStyle="primary"
-          jsHook="js-cta-button"
+          buttonType="cta"
           target="contact"
         />
       </Content>
