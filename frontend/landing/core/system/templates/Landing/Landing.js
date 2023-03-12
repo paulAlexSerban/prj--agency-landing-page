@@ -148,7 +148,7 @@ export default function Landing({
           label="Hai sa beneficiezi si tu!"
           buttonStyle="primary"
           buttonType="cta"
-          target="contact"
+          target="#contact"
         />
       </Content>
       <Spotlight
@@ -176,8 +176,8 @@ export default function Landing({
         <Button
           label="Spune-ne de ce configuratie ai nevoie!"
           buttonStyle="primary"
-          jsHook="js-cta-button"
-          target="contact"
+          buttonType="cta"
+          target="#contact"
         />
       </Spotlight>
       <Content sectionId="contact">

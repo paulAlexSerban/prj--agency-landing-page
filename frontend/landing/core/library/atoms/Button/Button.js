@@ -11,14 +11,26 @@ export default function Button({
   const ID = useId();
   const buttonRef = useRef(null);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const targetEl = buttonRef.current?.getAttribute("data-target");
-    const scrollToEl = document.querySelector(`#${targetEl}`);
+  const scrollTo = (targetEl) => {
+    const scrollToEl = document.querySelector(targetEl);
     try {
-      scrollToEl?.scrollIntoView({ behavior: "smooth" }, true);
+      scrollToEl.scrollIntoView({ behavior: "smooth" }, true);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const targetEl = buttonRef.current.getAttribute("data-target");
+    scrollTo(targetEl)
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      const targetEl = buttonRef.current.getAttribute("data-target");
+      scrollTo(targetEl)
     }
   };
 
@@ -27,9 +39,11 @@ export default function Button({
       className={[styles.base, styles[buttonStyle]].join(" ")}
       id={ID}
       aria-label={ariaLabel ? ariaLabel : label}
-      type={buttonType}
+      aria-labelledby={ariaLabel ? `${ID}-label` : null}
+      type={buttonType === "cta" ? "button" : buttonType}
       data-target={target}
-      onClick={buttonType === "cta" ? handleClick : ""}
+      onClick={buttonType === "cta" ? handleClick : null}
+      onKeyDown={buttonType === "cta" ? handleKeyDown : null}
       ref={buttonRef}
     >
       <span className={styles.label}>{label}</span>

@@ -6,14 +6,26 @@ export default function GoNextButton({ href }) {
   const ID = useId();
   const buttonRef = useRef(null);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const targetEl = buttonRef.current?.getAttribute("href");
-    const scrollToEl = document.querySelector(targetEl);
+  const scrollTo = (targetElementId) => {
     try {
-      scrollToEl?.scrollIntoView({ behavior: "smooth" }, true);
+      const scrollToEl = document.querySelector(targetElementId);
+      scrollToEl.scrollIntoView({ behavior: "smooth" }, true);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const targetElementId = buttonRef.current.getAttribute("href");
+    scrollTo(targetElementId);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      const targetElementId = buttonRef.current.getAttribute("data-target");
+      scrollTo(targetElementId);
     }
   };
 
@@ -24,6 +36,7 @@ export default function GoNextButton({ href }) {
       href={`#${href}`}
       ref={buttonRef}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
       rel="noopener noreferrer"
     >
       <ChevronDown className={styles.svg} />
