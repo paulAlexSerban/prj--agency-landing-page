@@ -9,16 +9,19 @@ import Select from "@/core/atoms/Select/Select";
 import Textarea from "@/core/atoms/Textarea/Textarea";
 import useForm from "./Form.hooks";
 import Script from "next/script";
-
+import Fieldset from "@/core/atoms/Fieldset/Fieldset";
+import CheckboxFieldset from "@/core/molecules/CheckboxField/CheckboxField";
 const INITIAL_STATE = {
   nume_companie: "",
   nume_reprezentant: "",
   telefon: "",
   email: "",
   numar_echipamente: "",
+  perioada: "",
+  tip_de_utilizare: [],
+  message: "",
 };
 
-import Fieldset from "@/core/atoms/Fieldset/Fieldset";
 export default function Form({
   children,
   submitButtonLabel = "Submit Form!",
@@ -34,6 +37,7 @@ export default function Form({
     hasChanges,
     errorFields,
     submitAttempt,
+    hasErrors,
   } = useForm(INITIAL_STATE, action, recaptchaKey);
 
   return (
@@ -97,22 +101,14 @@ export default function Form({
             }
           />
         </Fieldset>
-        <Fieldset
-          name="tip_de_utilizare"
+        <CheckboxFieldset
+          fieldName="tip_de_utilizare"
+          fieldId="tip_de_utilizare"
           legend="Tip de utilizare:"
-          cols={6}
-          required={true}
-          type="checkboxField"
-          validationMessage="Alegeti tipul de utilizare"
-        >
-          <Checkbox inputName="basic" inputId="basic" label="Basic" />
-          <Checkbox inputName="standard" inputId="standard" label="Standard" />
-          <Checkbox
-            inputName="professional"
-            inputId="professional"
-            label="Professional"
-          />
-        </Fieldset>
+          fieldValues={form?.tip_de_utilizare}
+          isInvalid={errorFields?.tip_de_utilizare?.length > 0 && submitAttempt}
+          handleChange={handleChange}
+        />
         <Fieldset name="perioada-si-cantitate" cols={2}>
           <TextInput
             placeholder="Numar de echipamente"
@@ -130,31 +126,41 @@ export default function Form({
             }
           />
 
-          {/* <Select
-              placeholder="Pe ce perioada?"
-              inputName="perioada"
-              inputId="perioada"
-              required={true}
-              validationMessage="Alegeti perioada pe care doriti echipamentul"
-              options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
-            /> */}
+          <Select
+            placeholder="Pe ce perioada?"
+            inputName="perioada"
+            inputId="perioada"
+            required={true}
+            handleChange={handleChange}
+            inputValue={form?.perioada}
+            options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
+            isInvalid={errorFields?.perioada?.length > 0 && submitAttempt}
+            validationMessage={
+              errorFields?.perioada?.length && errorFields?.perioada[0].message
+            }
+          />
         </Fieldset>
 
-        {/* <Textarea
-            placeholder="Mesaj (optional)"
-            inputName="message"
-            inputId="message"
-            initValue=""
-            rows="6"
-            required={false}
-          /> */}
+        <Textarea
+          placeholder="Mesaj (optional)"
+          inputName="message"
+          inputId="message"
+          required={false}
+          handleChange={handleChange}
+          initValue={form?.message}
+          rows="6"
+          isInvalid={errorFields?.message?.length > 0 && submitAttempt}
+          validationMessage={
+            errorFields?.message?.length && errorFields?.message[0].message
+          }
+        />
       </div>
 
       <Button
         label={submitButtonLabel}
         buttonStyle="primary"
         buttonType="submit"
-        disabled={hasChanges}
+        disabled={(hasChanges || hasErrors) && submitAttempt}
       />
       <Script
         src={`https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`}

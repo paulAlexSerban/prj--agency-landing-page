@@ -99,6 +99,33 @@ const VALIDATION = {
       message: "Campul este necesar a fi completat.",
     },
   ],
+  perioada: [
+    {
+      isValid: (value) => !!value,
+      message: "Perioada este necesar a fi selectata.",
+    },
+  ],
+  tip_de_utilizare: [
+    {
+      isValid: (value) => !!value.length > 0,
+      message: "Tipul de utilizare este necesar a fi selectat.",
+    },
+  ],
+  message: [
+    {
+      isValid: (value) => {
+        if (!!value) {
+          const regex = new RegExp(patterns.text);
+          const isValid = regex.test(value);
+          regex.lastIndex = 0;
+          return isValid;
+        } else {
+          return true;
+        }
+      },
+      message: "Textul contine caractere interzise.",
+    },
+  ],
 };
 
 export default VALIDATION;

@@ -10,9 +10,9 @@ export default function Fieldset({
   cols = 1,
   type,
   validationMessage,
+  isInvalid,
 }) {
   const ID = useId();
-  const [valid, setValid] = useState(true);
   return (
     <fieldset
       name={name}
@@ -20,15 +20,12 @@ export default function Fieldset({
       className={`${styles.base} ${
         cols !== 1 ? styles[`base--${cols}-cols`] : ""
       }`}
-      data-next-cmp={`${config.name}-${ID}`}
-      data-required={required}
-      data-form-item-type={type}
-      data-validation-message={validationMessage}
-      data-placeholder={legend}
+      required={required}
+      data-invalid={isInvalid}
     >
       {legend && (
         <legend className={styles.legend} data-type="label">
-          {valid ? legend : validationMessage}
+          {!isInvalid ? legend : validationMessage}
         </legend>
       )}
       {children}

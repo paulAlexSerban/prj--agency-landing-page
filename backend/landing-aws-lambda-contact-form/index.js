@@ -2,14 +2,6 @@ const aws = require("aws-sdk");
 const https = require("https");
 const ses = new aws.SES({ region: "eu-central-1" });
 const { log, error } = console;
-const patterns = {
-  name: /^[a-z\d\s\-'_.]{3,50}$/gim,
-  message: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
-  text: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
-  phone: /^((\+?\d{1,3})?[\(\- ]?\d{3,5}[\)\- ]?)?(\d[.\- ]?\d)+$/,
-  email:
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/gi,
-};
 
 async function verifyCaptcha(url) {
   const options = {

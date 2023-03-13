@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { getDirtyFields, getErrorFields } from "./Form.utils";
 
 const OPTIONS = {
@@ -11,9 +11,21 @@ const OPTIONS = {
 const useForm = (formState, action, recaptchaKey) => {
   const [form, setForm] = useState({ ...formState });
   const [submitAttempt, setSubmitAttempt] = useState(false);
-  const dirtyFields = getDirtyFields(form, formState);
-  const hasChanges = Object.values(dirtyFields).every((isDirty) => !isDirty);
-  const errorFields = getErrorFields(form);
+  // The hasChanges and hasErrors values are computed using the getDirtyFields and getErrorFields utility functions respectively.
+  // To prevent unnecessary re-computations, use the useMemo hook to memoize these values
+  const dirtyFields = useMemo(
+    () => getDirtyFields(form, formState),
+    [form, formState]
+  );
+  const hasChanges = useMemo(
+    () => Object.values(dirtyFields).every((isDirty) => !isDirty),
+    [dirtyFields]
+  );
+  const errorFields = useMemo(() => getErrorFields(form), [form]);
+  const hasErrors = useMemo(
+    () => Object.values(errorFields).flat().length > 0,
+    [errorFields]
+  );
 
   const submitForm = async () => {
     const response = await fetch(action, OPTIONS);
@@ -30,7 +42,6 @@ const useForm = (formState, action, recaptchaKey) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const hasErrors = Object.values(errorFields).flat().length > 0;
     setSubmitAttempt(true);
     if (hasErrors) return;
     grecaptcha.ready(() => {
@@ -43,6 +54,7 @@ const useForm = (formState, action, recaptchaKey) => {
           form.recaptchaToken = token;
           OPTIONS.body = JSON.stringify(form);
           submitForm();
+          event.target.reset();
           setForm(formState);
         });
     });
@@ -55,6 +67,7 @@ const useForm = (formState, action, recaptchaKey) => {
     hasChanges,
     errorFields,
     submitAttempt,
+    hasErrors,
   };
 };
 

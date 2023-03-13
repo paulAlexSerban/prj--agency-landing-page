@@ -42,8 +42,8 @@ $block: "fieldset";
     --input-color: var(--text-color);
     color: var(--input-color);
 
-    .base[invalid="true"] & {
-      --input-color: #{get-color($c-traffic-lights, danger)};
+    .base[data-invalid="true"] & {
+      --input-color: var(--brand-color);
     }
   }
 }

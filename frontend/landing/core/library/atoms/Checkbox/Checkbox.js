@@ -3,7 +3,13 @@ import config from "./config";
 import styles from "@/styles/atoms/checkbox/checkbox.module.scss";
 import Icon from "@/core/atoms/Icon/Icon";
 
-export default function Checkbox({ inputName, inputId, inputValue, label }) {
+export default function Checkbox({
+  inputName,
+  inputId,
+  inputValue,
+  label,
+  handleChange,
+}) {
   const ID = useId();
 
   return (
@@ -16,6 +22,7 @@ export default function Checkbox({ inputName, inputId, inputValue, label }) {
         className={styles.input}
         data-next-cmp={`${config.name}-${ID}`}
         tabIndex="-1"
+        onChange={handleChange}
       />
       <span className={styles.checkbox}>
         <Icon iconName="checkMark" className={styles.icon} />

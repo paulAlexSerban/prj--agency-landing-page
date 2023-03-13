@@ -69,7 +69,7 @@
     transform: translate(-52%, -45%);
   }
 
-  [invalid="true"] & {
-    --input-color: #{get-color($c-traffic-lights, danger)};
+  [data-invalid="true"] & {
+    --input-color: var(--brand-color);
   }
 }
