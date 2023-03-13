@@ -1,7 +1,7 @@
 const https = require("https");
 const aws = require("aws-sdk");
 const ses = new aws.SES({ region: "eu-central-1" });
-
+const { log, error } = console;
 const patterns = {
   name: /^[a-z\d\s.@!?()\-+'":;,]+$/gim,
   textarea: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
@@ -194,6 +194,9 @@ const verifyCaptcha = async (url) => {
 const validateData = (userData) => {
   const errorFields = getErrorFields(userData);
   const hasErrors = Object.values(errorFields).flat().length > 0;
+  if (hasErrors) {
+    error({ errorFields });
+  }
   return hasErrors;
 };
 

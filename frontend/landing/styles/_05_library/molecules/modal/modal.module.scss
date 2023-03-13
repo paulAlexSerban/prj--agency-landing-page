@@ -14,21 +14,25 @@ $block: "modal";
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: get-color($c-dark, raisin-black);
-    padding: var(--dynamic-spacing-100) var(--dynamic-spacing-90);
+    padding: var(--dynamic-spacing-50) var(--dynamic-spacing-40);
     box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
     z-index: 1000;
     transition: visibility 0.25s, opacity 0.25s;
     overflow: scroll;
-    max-width: calc(100vw - var(--main-content-lat-padding));
-    max-height: calc(100vh - var(--main-content-lat-padding));
-    min-width: 90%;
+    max-width: 100vw;
+    max-height: 100vh;
+    min-width: calc(100vw - 10px);
+    min-height: calc(100vh - 10px);
 
     @include breakpoint($mobile) {
-      min-width: 75%;
+      max-width: calc(100vw - var(--main-content-lat-padding));
+      max-height: calc(100vh - var(--main-content-lat-padding));
+      padding: var(--dynamic-spacing-100) var(--dynamic-spacing-90);
     }
 
     @include breakpoint($tablet) {
-      min-width: 50%;
+      min-width: 75%;
+      min-height: 50%;
     }
   }
 
