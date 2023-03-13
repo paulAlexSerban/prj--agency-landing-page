@@ -31,6 +31,11 @@ $block: "button";
       background-color: transparent;
       box-shadow: inset 0px 0px 0px 4px var(--brand-color);
     }
+
+    &:disabled {
+      background-color: gray;
+      box-shadow: inset 0px 0px 0px 4px gray;
+    }
   }
 
   @include e("secondary") {

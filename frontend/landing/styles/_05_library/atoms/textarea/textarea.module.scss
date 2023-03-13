@@ -8,14 +8,13 @@ $block: "textarea";
 \* ------------------------------------ */
 
 .#{$block} {
+  @include input-base;
+
   @include e("base") {
     width: 100%;
   }
 
   @include e("input") {
-    @include input-base;
-
     resize: none;
-    margin-bottom: var(--dynamic-spacing-90);
   }
 }

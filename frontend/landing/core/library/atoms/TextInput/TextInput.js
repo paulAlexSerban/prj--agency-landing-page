@@ -1,5 +1,4 @@
 import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/atoms/text-input/text-input.module.scss";
 
 export default function TextInput({
@@ -9,21 +8,27 @@ export default function TextInput({
   inputValue,
   required,
   type = "text",
+  handleChange,
+  isInvalid,
+  validationMessage,
 }) {
   const ID = useId();
-
   return (
     <label className={styles.base} htmlFor={inputId}>
       <input
         placeholder={placeholder}
         name={inputName}
         id={inputId}
-        value={inputValue}
         type={type}
         className={styles.input}
-        data-next-cmp={`${config.name}-${ID}`}
-        data-required={required}
+        required={required}
+        value={inputValue}
+        onChange={handleChange}
+        data-invalid={isInvalid}
       />
+      <span className={styles.labelText} data-type="label">
+        {isInvalid && validationMessage ? validationMessage : placeholder}
+      </span>
     </label>
   );
 }

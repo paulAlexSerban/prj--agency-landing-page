@@ -8,11 +8,9 @@ $block: "text-input";
 \* ------------------------------------ */
 
 .#{$block} {
+  @include input-base;
+
   @include e("base") {
     width: 100%;
-  }
-
-  @include e("input") {
-    @include input-base;
   }
 }

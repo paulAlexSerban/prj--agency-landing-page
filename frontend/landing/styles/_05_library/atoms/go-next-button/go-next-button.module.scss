@@ -23,13 +23,15 @@ $block: "go-next-button";
     text-align: center;
     text-decoration: none;
     width: 100%;
+    height: 150px;
 
     .isPreload & {
       transform: translate(0, 500%);
       opacity: 0;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--brand-color);
     }
   }

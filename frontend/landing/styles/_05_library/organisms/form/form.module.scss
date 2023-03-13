@@ -10,4 +10,8 @@ $block: "form";
     color: get-color($c-light, light);
     width: 100%;
   }
+
+  @include e("formContainer") {
+    margin-bottom: var(--dynamic-spacing-80);
+  }
 }

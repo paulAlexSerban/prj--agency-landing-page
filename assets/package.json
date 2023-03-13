@@ -19,6 +19,7 @@
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-size": "^4.0.1",
-    "sharp": "^0.31.3"
+    "sharp": "^0.31.3",
+    "winston": "^3.8.2"
   }
 }

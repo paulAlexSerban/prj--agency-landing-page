@@ -2,7 +2,6 @@ import { useId } from "react";
 import config from "./config";
 import styles from "@/styles/molecules/modal/modal.module.scss";
 import Heading from "@/core/atoms/Heading/Heading";
-import FlexGrid from "@/core/layouts/FlexGrid/FlexGrid";
 import Button from "@/core/atoms/Button/Button";
 import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 
@@ -28,8 +27,8 @@ export default function ProductModal({
         <Button
           label="Contacteaza-ne!"
           buttonStyle="primary"
-          jsHook="js-cta-button"
-          target="contact"
+          buttonType="cta"
+          target="#contact"
         />
       </div>
     </div>
