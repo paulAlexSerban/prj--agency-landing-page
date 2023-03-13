@@ -1,4 +1,3 @@
-
 import patterns from "@/utils/constants/patterns";
 
 const VALIDATION = {
@@ -98,8 +97,8 @@ const VALIDATION = {
     {
       isValid: (value) => !!value,
       message: "Campul este necesar a fi completat.",
-    }
-  ]
+    },
+  ],
 };
 
 export default VALIDATION;

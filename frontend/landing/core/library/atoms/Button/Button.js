@@ -7,7 +7,7 @@ export default function Button({
   ariaLabel,
   buttonType = "button",
   target,
-  disabled = false
+  disabled = false,
 }) {
   const ID = useId();
   const buttonRef = useRef(null);

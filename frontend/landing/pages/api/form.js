@@ -66,62 +66,61 @@ const awsLambdaHandler = async (event) => {
 
   // console.log(dataString);
 
-
   // Build SES parameters
-//   const params = {
-//     Destination: {
-//       ToAddresses: ["validated.address@email.om"],
-//     },
-//     Message: {
-//       Body: {
-//         Text: {
-//           Data: `
-// Ai primit un mesaje de la ${dataObj.persoana_de_contact}, reprezentant al firmei ${dataObj.nume_companie}.
+  //   const params = {
+  //     Destination: {
+  //       ToAddresses: ["validated.address@email.om"],
+  //     },
+  //     Message: {
+  //       Body: {
+  //         Text: {
+  //           Data: `
+  // Ai primit un mesaje de la ${dataObj.persoana_de_contact}, reprezentant al firmei ${dataObj.nume_companie}.
 
-// Mesaj: ${dataObj.message}
+  // Mesaj: ${dataObj.message}
 
-// Tip utilizare: ${dataObj.tip_de_utilizare}
+  // Tip utilizare: ${dataObj.tip_de_utilizare}
 
-// Numar echipamente: ${dataObj.numar_echipamente}
+  // Numar echipamente: ${dataObj.numar_echipamente}
 
-// Date contact:
-//   - ${dataObj.telefon}
-//   - ${dataObj.email}
+  // Date contact:
+  //   - ${dataObj.telefon}
+  //   - ${dataObj.email}
 
-//             `,
-//         },
-//       },
-//       Subject: {
-//         Data: `Mesaj de la ${dataObj.persoana_de_contact} in numele companiei ${dataObj.nume_companie}`,
-//       },
-//     },
-//     Source: "validated.address@email.om", // Replace with a verified email address
-//   };
+  //             `,
+  //         },
+  //       },
+  //       Subject: {
+  //         Data: `Mesaj de la ${dataObj.persoana_de_contact} in numele companiei ${dataObj.nume_companie}`,
+  //       },
+  //     },
+  //     Source: "validated.address@email.om", // Replace with a verified email address
+  //   };
 
   // if (userDataIsValid) {
-    // verifyRecaptcha(captchaToken, process.env.RECAPTCHA_SECRET_KEY).then(
-    //   (data) => {
-    //     if (data.success) {
-    //       log(params.Message);
+  // verifyRecaptcha(captchaToken, process.env.RECAPTCHA_SECRET_KEY).then(
+  //   (data) => {
+  //     if (data.success) {
+  //       log(params.Message);
 
-    //       try {
-    //         // Send email using SES
-    //         const result = ses.sendEmail(params).promise();
-    //         console.log(result);
-    //         return {
-    //           statusCode: 200,
-    //           body: JSON.stringify({ message: "Email sent successfully" }),
-    //         };
-    //       } catch (error) {
-    //         console.error(error);
-    //         return {
-    //           statusCode: 500,
-    //           body: JSON.stringify({ message: "Error sending email" }),
-    //         };
-    //       }
-    //     }
-    //   }
-    // );
+  //       try {
+  //         // Send email using SES
+  //         const result = ses.sendEmail(params).promise();
+  //         console.log(result);
+  //         return {
+  //           statusCode: 200,
+  //           body: JSON.stringify({ message: "Email sent successfully" }),
+  //         };
+  //       } catch (error) {
+  //         console.error(error);
+  //         return {
+  //           statusCode: 500,
+  //           body: JSON.stringify({ message: "Error sending email" }),
+  //         };
+  //       }
+  //     }
+  //   }
+  // );
   // }
 };
 
