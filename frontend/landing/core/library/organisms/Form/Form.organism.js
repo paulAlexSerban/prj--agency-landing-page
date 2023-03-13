@@ -218,15 +218,15 @@ class FormOrganism extends Component {
     });
   }
 
-  #loadGoogleRecaptcha() {
-    this.googleScriptElement = document.createElement("script");
-    this.googleScriptElement.src = `https://www.google.com/recaptcha/api.js?render=${this.RECAPTCHA_SITE_KEY}`;
-    this.el.appendChild(this.googleScriptElement);
-  }
+  // #loadGoogleRecaptcha() {
+  //   this.googleScriptElement = document.createElement("script");
+  //   this.googleScriptElement.src = `https://www.google.com/recaptcha/api.js?render=${this.RECAPTCHA_SITE_KEY}`;
+  //   this.el.appendChild(this.googleScriptElement);
+  // }
 
   #init() {
     this.#setupDomReferences();
-    this.#loadGoogleRecaptcha();
+    // this.#loadGoogleRecaptcha();
     this.#setupEventListeners();
   }
 }

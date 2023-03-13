@@ -30,7 +30,8 @@ $block: "go-next-button";
       opacity: 0;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: var(--brand-color);
     }
   }

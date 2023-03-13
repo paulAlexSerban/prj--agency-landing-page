@@ -20,6 +20,8 @@ $block: "button";
     @include breakpoint($mobile) {
       max-width: convert-rem(400px);
     }
+
+
   }
 
   @include e("primary") {
@@ -30,6 +32,11 @@ $block: "button";
     &:focus {
       background-color: transparent;
       box-shadow: inset 0px 0px 0px 4px var(--brand-color);
+    }
+
+    &:disabled {
+        background-color: gray;
+        box-shadow: inset 0px 0px 0px 4px gray;
     }
   }
 

@@ -11,121 +11,118 @@ const patterns = {
 };
 
 const awsLambdaHandler = async (event) => {
-  log("[ info ] EVENT:", event);
+  // log("[ info ] EVENT:", event);
   // Get data submitted in request's body.
   const body = event.body;
   const formData = JSON.parse(body);
-  const captchaToken = formData.token;
-  const userData = formData.body;
   let userDataIsValid = false;
   let captchaResponse = false;
 
   // Optional logging to see the responses
   // in the command line where next.js app is running.
-  // log({ captchaToken, userData });
+  log({ formData });
 
-  userData.forEach((item) => {
-    const isValid = item.isValid;
-    const itemValue = item.value;
-    const isString = typeof item.value === "string";
-    const hasValidationPattern = !!item.validationPattern;
-    const isObject = typeof item.value === "object";
+  // userData.forEach((item) => {
+  //   const isValid = item.isValid;
+  //   const itemValue = item.value;
+  //   const isString = typeof item.value === "string";
+  //   const hasValidationPattern = !!item.validationPattern;
+  //   const isObject = typeof item.value === "object";
 
-    if (isValid && isString && hasValidationPattern && !isObject) {
-      const regex = new RegExp(patterns[item.validationPattern]);
-      regex.lastIndex = 0;
-      const regValid = regex.test(itemValue);
-      if (regValid) {
-        userDataIsValid = true;
-      } else {
-        error("[ error ] invalid user data");
-        return;
-      }
-    }
-  });
+  //   if (isValid && isString && hasValidationPattern && !isObject) {
+  //     const regex = new RegExp(patterns[item.validationPattern]);
+  //     regex.lastIndex = 0;
+  //     const regValid = regex.test(itemValue);
+  //     if (regValid) {
+  //       userDataIsValid = true;
+  //     } else {
+  //       error("[ error ] invalid user data");
+  //       return;
+  //     }
+  //   }
+  // });
 
-  async function verifyRecaptcha(response, secretKey) {
-    const url = "https://www.google.com/recaptcha/api/siteverify";
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `secret=${secretKey}&response=${response}`,
-    };
-    const res = await fetch(url, options);
-    const data = await res.json();
-    return data;
-  }
+  // async function verifyRecaptcha(response, secretKey) {
+  //   const url = "https://www.google.com/recaptcha/api/siteverify";
+  //   const options = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/x-www-form-urlencoded",
+  //     },
+  //     body: `secret=${secretKey}&response=${response}`,
+  //   };
+  //   const res = await fetch(url, options);
+  //   const data = await res.json();
+  //   return data;
+  // }
 
-  let dataString = "";
-  let dataObj = {};
+  // let dataString = "";
+  // let dataObj = {};
 
-  userData.forEach((item) => {
-    dataString += `${item.fieldId}: ${item.value} \n`;
-    dataObj[item.fieldId] = item.value;
-  });
+  // userData.forEach((item) => {
+  //   dataString += `${item.fieldId}: ${item.value} \n`;
+  //   dataObj[item.fieldId] = item.value;
+  // });
 
-  console.log(dataString);
+  // console.log(dataString);
 
-  console;
 
   // Build SES parameters
-  const params = {
-    Destination: {
-      ToAddresses: ["validated.address@email.om"],
-    },
-    Message: {
-      Body: {
-        Text: {
-          Data: `
-Ai primit un mesaje de la ${dataObj.persoana_de_contact}, reprezentant al firmei ${dataObj.nume_companie}.
+//   const params = {
+//     Destination: {
+//       ToAddresses: ["validated.address@email.om"],
+//     },
+//     Message: {
+//       Body: {
+//         Text: {
+//           Data: `
+// Ai primit un mesaje de la ${dataObj.persoana_de_contact}, reprezentant al firmei ${dataObj.nume_companie}.
 
-Mesaj: ${dataObj.message}
+// Mesaj: ${dataObj.message}
 
-Tip utilizare: ${dataObj.tip_de_utilizare}
+// Tip utilizare: ${dataObj.tip_de_utilizare}
 
-Numar echipamente: ${dataObj.numar_echipamente}
+// Numar echipamente: ${dataObj.numar_echipamente}
 
-Date contact:
-  - ${dataObj.telefon}
-  - ${dataObj.email}
+// Date contact:
+//   - ${dataObj.telefon}
+//   - ${dataObj.email}
 
-            `,
-        },
-      },
-      Subject: {
-        Data: `Mesaj de la ${dataObj.persoana_de_contact} in numele companiei ${dataObj.nume_companie}`,
-      },
-    },
-    Source: "validated.address@email.om", // Replace with a verified email address
-  };
+//             `,
+//         },
+//       },
+//       Subject: {
+//         Data: `Mesaj de la ${dataObj.persoana_de_contact} in numele companiei ${dataObj.nume_companie}`,
+//       },
+//     },
+//     Source: "validated.address@email.om", // Replace with a verified email address
+//   };
 
-  if (userDataIsValid) {
-    verifyRecaptcha(captchaToken, process.env.RECAPTCHA_SECRET_KEY).then(
-      (data) => {
-        if (data.success) {
-          log(params.Message);
+  // if (userDataIsValid) {
+    // verifyRecaptcha(captchaToken, process.env.RECAPTCHA_SECRET_KEY).then(
+    //   (data) => {
+    //     if (data.success) {
+    //       log(params.Message);
 
-          try {
-            // Send email using SES
-            const result = ses.sendEmail(params).promise();
-            console.log(result);
-            return {
-              statusCode: 200,
-              body: JSON.stringify({ message: "Email sent successfully" }),
-            };
-          } catch (error) {
-            console.error(error);
-            return {
-              statusCode: 500,
-              body: JSON.stringify({ message: "Error sending email" }),
-            };
-          }
-        }
-      }
-    );
-  }
+    //       try {
+    //         // Send email using SES
+    //         const result = ses.sendEmail(params).promise();
+    //         console.log(result);
+    //         return {
+    //           statusCode: 200,
+    //           body: JSON.stringify({ message: "Email sent successfully" }),
+    //         };
+    //       } catch (error) {
+    //         console.error(error);
+    //         return {
+    //           statusCode: 500,
+    //           body: JSON.stringify({ message: "Error sending email" }),
+    //         };
+    //       }
+    //     }
+    //   }
+    // );
+  // }
 };
 
 export default async function handler(req, res) {

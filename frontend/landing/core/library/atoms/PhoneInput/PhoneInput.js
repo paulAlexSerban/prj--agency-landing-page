@@ -8,6 +8,8 @@ export default function PhoneInput({
   inputId,
   inputValue,
   required,
+  handleChange,
+  isInvalid,
   validationMessage,
 }) {
   const ID = useId();
@@ -25,16 +27,12 @@ export default function PhoneInput({
         value={inputValue}
         type="text"
         className={styles.input}
-        data-next-cmp={`${config.name}-${ID}`}
-        data-required={required}
-        data-form-item-type="phoneNumber"
+        required={required}
+        onChange={handleChange}
+        data-invalid={isInvalid}
       />
-      <span
-        className={styles.labelText}
-        data-type="label"
-        data-placeholder={placeholder}
-      >
-        {placeholder}
+      <span className={styles.labelText} data-type="label">
+        {isInvalid && validationMessage ? validationMessage : placeholder}
       </span>
     </label>
   );

@@ -7,6 +7,7 @@ export default function Button({
   ariaLabel,
   buttonType = "button",
   target,
+  disabled = false
 }) {
   const ID = useId();
   const buttonRef = useRef(null);
@@ -23,14 +24,14 @@ export default function Button({
   const handleClick = (e) => {
     e.preventDefault();
     const targetEl = buttonRef.current.getAttribute("data-target");
-    scrollTo(targetEl)
+    scrollTo(targetEl);
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       const targetEl = buttonRef.current.getAttribute("data-target");
-      scrollTo(targetEl)
+      scrollTo(targetEl);
     }
   };
 
@@ -45,6 +46,7 @@ export default function Button({
       onClick={buttonType === "cta" ? handleClick : null}
       onKeyDown={buttonType === "cta" ? handleKeyDown : null}
       ref={buttonRef}
+      disabled={disabled}
     >
       <span className={styles.label}>{label}</span>
     </button>

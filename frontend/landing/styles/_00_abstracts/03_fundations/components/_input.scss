@@ -41,8 +41,9 @@
       box-shadow: inset 0px 0px 0px 4px var(--input-color);
     }
 
-    &[invalid="true"] {
-      --input-color: #{get-color($c-traffic-lights, danger)};
+    &[data-invalid="true"] {
+      --input-color: var(--brand-color);
+      box-shadow: inset 0px 0px 0px 4px var(--input-color);
     }
   }
 
@@ -63,14 +64,14 @@
     }
 
     .input:not(:placeholder-shown) ~ &,
-    .select[invalid="true"] ~ &,
-    .input[invalid="true"] ~ & {
+    .select[data-invalid="true"] ~ &,
+    .input[data-invalid="true"] ~ & {
       opacity: 1;
     }
 
-    .select[invalid="true"] ~ &,
-    .input[invalid="true"] ~ & {
-      --input-color: #{get-color($c-traffic-lights, danger)};
+    .select[data-invalid="true"] ~ &,
+    .input[data-invalid="true"] ~ & {
+      --input-color: var(--brand-color);
     }
   }
 }
