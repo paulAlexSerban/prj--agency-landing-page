@@ -8,11 +8,18 @@ export default function EmailInput({
   inputId,
   inputValue,
   required,
+  handleChange,
+  isInvalid,
+  validationMessage,
 }) {
   const ID = useId();
 
   return (
-    <label className={styles.base} htmlFor={inputId}>
+    <label
+      className={styles.base}
+      htmlFor={inputId}
+      data-validation-message={validationMessage}
+    >
       <input
         placeholder={placeholder}
         name={inputName}
@@ -20,9 +27,13 @@ export default function EmailInput({
         value={inputValue}
         type="email"
         className={styles.input}
-        data-next-cmp={`${config.name}-${ID}`}
-        data-required={required}
+        required={required}
+        onChange={handleChange}
+        data-invalid={isInvalid}
       />
+      <span className={styles.labelText} data-type="label">
+        {isInvalid && validationMessage ? validationMessage : placeholder}
+      </span>
     </label>
   );
 }

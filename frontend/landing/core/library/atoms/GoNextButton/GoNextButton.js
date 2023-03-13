@@ -1,24 +1,43 @@
-import { useId, useEffect } from "react";
-import config from "./config";
+import { useId, useRef } from "react";
 import styles from "@/styles/atoms/go-next-button/go-next-button.module.scss";
 import ChevronDown from "@/svgs/chevron-down.svg";
-import { GoNextButtonAtom } from "./GoNextButton.atom";
 
 export default function GoNextButton({ href }) {
   const ID = useId();
-  const jsHook = "js-go-next-button";
+  const buttonRef = useRef(null);
 
-  useEffect(() => {
-    document
-      .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
-      .forEach((el) => new GoNextButtonAtom(el, jsHook));
-  });
+  const scrollTo = (targetElementId) => {
+    try {
+      const scrollToEl = document.querySelector(targetElementId);
+      scrollToEl.scrollIntoView({ behavior: "smooth" }, true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const targetElementId = buttonRef.current.getAttribute("href");
+    scrollTo(targetElementId);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      const targetElementId = buttonRef.current.getAttribute("data-target");
+      scrollTo(targetElementId);
+    }
+  };
 
   return (
     <a
-      className={`${styles.base} ${jsHook}`}
-      data-next-cmp={`${config.name}-${ID}`}
+      className={styles.base}
+      id={ID}
       href={`#${href}`}
+      ref={buttonRef}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      rel="noopener noreferrer"
     >
       <ChevronDown className={styles.svg} />
     </a>
