@@ -1,5 +1,4 @@
 import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/atoms/textarea/textarea.module.scss";
 
 export default function Textarea({
@@ -9,6 +8,9 @@ export default function Textarea({
   inputValue,
   rows,
   required,
+  validationMessage,
+  handleChange,
+  isInvalid,
 }) {
   const ID = useId();
 
@@ -21,9 +23,13 @@ export default function Textarea({
         value={inputValue}
         rows={rows}
         className={styles.input}
-        data-next-cmp={`${config.name}-${ID}`}
-        data-required={required}
+        required={required}
+        onChange={handleChange}
+        data-invalid={isInvalid}
       ></textarea>
+      <span className={styles.labelText} data-type="label">
+        {isInvalid && validationMessage ? validationMessage : placeholder}
+      </span>
     </label>
   );
 }
