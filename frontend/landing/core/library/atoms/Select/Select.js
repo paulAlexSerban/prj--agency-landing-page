@@ -1,4 +1,3 @@
-import { useId, useRef, useEffect, useState } from "react";
 import styles from "@/styles/atoms/select/select.module.scss";
 import Icon from "@/core/atoms/Icon/Icon";
 
@@ -13,25 +12,24 @@ export default function Select({
   isInvalid,
   inputValue,
 }) {
-  const ID = useId();
-  const selectRef = useRef(null);
+  const placeholderText =
+    isInvalid && validationMessage
+      ? validationMessage
+      : required
+      ? `${placeholder} *`
+      : `${placeholder} (optional)`;
 
   return (
-    <label
-      htmlFor={inputId}
-      className={styles.base}
-      data-validation-message={validationMessage}
-    >
+    <label htmlFor={inputId} className={styles.base}>
       <select
         name={inputName}
         id={inputId}
         className={styles.select}
         required={required}
-        ref={selectRef}
         onChange={handleChange}
         data-invalid={isInvalid}
       >
-        <option value="">{placeholder}</option>
+        <option value="">{placeholderText}</option>
         {options.map((option, index) => {
           return (
             <option value={option.toLowerCase()} key={index}>
@@ -45,9 +43,9 @@ export default function Select({
         className={`${styles.labelText} ${
           inputValue !== "" ? styles["labelText--isVisible"] : ""
         }`}
-        data-placeholder={placeholder}
+        data-placeholder={placeholderText}
       >
-        {placeholder}
+        {placeholderText}
       </span>
     </label>
   );

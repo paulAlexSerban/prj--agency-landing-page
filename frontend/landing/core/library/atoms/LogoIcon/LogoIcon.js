@@ -33,7 +33,8 @@ export default function LogoIcon() {
       href="#pageTop"
       onClick={handleClick}
       onKeyDown={handleKeyDown}
-      ref={buttonRef}>
+      ref={buttonRef}
+    >
       <Icon iconName="rowLogoText" />
     </a>
   );

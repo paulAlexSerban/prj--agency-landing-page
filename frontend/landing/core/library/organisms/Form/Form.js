@@ -49,7 +49,7 @@ export default function Form({
             placeholder="Nume companie"
             inputName="nume_companie"
             inputId="nume_companie"
-            required={true}
+            required={false}
             handleChange={handleChange}
             inputValue={form?.nume_companie}
             isInvalid={errorFields?.nume_companie?.length > 0 && submitAttempt}
@@ -92,7 +92,7 @@ export default function Form({
             placeholder="Email"
             inputName="email"
             inputId="email"
-            required={true}
+            required={false}
             handleChange={handleChange}
             inputValue={form?.email}
             isInvalid={errorFields?.email?.length > 0 && submitAttempt}

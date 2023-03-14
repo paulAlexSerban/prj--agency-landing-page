@@ -209,8 +209,10 @@ const getParams = (data) => {
       Body: {
         Text: {
           Data: `
-Ai primit un mesaje de la ${data.nume_reprezentant}, reprezentant al firmei ${
+Ai primit un mesaje de la ${data.nume_reprezentant}, ${
             data.nume_companie
+              ? "reprezentant al firmei ${data.nume_companie}"
+              : ""
           }.
 ${data.message ? `Mesaj: ${data.message}` : ""}
 Tip utilizare: ${data.tip_de_utilizare}
@@ -218,7 +220,7 @@ Numar echipamente: ${data.numar_echipamente}
 Perioada: ${data.perioada}
 Date contact:
 - Telefon: ${data.telefon}
-- Email: ${data.email}`,
+${data.email ? `- Email: ${data.email}` : ""}`,
         },
       },
       Subject: {

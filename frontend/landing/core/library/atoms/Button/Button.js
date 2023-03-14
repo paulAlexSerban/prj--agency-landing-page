@@ -9,7 +9,6 @@ export default function Button({
   target,
   disabled = false,
 }) {
-
   const buttonRef = useRef(null);
 
   const scrollTo = (targetEl) => {

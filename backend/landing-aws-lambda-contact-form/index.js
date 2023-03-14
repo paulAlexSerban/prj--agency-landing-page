@@ -1,9 +1,146 @@
-const aws = require("aws-sdk");
 const https = require("https");
+const aws = require("aws-sdk");
 const ses = new aws.SES({ region: "eu-central-1" });
 const { log, error } = console;
+const patterns = {
+  name: /^[a-z\d\s.@!?()\-+'":;,]+$/gim,
+  textarea: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
+  text: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
+  phone: /^((\+?\d{1,3})?[\(\- ]?\d{3,5}[\)\- ]?)?(\d[.\- ]?\d)+$/,
+  email:
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/gi,
+};
 
-async function verifyCaptcha(url) {
+const VALIDATION = {
+  nume_companie: [
+    {
+      isValid: (value) => {
+        if (!!value) {
+          const regex = new RegExp(patterns.name);
+          const isValid = regex.test(value);
+          regex.lastIndex = 0;
+          return isValid;
+        } else {
+          return true;
+        }
+      },
+      message: "Textul contine caractere interzise.",
+    },
+  ],
+  nume_reprezentant: [
+    {
+      isValid: (value) => !!value,
+      message: "Campul este necesar a fi completat.",
+    },
+    {
+      isValid: (value) => value.length > 3,
+      message: "Textul este prea scurt.",
+    },
+    {
+      isValid: (value) => value.length < 50,
+      message: "Textul este prea lung, maxim 50 de caractere sunt permise.",
+    },
+    {
+      isValid: (value) => {
+        const regex = new RegExp(patterns.name);
+        const isValid = regex.test(value);
+        regex.lastIndex = 0;
+        return isValid;
+      },
+      message: "Textul contine caractere interzise.",
+    },
+  ],
+  telefon: [
+    {
+      isValid: (value) => !!value,
+      message: "Campul este necesar a fi completat.",
+    },
+    {
+      isValid: (value) => value.length >= 9,
+      message: "Numarul este prea scurt, minim 9 cifre.",
+    },
+    {
+      isValid: (value) => value.length <= 10,
+      message: "Numarul este prea lung, maxim 10 cifre permise.",
+    },
+    {
+      isValid: (value) => {
+        const regex = new RegExp(patterns.phone);
+        const isValid = regex.test(value);
+        regex.lastIndex = 0;
+        return isValid;
+      },
+      message: "Numerul de telefon poate contine doar numere si cratime.",
+    },
+  ],
+  email: [
+    {
+      isValid: (value) => {
+        if (!!value) {
+          const regex = new RegExp(patterns.email);
+          const isValid = regex.test(value);
+          regex.lastIndex = 0;
+          return isValid;
+        } else {
+          return true;
+        }
+      },
+      message: "Adresa de email contine caractere interzise.",
+    },
+  ],
+  numar_echipamente: [
+    {
+      isValid: (value) => !!value,
+      message: "Campul este necesar a fi completat.",
+    },
+  ],
+  perioada: [
+    {
+      isValid: (value) => !!value,
+      message: "Perioada este necesar a fi selectata.",
+    },
+  ],
+  tip_de_utilizare: [
+    {
+      isValid: (value) => !!value.length > 0,
+      message: "Tipul de utilizare este necesar a fi selectat.",
+    },
+  ],
+  message: [
+    {
+      isValid: (value) => {
+        if (!!value) {
+          const regex = new RegExp(patterns.text);
+          const isValid = regex.test(value);
+          regex.lastIndex = 0;
+          return isValid;
+        } else {
+          return true;
+        }
+      },
+      message: "Textul contine caractere interzise.",
+    },
+  ],
+};
+
+const getErrorFields = (form) =>
+  Object.keys(form).reduce((acc, key) => {
+    if (!VALIDATION[key]) return acc;
+
+    const errorsPerField = VALIDATION[key]
+      // get a list of potential errors for each field
+      // by running through all the checks
+      .map((validation) => ({
+        isValid: validation.isValid(form[key]),
+        message: validation.message,
+      }))
+      // only keep the errors
+      .filter((errorPerField) => !errorPerField.isValid);
+
+    return { ...acc, [key]: errorsPerField };
+  }, {});
+
+const verifyCaptcha = async (url) => {
   const options = {
     method: "POST",
     headers: {
@@ -16,7 +153,7 @@ async function verifyCaptcha(url) {
       if (res.statusCode < 200 || res.statusCode > 299) {
         return reject(new Error(`HTTP status code ${res.statusCode}`));
       }
-      log(res.statusCode);
+      console.log(res.statusCode);
       const body = [];
       res.on("data", (chunk) => body.push(chunk));
       res.on("end", () => {
@@ -36,7 +173,16 @@ async function verifyCaptcha(url) {
 
     req.end();
   });
-}
+};
+
+const validateData = (userData) => {
+  const errorFields = getErrorFields(userData);
+  const hasErrors = Object.values(errorFields).flat().length > 0;
+  if (hasErrors) {
+    error({ errorFields });
+  }
+  return hasErrors;
+};
 
 const getParams = (data) => {
   return {
@@ -47,76 +193,40 @@ const getParams = (data) => {
       Body: {
         Text: {
           Data: `
-Ai primit un mesaje de la ${data.persoana_de_contact}, reprezentant al firmei ${
+Ai primit un mesaje de la ${data.nume_reprezentant}, ${
             data.nume_companie
+              ? "reprezentant al firmei ${data.nume_companie}"
+              : ""
           }.
 ${data.message ? `Mesaj: ${data.message}` : ""}
 Tip utilizare: ${data.tip_de_utilizare}
 Numar echipamente: ${data.numar_echipamente}
+Perioada: ${data.perioada}
 Date contact:
 - Telefon: ${data.telefon}
-- Email: ${data.email}`,
+${data.email ? `- Email: ${data.email}` : ""}`,
         },
       },
       Subject: {
-        Data: `Mesaj de la ${data.persoana_de_contact} in numele companiei ${data.nume_companie}`,
+        Data: `Mesaj de la ${data.nume_reprezentant} in numele companiei ${data.nume_companie}`,
       },
     },
     Source: "contactus.stage@lynxit.ro", // Replace with a verified email address
   };
 };
 
-const validateData = (userData) => {
-  let userDataIsValid = false;
-
-  userData.forEach((item) => {
-    const isValid = item.isValid;
-    const itemValue = item.value;
-    const isString = typeof item.value === "string";
-    const hasValidationPattern = !!item.validationPattern;
-    const isObject = typeof item.value === "object";
-
-    if (isValid && isString && hasValidationPattern && !isObject) {
-      const regex = new RegExp(patterns[item.validationPattern]);
-      regex.lastIndex = 0;
-      const regValid = regex.test(itemValue);
-      if (regValid) {
-        userDataIsValid = true;
-      } else {
-        error("[ error ] invalid user data");
-        return;
-      }
-    }
-  });
-
-  let dataString = "";
-  let dataObj = {};
-
-  userData.forEach((item) => {
-    dataString += `${item.fieldId}: ${item.value} \n`;
-    dataObj[item.fieldId] = item.value;
-  });
-
-  log({ "[ info ]": dataString });
-  return dataObj;
-};
-
 exports.handler = async (event) => {
-  try {
-    const { body } = event;
-    const formData = JSON.parse(body);
-    const captchaToken = formData.token;
-    const userData = formData.body;
-    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  const { body } = event;
+  const formData = JSON.parse(body);
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  console.log({ formData, secretKey });
 
+  try {
     // Verify captcha
     const captchaResponse = await verifyCaptcha(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`
+      `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${formData.recaptchaToken}`
     );
-
     const jsonResponse = await JSON.parse(captchaResponse);
-
-    log({ captchaResponse: jsonResponse.success });
 
     if (!jsonResponse.success) {
       error("[ error ] invalid captcha token");
@@ -125,10 +235,13 @@ exports.handler = async (event) => {
         body: JSON.stringify({ message: "Invalid captcha token" }),
       };
     }
+    console.log({ "[ info ] Google ReCaptcha Response": jsonResponse });
 
-    // Validate user data
-    const validatedData = validateData(userData);
-    const sesParams = getParams(validatedData);
+    const hasErrors = validateData(formData);
+    if (hasErrors) return;
+
+    const sesParams = getParams(formData);
+    console.log({ "[ info ] SES params": sesParams });
 
     // Send email using SES
     const result = await ses.sendEmail(sesParams).promise();
