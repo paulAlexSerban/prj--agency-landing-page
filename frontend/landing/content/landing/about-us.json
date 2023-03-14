@@ -3,7 +3,7 @@
   "sectionId": "despre_noi",
   "sectionEl": {
     "spotlight": {
-      "position": "right",
+      "position": "full-height",
       "imageSrc": "lenovo-facing",
       "lineup": {
         "columns": 3

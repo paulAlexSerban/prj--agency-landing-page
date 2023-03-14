@@ -96,7 +96,7 @@ export default function Landing({
           subheading={mainContent.spotlight.heading.subheading}
           hasSeparator
         />
-        <LineUp columns="1">
+        <LineUp columns="3">
           <Paragraph text={mainContent.spotlight.content.paragraph} />
           <Paragraph text={mainContent.spotlight.content.paragraph_1} />
           <Paragraph text={mainContent.spotlight.content.paragraph_2} />
