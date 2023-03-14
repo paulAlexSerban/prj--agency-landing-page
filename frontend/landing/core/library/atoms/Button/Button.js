@@ -1,4 +1,4 @@
-import { useId, useRef } from "react";
+import { useRef } from "react";
 import styles from "@/styles/atoms/button/button.module.scss";
 
 export default function Button({
@@ -9,7 +9,7 @@ export default function Button({
   target,
   disabled = false,
 }) {
-  const ID = useId();
+
   const buttonRef = useRef(null);
 
   const scrollTo = (targetEl) => {
@@ -38,7 +38,6 @@ export default function Button({
   return (
     <button
       className={[styles.base, styles[buttonStyle]].join(" ")}
-      id={ID}
       aria-label={ariaLabel ? ariaLabel : label}
       aria-labelledby={ariaLabel ? `${ID}-label` : null}
       type={buttonType === "cta" ? "button" : buttonType}

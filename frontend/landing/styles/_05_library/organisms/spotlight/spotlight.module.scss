@@ -28,7 +28,7 @@ $block: "spotlight";
 
   @include e("content") {
     transform: translate(0, 0);
-    transition: opacity 1s ease-in;
+    transition: opacity .5s ease-in;
     transition-delay: 0.1s;
     opacity: 1;
     background-color: get-color($c-dark, dark-85);
@@ -63,7 +63,7 @@ $block: "spotlight";
       @include breakpoint($desktop) {
         border-top: none;
         border-left: solid $baseline get-color($c-blue, blue-crayola);
-        width: 30%;
+        width: 35%;
         right: 0;
         height: 100%;
         max-height: 100%;

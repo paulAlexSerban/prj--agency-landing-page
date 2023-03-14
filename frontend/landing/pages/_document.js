@@ -25,7 +25,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           ></link>
         </Head>
-        <body>
+        <body id="pageTop">
           <Main />
           <NextScript />
         </body>
