@@ -8,7 +8,7 @@ export default function Button({
   buttonType = "button",
   target,
   disabled = false,
-  onClick
+  onClick,
 }) {
   const buttonRef = useRef(null);
 
@@ -23,8 +23,8 @@ export default function Button({
 
   const handleClick = (e) => {
     e.preventDefault();
-    if(onClick) {
-      onClick(e)
+    if (onClick) {
+      onClick(e);
     }
     const targetEl = buttonRef.current.getAttribute("data-target");
     scrollTo(targetEl);
