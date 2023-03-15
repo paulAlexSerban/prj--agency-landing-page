@@ -74,8 +74,4 @@ $block: "modal";
     background: none;
     padding: 20px 30px;
   }
-
-  @include e("buttonContainer") {
-    @include flex();
-  }
 }

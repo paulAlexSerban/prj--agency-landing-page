@@ -37,4 +37,8 @@ $block: "product-card";
     width: 170px;
     margin-inline: auto;
   }
+
+  @include e("controlContainer") {
+    @include flex();
+  }
 }

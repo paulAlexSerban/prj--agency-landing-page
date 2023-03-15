@@ -51,13 +51,15 @@ export default function ProductCard({
               <Heading mainText={heading} hasSeparator />
               <Paragraph text={description} />
               <ProductDetails content={modalContent} />
-              <Button
-                label="Contacteaza-ne!"
-                buttonStyle="primary"
-                buttonType="cta"
-                target="#contact"
-                onClick={handleClick}
-              />
+              <div className={styles.controlContainer}>
+                <Button
+                  label="Contacteaza-ne!"
+                  buttonStyle="primary"
+                  buttonType="cta"
+                  target="#contact"
+                  onClick={handleClick}
+                />
+              </div>
             </Modal>,
             modalContainer.current
           )

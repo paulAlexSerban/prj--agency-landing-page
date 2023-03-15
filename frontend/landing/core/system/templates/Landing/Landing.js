@@ -182,8 +182,7 @@ export default function Landing({
           submitButtonLabel="Trimite mesaj!"
           recaptchaKey={pageProperties.recaptcha_site_key}
           action={pageProperties.form_submit_endpoint}
-        >
-        </Form>
+        ></Form>
       </Content>
       <Footer
         socialMediaList={content.socialMediaList}
