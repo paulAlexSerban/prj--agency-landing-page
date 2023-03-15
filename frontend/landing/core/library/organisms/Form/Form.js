@@ -155,13 +155,21 @@ export default function Form({
           }
         />
       </div>
+      <div className={formStyles.actionContainer}>
+        <Button
+          label={submitButtonLabel}
+          buttonStyle="primary"
+          buttonType="submit"
+          disabled={(hasChanges || hasErrors) && submitAttempt}
+        />
+        <Button
+          label="Suna!"
+          buttonStyle="primary"
+          buttonType="link"
+          target="tel:+40723320333"
+        />
+      </div>
 
-      <Button
-        label={submitButtonLabel}
-        buttonStyle="primary"
-        buttonType="submit"
-        disabled={(hasChanges || hasErrors) && submitAttempt}
-      />
       <Script
         src={`https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`}
         strategy="lazyOnload"

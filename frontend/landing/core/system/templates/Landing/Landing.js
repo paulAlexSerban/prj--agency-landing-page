@@ -88,7 +88,6 @@ export default function Landing({
       <Spotlight
         sectionId={mainContent.spotlight.sectionId}
         position={mainContent.spotlight.sectionEl.spotlight.position}
-        imageSrc={mainContent.spotlight.sectionEl.spotlight.imageSrc}
       >
         <Heading
           level={mainContent.spotlight.heading.level}
@@ -144,12 +143,6 @@ export default function Landing({
             text="pentru orice laptop recondiționat salvezi 280 Kg CO2 echivalentul distanței parcurse cu mașina de la București la Viena."
           />
         </RAM>
-        <Button
-          label="Hai sa beneficiezi si tu!"
-          buttonStyle="primary"
-          buttonType="cta"
-          target="#contact"
-        />
       </Content>
       <Spotlight
         sectionId={mainContent.spotlight_1.sectionId}
@@ -176,12 +169,6 @@ export default function Landing({
             );
           })}
         </ProductList>
-        <Button
-          label="Spune-ne de ce configuratie ai nevoie!"
-          buttonStyle="primary"
-          buttonType="cta"
-          target="#contact"
-        />
       </Spotlight>
       <Content sectionId="contact">
         <Heading
@@ -192,93 +179,10 @@ export default function Landing({
           inverted
         />
         <Form
-          submitButtonLabel="Trimite-ne un mesaj!"
+          submitButtonLabel="Trimite mesaj!"
           recaptchaKey={pageProperties.recaptcha_site_key}
           action={pageProperties.form_submit_endpoint}
         >
-          <Fieldset name="identification" cols={2}>
-            <TextInput
-              placeholder="Nume companie"
-              inputName="name"
-              inputId="nume_companie"
-              initValue=""
-              required={true}
-              validationMessage="Completati numele companiei"
-            />
-            <TextInput
-              placeholder="Persoana de contact"
-              inputName="name"
-              inputId="persoana_de_contact"
-              initValue=""
-              required={true}
-              validationMessage="Completati numele persoanei de contact"
-            />
-            <PhoneInput
-              placeholder="Telefon"
-              inputName="phone"
-              inputId="telefon"
-              initValue=""
-              required={true}
-              validationMessage="Completati numarul de telefon"
-            />
-            <EmailInput
-              placeholder="Email"
-              inputName="email"
-              inputId="email"
-              initValue=""
-              required={true}
-              validationMessage="Completati adresa de email"
-            />
-          </Fieldset>
-          <Fieldset
-            name="tip_de_utilizare"
-            legend="Tip de utilizare:"
-            cols={6}
-            required={true}
-            type="checkboxField"
-            validationMessage="Alegeti tipul de utilizare"
-          >
-            <Checkbox inputName="basic" inputId="basic" label="Basic" />
-            <Checkbox
-              inputName="standard"
-              inputId="standard"
-              label="Standard"
-            />
-            <Checkbox
-              inputName="professional"
-              inputId="professional"
-              label="Professional"
-            />
-          </Fieldset>
-          <Fieldset name="perioada-si-cantitate" cols={2}>
-            <TextInput
-              placeholder="Numar echipamente"
-              inputName="numar_echipamente"
-              inputId="numar_echipamente"
-              initValue=""
-              required={true}
-              type="number"
-              validationMessage="Completati numarul de echipamente necesare"
-            />
-
-            <Select
-              placeholder="Pe ce perioada?"
-              inputName="perioada"
-              inputId="perioada"
-              required={true}
-              validationMessage="Alegeti perioada pe care doriti echipamentul"
-              options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
-            />
-          </Fieldset>
-
-          <Textarea
-            placeholder="Mesaj (optional)"
-            inputName="message"
-            inputId="message"
-            initValue=""
-            rows="6"
-            required={false}
-          />
         </Form>
       </Content>
       <Footer

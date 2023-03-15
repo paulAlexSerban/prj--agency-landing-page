@@ -15,4 +15,14 @@ $block: "form";
   @include e("formContainer") {
     margin-bottom: var(--dynamic-spacing-80);
   }
+
+  @include e("actionContainer") {
+    @include flex($direction: column);
+
+    gap: var(--dynamic-spacing-50);
+
+    @include breakpoint($tablet) {
+      flex-direction: row;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import styles from "@/styles/atoms/button/button.module.scss";
+import Link from "next/link";
 
 export default function Button({
   label,
@@ -39,18 +40,32 @@ export default function Button({
   };
 
   return (
-    <button
-      className={[styles.base, styles[buttonStyle]].join(" ")}
-      aria-label={ariaLabel ? ariaLabel : label}
-      aria-labelledby={ariaLabel ? `${ID}-label` : null}
-      type={buttonType === "cta" ? "button" : buttonType}
-      data-target={target}
-      onClick={buttonType === "cta" ? handleClick : null}
-      onKeyDown={buttonType === "cta" ? handleKeyDown : null}
-      ref={buttonRef}
-      disabled={disabled}
-    >
-      <span className={styles.label}>{label}</span>
-    </button>
+    <>
+      {buttonType === "link" ? (
+        <Link href={target} legacyBehavior>
+          <a
+            className={[styles.base, styles[buttonStyle]].join(" ")}
+            aria-label={ariaLabel ? ariaLabel : label}
+            aria-labelledby={ariaLabel ? `${ID}-label` : null}
+          >
+            <span className={styles.label}>{label}</span>
+          </a>
+        </Link>
+      ) : (
+        <button
+          className={[styles.base, styles[buttonStyle]].join(" ")}
+          aria-label={ariaLabel ? ariaLabel : label}
+          aria-labelledby={ariaLabel ? `${ID}-label` : null}
+          type={buttonType === "cta" ? "button" : buttonType}
+          data-target={target}
+          onClick={buttonType === "cta" ? handleClick : null}
+          onKeyDown={buttonType === "cta" ? handleKeyDown : null}
+          ref={buttonRef}
+          disabled={disabled}
+        >
+          <span className={styles.label}>{label}</span>
+        </button>
+      )}
+    </>
   );
 }
