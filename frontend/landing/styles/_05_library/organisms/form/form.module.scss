@@ -9,6 +9,7 @@ $block: "form";
     padding: var(--spacing-padding-top-bottom) 0;
     color: get-color($c-light, light);
     width: 100%;
+    overflow: hidden;
   }
 
   @include e("formContainer") {

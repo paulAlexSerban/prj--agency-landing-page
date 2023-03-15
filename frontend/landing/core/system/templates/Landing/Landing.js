@@ -2,7 +2,7 @@ import { config } from "./config";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import styles from "@/styles/templates/landing/landing.module.scss";
-import { useEffect, useId } from "react";
+import { useEffect, useId, useRef } from "react";
 import LandingTemplate from "./Landing.template";
 
 // ATOMS
@@ -24,7 +24,6 @@ import Select from "@/core/atoms/Select/Select";
 import Card from "@/core/molecules/Card/Card";
 import ProductCard from "@/core/molecules/ProductCard/ProductCard";
 import ProductList from "@/core/molecules/ProductList/ProductList";
-import ProductModal from "@/core/molecules/ProductModal/ProductModal";
 import ProductDetails from "@/core/molecules/ProductDetails/ProductDetails";
 
 // ORGANISMS
@@ -53,6 +52,7 @@ export default function Landing({
   pageProperties,
   socialMediaList,
 }) {
+  const modalContainerRef = useRef(null);
   const ID = useId();
   useEffect(() => {
     document
@@ -168,7 +168,10 @@ export default function Landing({
                 key={index}
                 iconName={item.iconName}
                 heading={item.heading}
+                description={item.description}
+                modalContent={item.content}
                 id={item.id}
+                modalContainer={modalContainerRef}
               />
             );
           })}
@@ -282,21 +285,7 @@ export default function Landing({
         socialMediaList={content.socialMediaList}
         projectName={pageProperties.project_name}
       />
-
-      {mainContent.spotlight_1.content.map((item, index) => {
-        return (
-          <ProductModal
-            key={index}
-            controlledBy={item.id}
-            heading={item.heading}
-            description={item.description}
-          >
-            <ProductDetails content={item.content} />
-          </ProductModal>
-        );
-      })}
-
-      <div className="overlay hidden"></div>
+      <div ref={modalContainerRef}></div>
     </div>
   );
 }

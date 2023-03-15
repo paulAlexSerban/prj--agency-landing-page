@@ -26,19 +26,12 @@ $block: "spotlight";
 
   @include e("content") {
     transform: translate(0, 0);
-    transition: opacity 0.5s ease-in;
-    transition-delay: 0.1s;
-    opacity: 1;
     background-color: get-color($c-dark, dark-60);
     text-align: center;
     min-height: 100%;
     width: 100%;
     padding-inline: var(--main-content-lat-padding);
     position: relative;
-
-    .inactive & {
-      opacity: 0;
-    }
 
     .full-height & {
       border-top: solid $baseline get-color($c-red, paradise-pink);
