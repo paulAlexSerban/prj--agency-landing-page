@@ -1,16 +1,20 @@
-import { useId, useState } from "react";
+import { useId, useState, useEffect } from "react";
 import formStyles from "@/styles/organisms/form/form.module.scss";
 import Button from "@/core/atoms/Button/Button";
 import TextInput from "@/core/atoms/TextInput/TextInput";
 import PhoneInput from "@/core/atoms/PhoneInput/PhoneInput";
 import EmailInput from "@/core/atoms/EmailInput/EmailInput";
-import Checkbox from "@/core/atoms/Checkbox/Checkbox";
 import Select from "@/core/atoms/Select/Select";
 import Textarea from "@/core/atoms/Textarea/Textarea";
 import useForm from "./Form.hooks";
 import Script from "next/script";
 import Fieldset from "@/core/atoms/Fieldset/Fieldset";
-import CheckboxFieldset from "@/core/molecules/CheckboxField/CheckboxField";
+import CategoriesFieldset from "@/core/molecules/CategoriesFieldset/CategoriesFieldset";
+import ConsentCheckbox from "@/core/molecules/ConsentCheckbox/ConsentCheckbox";
+import { createPortal } from "react-dom";
+import Modal from "@/core/molecules/Modal/Modal";
+import Heading from "@/core/atoms/Heading/Heading";
+import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 const INITIAL_STATE = {
   nume_companie: "",
   nume_reprezentant: "",
@@ -20,6 +24,7 @@ const INITIAL_STATE = {
   perioada: "",
   tip_de_utilizare: [],
   message: "",
+  politica_confidentialitate: [],
 };
 
 export default function Form({
@@ -27,8 +32,10 @@ export default function Form({
   submitButtonLabel = "Submit Form!",
   recaptchaKey,
   action,
+  modalContainer
 }) {
   const ID = useId();
+  const [mounted, setMounted] = useState(false);
 
   const {
     form,
@@ -38,7 +45,16 @@ export default function Form({
     errorFields,
     submitAttempt,
     hasErrors,
+    successModal, setSuccessModal
   } = useForm(INITIAL_STATE, action, recaptchaKey);
+
+  const handleCloseModal = () => {
+    setSuccessModal(false)
+  }
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <form id={ID} className={formStyles.base} onSubmit={handleSubmit}>
@@ -101,7 +117,7 @@ export default function Form({
             }
           />
         </Fieldset>
-        <CheckboxFieldset
+        <CategoriesFieldset
           fieldName="tip_de_utilizare"
           fieldId="tip_de_utilizare"
           legend="Tip de utilizare:"
@@ -142,7 +158,7 @@ export default function Form({
         </Fieldset>
 
         <Textarea
-          placeholder="Mesaj (optional)"
+          placeholder="Mesaj"
           inputName="message"
           inputId="message"
           required={false}
@@ -153,6 +169,14 @@ export default function Form({
           validationMessage={
             errorFields?.message?.length && errorFields?.message[0].message
           }
+        />
+        <ConsentCheckbox
+          fieldName="politica_confidentialitate"
+          fieldId="politica_confidentialitate"
+          legend="Politica de confidențialitate:"
+          fieldValues={form?.politica_confidentialitate}
+          isInvalid={errorFields?.politica_confidentialitate?.length > 0 && submitAttempt}
+          handleChange={handleChange}
         />
       </div>
       <div className={formStyles.actionContainer}>
@@ -169,6 +193,23 @@ export default function Form({
           target="tel:+40723320333"
         />
       </div>
+
+      {mounted && modalContainer.current && successModal
+        ? createPortal(
+            <Modal
+              controlledBy={ID}
+              isOpen={successModal}
+              handleClose={handleCloseModal}
+              classNames={[formStyles.modal]}
+            >
+            <div className={formStyles.modalContent}>
+            <Heading mainText="Mesajul a fost trimis cu succes!" hasSeparator />
+              <Paragraph alignment="center" text="Va multumesc ca ati ales Lynx IT. Unul din agentii nostri va lua legatura cu dumneavoastra in urmatoarele 24h." />
+            </div>
+            </Modal>,
+            modalContainer.current
+          )
+        : null}
 
       <Script
         src={`https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`}

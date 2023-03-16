@@ -204,7 +204,9 @@ Numar echipamente: ${data.numar_echipamente}
 Perioada: ${data.perioada}
 Date contact:
 - Telefon: ${data.telefon}
-${data.email ? `- Email: ${data.email}` : ""}`,
+${data.email ? `- Email: ${data.email}` : ""}
+
+Politica de confidentialitate: ${data.politica_confidentialitate}`,
         },
       },
       Subject: {

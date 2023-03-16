@@ -31,6 +31,7 @@ $block: "button";
       background-color: transparent;
       box-shadow: inset 0px 0px 0px 4px var(--brand-color);
       color: var(--text-color);
+      text-decoration: none;
     }
 
     &:disabled {

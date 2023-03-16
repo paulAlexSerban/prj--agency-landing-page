@@ -9,5 +9,5 @@ export default async function handler(req, res) {
   await lambdaHandler(req);
 
   // Sends a HTTP success code
-  res.status(200).json({ message: "great success" });
+  res.status(200).json({ status: 200, message: "Mesajul a fost transmis cu succes!" });
 }

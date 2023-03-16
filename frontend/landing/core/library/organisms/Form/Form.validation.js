@@ -95,6 +95,12 @@ const VALIDATION = {
       message: "Tipul de utilizare este necesar a fi selectat.",
     },
   ],
+  politica_confidentialitate: [
+    {
+      isValid: (value) => !!value.length > 0,
+      message: "Politica de confidențialitate a datelor este necesar a fi acceptata pentru a putea transmite mesajul.",
+    },
+  ],
   message: [
     {
       isValid: (value) => {

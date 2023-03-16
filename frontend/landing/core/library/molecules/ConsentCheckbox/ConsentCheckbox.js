@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Checkbox from "@/core/atoms/Checkbox/Checkbox";
 import Fieldset from "@/core/atoms/Fieldset/Fieldset";
 
-export default function CheckboxFieldset({
+export default function CategoriesFieldset({
   fieldName,
   legend,
   handleChange,
@@ -40,35 +40,21 @@ export default function CheckboxFieldset({
       <Fieldset
         name={fieldName}
         legend={legend}
-        cols={6}
+        cols={1}
         required={true}
         type="checkboxField"
         validationMessage="Alegeti tipul de utilizare"
         isInvalid={isInvalid}
       >
         <Checkbox
-          inputName="basic"
-          inputId="basic"
-          label="Basic"
-          value="basic"
+          inputName="accept_politica_confidentialitate"
+          inputId="accept_politica_confidentialitate"
+          label="Declar că am citit și că sunt de acord cu Politica de confidențialitate Linx IT "
+          value="accept_politica_confidentialitate"
           checked={checkedValues.basic}
           handleChange={handleFieldChange}
-        />
-        <Checkbox
-          inputName="standard"
-          inputId="standard"
-          label="Standard"
-          value="standard"
-          checked={checkedValues.standard}
-          handleChange={handleFieldChange}
-        />
-        <Checkbox
-          inputName="professional"
-          inputId="professional"
-          label="Professional"
-          value="professional"
-          checked={checkedValues.professional}
-          handleChange={handleFieldChange}
+          referencedPageHref="/politica_confidentialitate"
+          referencePageLabel="(citeste politica de confidentialitate aici)"
         />
       </Fieldset>
     </div>

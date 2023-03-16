@@ -1,7 +1,7 @@
-import styles from "@/styles/templates/landing/landing.module.scss";
+import styles from "@/styles/templates/generic/generic.module.scss";
 import { useEffect, useRef } from "react";
 
-export default function Landing({ children, preloadClasses = [] }) {
+export default function Generic({ children, preloadClasses = [] }) {
   const templateRef = useRef(null);
 
   useEffect(() => {

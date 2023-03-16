@@ -13,4 +13,8 @@ $block: "paragraph";
 
     margin-bottom: $baseline;
   }
+
+  @include e("center") {
+    text-align: center;
+  }
 }

@@ -2,6 +2,8 @@ import { useId } from "react";
 import config from "./config";
 import styles from "@/styles/atoms/checkbox/checkbox.module.scss";
 import Icon from "@/core/atoms/Icon/Icon";
+import Link from "next/link";
+import linkStyles from "@/styles/atoms/link/link.module.scss";
 
 export default function Checkbox({
   inputName,
@@ -9,6 +11,8 @@ export default function Checkbox({
   inputValue,
   label,
   handleChange,
+  referencedPageHref = "",
+  referencePageLabel = "",
 }) {
   const ID = useId();
 
@@ -27,7 +31,14 @@ export default function Checkbox({
       <span className={styles.checkbox}>
         <Icon iconName="checkMark" className={styles.icon} />
       </span>
-      <span className={styles.label}>{label}</span>
+      <span className={styles.label}>
+        {label}
+        {referencedPageHref && referencePageLabel && (
+          <Link href={referencedPageHref} className={linkStyles.default} >
+          {referencePageLabel}
+          </Link>
+        )}
+      </span>
     </label>
   );
 }

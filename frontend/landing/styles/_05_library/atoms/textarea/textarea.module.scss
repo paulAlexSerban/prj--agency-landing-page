@@ -12,6 +12,7 @@ $block: "textarea";
 
   @include e("base") {
     width: 100%;
+    margin-bottom: var(--dynamic-spacing-50);
   }
 
   @include e("input") {

@@ -25,4 +25,11 @@ $block: "form";
       flex-direction: row;
     }
   }
+
+  @include e("modal") {
+    @include breakpoint($tablet) {
+      min-width: 400px !important;
+      min-height: 500px !important;
+    }
+  }
 }
