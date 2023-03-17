@@ -26,7 +26,7 @@ const transforms = [
   },
   {
     options: {
-      width: 1200,
+      width: 1280,
       fit: "cover",
     },
   },
@@ -44,7 +44,13 @@ const transforms = [
   },
   {
     options: {
-      width: 2048,
+      width: 2040,
+      fit: "cover",
+    },
+  },
+  {
+    options: {
+      width: 2880,
       fit: "cover",
     },
   },

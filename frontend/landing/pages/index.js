@@ -56,7 +56,7 @@ export default function Landing(props) {
         <meta name="description" content={defaultProps.description} />
       </Head>
       <Navigation navList={mainContent} />
-      <MastHeader>
+      <MastHeader image="all-three-facing">
         <PageTitle text="Închiriere echipamente IT" />
         <GoNextButton
           href={mainContent[Object.keys(mainContent)[0]].sectionId}
