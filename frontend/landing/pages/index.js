@@ -162,7 +162,7 @@ export default function Landing(props) {
           modalContainer={modalContainerRef}
         ></Form>
       </Content>
-      <Footer projectName={defaultProps.projectName} />
+      <Footer projectName={defaultProps.projectName} registrationCode={defaultProps.officialRegistrationCode} commerceLedgerId={defaultProps.officialCommerceLedgerId}/>
       {/* only add as children: analytics scripts, survey form, cookie bar, and other components that are not actual part of the page content*/}
       {/* {children} */}
       <div ref={modalContainerRef}></div>
@@ -171,43 +171,56 @@ export default function Landing(props) {
 }
 
 function getStaticProps() {
-  return {
-    props: {
-      defaultProps: {
-        title: "Inchiriere echipamente IT - ITaaS » Lynx IT",
-        keywords: "agency, website, landing page, agency-landing-page",
-        description: "Inchiriere echipamente IT - ITaaS » Lynx IT",
-        projectName: process.env.PROJECT_NAME,
-        recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
-        formSubmitEndpoint: process.env.SUBMIT_FORM_ENDPOINT,
-        projectName: process.env.PROJECT_NAME,
-        officialCompanyName: process.env.OFFICIAL_COMPANY_NAME,
-        officialRegistrationCode: process.env.OFFICIAL_REGISTRATION_CODE,
-        officialCommerceLedgerId: process.env.OFFICIAL_COMMERCE_LEDGER_ID,
-        officialOfficeAddress: process.env.OFFICIAL_OFFICE_ADDRESS
-      },
-      content: {
-        main: {
-          spotlight: { ...aboutUs },
-          benefits: { ...benefits },
-          spotlight_1: { ...products },
-          contact: { ...contact },
-        },
-        socialMediaList: [
-          {
-            name: "envelope",
-            href: "mailto:contact@linxit.ro",
-            label: "Email",
-          },
-          {
-            name: "phone",
-            href: "tel:+40723320333",
-            label: "Phone",
-          },
-        ],
-      },
-    },
+  const {
+    PROJECT_NAME = "Agency Landing Page",
+    RECAPTCHA_SITE_KEY = "xxx",
+    SUBMIT_FORM_ENDPOINT = "/api/form",
+    OFFICIAL_COMPANY_NAME = "COMPANY NAME SRL",
+    OFFICIAL_REGISTRATION_CODE = "RO123123",
+    OFFICIAL_COMMERCE_LEDGER_ID = "J40/1234/1234",
+    OFFICIAL_OFFICE_ADDRESS = "Office: Str. MyStreet, nr. 1991, MyCity, ",
+    OFFICIAL_PHONE_NUMBER = "+40723222333",
+    OFFICIAL_EMAIL = "test@agency.com"
+  } = process.env;
+
+  const defaultProps = {
+    title: "Inchiriere echipamente IT - ITaaS » Lynx IT",
+    keywords: "agency, website, landing page, agency-landing-page",
+    description: "Inchiriere echipamente IT - ITaaS » Lynx IT",
+    projectName: PROJECT_NAME,
+    recaptchaSiteKey: RECAPTCHA_SITE_KEY,
+    formSubmitEndpoint: SUBMIT_FORM_ENDPOINT,
+    officialCompanyName: OFFICIAL_COMPANY_NAME,
+    officialRegistrationCode: OFFICIAL_REGISTRATION_CODE,
+    officialCommerceLedgerId: OFFICIAL_COMMERCE_LEDGER_ID,
+    officialOfficeAddress: OFFICIAL_OFFICE_ADDRESS,
+    officialPhoneNumber: OFFICIAL_PHONE_NUMBER,
+    officialEmail: OFFICIAL_EMAIL
   };
+
+  const content = {
+    main: {
+      spotlight: aboutUs,
+      benefits,
+      spotlight_1: products,
+      contact,
+    },
+    socialMediaList: [
+      {
+        name: "envelope",
+        href: "mailto:contact@linxit.ro",
+        label: "Email",
+      },
+      {
+        name: "phone",
+        href: "tel:+40723320333",
+        label: "Phone",
+      },
+    ],
+  };
+
+  return { props: { defaultProps, content } };
 }
+
 
 export { getStaticProps };

@@ -98,7 +98,8 @@ const VALIDATION = {
   politica_confidentialitate: [
     {
       isValid: (value) => !!value.length > 0,
-      message: "Politica de confidențialitate a datelor este necesar a fi acceptata pentru a putea transmite mesajul.",
+      message:
+        "Politica de confidențialitate a datelor este necesar a fi acceptata pentru a putea transmite mesajul.",
     },
   ],
   message: [

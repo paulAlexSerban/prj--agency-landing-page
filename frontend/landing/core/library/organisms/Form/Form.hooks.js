@@ -73,7 +73,7 @@ const useForm = (formState, action, recaptchaKey) => {
     submitAttempt,
     hasErrors,
     successModal,
-    setSuccessModal
+    setSuccessModal,
   };
 };
 

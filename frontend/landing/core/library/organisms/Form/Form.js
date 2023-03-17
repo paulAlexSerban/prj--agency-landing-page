@@ -32,7 +32,7 @@ export default function Form({
   submitButtonLabel = "Submit Form!",
   recaptchaKey,
   action,
-  modalContainer
+  modalContainer,
 }) {
   const ID = useId();
   const [mounted, setMounted] = useState(false);
@@ -45,12 +45,13 @@ export default function Form({
     errorFields,
     submitAttempt,
     hasErrors,
-    successModal, setSuccessModal
+    successModal,
+    setSuccessModal,
   } = useForm(INITIAL_STATE, action, recaptchaKey);
 
   const handleCloseModal = () => {
-    setSuccessModal(false)
-  }
+    setSuccessModal(false);
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -175,7 +176,9 @@ export default function Form({
           fieldId="politica_confidentialitate"
           legend="Politica de confidențialitate:"
           fieldValues={form?.politica_confidentialitate}
-          isInvalid={errorFields?.politica_confidentialitate?.length > 0 && submitAttempt}
+          isInvalid={
+            errorFields?.politica_confidentialitate?.length > 0 && submitAttempt
+          }
           handleChange={handleChange}
         />
       </div>
@@ -202,10 +205,16 @@ export default function Form({
               handleClose={handleCloseModal}
               classNames={[formStyles.modal]}
             >
-            <div className={formStyles.modalContent}>
-            <Heading mainText="Mesajul a fost trimis cu succes!" hasSeparator />
-              <Paragraph alignment="center" text="Va multumesc ca ati ales Lynx IT. Unul din agentii nostri va lua legatura cu dumneavoastra in urmatoarele 24h." />
-            </div>
+              <div className={formStyles.modalContent}>
+                <Heading
+                  mainText="Mesajul a fost trimis cu succes!"
+                  hasSeparator
+                />
+                <Paragraph
+                  alignment="center"
+                  text="Va multumesc ca ati ales Lynx IT. Unul din agentii nostri va lua legatura cu dumneavoastra in urmatoarele 24h."
+                />
+              </div>
             </Modal>,
             modalContainer.current
           )

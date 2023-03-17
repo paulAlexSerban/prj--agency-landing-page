@@ -1,6 +1,12 @@
 import styles from "@/styles/molecules/modal/modal.module.scss";
 
-export default function Modal({ controlledBy, children, handleClose, isOpen, classNames = [] }) {
+export default function Modal({
+  controlledBy,
+  children,
+  handleClose,
+  isOpen,
+  classNames = [],
+}) {
   return (
     <div
       className={`${styles.base} ${isOpen ? "" : styles["base--isHidden"]}`}

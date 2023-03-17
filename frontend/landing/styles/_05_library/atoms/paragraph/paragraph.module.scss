@@ -17,4 +17,8 @@ $block: "paragraph";
   @include e("center") {
     text-align: center;
   }
+
+  @include e("small") {
+    @include font($body-small);
+  }
 }

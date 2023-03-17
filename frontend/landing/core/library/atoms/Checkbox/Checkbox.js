@@ -13,6 +13,7 @@ export default function Checkbox({
   handleChange,
   referencedPageHref = "",
   referencePageLabel = "",
+   modifierStyle
 }) {
   const ID = useId();
 
@@ -34,8 +35,8 @@ export default function Checkbox({
       <span className={styles.label}>
         {label}
         {referencedPageHref && referencePageLabel && (
-          <Link href={referencedPageHref} className={linkStyles.default} >
-          {referencePageLabel}
+          <Link href={referencedPageHref} className={linkStyles.default}>
+            {referencePageLabel}
           </Link>
         )}
       </span>
