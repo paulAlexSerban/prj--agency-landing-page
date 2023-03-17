@@ -162,7 +162,11 @@ export default function Landing(props) {
           modalContainer={modalContainerRef}
         ></Form>
       </Content>
-      <Footer projectName={defaultProps.projectName} registrationCode={defaultProps.officialRegistrationCode} commerceLedgerId={defaultProps.officialCommerceLedgerId}/>
+      <Footer
+        projectName={defaultProps.projectName}
+        registrationCode={defaultProps.officialRegistrationCode}
+        commerceLedgerId={defaultProps.officialCommerceLedgerId}
+      />
       {/* only add as children: analytics scripts, survey form, cookie bar, and other components that are not actual part of the page content*/}
       {/* {children} */}
       <div ref={modalContainerRef}></div>
@@ -180,7 +184,7 @@ function getStaticProps() {
     OFFICIAL_COMMERCE_LEDGER_ID = "J40/1234/1234",
     OFFICIAL_OFFICE_ADDRESS = "Office: Str. MyStreet, nr. 1991, MyCity, ",
     OFFICIAL_PHONE_NUMBER = "+40723222333",
-    OFFICIAL_EMAIL = "test@agency.com"
+    OFFICIAL_EMAIL = "test@agency.com",
   } = process.env;
 
   const defaultProps = {
@@ -195,7 +199,7 @@ function getStaticProps() {
     officialCommerceLedgerId: OFFICIAL_COMMERCE_LEDGER_ID,
     officialOfficeAddress: OFFICIAL_OFFICE_ADDRESS,
     officialPhoneNumber: OFFICIAL_PHONE_NUMBER,
-    officialEmail: OFFICIAL_EMAIL
+    officialEmail: OFFICIAL_EMAIL,
   };
 
   const content = {
@@ -221,6 +225,5 @@ function getStaticProps() {
 
   return { props: { defaultProps, content } };
 }
-
 
 export { getStaticProps };

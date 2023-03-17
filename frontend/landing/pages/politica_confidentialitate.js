@@ -41,7 +41,7 @@ function getStaticProps() {
     OFFICIAL_COMMERCE_LEDGER_ID = "J40/1234/1234",
     OFFICIAL_OFFICE_ADDRESS = "Office: Str. MyStreet, nr. 1991, MyCity, ",
     OFFICIAL_PHONE_NUMBER = "+40723222333",
-    OFFICIAL_EMAIL = "test@agency.com"
+    OFFICIAL_EMAIL = "test@agency.com",
   } = process.env;
 
   return {
@@ -58,7 +58,7 @@ function getStaticProps() {
         officialCommerceLedgerId: OFFICIAL_COMMERCE_LEDGER_ID,
         officialOfficeAddress: OFFICIAL_OFFICE_ADDRESS,
         officialPhoneNumber: OFFICIAL_PHONE_NUMBER,
-        officialEmail: OFFICIAL_EMAIL
+        officialEmail: OFFICIAL_EMAIL,
       },
     },
   };

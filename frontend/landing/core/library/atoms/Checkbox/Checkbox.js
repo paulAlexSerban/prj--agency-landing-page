@@ -13,7 +13,7 @@ export default function Checkbox({
   handleChange,
   referencedPageHref = "",
   referencePageLabel = "",
-   modifierStyle
+  modifierStyle,
 }) {
   const ID = useId();
 

@@ -15,7 +15,8 @@ $block: "copyright";
     color: var(--color-link);
     gap: $baseline;
 
-    p, a {
+    p,
+    a {
       margin-bottom: 0;
     }
   }
