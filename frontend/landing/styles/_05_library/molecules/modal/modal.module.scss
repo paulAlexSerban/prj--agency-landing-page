@@ -39,7 +39,12 @@ $block: "modal";
   }
 
   @include e("window") {
-    @include absolute($top: 5px, $left: 5px, $right: 5px, $z-index: modalWindow);
+    @include absolute(
+      $top: 5px,
+      $left: 5px,
+      $right: 5px,
+      $z-index: modalWindow
+    );
 
     background-color: get-color($c-dark, raisin-black);
     padding: var(--dynamic-spacing-50) var(--dynamic-spacing-40);
@@ -66,7 +71,7 @@ $block: "modal";
 
   @include e("closeBtn") {
     @include absolute($top: 0, $right: 0, $z-index: modalClose);
-  
+
     font-family: inherit;
     color: inherit;
     font-size: 4rem;
