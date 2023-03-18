@@ -14,6 +14,7 @@ export default function Copyright({
     <div className={styles.base}>
       <Paragraph
         size="small"
+        alignment="center"
         text={`Copytight © ${year} ${projectName}, ${registrationCode}, ${commerceLedgerId}`}
       />
       <Link href="/politica_confidentialitate">

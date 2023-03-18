@@ -26,7 +26,7 @@ $block: "spotlight";
 
   @include e("content") {
     transform: translate(0, 0);
-    background-color: get-color($c-dark, dark-60);
+    background-color: get-color($c-dark, dark-75);
     text-align: center;
     min-height: 100%;
     width: 100%;

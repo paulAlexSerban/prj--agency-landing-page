@@ -17,7 +17,6 @@ export default function PoliticaConfidentialitate(props) {
         <meta name="keywords" content={defaultProps.keywords} />
         <meta name="description" content={defaultProps.description} />
       </Head>
-      <Navigation />
       <Section sectionId="politica_de_confidentialitate">
         <Heading
           level="1"

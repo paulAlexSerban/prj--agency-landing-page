@@ -56,7 +56,7 @@ export default function Landing(props) {
         <meta name="description" content={defaultProps.description} />
       </Head>
       <Navigation navList={mainContent} />
-      <MastHeader image="all-three-facing">
+      <MastHeader image="all-three-facing-cropped">
         <PageTitle text="Închiriere echipamente IT" />
         <GoNextButton
           href={mainContent[Object.keys(mainContent)[0]].sectionId}
@@ -169,7 +169,7 @@ export default function Landing(props) {
       />
       {/* only add as children: analytics scripts, survey form, cookie bar, and other components that are not actual part of the page content*/}
       {/* {children} */}
-      <div ref={modalContainerRef}></div>
+      <div className="portalContainer" ref={modalContainerRef}></div>
     </LandingTemplate>
   );
 }

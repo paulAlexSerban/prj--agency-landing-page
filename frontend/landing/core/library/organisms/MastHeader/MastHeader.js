@@ -108,14 +108,10 @@ export default function MastHeader({ children, image }) {
           media="(min-width: 640px)"
           srcSet={`images/${image}-960.webp 1x, images/${image}-1920.webp 2x`}
         />
-        <source
-          media="(min-width: 480px)"
-          srcSet={`images/${image}-640.webp 1x, images/${image}-1280.webp 2x`}
-        />
         <img
           className={styles.image}
           ref={imageRef}
-          src={`images/${image}-320.webp`}
+          src={`images/${image}-960.webp`}
           alt="Background"
           loading="lazy"
         />

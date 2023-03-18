@@ -9,7 +9,6 @@ export default function Spotlight({ children, position, imageSrc, sectionId }) {
     "--image-src": `url(/images/${bkgImage}-${imageRendition}.webp)`,
   });
 
-
   return (
     <section
       id={sectionId}

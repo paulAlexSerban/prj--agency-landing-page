@@ -13,6 +13,7 @@ $block: "modal";
 
     width: 100vw;
     min-height: 100vh;
+    overflow: scroll;
 
     @include m("isHidden") {
       visibility: hidden;
@@ -38,18 +39,20 @@ $block: "modal";
   }
 
   @include e("window") {
-    @include absolute($top: 50%, $left: 50%, $z-index: modalWindow);
+    @include absolute($top: 5px, $left: 5px, $right: 5px, $z-index: modalWindow);
 
     background-color: get-color($c-dark, raisin-black);
     padding: var(--dynamic-spacing-50) var(--dynamic-spacing-40);
     box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
     transition: visibility 0.25s, opacity 0.25s;
     overflow: scroll;
-    transform: translate(-50%, -50%);
     min-width: calc(100vw - 10px);
     min-height: calc(100vh - 10px);
 
     @include breakpoint($mobile) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       max-width: calc(100vw - var(--main-content-lat-padding));
       max-height: calc(100vh - var(--main-content-lat-padding));
       padding: var(--dynamic-spacing-100) var(--dynamic-spacing-90);
@@ -62,15 +65,15 @@ $block: "modal";
   }
 
   @include e("closeBtn") {
+    @include absolute($top: 0, $right: 0, $z-index: modalClose);
+  
     font-family: inherit;
     color: inherit;
-    position: absolute;
-    top: 0;
-    right: 0;
     font-size: 4rem;
     cursor: pointer;
     border: none;
     background: none;
-    padding: 20px 30px;
+    padding: 15px;
+    line-height: 2rem;
   }
 }
