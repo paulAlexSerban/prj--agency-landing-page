@@ -21,7 +21,7 @@ fi
 
 if [[ $ENV == "dev" ]]; then
   export ENV_NAME=development
-elif [[ $ENV == 'production' ]]; then
+elif [[ $ENV == 'prod' ]]; then
   export ENV_NAME=production
 fi
 

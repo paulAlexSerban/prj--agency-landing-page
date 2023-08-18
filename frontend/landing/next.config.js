@@ -18,7 +18,7 @@ const nextConfig = {
   },
 };
 
-if (process.env.ENV_NAME === 'production') {
+if (process.env.ENV_NAME === "production") {
   nextConfig.basePath = process.env.BASE_PATH;
 }
 

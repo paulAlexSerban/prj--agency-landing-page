@@ -66,22 +66,22 @@ jobs:
 
       - name: "📦  Install Frontend NextJS Landing dependencies"
         run: |
-          bash scripts/modulize.bash -e production -p install -m assets
-          bash scripts/modulize.bash -e production -p install -m landing
+          bash scripts/modulize.bash -e prod -p install -m assets
+          bash scripts/modulize.bash -e prod -p install -m landing
 
       - name: "🔍  Lint Frontend NextJS SSG Landing"
         run: |
-          bash scripts/modulize.bash -e production -p lint -m landing
+          bash scripts/modulize.bash -e prod -p lint -m landing
         continue-on-error: true
 
       - name: "🏗️  Build Frontend NextJS SSG Landing For GitHub Pages"
         run: |
-          bash scripts/modulize.bash -e production -p process_assets -m assets
-          bash scripts/modulize.bash -e production -p build -m landing
+          bash scripts/modulize.bash -e prod -p process_assets -m assets
+          bash scripts/modulize.bash -e prod -p build -m landing
 
       - name: "🚚  Package NextJS Landing"
         run: |
-          bash scripts/modulize.bash -e production -p package -m landing
+          bash scripts/modulize.bash -e prod -p package -m landing
           touch package/landing/.nojekyll
           touch package/landing/CNAME
           echo ${{ env.BASE_URL }} > package/landing/CNAME
