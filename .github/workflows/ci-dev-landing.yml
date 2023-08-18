@@ -20,11 +20,18 @@ jobs:
     env:
       FE_NEXTJS_PROJECT_ROOT: frontend/landing
       NODE_VERSION: 16.19.0
-      RECAPTCHA_SITE_KEY: ${{ vars.RECAPTCHA_SITE_KEY }}
+      SUBMIT_FORM_ENDPOINT: ${{ secrets.SUBMIT_FORM_ENDPOINT }}
+      PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+      RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
       RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
-      SUBMIT_FORM_ENDPOINT: ${{ vars.SUBMIT_FORM_ENDPOINT }}
-      DEPLOY_BRANCH: "gh-pages"
-      PROJECT_NAME: ${{ vars.PROJECT_NAME }}
+      OFFICIAL_COMPANY_NAME: ${{ secrets.OFFICIAL_COMPANY_NAME }}
+      OFFICIAL_REGISTRATION_CODE: ${{ secrets.OFFICIAL_REGISTRATION_CODE }}
+      OFFICIAL_COMMERCE_LEDGER_ID: ${{ secrets.OFFICIAL_COMMERCE_LEDGER_ID }}
+      OFFICIAL_OFFICE_ADDRESS: ${{ secrets.OFFICIAL_OFFICE_ADDRESS }}
+      OFFICIAL_PHONE_NUMBER: ${{ secrets.OFFICIAL_PHONE_NUMBER }}
+      OFFICIAL_EMAIL: ${{ secrets.OFFICIAL_EMAIL }}
+      S3_BUCKET_IMAGES: ${{ secrets.S3_BUCKET_IMAGES }}
+
     steps:
       - name: "📥  Checkout repository"
         uses: actions/checkout@v3
