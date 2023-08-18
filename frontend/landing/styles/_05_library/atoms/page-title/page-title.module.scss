@@ -10,17 +10,14 @@ $block: "page-title";
 .#{$block} {
   @include e("base") {
     @include font($page-title);
-    position: relative;
-    opacity: 1;
-    padding: $gutter;
 
-    .isPreload & {
-      opacity: 0;
-    }
+    position: relative;
+    padding: $gutter;
 
     &:before,
     &:after {
-      transition: width 0.85s ease;
+      will-change: transform;
+      transition: width 0.5s ease;
       transition-delay: 0.25s;
       background: get-color($c-light, light);
       content: "";

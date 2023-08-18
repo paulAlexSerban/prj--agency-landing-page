@@ -1,8 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import Icon from "@/core/atoms/Icon/Icon";
 import styles from "@/styles/atoms/logo-icon/logo-icon.module.scss";
+import classNames from "classnames";
 
-export default function LogoIcon() {
+export default function LogoIcon({ shrink }) {
   const buttonRef = useRef(null);
   const [isHomeLink, setIsHomeLink] = useState();
 
@@ -35,15 +36,24 @@ export default function LogoIcon() {
     }
   };
 
+  const classes = classNames(styles.base, {
+    [styles["base--shrink"]]: shrink,
+  });
+
   return (
     <a
-      className={styles.base}
+      className={classes}
       href={!isHomeLink ? "/" : "#pageTop"}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       ref={buttonRef}
+      aria-label={
+        !isHomeLink
+          ? "Go to main page."
+          : "Scroll to the top of the page."
+      }
     >
-      <Icon iconName="rowLogoText" />
+      <Icon iconName="logoIcon" />
     </a>
   );
 }

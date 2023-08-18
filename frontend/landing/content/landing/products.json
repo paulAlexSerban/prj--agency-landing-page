@@ -1,23 +1,23 @@
 {
-  "sectionName": "Produse",
-  "sectionId": "configuratii_disponibile",
+  "sectionName": "Products",
+  "sectionId": "available_configurations",
 
   "sectionEl": {
     "spotlight": {
       "position": "bottom",
-      "imageSrc": "lenovo-blurry"
+      "imageSrc": "all-three-facing"
     }
   },
   "heading": {
     "level": 2,
-    "mainText": "Configuratii de echipamente disponibile"
+    "mainText": "Available Configurations"
   },
   "content": [
     {
       "heading": "Standard",
-      "id": "configuratie_standard",
+      "id": "standard_configuration",
       "iconName": "basic",
-      "description": "Această configurație este ideală pentru utilizatorii care au nevoie de un laptop pentru sarcini de birou, cum ar fi lucrul cu documente, navigarea pe internet sau trimiterea de e-mailuri.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed tincidunt aliquam, nunc nisl ultricies nunc, nec aliquam nisl nun",
       "content": [
         {
           "list": {
@@ -26,7 +26,7 @@
               "Intel Core I5-5200, 2.2Ghz",
               "8Gb RAM DDR3",
               "SSD 256Gb",
-              "Display 14 inch, rezolutie 1400x900"
+              "Display 14 inch, 1400x900"
             ]
           },
           "image": {
@@ -36,10 +36,10 @@
       ]
     },
     {
-      "heading": "Intermediar",
-      "id": "configuratie_intermediara",
+      "heading": "Intermediary",
+      "id": "intermediary_configuration",
       "iconName": "standard",
-      "description": "Această configurație este potrivită pentru utilizatorii care au nevoie de o performanță mai bună pentru sarcinile lor zilnice, cum ar fi utilizarea de programe de editare foto și video sau pentru jocuri mai puțin intensive.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed tincidunt aliquam, nunc nisl ultricies nunc, nec aliquam nisl nun lorem",
       "content": [
         {
           "list": {
@@ -48,8 +48,7 @@
               "Inter Core i5-6300, 3Ghz",
               "8Gb RAM DDR3",
               "SSD 240Gb",
-              "Ecran Touchscreen 12,5 inch cu rezolutie fullHD",
-              "Stylus Inclus"
+              "Ecran Touchscreen 12,5fullHD"
             ]
           },
           "image": {
@@ -74,10 +73,10 @@
       ]
     },
     {
-      "heading": "Profesional",
-      "id": "configuratie_profesional",
+      "heading": "Professional",
+      "id": "professional_configuration",
       "iconName": "professional",
-      "description": "Această configurație este ideală pentru utilizatorii care au nevoie de o performanță ridicată pentru sarcinile lor zilnice, cum ar fi proiectarea grafică, dezvoltarea software sau jocuri complexe.",
+      "description": "Professional lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl sed tincidunt aliquam, nunc nisl ultricies nunc, nec aliquam nisl nun lorem",
       "content": [
         {
           "list": {

@@ -12,7 +12,7 @@ const patterns = {
 };
 
 const VALIDATION = {
-  nume_companie: [
+  company_name: [
     {
       isValid: (value) => {
         if (!!value) {
@@ -24,17 +24,17 @@ const VALIDATION = {
           return true;
         }
       },
-      message: "Textul contine caractere interzise.",
+      message: "Forbidden characters in company name.",
     },
   ],
-  nume_reprezentant: [
+  contact_name: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Mandarory field.",
     },
     {
       isValid: (value) => value.length > 3,
-      message: "Textul este prea scurt.",
+      message: "Name is too short, minimum 3 characters.",
     },
     {
       isValid: (value) => value.length < 50,
@@ -50,18 +50,18 @@ const VALIDATION = {
       message: "Textul contine caractere interzise.",
     },
   ],
-  telefon: [
+  phone_number: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Manadatory field.",
     },
     {
       isValid: (value) => value.length >= 9,
-      message: "Numarul este prea scurt, minim 9 cifre.",
+      message: "Number is too short, minimum 9 digits.",
     },
     {
       isValid: (value) => value.length <= 10,
-      message: "Numarul este prea lung, maxim 10 cifre permise.",
+      message: "Number is too long, maximum 10 digits.",
     },
     {
       isValid: (value) => {
@@ -70,7 +70,7 @@ const VALIDATION = {
         regex.lastIndex = 0;
         return isValid;
       },
-      message: "Numerul de telefon poate contine doar numere si cratime.",
+      message: "Phone number contains forbidden characters.",
     },
   ],
   email: [
@@ -85,25 +85,25 @@ const VALIDATION = {
           return true;
         }
       },
-      message: "Adresa de email contine caractere interzise.",
+      message: "Email address contains forbidden characters.",
     },
   ],
-  numar_echipamente: [
+  quantity_no: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Mandatory field.",
     },
   ],
-  perioada: [
+  time_period: [
     {
       isValid: (value) => !!value,
-      message: "Perioada este necesar a fi selectata.",
+      message: "Mandatory field.",
     },
   ],
-  tip_de_utilizare: [
+  utilization_type: [
     {
       isValid: (value) => !!value.length > 0,
-      message: "Tipul de utilizare este necesar a fi selectat.",
+      message: "Mandatory field.",
     },
   ],
   message: [
@@ -118,7 +118,7 @@ const VALIDATION = {
           return true;
         }
       },
-      message: "Textul contine caractere interzise.",
+      message: "Message contains forbidden characters.",
     },
   ],
 };
@@ -196,24 +196,24 @@ const getParams = (data) => {
       Body: {
         Text: {
           Data: `
-Ai primit un mesaje de la ${data.nume_reprezentant}, ${
-            data.nume_companie
-              ? "reprezentant al firmei ${data.nume_companie}"
+You have a mesage from ${data.contact_name}, ${
+            data.company_name
+              ? `reprezenting ${data.company_name}`
               : ""
           }.
-${data.message ? `Mesaj: ${data.message}` : ""}
-Tip utilizare: ${data.tip_de_utilizare}
-Numar echipamente: ${data.numar_echipamente}
-Perioada: ${data.perioada}
-Date contact:
-- Telefon: ${data.telefon}
+${data.message ? `Mesage: ${data.message}` : ""}
+Utilization Type: ${data.utilization_type}
+Quantity Number: ${data.quantity_no}
+Period: ${data.time_period}
+Contact info:
+- Phone: ${data.phone_number}
 ${data.email ? `- Email: ${data.email}` : ""}
 
-Politica de confidentialitate: ${data.politica_confidentialitate}`,
+Confidentiality agreement: ${data.confidentiality_agreement}`,
         },
       },
       Subject: {
-        Data: `Mesaj de la ${data.nume_reprezentant} in numele companiei ${data.nume_companie}`,
+        Data: `Message from ${data.contact_name} in the name of ${data.company_name}`,
       },
     },
     Source: "contactus.stage@monekymoney.inc", // Replace with a verified email address

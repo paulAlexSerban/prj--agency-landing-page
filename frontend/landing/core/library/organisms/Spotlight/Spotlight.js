@@ -1,21 +1,39 @@
-import { useEffect, useId, useState } from "react";
+import React from "react";
 import styles from "@/styles/organisms/spotlight/spotlight.module.scss";
+import dynamic from "next/dynamic";
+const ParallaxImage = dynamic(
+  () => import("@/core/molecules/ParallaxImage/ParallaxImage"),
+  {
+    ssr: false,
+  }
+);
 
-export default function Spotlight({ children, position, imageSrc, sectionId }) {
-  const imageRendition = 320;
-  const bkgImage = imageSrc;
+/**
+ * Spotlight component
+ * @param {ReactNode} children - React children
+ * @param {string} position - Position of spotlight (top|bottom)
+ * @param {object} image - Image object
+ * @param {string} sectionId - Section ID
+ * @param {string} s3KeyPrefix - S3 Key Prefix
+ */
 
-  const [imgSrc, SetImgSrc] = useState({
-    "--image-src": `url(/images/${bkgImage}-${imageRendition}.webp)`,
-  });
-
+export default function Spotlight({
+  children,
+  position,
+  image,
+  sectionId,
+  s3KeyPrefix,
+}) {
+  // Set base class for component
+  let positionClass = styles.base;
+  // If position is set, append the position class to the base class
+  if (position) {
+    positionClass = `${styles.base} ${styles[position]}`;
+  }
   return (
-    <section
-      id={sectionId}
-      className={`${styles.base} ${styles[position]} ${styles.inactive}`}
-      // style={imgSrc}
-    >
-      <div className={styles.content}>{children}</div>
+    <section id={sectionId} className={positionClass}>
+      {image && <ParallaxImage image={image} s3KeyPrefix={s3KeyPrefix} />}
+      {children && <div className={styles.content}>{children}</div>}
     </section>
   );
 }

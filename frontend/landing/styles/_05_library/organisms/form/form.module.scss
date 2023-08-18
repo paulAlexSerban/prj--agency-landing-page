@@ -6,20 +6,20 @@ $block: "form";
 
 .#{$block} {
   @include e("base") {
-    padding: var(--spacing-padding-top-bottom) 0;
+    padding: var(--spacing-padding-top-bottom) 0 0;
     color: get-color($c-light, light);
     width: 100%;
     overflow: hidden;
   }
 
   @include e("formContainer") {
-    margin-bottom: var(--dynamic-spacing-80);
+    margin-bottom: var(--responsive-spacing-80);
   }
 
   @include e("actionContainer") {
     @include flex($direction: column);
 
-    gap: var(--dynamic-spacing-50);
+    gap: var(--responsive-spacing-50);
 
     @include breakpoint($tablet) {
       flex-direction: row;

@@ -1,5 +1,3 @@
-import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/atoms/checkbox/checkbox.module.scss";
 import Icon from "@/core/atoms/Icon/Icon";
 import Link from "next/link";
@@ -15,8 +13,6 @@ export default function Checkbox({
   referencePageLabel = "",
   modifierStyle,
 }) {
-  const ID = useId();
-
   return (
     <label htmlFor={inputId} className={styles.base} tabIndex="0">
       <input
@@ -25,7 +21,6 @@ export default function Checkbox({
         value={label}
         type="checkbox"
         className={styles.input}
-        data-next-cmp={`${config.name}-${ID}`}
         tabIndex="-1"
         onChange={handleChange}
       />

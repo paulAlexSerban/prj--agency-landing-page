@@ -12,14 +12,16 @@ $block: "logo-icon";
     @include flex();
 
     height: 100%;
-    font-size: 40px;
+    font-size: 45px;
+    color: white;
+    fill: white;
 
     @include breakpoint($desktop) {
-      font-size: 50px;
+      font-size: 60px;
     }
 
-    .shrink & {
-      font-size: 35px;
+    @include m("shrink") {
+      font-size: 45px;
     }
   }
 }

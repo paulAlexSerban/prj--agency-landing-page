@@ -12,18 +12,18 @@ const patterns = {
 };
 
 const VALIDATION = {
-  nume_companie: [
+  company_name: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat cu numele companiei.",
+      message: "Field is mandatory",
     },
     {
       isValid: (value) => value.length > 3,
-      message: "Textul este prea scurt.",
+      message: "Text is too short, minimum 3 characters are required.",
     },
     {
       isValid: (value) => value.length < 50,
-      message: "Textul este prea lung, maxim 50 de caractere sunt permise.",
+      message: "Text is too long, maximum 50 characters are allowed.",
     },
     {
       isValid: (value) => {
@@ -32,21 +32,21 @@ const VALIDATION = {
         regex.lastIndex = 0;
         return isValid;
       },
-      message: "Textul contine caractere interzise.",
+      message: "Forbidden characters in company name",
     },
   ],
-  nume_reprezentant: [
+  contact_name: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Field is mandatory",
     },
     {
       isValid: (value) => value.length > 3,
-      message: "Textul este prea scurt.",
+      message: "Text is too short, minimum 3 characters are required.",
     },
     {
       isValid: (value) => value.length < 50,
-      message: "Textul este prea lung, maxim 50 de caractere sunt permise.",
+      message: "Text is too long, maximum 50 characters are allowed.",
     },
     {
       isValid: (value) => {
@@ -55,21 +55,21 @@ const VALIDATION = {
         regex.lastIndex = 0;
         return isValid;
       },
-      message: "Textul contine caractere interzise.",
+      message: "Forbidden characters in name.",
     },
   ],
-  telefon: [
+  phone_number: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Field is mandatory.",
     },
     {
       isValid: (value) => value.length >= 9,
-      message: "Numarul este prea scurt, minim 9 cifre.",
+      message: "Number is too short, minimum 9 digits are required.",
     },
     {
       isValid: (value) => value.length <= 10,
-      message: "Numarul este prea lung, maxim 10 cifre permise.",
+      message: "Number is too long, maximum 10 digits are allowed.",
     },
     {
       isValid: (value) => {
@@ -78,21 +78,21 @@ const VALIDATION = {
         regex.lastIndex = 0;
         return isValid;
       },
-      message: "Numerul de telefon poate contine doar numere si cratime.",
+      message: "Forbidden characters in phone number.",
     },
   ],
   email: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Field is mandatory.",
     },
     {
       isValid: (value) => value.length >= 3,
-      message: "Adresa de email este prea scurta, minim 3 litere.",
+      message: "Text is too short, minimum 3 characters are required.",
     },
     {
       isValid: (value) => value.length <= 30,
-      message: "Adresa de email este prea lunga, maxim 30 litere permise.",
+      message: "Text is too long, maximum 30 characters are allowed.",
     },
     {
       isValid: (value) => {
@@ -101,25 +101,25 @@ const VALIDATION = {
         regex.lastIndex = 0;
         return isValid;
       },
-      message: "Adresa de email contine caractere interzise.",
+      message: "Forbidden characters in email.",
     },
   ],
-  numar_echipamente: [
+  quantity_no: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Field is mandatory.",
     },
   ],
-  perioada: [
+  time_period: [
     {
       isValid: (value) => !!value,
-      message: "Perioada este necesar a fi selectata.",
+      message: "Field is mandatory.",
     },
   ],
-  tip_de_utilizare: [
+  utilization_type: [
     {
       isValid: (value) => !!value.length > 0,
-      message: "Tipul de utilizare este necesar a fi selectat.",
+      message: "Field is mandatory.",
     },
   ],
   message: [
@@ -134,7 +134,7 @@ const VALIDATION = {
           return true;
         }
       },
-      message: "Textul contine caractere interzise.",
+      message: "Forbidden characters in message.",
     },
   ],
 };
@@ -203,31 +203,34 @@ const validateData = (userData) => {
 const getParams = (data) => {
   return {
     Destination: {
-      ToAddresses: ["paul.alex.serban@gmail.com", "contactus.stage@lynxit.ro"],
+      ToAddresses: [
+        "paul.alex.serban@gmail.com",
+        "contactus.stage@monekymoney.inc",
+      ],
     },
     Message: {
       Body: {
         Text: {
           Data: `
-Ai primit un mesaje de la ${data.nume_reprezentant}, ${
-            data.nume_companie
-              ? "reprezentant al firmei ${data.nume_companie}"
+Message from ${data.contact_name}, ${
+            data.company_name
+              ? "representing  ${data.company_name}"
               : ""
           }.
-${data.message ? `Mesaj: ${data.message}` : ""}
-Tip utilizare: ${data.tip_de_utilizare}
-Numar echipamente: ${data.numar_echipamente}
-Perioada: ${data.perioada}
-Date contact:
-- Telefon: ${data.telefon}
+${data.message ? `Message: ${data.message}` : ""}
+Utilization Type: ${data.utilization_type}
+Quantity: ${data.quantity_no}
+Period: ${data.time_period}
+Contact info:
+- Phone: ${data.phone_number}
 ${data.email ? `- Email: ${data.email}` : ""}`,
         },
       },
       Subject: {
-        Data: `Mesaj de la ${data.nume_reprezentant} in numele companiei ${data.nume_companie}`,
+        Data: `message from ${data.contact_name} in the name of ${data.company_name}`,
       },
     },
-    Source: "contactus.stage@lynxit.ro", // Replace with a verified email address
+    Source: "contactus.stage@monekymoney.inc", // Replace with a verified email address
   };
 };
 

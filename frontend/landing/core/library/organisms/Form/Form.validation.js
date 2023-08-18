@@ -1,7 +1,7 @@
 import patterns from "@/utils/constants/patterns";
 
 const VALIDATION = {
-  nume_companie: [
+  company_name: [
     {
       isValid: (value) => {
         if (!!value) {
@@ -13,21 +13,21 @@ const VALIDATION = {
           return true;
         }
       },
-      message: "Textul contine caractere interzise.",
+      message: "Forbidden characters in company name.",
     },
   ],
-  nume_reprezentant: [
+  contact_name: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Mandatory field.",
     },
     {
       isValid: (value) => value.length > 3,
-      message: "Textul este prea scurt.",
+      message: "Name is too short, minimum 3 characters are required.",
     },
     {
       isValid: (value) => value.length < 50,
-      message: "Textul este prea lung, maxim 50 de caractere sunt permise.",
+      message: "Name is too long, maximum 50 characters are allowed.",
     },
     {
       isValid: (value) => {
@@ -36,21 +36,21 @@ const VALIDATION = {
         regex.lastIndex = 0;
         return isValid;
       },
-      message: "Textul contine caractere interzise.",
+      message: "Forbidden characters in name.",
     },
   ],
-  telefon: [
+  phone_number: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Mandatory field.",
     },
     {
       isValid: (value) => value.length >= 9,
-      message: "Numarul este prea scurt, minim 9 cifre.",
+      message: "Number is too short, minimum 9 digits are required.",
     },
     {
-      isValid: (value) => value.length <= 10,
-      message: "Numarul este prea lung, maxim 10 cifre permise.",
+      isValid: (value) => value.length <= 20,
+      message: "Number is too long, maximum 20 digits are allowed.",
     },
     {
       isValid: (value) => {
@@ -59,7 +59,7 @@ const VALIDATION = {
         regex.lastIndex = 0;
         return isValid;
       },
-      message: "Numerul de telefon poate contine doar numere si cratime.",
+      message: "Forbidden characters in phone number.",
     },
   ],
   email: [
@@ -74,32 +74,32 @@ const VALIDATION = {
           return true;
         }
       },
-      message: "Adresa de email contine caractere interzise.",
+      message: "Forbidden characters in email.",
     },
   ],
-  numar_echipamente: [
+  quantity_no: [
     {
       isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
+      message: "Quantity is required to be filled.",
     },
   ],
-  perioada: [
+  time_period: [
     {
       isValid: (value) => !!value,
-      message: "Perioada este necesar a fi selectata.",
+      message: "Period is required to be selected.",
     },
   ],
-  tip_de_utilizare: [
+  utilization_type: [
     {
       isValid: (value) => !!value.length > 0,
-      message: "Tipul de utilizare este necesar a fi selectat.",
+      message: "Utilization type is required to be selected.",
     },
   ],
-  politica_confidentialitate: [
+  confidentiality_agreement: [
     {
       isValid: (value) => !!value.length > 0,
       message:
-        "Politica de confidențialitate a datelor este necesar a fi acceptata pentru a putea transmite mesajul.",
+        "Confidentiality Agreement: You must agree to the terms and conditions.",
     },
   ],
   message: [
@@ -114,7 +114,7 @@ const VALIDATION = {
           return true;
         }
       },
-      message: "Textul contine caractere interzise.",
+      message: "Forbidden characters in message",
     },
   ],
 };

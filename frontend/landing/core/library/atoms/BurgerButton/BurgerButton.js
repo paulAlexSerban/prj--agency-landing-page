@@ -1,28 +1,31 @@
-import { useId } from "react";
 import styles from "@/styles/atoms/burger-button/burger-button.module.scss";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function BurgerButton({
   ariaControls,
+  handleMenuToggle,
+  isToggled,
   ariaLabel,
-  navToggleClass = "js-nav-toggle",
+  ariaHidden = false,
 }) {
-  const ID = useId();
-
+  const [classNames, setClassNames] = useState(styles.base);
+  useEffect(() => {
+    if (isToggled) {
+      setClassNames([styles.icon, styles["icon--open"]].join(" "));
+    } else {
+      setClassNames(styles.icon);
+    }
+  }, [isToggled]);
   return (
-    <Link href={`#${ariaControls}`} replace legacyBehavior>
-      <a
-        className={[styles.button, navToggleClass].join(" ")}
-        data-next-cmp={ID}
-        aria-controls={ariaControls}
-        aria-label={ariaLabel}
-        aria-expanded="false"
-        role="button"
-        tabIndex={0}
-        rel="noopener noreferrer"
-      >
-        <span className={styles.icon} aria-hidden="true"></span>
-      </a>
-    </Link>
+    <button
+      className={styles.button}
+      aria-controls={ariaControls}
+      aria-label={ariaLabel}
+      aria-expanded={isToggled}
+      aria-hidden={ariaHidden}
+      onClick={handleMenuToggle}
+    >
+      <span className={classNames} aria-hidden="true"></span>
+    </button>
   );
 }

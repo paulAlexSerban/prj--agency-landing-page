@@ -6,6 +6,8 @@ export default function Copyright({
   projectName,
   registrationCode,
   commerceLedgerId,
+  phoneNumber,
+  officialEmail,
 }) {
   const date = new Date();
   const year = date.getFullYear();
@@ -15,11 +17,31 @@ export default function Copyright({
       <Paragraph
         size="small"
         alignment="center"
-        text={`Copytight © ${year} ${projectName}, ${registrationCode}, ${commerceLedgerId}`}
+        text={
+          <>
+            <Link href={`tel:${phoneNumber}`} legacyBehavior>
+              <a aria-label="Phone number">
+                Tel: {phoneNumber.replace("+4", "")}
+              </a>
+            </Link>{" "}
+            &nbsp;|&nbsp;{" "}
+            <Link href={`mailto:${officialEmail}`} legacyBehavior>
+              <a aria-label="Official email">{officialEmail}</a>
+            </Link>
+          </>
+        }
       />
-      <Link href="/politica_confidentialitate">
-        Politica de confidentialitate
-      </Link>
+      <Paragraph
+        size="small"
+        alignment="center"
+        text={`Copyright © ${year} ${projectName}, ${registrationCode}, ${commerceLedgerId}`}
+      />
+      <div className={styles.links}>
+        <Link href="/confidentiality_agreement">
+          Confidentiality Agreement
+        </Link>
+        <Link href="/sitemap.xml">Sitemap</Link>
+      </div>
     </div>
   );
 }

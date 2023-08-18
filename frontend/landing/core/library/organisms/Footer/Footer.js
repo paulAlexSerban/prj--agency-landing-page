@@ -5,6 +5,8 @@ export default function Footer({
   projectName,
   registrationCode,
   commerceLedgerId,
+  phoneNumber,
+  officialEmail,
 }) {
   return (
     <footer className={styles.base} id="footer">
@@ -12,6 +14,8 @@ export default function Footer({
         projectName={projectName}
         registrationCode={registrationCode}
         commerceLedgerId={commerceLedgerId}
+        phoneNumber={phoneNumber}
+        officialEmail={officialEmail}
       />
     </footer>
   );

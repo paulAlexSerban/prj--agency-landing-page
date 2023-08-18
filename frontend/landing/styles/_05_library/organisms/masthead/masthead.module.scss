@@ -11,11 +11,6 @@ $block: "masthead";
     @include relative;
 
     text-align: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-image: var(--image-src);
     height: 100vh;
     display: flex;
     background-position: center center;

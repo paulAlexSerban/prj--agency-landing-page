@@ -1,10 +1,7 @@
-import { useId } from "react";
-import { config } from "./config";
 import {
   SlSocialTwitter,
   SlSocialFacebook,
   SlSocialLinkedin,
-  SlEnvolope,
 } from "react-icons/sl";
 import {
   BsPercent,
@@ -21,19 +18,17 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { FaShapes, FaBriefcase } from "react-icons/fa";
 import { RiScales3Line } from "react-icons/ri";
 import { MdOutlineComputer } from "react-icons/md";
-import LogoIcon from "@/svgs/logo-lynxit-icon.svg";
-import RowLogoText from "@/svgs/logo-lynxit-icon-text.svg";
+import LogoIcon from "@/svgs/logo-monekymoney-icon.svg";
+
 import styles from "@/styles/atoms/icon/icon.module.scss";
 
 export default function Icon({ iconName, className }) {
-  const ID = useId();
-
   const icon = {
     twitter: <SlSocialTwitter className={styles.svg} />,
     facebook: <SlSocialFacebook className={styles.svg} />,
     linkedin: <SlSocialLinkedin className={styles.svg} />,
     envelope: <BsEnvelopeOpen className={styles.svg} />,
-    rowLogoText: <RowLogoText className={styles.svg} />,
+
     logoIcon: <LogoIcon className={styles.svg} />,
     percent: <BsPercent className={styles.svg} />,
     customerService: <RiCustomerService2Line className={styles.svg} />,
@@ -50,9 +45,5 @@ export default function Icon({ iconName, className }) {
     phone: <BsTelephone className={styles.svg} />,
   };
 
-  return (
-    <span className={className} data-next-cmp={`${config.name}-${ID}`}>
-      {icon[iconName]}
-    </span>
-  );
+  return <span className={className}>{icon[iconName]}</span>;
 }
