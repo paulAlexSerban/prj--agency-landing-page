@@ -187,7 +187,10 @@ const validateData = (userData) => {
 const getParams = (data) => {
   return {
     Destination: {
-      ToAddresses: ["paul.alex.serban@gmail.com", "contactus.stage@monekymoney.inc"],
+      ToAddresses: [
+        "paul.alex.serban@gmail.com",
+        "contactus.stage@monekymoney.inc",
+      ],
     },
     Message: {
       Body: {
