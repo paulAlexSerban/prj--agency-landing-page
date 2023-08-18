@@ -2,7 +2,6 @@
   --input-color: var(--text-color);
   width: 100%;
   position: relative;
-  height: $baseline * 4;
   display: inline-block;
   cursor: pointer;
 
@@ -48,10 +47,9 @@
   }
 
   .label {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 0;
     left: $baseline * 5;
-    transform: translate(0, -50%);
     color: var(--input-color);
   }
 
