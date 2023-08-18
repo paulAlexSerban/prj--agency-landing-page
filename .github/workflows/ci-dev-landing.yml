@@ -73,4 +73,3 @@ jobs:
       - name: "🚚  Package NextJS Landing"
         run: |
           bash scripts/modulize.bash -e prod -p package -m landing
-          

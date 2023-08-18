@@ -25,4 +25,8 @@ elif [[ $ENV == 'prod' ]]; then
   export SERVER_ENV=production
 fi
 
+mkdir -p ../public
+rm -rfv ../public/*
+cp -rfv ../../../assets/dist/svgs ../public/svgs
+cp -rfv ../../../assets/dist/images ../public/images
 npm --prefix .. run build
