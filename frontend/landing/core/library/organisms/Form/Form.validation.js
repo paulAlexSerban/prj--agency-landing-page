@@ -3,23 +3,15 @@ import patterns from "@/utils/constants/patterns";
 const VALIDATION = {
   nume_companie: [
     {
-      isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat cu numele companiei.",
-    },
-    {
-      isValid: (value) => value.length > 3,
-      message: "Textul este prea scurt.",
-    },
-    {
-      isValid: (value) => value.length < 50,
-      message: "Textul este prea lung, maxim 50 de caractere sunt permise.",
-    },
-    {
       isValid: (value) => {
-        const regex = new RegExp(patterns.name);
-        const isValid = regex.test(value);
-        regex.lastIndex = 0;
-        return isValid;
+        if (!!value) {
+          const regex = new RegExp(patterns.name);
+          const isValid = regex.test(value);
+          regex.lastIndex = 0;
+          return isValid;
+        } else {
+          return true;
+        }
       },
       message: "Textul contine caractere interzise.",
     },
@@ -72,23 +64,15 @@ const VALIDATION = {
   ],
   email: [
     {
-      isValid: (value) => !!value,
-      message: "Campul este necesar a fi completat.",
-    },
-    {
-      isValid: (value) => value.length >= 3,
-      message: "Adresa de email este prea scurta, minim 3 litere.",
-    },
-    {
-      isValid: (value) => value.length <= 30,
-      message: "Adresa de email este prea lunga, maxim 30 litere permise.",
-    },
-    {
       isValid: (value) => {
-        const regex = new RegExp(patterns.email);
-        const isValid = regex.test(value);
-        regex.lastIndex = 0;
-        return isValid;
+        if (!!value) {
+          const regex = new RegExp(patterns.email);
+          const isValid = regex.test(value);
+          regex.lastIndex = 0;
+          return isValid;
+        } else {
+          return true;
+        }
       },
       message: "Adresa de email contine caractere interzise.",
     },
@@ -109,6 +93,13 @@ const VALIDATION = {
     {
       isValid: (value) => !!value.length > 0,
       message: "Tipul de utilizare este necesar a fi selectat.",
+    },
+  ],
+  politica_confidentialitate: [
+    {
+      isValid: (value) => !!value.length > 0,
+      message:
+        "Politica de confidențialitate a datelor este necesar a fi acceptata pentru a putea transmite mesajul.",
     },
   ],
   message: [

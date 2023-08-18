@@ -11,7 +11,7 @@ $block: "checkbox";
   @include e("base") {
     @include checks-base("checkbox");
 
-    margin-bottom: var(--dynamic-spacing-20);
+    margin-bottom: var(--static-spacing-60);
   }
 
   @include e("checkbox") {

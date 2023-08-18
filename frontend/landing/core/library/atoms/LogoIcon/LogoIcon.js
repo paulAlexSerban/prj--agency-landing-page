@@ -1,26 +1,49 @@
-import { useEffect, useId } from "react";
-import Link from "next/link";
-
-import config from "./config";
+import { useRef, useEffect, useState } from "react";
 import Icon from "@/core/atoms/Icon/Icon";
-
 import styles from "@/styles/atoms/logo-icon/logo-icon.module.scss";
-import LogoIconAtom from "./LogoIcon.atom";
 
 export default function LogoIcon() {
-  const ID = useId();
+  const buttonRef = useRef(null);
+  const [isHomeLink, setIsHomeLink] = useState();
 
   useEffect(() => {
-    document
-      .querySelectorAll(`[data-next-cmp="${config.name}-${ID}"]`)
-      .forEach((el) => new LogoIconAtom(el));
+    setIsHomeLink(window.location.pathname === "/");
   });
 
+  const scrollTo = (targetEl) => {
+    const scrollToEl = document.querySelector(targetEl);
+    try {
+      scrollToEl.scrollIntoView({ behavior: "smooth" }, true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleClick = (e) => {
+    if (isHomeLink) {
+      e.preventDefault();
+      const targetEl = buttonRef.current.getAttribute("href");
+      scrollTo(targetEl);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (isHomeLink && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      const targetEl = buttonRef.current.getAttribute("href");
+      scrollTo(targetEl);
+    }
+  };
+
   return (
-    <Link href="#page-top" replace legacyBehavior>
-      <a className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
-        <Icon iconName="rowLogoText" />
-      </a>
-    </Link>
+    <a
+      className={styles.base}
+      href={!isHomeLink ? "/" : "#pageTop"}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      ref={buttonRef}
+    >
+      <Icon iconName="rowLogoText" />
+    </a>
   );
 }

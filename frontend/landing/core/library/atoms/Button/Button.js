@@ -1,5 +1,6 @@
-import { useId, useRef } from "react";
+import { useRef } from "react";
 import styles from "@/styles/atoms/button/button.module.scss";
+import Link from "next/link";
 
 export default function Button({
   label,
@@ -8,8 +9,8 @@ export default function Button({
   buttonType = "button",
   target,
   disabled = false,
+  onClick,
 }) {
-  const ID = useId();
   const buttonRef = useRef(null);
 
   const scrollTo = (targetEl) => {
@@ -23,6 +24,10 @@ export default function Button({
 
   const handleClick = (e) => {
     e.preventDefault();
+    if (onClick) {
+      console.log("click");
+      onClick(e);
+    }
     const targetEl = buttonRef.current.getAttribute("data-target");
     scrollTo(targetEl);
   };
@@ -36,19 +41,32 @@ export default function Button({
   };
 
   return (
-    <button
-      className={[styles.base, styles[buttonStyle]].join(" ")}
-      id={ID}
-      aria-label={ariaLabel ? ariaLabel : label}
-      aria-labelledby={ariaLabel ? `${ID}-label` : null}
-      type={buttonType === "cta" ? "button" : buttonType}
-      data-target={target}
-      onClick={buttonType === "cta" ? handleClick : null}
-      onKeyDown={buttonType === "cta" ? handleKeyDown : null}
-      ref={buttonRef}
-      disabled={disabled}
-    >
-      <span className={styles.label}>{label}</span>
-    </button>
+    <>
+      {buttonType === "link" ? (
+        <Link href={target} legacyBehavior>
+          <a
+            className={[styles.base, styles[buttonStyle]].join(" ")}
+            aria-label={ariaLabel ? ariaLabel : label}
+            aria-labelledby={ariaLabel ? `${ID}-label` : null}
+          >
+            <span className={styles.label}>{label}</span>
+          </a>
+        </Link>
+      ) : (
+        <button
+          className={[styles.base, styles[buttonStyle]].join(" ")}
+          aria-label={ariaLabel ? ariaLabel : label}
+          aria-labelledby={ariaLabel ? `${ID}-label` : null}
+          type={buttonType === "cta" ? "button" : buttonType}
+          data-target={target}
+          onClick={buttonType === "cta" ? handleClick : null}
+          onKeyDown={buttonType === "cta" ? handleKeyDown : null}
+          ref={buttonRef}
+          disabled={disabled}
+        >
+          <span className={styles.label}>{label}</span>
+        </button>
+      )}
+    </>
   );
 }

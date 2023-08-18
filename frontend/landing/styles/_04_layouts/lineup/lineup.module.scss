@@ -10,7 +10,8 @@ $block: "lineup";
 .#{$block} {
   @include e("base") {
     display: grid;
-    gap: $gutter * 4;
+    column-gap: $gutter * 4;
+    row-gap: $baseline * 2;
     grid-template-columns: 1fr;
     max-width: $max-width;
     margin-inline: auto;

@@ -39,4 +39,15 @@ hr {
 
 .grecaptcha-badge {
   z-index: 9999;
+  height: 1px !important;
+  width: 1px !important;
+  right: -1px !important;
+}
+
+.modal-open {
+  overflow-y: hidden;
+}
+
+.portalContainer {
+  position: relative;
 }

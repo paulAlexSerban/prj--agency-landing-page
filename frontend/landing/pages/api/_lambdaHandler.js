@@ -1,7 +1,7 @@
 const https = require("https");
 const aws = require("aws-sdk");
 const ses = new aws.SES({ region: "eu-central-1" });
-
+const { log, error } = console;
 const patterns = {
   name: /^[a-z\d\s.@!?()\-+'":;,]+$/gim,
   textarea: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
@@ -194,6 +194,9 @@ const verifyCaptcha = async (url) => {
 const validateData = (userData) => {
   const errorFields = getErrorFields(userData);
   const hasErrors = Object.values(errorFields).flat().length > 0;
+  if (hasErrors) {
+    error({ errorFields });
+  }
   return hasErrors;
 };
 
@@ -206,8 +209,10 @@ const getParams = (data) => {
       Body: {
         Text: {
           Data: `
-Ai primit un mesaje de la ${data.nume_reprezentant}, reprezentant al firmei ${
+Ai primit un mesaje de la ${data.nume_reprezentant}, ${
             data.nume_companie
+              ? "reprezentant al firmei ${data.nume_companie}"
+              : ""
           }.
 ${data.message ? `Mesaj: ${data.message}` : ""}
 Tip utilizare: ${data.tip_de_utilizare}
@@ -215,7 +220,7 @@ Numar echipamente: ${data.numar_echipamente}
 Perioada: ${data.perioada}
 Date contact:
 - Telefon: ${data.telefon}
-- Email: ${data.email}`,
+${data.email ? `- Email: ${data.email}` : ""}`,
         },
       },
       Subject: {

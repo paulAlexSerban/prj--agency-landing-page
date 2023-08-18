@@ -1,5 +1,3 @@
-import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/atoms/email-input/email-input.module.scss";
 
 export default function EmailInput({
@@ -12,16 +10,17 @@ export default function EmailInput({
   isInvalid,
   validationMessage,
 }) {
-  const ID = useId();
+  const placeholderText =
+    isInvalid && validationMessage
+      ? validationMessage
+      : required
+      ? `${placeholder} *`
+      : `${placeholder} (optional)`;
 
   return (
-    <label
-      className={styles.base}
-      htmlFor={inputId}
-      data-validation-message={validationMessage}
-    >
+    <label className={styles.base} htmlFor={inputId}>
       <input
-        placeholder={placeholder}
+        placeholder={placeholderText}
         name={inputName}
         id={inputId}
         value={inputValue}
@@ -32,7 +31,7 @@ export default function EmailInput({
         data-invalid={isInvalid}
       />
       <span className={styles.labelText} data-type="label">
-        {isInvalid && validationMessage ? validationMessage : placeholder}
+        {placeholderText}
       </span>
     </label>
   );
