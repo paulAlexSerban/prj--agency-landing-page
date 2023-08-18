@@ -2,8 +2,19 @@ import { useId } from "react";
 import config from "./config";
 import styles from "@/styles/atoms/checkbox/checkbox.module.scss";
 import Icon from "@/core/atoms/Icon/Icon";
+import Link from "next/link";
+import linkStyles from "@/styles/atoms/link/link.module.scss";
 
-export default function Checkbox({ inputName, inputId, inputValue, label }) {
+export default function Checkbox({
+  inputName,
+  inputId,
+  inputValue,
+  label,
+  handleChange,
+  referencedPageHref = "",
+  referencePageLabel = "",
+  modifierStyle,
+}) {
   const ID = useId();
 
   return (
@@ -16,11 +27,19 @@ export default function Checkbox({ inputName, inputId, inputValue, label }) {
         className={styles.input}
         data-next-cmp={`${config.name}-${ID}`}
         tabIndex="-1"
+        onChange={handleChange}
       />
       <span className={styles.checkbox}>
         <Icon iconName="checkMark" className={styles.icon} />
       </span>
-      <span className={styles.label}>{label}</span>
+      <span className={styles.label}>
+        {label}
+        {referencedPageHref && referencePageLabel && (
+          <Link href={referencedPageHref} className={linkStyles.default}>
+            {referencePageLabel}
+          </Link>
+        )}
+      </span>
     </label>
   );
 }

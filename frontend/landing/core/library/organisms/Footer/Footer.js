@@ -1,21 +1,18 @@
-import config from "./Footer.config";
-
-import { useId } from "react";
 import styles from "@/styles/organisms/footer/footer.module.scss";
-
 import Copyright from "@/core/molecules/Copyright/Copyright";
-import SocialMediaList from "@/core/molecules/SocialMediaList/SocialMediaList";
 
-export default function Footer({ socialMediaList = [], projectName }) {
-  const ID = useId();
+export default function Footer({
+  projectName,
+  registrationCode,
+  commerceLedgerId,
+}) {
   return (
-    <footer
-      className={styles.base}
-      id="footer"
-      data-next-cmp={`${config.name}-${ID}`}
-    >
-      <SocialMediaList list={socialMediaList} />
-      <Copyright projectName={projectName} />
+    <footer className={styles.base} id="footer">
+      <Copyright
+        projectName={projectName}
+        registrationCode={registrationCode}
+        commerceLedgerId={commerceLedgerId}
+      />
     </footer>
   );
 }

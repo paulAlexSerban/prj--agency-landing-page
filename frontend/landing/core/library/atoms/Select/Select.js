@@ -1,5 +1,3 @@
-import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/atoms/select/select.module.scss";
 import Icon from "@/core/atoms/Icon/Icon";
 
@@ -9,20 +7,29 @@ export default function Select({
   inputId,
   options = [],
   required,
+  validationMessage,
+  handleChange,
+  isInvalid,
+  inputValue,
 }) {
-  const ID = useId();
+  const placeholderText =
+    isInvalid && validationMessage
+      ? validationMessage
+      : required
+      ? `${placeholder} *`
+      : `${placeholder} (optional)`;
 
   return (
     <label htmlFor={inputId} className={styles.base}>
       <select
         name={inputName}
         id={inputId}
-        type="radio"
         className={styles.select}
-        data-next-cmp={`${config.name}-${ID}`}
-        data-required={required}
+        required={required}
+        onChange={handleChange}
+        data-invalid={isInvalid}
       >
-        <option value="">{placeholder}</option>
+        <option value="">{placeholderText}</option>
         {options.map((option, index) => {
           return (
             <option value={option.toLowerCase()} key={index}>
@@ -30,14 +37,16 @@ export default function Select({
             </option>
           );
         })}
-        {/* <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="hamster">Hamster</option>
-        <option value="parrot">Parrot</option>
-        <option value="spider">Spider</option>
-        <option value="goldfish">Goldfish</option> */}
       </select>
       <Icon iconName="chevronDown" className={styles.icon} />
+      <span
+        className={`${styles.labelText} ${
+          inputValue !== "" ? styles["labelText--isVisible"] : ""
+        }`}
+        data-placeholder={placeholderText}
+      >
+        {placeholderText}
+      </span>
     </label>
   );
 }

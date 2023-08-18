@@ -14,8 +14,8 @@ $block: "button";
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     text-decoration: none;
     max-width: 100%;
-    margin: 0 auto;
     display: block;
+    text-align: center;
 
     @include breakpoint($mobile) {
       max-width: convert-rem(400px);
@@ -30,6 +30,13 @@ $block: "button";
     &:focus {
       background-color: transparent;
       box-shadow: inset 0px 0px 0px 4px var(--brand-color);
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    &:disabled {
+      background-color: gray;
+      box-shadow: inset 0px 0px 0px 4px gray;
     }
   }
 

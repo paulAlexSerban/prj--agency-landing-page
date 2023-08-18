@@ -9,9 +9,9 @@ $block: "navigation-list";
 
 .#{$block} {
   @include e("base") {
-    @include flex($direction: column, $cross: flex-start);
+    @include flex($direction: column, $cross: flex-end);
 
-    gap: $gutter;
+    width: 100%;
 
     @include breakpoint($desktop) {
       flex-direction: row;
@@ -21,6 +21,22 @@ $block: "navigation-list";
       transform: translateY(-50%);
       margin-bottom: 0;
       gap: $gutter * 2;
+      width: auto;
+    }
+
+    @include e("item") {
+      width: 100%;
+
+      @include breakpoint($desktop) {
+        width: auto;
+      }
+
+      a {
+        padding: ($baseline * 2) 0;
+        width: 100%;
+        text-align: right;
+        display: block;
+      }
     }
   }
 }

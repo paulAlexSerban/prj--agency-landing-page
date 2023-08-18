@@ -9,7 +9,15 @@ $block: "copyright";
 
 .#{$block} {
   @include e("base") {
-    @include font($body);
-    @include flex();
+    @include font($body-small);
+    @include flex($direction: column);
+
+    color: var(--color-link);
+    gap: $baseline;
+
+    p,
+    a {
+      margin-bottom: 0;
+    }
   }
 }

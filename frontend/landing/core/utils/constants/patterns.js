@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-escape */
 const patterns = {
-  name: /^[a-z\d\s.@!?()\-+'":;,]{3,50}$/gim,
-  message: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
+  name: /^[a-z\d\s.@!?()\-+'":;,]+$/gim,
+  textarea: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
   text: /^([a-z\d\s.@!?()\-+'":;,]+)$/gim,
   phone: /^((\+?\d{1,3})?[\(\- ]?\d{3,5}[\)\- ]?)?(\d[.\- ]?\d)+$/,
   email:

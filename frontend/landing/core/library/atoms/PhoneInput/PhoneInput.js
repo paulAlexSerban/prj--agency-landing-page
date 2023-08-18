@@ -1,5 +1,4 @@
 import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/atoms/phone-input/phone-input.module.scss";
 
 export default function PhoneInput({
@@ -8,22 +7,35 @@ export default function PhoneInput({
   inputId,
   inputValue,
   required,
+  handleChange,
+  isInvalid,
+  validationMessage,
 }) {
   const ID = useId();
+
+  const placeholderText =
+    isInvalid && validationMessage
+      ? validationMessage
+      : required
+      ? `${placeholder} *`
+      : `${placeholder} (optional)`;
 
   return (
     <label className={styles.base} htmlFor={inputId}>
       <input
-        placeholder={placeholder}
+        placeholder={placeholderText}
         name={inputName}
         id={inputId}
         value={inputValue}
         type="text"
         className={styles.input}
-        data-next-cmp={`${config.name}-${ID}`}
-        data-required={required}
-        data-form-item-type="phoneNumber"
+        required={required}
+        onChange={handleChange}
+        data-invalid={isInvalid}
       />
+      <span className={styles.labelText} data-type="label">
+        {placeholderText}
+      </span>
     </label>
   );
 }

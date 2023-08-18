@@ -1,7 +1,7 @@
 @mixin checks-base($box) {
+  --input-color: var(--text-color);
   width: 100%;
   position: relative;
-  height: $baseline * 4;
   display: inline-block;
   cursor: pointer;
 
@@ -12,7 +12,7 @@
   &:hover,
   &:focus {
     .#{$box} {
-      box-shadow: inset 0px 0px 0px 4px var(--text-color);
+      box-shadow: inset 0px 0px 0px 4px var(--input-color);
     }
   }
 
@@ -24,7 +24,7 @@
 
     &:checked {
       ~ .#{$box} {
-        box-shadow: inset 0px 0px 0px 4px var(--text-color);
+        box-shadow: inset 0px 0px 0px 4px var(--input-color);
 
         .icon {
           opacity: 1;
@@ -42,20 +42,20 @@
     height: $baseline * 4;
     width: $baseline * 4;
 
-    box-shadow: inset 0px 0px 0px 1px var(--text-color);
+    box-shadow: inset 0px 0px 0px 1px var(--input-color);
     transition: box-shadow 0.2s ease-in-out;
   }
 
   .label {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 0;
     left: $baseline * 5;
-    transform: translate(0, -50%);
+    color: var(--input-color);
   }
 
   .icon {
     opacity: 0;
-    color: var(--text-color);
+    color: var(--input-color);
     transition: opacity 0.2s ease-in-out;
     font-size: 30px;
     line-height: 30px;
@@ -65,5 +65,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-52%, -45%);
+  }
+
+  [data-invalid="true"] & {
+    --input-color: var(--brand-color);
   }
 }

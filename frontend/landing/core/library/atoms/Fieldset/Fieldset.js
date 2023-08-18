@@ -1,5 +1,3 @@
-import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/atoms/fieldset/fieldset.module.scss";
 
 export default function Fieldset({
@@ -9,8 +7,16 @@ export default function Fieldset({
   legend = "",
   cols = 1,
   type,
+  validationMessage,
+  isInvalid,
 }) {
-  const ID = useId();
+  const legendText =
+    isInvalid && validationMessage
+      ? validationMessage
+      : required
+      ? `${legend} *`
+      : `${legend} (optional)`;
+
   return (
     <fieldset
       name={name}
@@ -18,11 +24,14 @@ export default function Fieldset({
       className={`${styles.base} ${
         cols !== 1 ? styles[`base--${cols}-cols`] : ""
       }`}
-      data-next-cmp={`${config.name}-${ID}`}
-      data-required={required}
-      data-form-item-type={type}
+      required={required}
+      data-invalid={isInvalid}
     >
-      {legend && <legend className={styles.legend}>{legend}</legend>}
+      {legend && (
+        <legend className={styles.legend} data-type="label">
+          {legendText}
+        </legend>
+      )}
       {children}
     </fieldset>
   );
