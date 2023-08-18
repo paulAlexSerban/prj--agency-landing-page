@@ -20,9 +20,9 @@ if [[ -z $ENV ]]; then
 fi
 
 if [[ $ENV == "dev" ]]; then
-  export SERVER_ENV=development
-elif [[ $ENV == 'prod' ]]; then
-  export SERVER_ENV=production
+  export ENV_NAME=development
+elif [[ $ENV == 'production' ]]; then
+  export ENV_NAME=production
 fi
 
 mkdir -p ../public

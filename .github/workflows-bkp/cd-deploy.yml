@@ -35,10 +35,10 @@ jobs:
         run: npm i -g npm@latest
 
       - name: "📦  Install Landing deps"
-        run: bash scripts/modulize.bash -e prod -p install -m landing
+        run: bash scripts/modulize.bash -e production -p install -m landing
 
       - name: "🏗️ Build Project"
-        run: bash scripts/modulize.bash -e prod -p build -m landing
+        run: bash scripts/modulize.bash -e production -p build -m landing
 
       - name: "🚚  Package"
         run: |
