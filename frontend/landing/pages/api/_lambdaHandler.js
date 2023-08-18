@@ -213,9 +213,7 @@ const getParams = (data) => {
         Text: {
           Data: `
 Message from ${data.contact_name}, ${
-            data.company_name
-              ? "representing  ${data.company_name}"
-              : ""
+            data.company_name ? `representing  ${data.company_name}` : ""
           }.
 ${data.message ? `Message: ${data.message}` : ""}
 Utilization Type: ${data.utilization_type}

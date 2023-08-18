@@ -94,9 +94,7 @@ export default function Form({
             required={true}
             handleChange={handleChange}
             inputValue={form?.contact_name}
-            isInvalid={
-              errorFields?.contact_name?.length > 0 && submitAttempt
-            }
+            isInvalid={errorFields?.contact_name?.length > 0 && submitAttempt}
             validationMessage={
               errorFields?.contact_name?.length &&
               errorFields?.contact_name[0].message
@@ -112,7 +110,8 @@ export default function Form({
             inputValue={form?.phone_number}
             isInvalid={errorFields?.phone_number?.length > 0 && submitAttempt}
             validationMessage={
-              errorFields?.phone_number?.length && errorFields?.phone_number[0].message
+              errorFields?.phone_number?.length &&
+              errorFields?.phone_number[0].message
             }
           />
 
@@ -145,9 +144,7 @@ export default function Form({
             required={true}
             handleChange={handleChange}
             inputValue={form?.quantity_no}
-            isInvalid={
-              errorFields?.quantity_no?.length > 0 && submitAttempt
-            }
+            isInvalid={errorFields?.quantity_no?.length > 0 && submitAttempt}
             validationMessage={
               errorFields?.quantity_no?.length &&
               errorFields?.quantity_no[0].message
@@ -164,7 +161,8 @@ export default function Form({
             options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
             isInvalid={errorFields?.time_period?.length > 0 && submitAttempt}
             validationMessage={
-              errorFields?.time_period?.length && errorFields?.time_period[0].message
+              errorFields?.time_period?.length &&
+              errorFields?.time_period[0].message
             }
           />
         </Fieldset>
@@ -217,10 +215,7 @@ export default function Form({
               classNames={[formStyles.modal]}
             >
               <div className={formStyles.modalContent}>
-                <Heading
-                  mainText="Message successfully sent!"
-                  hasSeparator
-                />
+                <Heading mainText="Message successfully sent!" hasSeparator />
                 <Paragraph
                   alignment="center"
                   text="Thanks for contacting us! We will get back to you shortly."

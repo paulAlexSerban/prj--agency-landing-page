@@ -81,7 +81,10 @@ export default function Landing(props) {
       </Head>
 
       <Navigation navList={mainContent} />
-      <MastHeader image="all-three-facing-cropped" s3KeyPrefix={defaultProps.s3KeyPrefix}>
+      <MastHeader
+        image="all-three-facing-cropped"
+        s3KeyPrefix={defaultProps.s3KeyPrefix}
+      >
         <PageTitle text="Landing Page" />
         <GoNextButton
           href={mainContent[Object.keys(mainContent)[0]].sectionId}

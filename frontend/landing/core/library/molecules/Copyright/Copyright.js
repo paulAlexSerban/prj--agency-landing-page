@@ -37,9 +37,7 @@ export default function Copyright({
         text={`Copyright © ${year} ${projectName}, ${registrationCode}, ${commerceLedgerId}`}
       />
       <div className={styles.links}>
-        <Link href="/confidentiality_agreement">
-          Confidentiality Agreement
-        </Link>
+        <Link href="/confidentiality_agreement">Confidentiality Agreement</Link>
         <Link href="/sitemap.xml">Sitemap</Link>
       </div>
     </div>

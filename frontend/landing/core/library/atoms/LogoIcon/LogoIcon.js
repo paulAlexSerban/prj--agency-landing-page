@@ -48,9 +48,7 @@ export default function LogoIcon({ shrink }) {
       onKeyDown={handleKeyDown}
       ref={buttonRef}
       aria-label={
-        !isHomeLink
-          ? "Go to main page."
-          : "Scroll to the top of the page."
+        !isHomeLink ? "Go to main page." : "Scroll to the top of the page."
       }
     >
       <Icon iconName="logoIcon" />
