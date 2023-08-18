@@ -187,7 +187,7 @@ const validateData = (userData) => {
 const getParams = (data) => {
   return {
     Destination: {
-      ToAddresses: ["paul.alex.serban@gmail.com", "contactus.stage@lynxit.ro"],
+      ToAddresses: ["paul.alex.serban@gmail.com", "contactus.stage@monekymoney.inc"],
     },
     Message: {
       Body: {
@@ -213,7 +213,7 @@ Politica de confidentialitate: ${data.politica_confidentialitate}`,
         Data: `Mesaj de la ${data.nume_reprezentant} in numele companiei ${data.nume_companie}`,
       },
     },
-    Source: "contactus.stage@lynxit.ro", // Replace with a verified email address
+    Source: "contactus.stage@monekymoney.inc", // Replace with a verified email address
   };
 };
 
