@@ -3,7 +3,7 @@ name: Develop Frontend NextJS SSG Landing
 
 on:
   push:
-    branches-ignore:
+    branches:
       - release
       - main
       - develop
@@ -23,7 +23,7 @@ jobs:
       RECAPTCHA_SITE_KEY: ${{ vars.RECAPTCHA_SITE_KEY }}
       RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
       SUBMIT_FORM_ENDPOINT: ${{ vars.SUBMIT_FORM_ENDPOINT }}
-      DEPLOY_BRANCH: "main-test"
+      DEPLOY_BRANCH: "gh-pages"
       PROJECT_NAME: ${{ vars.PROJECT_NAME }}
     steps:
       - name: "📥  Checkout repository"
@@ -56,33 +56,21 @@ jobs:
           npm ci
 
       - name: "📦  Install Frontend NextJS Landing dependencies"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
+          bash scripts/modulize.bash -e prod -p install -m assets
           bash scripts/modulize.bash -e prod -p install -m landing
 
       - name: "🔍  Lint Frontend NextJS SSG Landing"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
           bash scripts/modulize.bash -e prod -p lint -m landing
         continue-on-error: true
 
       - name: "🏗️  Build Frontend NextJS SSG Landing For GitHub Pages"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
-
+          bash scripts/modulize.bash -e prod -p process_assets -m assets
           bash scripts/modulize.bash -e prod -p build -m landing
 
       - name: "🚚  Package NextJS Landing"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
           bash scripts/modulize.bash -e prod -p package -m landing
-
-      - name: "Configure git"
-        run: |
-          git config --global user.email "paul.alex.serban@gmail.com"
-          git config --global user.name "paulAlexSerban"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-
-      - name: "🚀 Deploy to ${{ env.DEPLOY_BRANCH }} branch"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
-        run: npx gh-pages -d package/landing --branch ${{ env.DEPLOY_BRANCH }} -t true
+          
