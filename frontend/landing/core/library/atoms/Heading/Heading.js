@@ -1,7 +1,5 @@
 import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/atoms/heading/heading.module.scss";
-import { TbHexagonNumber1 } from "react-icons/tb";
 
 export default function Heading({
   level = 2,
@@ -9,6 +7,7 @@ export default function Heading({
   subheading,
   hasSeparator,
   parentClassNames = [],
+  align = "center",
 }) {
   const ID = useId();
 
@@ -20,7 +19,6 @@ export default function Heading({
         } ${hasSeparator ? styles.separator : ""} ${parentClassNames.join(
           " "
         )}`}
-        data-next-cmp={`${config.name}-${ID}`}
       >
         <span className={styles.main}>{mainText}</span>
         {subheading && <span className={styles.subheading}>{subheading}</span>}
@@ -29,12 +27,13 @@ export default function Heading({
   } else if (parseInt(level) === 2) {
     return (
       <h2
-        className={`${styles.heading} ${
-          styles[`heading--${parseInt(level)}`]
-        } ${hasSeparator ? styles.separator : ""} ${parentClassNames.join(
-          " "
-        )}`}
-        data-next-cmp={`${config.name}-${ID}`}
+        className={[
+          styles.heading,
+          styles[align],
+          styles[`heading--${parseInt(level)}`],
+          `${hasSeparator ? styles.separator : ""}`,
+          parentClassNames.join(" "),
+        ].join(" ")}
       >
         <span className={styles.main}>{mainText}</span>
         {subheading && <span className={styles.subheading}>{subheading}</span>}
@@ -43,12 +42,13 @@ export default function Heading({
   } else if (parseInt(level) === 3) {
     return (
       <h3
-        className={`${styles.heading} ${
-          styles[`heading--${parseInt(level)}`]
-        } ${hasSeparator ? styles.separator : ""} ${parentClassNames.join(
-          " "
-        )}`}
-        data-next-cmp={`${config.name}-${ID}`}
+        className={[
+          styles.heading,
+          styles[align],
+          styles[`heading--${parseInt(level)}`],
+          `${hasSeparator ? styles.separator : ""}`,
+          parentClassNames.join(" "),
+        ].join(" ")}
       >
         <span className={styles.main}>{mainText}</span>
         {subheading && <span className={styles.subheading}>{subheading}</span>}
@@ -57,13 +57,13 @@ export default function Heading({
   } else if (parseInt(level) === 4) {
     return (
       <h4
-        data-test="test"
-        className={`${styles.heading} ${
-          styles[`heading--${parseInt(level)}`]
-        } ${hasSeparator ? styles.separator : ""} ${parentClassNames.join(
-          " "
-        )}`}
-        data-next-cmp={`${config.name}-${ID}`}
+        className={[
+          styles.heading,
+          styles[align],
+          styles[`heading--${parseInt(level)}`],
+          `${hasSeparator ? styles.separator : ""}`,
+          parentClassNames.join(" "),
+        ].join(" ")}
       >
         <span className={styles.main}>{mainText}</span>
         {subheading && <span className={styles.subheading}>{subheading}</span>}

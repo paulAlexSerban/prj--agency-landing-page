@@ -6,22 +6,9 @@ $block: "spotlight";
 
 .#{$block} {
   @include e("base") {
-    background-position: center 0px;
-    background-size: cover;
-    background-image: var(--image-src);
-    background-repeat: no-repeat;
     overflow: hidden;
     position: relative;
     color: get-color($c-light, light);
-
-    @include breakpoint($tablet) {
-      background-size: cover;
-      background-attachment: fixed;
-    }
-  }
-
-  @include e("image") {
-    opacity: 0;
   }
 
   @include e("content") {
@@ -37,24 +24,24 @@ $block: "spotlight";
       border-top: solid $baseline get-color($c-red, paradise-pink);
       bottom: 0;
       width: 100%;
-      padding-top: var(--dynamic-spacing-90);
-      padding-bottom: var(--dynamic-spacing-90);
+      padding-top: var(--responsive-spacing-90);
+      padding-bottom: var(--responsive-spacing-90);
     }
 
     .bottom & {
       border-top: solid $baseline get-color($c-red, paradise-pink);
       bottom: 0;
       width: 100%;
-      padding-top: var(--dynamic-spacing-90);
-      padding-bottom: var(--dynamic-spacing-90);
+      padding-top: var(--responsive-spacing-90);
+      padding-bottom: var(--responsive-spacing-90);
     }
 
     .right & {
       border-top: solid $baseline get-color($c-blue, blue-crayola);
       width: 100%;
       bottom: 0;
-      padding-top: var(--dynamic-spacing-90);
-      padding-bottom: var(--dynamic-spacing-90);
+      padding-top: var(--responsive-spacing-90);
+      padding-bottom: var(--responsive-spacing-90);
 
       @include breakpoint($desktop) {
         border-top: none;
@@ -70,8 +57,8 @@ $block: "spotlight";
       border-top: solid $baseline get-color($c-green, sea-green-crayola);
       width: 100%;
       bottom: 0;
-      padding-top: var(--dynamic-spacing-90);
-      padding-bottom: var(--dynamic-spacing-90);
+      padding-top: var(--responsive-spacing-90);
+      padding-bottom: var(--responsive-spacing-90);
 
       @include breakpoint($desktop) {
         border-top: none;

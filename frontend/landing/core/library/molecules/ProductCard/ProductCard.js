@@ -4,7 +4,10 @@ import Heading from "@/core/atoms/Heading/Heading";
 import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 import Icon from "@/core/atoms/Icon/Icon";
 import { createPortal } from "react-dom";
-import Modal from "@/core/molecules/Modal/Modal";
+import dynamic from "next/dynamic";
+const Modal = dynamic(() => import("@/core/molecules/Modal/Modal"), {
+  ssr: false,
+});
 import ProductDetails from "@/core/molecules/ProductDetails/ProductDetails";
 import Button from "@/core/atoms/Button/Button";
 
@@ -30,6 +33,13 @@ export default function ProductCard({
     [openModal]
   );
 
+  const handleClose = useCallback(
+    (event) => {
+      setOpenModal(!openModal);
+    },
+    [openModal]
+  );
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -38,26 +48,26 @@ export default function ProductCard({
     <div className={styles.base} id={ID}>
       <div className={styles.content} ref={cardRef} onClick={handleClick}>
         <Icon className={styles.icon} iconName={iconName} />
-        <Heading className={styles.heading} level={4} mainText={heading} />
+        <Heading className={styles.heading} level={3} mainText={heading} />
         {text && <Paragraph className={styles.text} text={text} />}
       </div>
-      {mounted && modalContainer.current && openModal
+      {mounted && modalContainer.current
         ? createPortal(
             <Modal
               controlledBy={ID}
               isOpen={openModal}
-              handleClose={handleClick}
+              handleClose={handleClose}
             >
               <Heading mainText={heading} hasSeparator />
               <Paragraph text={description} />
               <ProductDetails content={modalContent} />
               <div className={styles.controlContainer}>
                 <Button
-                  label="Contacteaza-ne!"
+                  label="Contact-us!"
                   buttonStyle="primary"
                   buttonType="cta"
                   target="#contact"
-                  onClick={handleClick}
+                  onClick={handleClose}
                 />
               </div>
             </Modal>,

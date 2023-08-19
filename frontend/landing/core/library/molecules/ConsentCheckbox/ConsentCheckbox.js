@@ -47,14 +47,14 @@ export default function CategoriesFieldset({
         isInvalid={isInvalid}
       >
         <Checkbox
-          inputName="accept_politica_confidentialitate"
-          inputId="accept_politica_confidentialitate"
-          label="Declar că am citit și că sunt de acord cu Politica de confidențialitate Linx IT "
-          value="accept_politica_confidentialitate"
+          inputName="confidentiality_agreement_accept"
+          inputId="confidentiality_agreement_accept"
+          label="I declare that I have read and understood the Confidentiality Agreement and I agree with the processing of my personal data."
+          value="confidentiality_agreement_accept"
           checked={checkedValues.basic}
           handleChange={handleFieldChange}
-          referencedPageHref="/politica_confidentialitate"
-          referencePageLabel="(citeste politica de confidentialitate aici)"
+          referencedPageHref="/confidentiality_agreement"
+          referencePageLabel="(read more here)"
         />
       </Fieldset>
     </div>

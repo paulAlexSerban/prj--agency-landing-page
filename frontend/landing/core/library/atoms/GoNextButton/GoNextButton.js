@@ -24,7 +24,7 @@ export default function GoNextButton({ href }) {
   const handleKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      const targetElementId = buttonRef.current.getAttribute("data-target");
+      const targetElementId = buttonRef.current.getAttribute("href");
       scrollTo(targetElementId);
     }
   };
@@ -38,6 +38,7 @@ export default function GoNextButton({ href }) {
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       rel="noopener noreferrer"
+      aria-label="Scroll la urmatoarea sectiune."
     >
       <ChevronDown className={styles.svg} />
     </a>

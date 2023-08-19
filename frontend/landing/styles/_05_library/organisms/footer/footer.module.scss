@@ -7,10 +7,11 @@ $block: "footer";
 .#{$block} {
   @include e("base") {
     width: 100%;
-    padding-bottom: var(--static-spacing-50);
+    margin-top: var(--spacing-90);
+    padding-bottom: var(--spacing-50);
 
     @include breakpoint($mobile) {
-      padding-bottom: var(--static-spacing-90);
+      padding-bottom: var(--spacing-90);
     }
   }
 }

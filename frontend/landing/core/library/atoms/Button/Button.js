@@ -25,7 +25,6 @@ export default function Button({
   const handleClick = (e) => {
     e.preventDefault();
     if (onClick) {
-      console.log("click");
       onClick(e);
     }
     const targetEl = buttonRef.current.getAttribute("data-target");

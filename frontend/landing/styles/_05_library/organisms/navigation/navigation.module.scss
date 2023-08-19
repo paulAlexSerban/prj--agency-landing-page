@@ -9,20 +9,21 @@ $block: "navigation";
     @include z-index("navigationBar");
     @include fixed($top: 0);
 
-    padding-inline: var(--main-content-lat-padding);
+    padding: $baseline * 2 var(--main-content-lat-padding);
     width: 100%;
     overflow: hidden;
-    transition: background-color 0.5s ease, max-height 0.5s ease;
+    transition: background-color 0.5s ease, max-height 0.5s ease,
+      padding 0.5s ease;
+    max-height: 70px;
+    background-color: get-color($c-dark, dark-75);
 
-    &,
     &.shrink {
-      padding-top: $baseline;
-      padding-bottom: $baseline * 2;
+      padding: $baseline var(--main-content-lat-padding);
       background-color: get-color($c-dark, dark-75);
-      max-height: 70px;
+      max-height: #{70px - ($baseline * 2)};
     }
 
-    @include breakpoint($desktop) {
+    @include breakpoint($tablet) {
       border: none;
       background-color: transparent;
       max-height: 90px;
@@ -31,14 +32,16 @@ $block: "navigation";
     }
 
     &.show {
-      max-height: 50vh;
+      max-height: 100%;
     }
   }
 
   @include e("container") {
-    @include flex($direction: column, $cross: flex-start);
-
+    @include flex($direction: row, $main: space-between);
+    flex-wrap: wrap;
     position: relative;
     gap: $baseline * 3;
+    max-width: $max-width;
+    margin: 0 auto;
   }
 }

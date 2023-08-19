@@ -20,4 +20,10 @@ $block: "copyright";
       margin-bottom: 0;
     }
   }
+
+  @include e("links") {
+    @include flex();
+
+    gap: $gutter;
+  }
 }

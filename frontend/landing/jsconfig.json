@@ -5,6 +5,7 @@
       "@/utils/*": ["core/utils/*"],
       "@/plugins/*": ["core/plugins/*"],
       "@/prototypes/*": ["core/prototypes/*"],
+      "@/hooks/*": ["core/hooks/*"],
 
       "@/core/atoms/*": ["core/library/atoms/*"],
       "@/core/molecules/*": ["core/library/molecules/*"],
