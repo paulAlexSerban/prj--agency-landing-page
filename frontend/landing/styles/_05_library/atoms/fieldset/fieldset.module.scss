@@ -10,9 +10,9 @@ $block: "fieldset";
 .#{$block} {
   @include e("base") {
     display: grid;
-    column-gap: var(--dynamic-spacing-50);
+    column-gap: var(--responsive-spacing-50);
     width: 100%;
-    margin-bottom: var(--dynamic-spacing-50);
+    margin-bottom: var(--responsive-spacing-50);
 
     @include m("2-cols") {
       @include breakpoint($tablet) {
@@ -38,7 +38,7 @@ $block: "fieldset";
   }
 
   @include e("legend") {
-    margin-bottom: var(--dynamic-spacing-30);
+    margin-bottom: var(--responsive-spacing-30);
     --input-color: var(--text-color);
     color: var(--input-color);
 

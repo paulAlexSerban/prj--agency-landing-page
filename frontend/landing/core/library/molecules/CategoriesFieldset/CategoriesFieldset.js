@@ -43,7 +43,7 @@ export default function CategoriesFieldset({
         cols={6}
         required={true}
         type="checkboxField"
-        validationMessage="Alegeti tipul de utilizare"
+        validationMessage="Choose at least one category."
         isInvalid={isInvalid}
       >
         <Checkbox
@@ -55,17 +55,17 @@ export default function CategoriesFieldset({
           handleChange={handleFieldChange}
         />
         <Checkbox
-          inputName="intermediar"
-          inputId="intermediar"
-          label="Intermediar"
-          value="intermediar"
+          inputName="intermediary"
+          inputId="intermediary"
+          label="Intermediary"
+          value="intermediary"
           checked={checkedValues.intermediar}
           handleChange={handleFieldChange}
         />
         <Checkbox
-          inputName="profesional"
-          inputId="profesional"
-          label="Profesional"
+          inputName="professional"
+          inputId="professional"
+          label="Professional"
           value="profesional"
           checked={checkedValues.professional}
           handleChange={handleFieldChange}

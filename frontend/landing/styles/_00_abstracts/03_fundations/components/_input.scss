@@ -22,7 +22,7 @@
     text-decoration: none;
     width: 100%;
     cursor: text;
-    margin-top: var(--static-spacing-80);
+    margin-top: var(--spacing-80);
     color-scheme: dark;
 
     &:-webkit-autofill,
@@ -52,7 +52,7 @@
     --input-color: var(--text-color);
 
     position: absolute;
-    top: calc(var(--static-spacing-80) / 2);
+    top: calc(var(--spacing-80) / 2);
     transform: translateY(-50%);
     opacity: 0;
     transition: opacity 0.25s ease-in;

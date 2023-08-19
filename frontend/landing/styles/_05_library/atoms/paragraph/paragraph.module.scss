@@ -12,6 +12,7 @@ $block: "paragraph";
     @include font($body);
 
     margin-bottom: $baseline;
+    width: 100%;
   }
 
   @include e("center") {

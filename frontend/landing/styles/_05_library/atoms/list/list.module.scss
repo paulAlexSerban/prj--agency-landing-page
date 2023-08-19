@@ -1,0 +1,30 @@
+@import "../../../_00_abstracts/all.scss";
+$breakpoints: $column-grid-12;
+$useModules: true;
+$block: "list";
+
+/* ------------------------------------ *\
+ * LIST ATOM
+\* ------------------------------------ */
+
+.#{$block} {
+  @include e("base") {
+    @include font($body);
+
+    margin-bottom: $baseline;
+    width: 100%;
+  }
+
+  @include e("center") {
+    text-align: center;
+  }
+
+  @include e("disc") {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+  @include e("small") {
+    @include font($body-small);
+  }
+}

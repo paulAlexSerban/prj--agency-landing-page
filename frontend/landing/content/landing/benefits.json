@@ -1,12 +1,12 @@
 {
-  "sectionName": "Beneficii",
-  "sectionId": "beneficii",
+  "sectionName": "Benefits",
+  "sectionId": "benefits",
   "sectionEl": {
     "benefits": {}
   },
   "heading": {
     "level": 2,
-    "mainText": "Beneficii",
+    "mainText": "Benefits",
     "subheading": ""
   },
   "content": {}

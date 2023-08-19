@@ -5,5 +5,5 @@ cd "$(dirname "$0")" || exit
 echo "🛑  Cleaning Backend - Agency Landing Page node_modules"
 rm -rfv ../../../backend/landing/node_modules
 
-echo "🔧  DEV Install Backend - LynxIt"
+echo "🔧  DEV Install Backend - monekymoney"
 npm --prefix ../../../backend/landing install

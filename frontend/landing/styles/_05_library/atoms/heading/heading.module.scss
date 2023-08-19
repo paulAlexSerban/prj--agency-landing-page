@@ -16,17 +16,17 @@ $block: "heading";
 
     @include m("1") {
       @include font($heading-100);
-      margin-bottom: var(--dynamic-spacing-70);
+      margin-bottom: var(--responsive-spacing-70);
     }
 
     @include m("2") {
       @include font($heading-200);
-      margin-bottom: var(--dynamic-spacing-70);
+      margin-bottom: var(--responsive-spacing-70);
     }
 
     @include m("3") {
       @include font($heading-300);
-      margin-bottom: var(--dynamic-spacing-30);
+      margin-bottom: var(--responsive-spacing-30);
     }
 
     @include m("4") {
@@ -39,7 +39,7 @@ $block: "heading";
   }
 
   @include e("main") {
-    margin-bottom: var(--dynamic-spacing-30);
+    margin-bottom: var(--responsive-spacing-30);
   }
 
   @include e("subheading") {
@@ -47,7 +47,7 @@ $block: "heading";
   }
 
   @include e("separator") {
-    padding-bottom: var(--dynamic-spacing-70);
+    padding-bottom: var(--responsive-spacing-70);
     &:after {
       @include absolute();
 
@@ -61,5 +61,9 @@ $block: "heading";
       bottom: 0;
       transform: translateX(-50%);
     }
+  }
+
+  @include e("left") {
+    text-align: left;
   }
 }

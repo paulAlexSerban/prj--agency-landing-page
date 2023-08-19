@@ -3,7 +3,7 @@ name: Develop Frontend NextJS SSG Landing
 
 on:
   push:
-    branches-ignore:
+    branches:
       - release
       - main
       - develop
@@ -20,11 +20,20 @@ jobs:
     env:
       FE_NEXTJS_PROJECT_ROOT: frontend/landing
       NODE_VERSION: 16.19.0
-      RECAPTCHA_SITE_KEY: ${{ vars.RECAPTCHA_SITE_KEY }}
+      SUBMIT_FORM_ENDPOINT: ${{ secrets.SUBMIT_FORM_ENDPOINT }}
+      PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+      RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
       RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
-      SUBMIT_FORM_ENDPOINT: ${{ vars.SUBMIT_FORM_ENDPOINT }}
-      DEPLOY_BRANCH: "main-test"
-      PROJECT_NAME: ${{ vars.PROJECT_NAME }}
+      OFFICIAL_COMPANY_NAME: ${{ secrets.OFFICIAL_COMPANY_NAME }}
+      OFFICIAL_REGISTRATION_CODE: ${{ secrets.OFFICIAL_REGISTRATION_CODE }}
+      OFFICIAL_COMMERCE_LEDGER_ID: ${{ secrets.OFFICIAL_COMMERCE_LEDGER_ID }}
+      OFFICIAL_OFFICE_ADDRESS: ${{ secrets.OFFICIAL_OFFICE_ADDRESS }}
+      OFFICIAL_PHONE_NUMBER: ${{ secrets.OFFICIAL_PHONE_NUMBER }}
+      OFFICIAL_EMAIL: ${{ secrets.OFFICIAL_EMAIL }}
+      S3_BUCKET_IMAGES: ${{ secrets.S3_BUCKET_IMAGES }}
+      BASE_URL: ${{ secrets.BASE_URL }}
+      BASE_PATH: ${{ secrets.BASE_PATH }}
+
     steps:
       - name: "📥  Checkout repository"
         uses: actions/checkout@v3
@@ -56,33 +65,29 @@ jobs:
           npm ci
 
       - name: "📦  Install Frontend NextJS Landing dependencies"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
+          bash scripts/modulize.bash -e prod -p install -m assets
           bash scripts/modulize.bash -e prod -p install -m landing
 
       - name: "🔍  Lint Frontend NextJS SSG Landing"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
           bash scripts/modulize.bash -e prod -p lint -m landing
         continue-on-error: true
 
       - name: "🏗️  Build Frontend NextJS SSG Landing For GitHub Pages"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
-
+          bash scripts/modulize.bash -e prod -p process_assets -m assets
           bash scripts/modulize.bash -e prod -p build -m landing
 
       - name: "🚚  Package NextJS Landing"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
         run: |
           bash scripts/modulize.bash -e prod -p package -m landing
+          touch package/landing/.nojekyll
+          touch package/landing/CNAME
+          echo ${{ env.BASE_URL }} > package/landing/CNAME
 
-      - name: "Configure git"
-        run: |
-          git config --global user.email "paul.alex.serban@gmail.com"
-          git config --global user.name "paulAlexSerban"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-
-      - name: "🚀 Deploy to ${{ env.DEPLOY_BRANCH }} branch"
-        if: ${{ steps.changed-frontend-landing-files.outputs.any_changed == 'true' }}
-        run: npx gh-pages -d package/landing --branch ${{ env.DEPLOY_BRANCH }} -t true
+      - name: "🚀 Deploy to GitHub Pages"
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: package/landing

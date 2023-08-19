@@ -18,4 +18,8 @@ const nextConfig = {
   },
 };
 
+if (process.env.ENV_NAME === "production") {
+  nextConfig.basePath = process.env.BASE_PATH;
+}
+
 module.exports = nextConfig;

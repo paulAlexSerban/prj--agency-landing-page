@@ -1,15 +1,15 @@
 {
-  "sectionName": "Servicii",
-  "sectionId": "servicii",
+  "sectionName": "Services",
+  "sectionId": "services",
   "sectionEl": {
     "spotlight": {
       "position": "right",
-      "imageSrc": "pic03"
+      "imageSrc": "lenovo-facing"
     }
   },
   "heading": {
     "level": 2,
-    "mainText": "Servicii"
+    "mainText": "Services"
   },
   "content": {}
 }

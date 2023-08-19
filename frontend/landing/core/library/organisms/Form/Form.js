@@ -16,15 +16,15 @@ import Modal from "@/core/molecules/Modal/Modal";
 import Heading from "@/core/atoms/Heading/Heading";
 import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 const INITIAL_STATE = {
-  nume_companie: "",
-  nume_reprezentant: "",
-  telefon: "",
+  company_name: "",
+  contact_name: "",
+  phone_number: "",
   email: "",
-  numar_echipamente: "",
-  perioada: "",
-  tip_de_utilizare: [],
+  quantity_no: "",
+  time_period: "",
+  utilization_type: [],
   message: "",
-  politica_confidentialitate: [],
+  confidentiality_agreement: [],
 };
 
 export default function Form({
@@ -33,6 +33,7 @@ export default function Form({
   recaptchaKey,
   action,
   modalContainer,
+  phoneNumber,
 }) {
   const ID = useId();
   const [mounted, setMounted] = useState(false);
@@ -46,12 +47,22 @@ export default function Form({
     submitAttempt,
     hasErrors,
     successModal,
+    failModal,
+    setFailModal,
     setSuccessModal,
   } = useForm(INITIAL_STATE, action, recaptchaKey);
 
   const handleCloseModal = () => {
     setSuccessModal(false);
+    setFailModal(false);
   };
+
+  useEffect(() => {
+    if (!successModal || !failModal) {
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+    }
+  }, [successModal, failModal]);
 
   useEffect(() => {
     setMounted(true);
@@ -63,45 +74,44 @@ export default function Form({
         {/* {children} */}
         <Fieldset name="identification" cols={2}>
           <TextInput
-            placeholder="Nume companie"
-            inputName="nume_companie"
-            inputId="nume_companie"
+            placeholder="Company Name"
+            inputName="company_name"
+            inputId="company_name"
             required={false}
             handleChange={handleChange}
-            inputValue={form?.nume_companie}
-            isInvalid={errorFields?.nume_companie?.length > 0 && submitAttempt}
+            inputValue={form?.company_name}
+            isInvalid={errorFields?.company_name?.length > 0 && submitAttempt}
             validationMessage={
-              errorFields?.nume_companie?.length &&
-              errorFields?.nume_companie[0].message
+              errorFields?.company_name?.length &&
+              errorFields?.company_name[0].message
             }
           />
 
           <TextInput
-            placeholder="Nume reprezentant"
-            inputName="nume_reprezentant"
-            inputId="nume_reprezentant"
+            placeholder="Contact Name"
+            inputName="contact_name"
+            inputId="contact_name"
             required={true}
             handleChange={handleChange}
-            inputValue={form?.nume_reprezentant}
-            isInvalid={
-              errorFields?.nume_reprezentant?.length > 0 && submitAttempt
-            }
+            inputValue={form?.contact_name}
+            isInvalid={errorFields?.contact_name?.length > 0 && submitAttempt}
             validationMessage={
-              errorFields?.nume_reprezentant?.length &&
-              errorFields?.nume_reprezentant[0].message
+              errorFields?.contact_name?.length &&
+              errorFields?.contact_name[0].message
             }
           />
 
           <PhoneInput
-            placeholder="Telefon"
+            placeholder="Phone Number"
             inputName="phone"
-            inputId="telefon"
+            inputId="phone_number"
             required={true}
             handleChange={handleChange}
-            inputValue={form?.telefon}
-            isInvalid={errorFields?.telefon?.length > 0 && submitAttempt}
+            inputValue={form?.phone_number}
+            isInvalid={errorFields?.phone_number?.length > 0 && submitAttempt}
             validationMessage={
-              errorFields?.telefon?.length && errorFields?.telefon[0].message
+              errorFields?.phone_number?.length &&
+              errorFields?.phone_number[0].message
             }
           />
 
@@ -119,47 +129,46 @@ export default function Form({
           />
         </Fieldset>
         <CategoriesFieldset
-          fieldName="tip_de_utilizare"
-          fieldId="tip_de_utilizare"
-          legend="Tip de utilizare:"
-          fieldValues={form?.tip_de_utilizare}
-          isInvalid={errorFields?.tip_de_utilizare?.length > 0 && submitAttempt}
+          fieldName="utilization_type"
+          fieldId="utilization_type"
+          legend="Utilization type:"
+          fieldValues={form?.utilization_type}
+          isInvalid={errorFields?.utilization_type?.length > 0 && submitAttempt}
           handleChange={handleChange}
         />
-        <Fieldset name="perioada-si-cantitate" cols={2}>
+        <Fieldset name="quantity-and-period" cols={2}>
           <TextInput
-            placeholder="Numar de echipamente"
-            inputName="numar_echipamente"
-            inputId="numar_echipamente"
+            placeholder="Quantity"
+            inputName="quantity_no"
+            inputId="quantity_no"
             required={true}
             handleChange={handleChange}
-            inputValue={form?.numar_echipamente}
-            isInvalid={
-              errorFields?.numar_echipamente?.length > 0 && submitAttempt
-            }
+            inputValue={form?.quantity_no}
+            isInvalid={errorFields?.quantity_no?.length > 0 && submitAttempt}
             validationMessage={
-              errorFields?.numar_echipamente?.length &&
-              errorFields?.numar_echipamente[0].message
+              errorFields?.quantity_no?.length &&
+              errorFields?.quantity_no[0].message
             }
           />
 
           <Select
-            placeholder="Pe ce perioada?"
-            inputName="perioada"
-            inputId="perioada"
+            placeholder="Period?"
+            inputName="time_period"
+            inputId="time_period"
             required={true}
             handleChange={handleChange}
-            inputValue={form?.perioada}
+            inputValue={form?.time_period}
             options={["1 - 30 zile", "1 - 6 luni", "6 - 24 luni"]}
-            isInvalid={errorFields?.perioada?.length > 0 && submitAttempt}
+            isInvalid={errorFields?.time_period?.length > 0 && submitAttempt}
             validationMessage={
-              errorFields?.perioada?.length && errorFields?.perioada[0].message
+              errorFields?.time_period?.length &&
+              errorFields?.time_period[0].message
             }
           />
         </Fieldset>
 
         <Textarea
-          placeholder="Mesaj"
+          placeholder="Message:"
           inputName="message"
           inputId="message"
           required={false}
@@ -172,12 +181,12 @@ export default function Form({
           }
         />
         <ConsentCheckbox
-          fieldName="politica_confidentialitate"
-          fieldId="politica_confidentialitate"
-          legend="Politica de confidențialitate:"
-          fieldValues={form?.politica_confidentialitate}
+          fieldName="confidentiality_agreement"
+          fieldId="confidentiality_agreement"
+          legend="Confidentiality Agreement:"
+          fieldValues={form?.confidentiality_agreement}
           isInvalid={
-            errorFields?.politica_confidentialitate?.length > 0 && submitAttempt
+            errorFields?.confidentiality_agreement?.length > 0 && submitAttempt
           }
           handleChange={handleChange}
         />
@@ -190,10 +199,10 @@ export default function Form({
           disabled={(hasChanges || hasErrors) && submitAttempt}
         />
         <Button
-          label="Suna!"
+          label="Call!"
           buttonStyle="primary"
           buttonType="link"
-          target="tel:+40723320333"
+          target={`tel:${phoneNumber}`}
         />
       </div>
 
@@ -206,24 +215,43 @@ export default function Form({
               classNames={[formStyles.modal]}
             >
               <div className={formStyles.modalContent}>
-                <Heading
-                  mainText="Mesajul a fost trimis cu succes!"
-                  hasSeparator
-                />
+                <Heading mainText="Message successfully sent!" hasSeparator />
                 <Paragraph
                   alignment="center"
-                  text="Va multumesc ca ati ales Lynx IT. Unul din agentii nostri va lua legatura cu dumneavoastra in urmatoarele 24h."
+                  text="Thanks for contacting us! We will get back to you shortly."
                 />
               </div>
             </Modal>,
             modalContainer.current
           )
         : null}
-
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`}
-        strategy="lazyOnload"
-      />
+      {mounted && modalContainer.current && failModal
+        ? createPortal(
+            <Modal
+              controlledBy={ID}
+              isOpen={failModal}
+              handleClose={handleCloseModal}
+              classNames={[formStyles.modal]}
+            >
+              <div className={formStyles.modalContent}>
+                <Heading mainText="Error!" hasSeparator />
+                <Paragraph
+                  alignment="center"
+                  text="Something went wrong. Please try again later or call us."
+                />
+                <div className={formStyles.actionContainer}>
+                  <Button
+                    label="Call!"
+                    buttonStyle="primary"
+                    buttonType="link"
+                    target={`tel:${phoneNumber}`}
+                  />
+                </div>
+              </div>
+            </Modal>,
+            modalContainer.current
+          )
+        : null}
     </form>
   );
 }

@@ -11,6 +11,7 @@ const OPTIONS = {
 const useForm = (formState, action, recaptchaKey) => {
   const [form, setForm] = useState({ ...formState });
   const [successModal, setSuccessModal] = useState(false);
+  const [failModal, setFailModal] = useState(false);
   const [submitAttempt, setSubmitAttempt] = useState(false);
   // The hasChanges and hasErrors values are computed using the getDirtyFields and getErrorFields utility functions respectively.
   // To prevent unnecessary re-computations, use the useMemo hook to memoize these values
@@ -31,9 +32,9 @@ const useForm = (formState, action, recaptchaKey) => {
   const submitForm = async () => {
     const response = await fetch(action, OPTIONS);
     const result = await response.json();
-    console.log({ result });
-    if (result.status === 200) {
-      setSuccessModal(true);
+
+    if (result.status !== 200) {
+      setFailModal(true);
     }
   };
 
@@ -60,6 +61,9 @@ const useForm = (formState, action, recaptchaKey) => {
           submitForm();
           event.target.reset();
           setForm(formState);
+        })
+        .then(() => {
+          setSuccessModal(true);
         });
     });
   };
@@ -74,6 +78,8 @@ const useForm = (formState, action, recaptchaKey) => {
     hasErrors,
     successModal,
     setSuccessModal,
+    failModal,
+    setFailModal,
   };
 };
 

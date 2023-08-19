@@ -1,16 +1,12 @@
-import { useId } from "react";
-import config from "./config";
 import styles from "@/styles/molecules/product-details/product-details.module.scss";
-import Paragraph from "@/core/atoms/Paragraph/Paragraph";
 import Heading from "@/core/atoms/Heading/Heading";
 
 export default function ProductDetails({ content }) {
-  const ID = useId();
   return (
-    <div className={styles.base} data-next-cmp={`${config.name}-${ID}`}>
+    <div className={styles.base}>
       <Heading
         level="3"
-        mainText="Exemplu echipament:"
+        mainText="Equipment example:"
         parentClassNames={[styles.heading]}
       />
       {content.map((item, key) => {

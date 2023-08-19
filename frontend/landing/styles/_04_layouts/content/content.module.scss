@@ -15,8 +15,7 @@ $lineWeight: 3px;
 
     max-width: $max-width;
     margin-inline: auto;
-    padding-top: var(--dynamic-spacing-90);
-    padding-bottom: var(--dynamic-spacing-90);
+    padding-top: var(--responsive-spacing-90);
     padding-inline: var(--main-content-lat-padding);
   }
 }

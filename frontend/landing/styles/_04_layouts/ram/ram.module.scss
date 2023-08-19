@@ -11,7 +11,7 @@ $block: "ram";
   @include e("base") {
     display: grid;
     grid-gap: $gutter * 4;
-    margin-bottom: var(--dynamic-spacing-90);
+    margin-bottom: var(--responsive-spacing-90);
 
     @include breakpoint($tablet) {
       grid-gap: $gutter * 3;

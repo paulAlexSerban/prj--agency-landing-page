@@ -13,21 +13,21 @@ $block: "navigation-list";
 
     width: 100%;
 
-    @include breakpoint($desktop) {
+    @include breakpoint($tablet) {
       flex-direction: row;
+      gap: $gutter * 2;
+      width: auto;
       position: absolute;
       top: 50%;
       right: 0;
       transform: translateY(-50%);
       margin-bottom: 0;
-      gap: $gutter * 2;
-      width: auto;
     }
 
     @include e("item") {
       width: 100%;
 
-      @include breakpoint($desktop) {
+      @include breakpoint($tablet) {
         width: auto;
       }
 

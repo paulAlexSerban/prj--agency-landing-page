@@ -8,17 +8,21 @@ $block: "burger-button";
 \* ------------------------------------ */
 
 $lineWeight: 2px;
+$lineSpacing: 15px;
 
 .#{$block} {
   @include e("button") {
     --burger-color: var(--color-link);
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 0;
     width: var(--burger-size);
     height: var(--burger-size);
     transition-duration: 0.5s;
-    transform: translateY(-15%);
+    border: none;
+    background-color: transparent;
 
-    @include breakpoint($desktop) {
+    @include breakpoint($tablet) {
       display: none;
     }
 
@@ -38,27 +42,22 @@ $lineWeight: 2px;
     height: #{$lineWeight};
     width: var(--burger-size);
     top: 50%;
+    right: 0;
     background-color: var(--color-link);
 
-    .open & {
+    @include m("open") {
       transition-duration: 0.5s;
       background: transparent;
-    }
 
-    &:before {
-      transition-duration: 0.5s;
-      position: absolute;
-      width: var(--burger-size);
-      height: #{$lineWeight};
-      background-color: var(--color-link);
-      content: "";
-      top: -15px;
-
-      .open & {
+      &:after {
+        transform: rotateZ(-45deg) scaleX(1.25) translate(10px, -10px);
+      }
+      &:before {
         transform: rotateZ(45deg) scaleX(1.25) translate(9px, 9px);
       }
     }
 
+    &:before,
     &:after {
       transition-duration: 0.5s;
       position: absolute;
@@ -66,11 +65,15 @@ $lineWeight: 2px;
       height: #{$lineWeight};
       background-color: var(--color-link);
       content: "";
-      top: 15px;
+      right: 0;
+    }
 
-      .open & {
-        transform: rotateZ(-45deg) scaleX(1.25) translate(10px, -10px);
-      }
+    &:before {
+      top: #{$lineSpacing * -1};
+    }
+
+    &:after {
+      top: $lineSpacing;
     }
   }
 }
