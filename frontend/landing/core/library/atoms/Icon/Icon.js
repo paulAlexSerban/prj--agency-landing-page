@@ -18,7 +18,7 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { FaShapes, FaBriefcase } from "react-icons/fa";
 import { RiScales3Line } from "react-icons/ri";
 import { MdOutlineComputer } from "react-icons/md";
-import LogoIcon from "@/svgs/logo-monekymoney-icon.svg";
+import LogoIcon from "@/svgs/logo-treasureicon.svg";
 
 import styles from "@/styles/atoms/icon/icon.module.scss";
 
