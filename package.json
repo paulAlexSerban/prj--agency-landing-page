@@ -33,21 +33,21 @@
   },
   "private": true,
   "workspaces": {
-      "packages": [
-          "assets/*",
-          "assets/",
-          "backend/*",
-          "backend/**/*",
-          "database/*",
-          "frontend/*",
-          "frontend/**/*",
-          "shared/*",
-          "shared/**/*",
-          "tools/*"
-      ],
-      "nohoist": [
-          "**/normalize-scss"
-      ]
+    "packages": [
+      "assets/*",
+      "assets/",
+      "backend/*",
+      "backend/**/*",
+      "database/*",
+      "frontend/*",
+      "frontend/**/*",
+      "shared/*",
+      "shared/**/*",
+      "tools/*"
+    ],
+    "nohoist": [
+      "**/normalize-scss"
+    ]
   },
   "config": {
     "commitizen": {
