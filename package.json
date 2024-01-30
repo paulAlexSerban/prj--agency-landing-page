@@ -1,35 +1,53 @@
 {
-  "name": "prj--agency-landing-page",
+  "name": "@prj--agency-landing-page/core",
   "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "develop": "yarn lerna run develop --stream --parallel",
     "test": "echo 'Error: no test specified'",
-    "install:ci": "npm ci --omit=dev --ignore-scripts",
-    "install:root": "npm install",
     "prepare": "husky install",
-    "formats:check": "npx prettier --check .",
-    "formats:write": "npx prettier --write ."
+    "formats:check": "yarn prettier --check .",
+    "formats:write": "yarn prettier --write .",
+    "process:assets": "lerna run process:assets --stream --parallel",
+    "publish:assets": "lerna run publish:assets --stream --parallel",
+    "version:modules": "bash tools/build-scripts/version.bash"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^7.0.4",
-    "lodash": "^4.17.21",
-    "prettier": "^2.7.1"
-  },
-  "dependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.4",
     "@semantic-release/npm": "^9.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
+    "cz-conventional-changelog": "^3.3.0",
     "gh-pages": "^5.0.0",
+    "husky": "^7.0.4",
+    "lerna": "^7.3.0",
+    "prettier": "^2.7.1",
     "semantic-release": "^19.0.2"
+  },
+  "private": true,
+  "workspaces": {
+      "packages": [
+          "assets/*",
+          "assets/",
+          "backend/*",
+          "backend/**/*",
+          "database/*",
+          "frontend/*",
+          "frontend/**/*",
+          "shared/*",
+          "shared/**/*",
+          "tools/*"
+      ],
+      "nohoist": [
+          "**/normalize-scss"
+      ]
   },
   "config": {
     "commitizen": {
